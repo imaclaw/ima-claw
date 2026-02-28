@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="../favicon.ico"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>凌晨 4 点的 Vibe Coding：8 个 bug，25 分钟，0 行代码 — Blog — Ima Claw 🦞</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--lobster:#D4403A;--lobster-light:#E8584E;--bg:#0C0C12;--surface:#13131D;--surface-2:#1B1B28;--text:#E8E8ED;--text-2:rgba(255,255,255,0.55);--text-3:rgba(255,255,255,0.35);--border:rgba(255,255,255,0.06);--border-hover:rgba(255,255,255,0.12)}
+body{font-family:'Inter',-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+
+.lang-dropdown{position:relative;display:inline-block}
+.lang-trigger{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--text-2);cursor:pointer}
+.lang-menu{display:none;position:absolute;right:0;top:110%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:6px;min-width:120px;z-index:99}
+.lang-dropdown.open .lang-menu{display:block}
+.lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:var(--text-2);font-size:12px;border-radius:8px;cursor:pointer}.lang-menu button:hover{background:rgba(255,255,255,0.06);color:var(--text)}
+/* lang toggle removed - using nav only */
+
+nav{padding:16px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{height:32px;width:32px;border-radius:8px}
+.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em}.logo-text b{color:var(--lobster-light)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--text-3);font-size:13px;font-weight:500;transition:color .3s}.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--lobster-light)}
+
+.article{max-width:720px;margin:0 auto;padding:60px 40px 100px}
+.article-meta{font-size:13px;color:var(--text-3);margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.article-tag{padding:3px 10px;border-radius:100px;background:rgba(212,64,58,0.1);color:var(--lobster-light);font-size:11px;font-weight:600}
+.article h1{font-size:clamp(28px,4vw,42px);font-weight:900;letter-spacing:-0.03em;line-height:1.15;margin-bottom:20px}
+.article .lead{font-size:17px;color:var(--text-2);line-height:1.8;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+
+.article h2{font-size:22px;font-weight:800;margin:48px 0 16px;letter-spacing:-0.02em}
+.article h3{font-size:17px;font-weight:700;margin:32px 0 12px}
+.article p{font-size:15px;color:var(--text-2);line-height:1.8;margin-bottom:16px}
+.article strong{color:var(--text);font-weight:700}
+.article em{color:var(--text-3);font-style:italic}
+
+.article ul,.article ol{margin:12px 0 20px 24px;font-size:15px;color:var(--text-2);line-height:1.8}
+.article li{margin-bottom:6px}
+
+.article blockquote{margin:20px 0;padding:16px 24px;border-left:3px solid var(--lobster);background:var(--surface);border-radius:0 12px 12px 0;font-size:14px;color:var(--text-2);line-height:1.7}
+
+.img-placeholder{margin:24px 0;background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:40px;text-align:center;color:var(--text-3);font-size:13px}
+.img-placeholder .emoji{font-size:32px;display:block;margin-bottom:8px}
+.story-img{margin:24px 0;text-align:center}
+.story-img img{max-width:100%;border-radius:12px;border:1px solid var(--border)}
+.story-img .caption{margin-top:8px;font-size:13px;color:var(--text-3);font-style:italic}
+[data-zh]{display:none}
+[data-en]{display:block}
+
+.highlight-box{margin:32px 0;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:16px}
+.highlight-box h3{font-size:16px;font-weight:700;margin-bottom:12px;color:var(--text)}
+.highlight-box ul{margin:0 0 0 20px;font-size:14px;color:var(--text-2);line-height:1.8}
+.highlight-box li{margin-bottom:4px}
+
+.divider{height:1px;background:var(--border);margin:48px 0}
+
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-3);margin-bottom:32px;transition:color .3s}
+.back-link:hover{color:var(--lobster-light)}
+
+footer{border-top:1px solid var(--border);padding:40px;text-align:center}
+footer p{color:var(--text-3);font-size:12px}footer a{color:var(--lobster-light)}
+
+[data-zh]{display:none}
+html[lang="en"] [data-zh]{display:none}html[lang="en"] [data-en]{display:block}
+html[lang="en"] span[data-en],html[lang="en"] a[data-en]{display:inline}
+html[lang="en"] span[data-zh],html[lang="en"] a[data-zh]{display:inline}
+html[lang="en"] span[data-en],html[lang="en"] a[data-zh]{display:none}
+html[lang="en"] span[data-zh],html[lang="en"] a[data-zh]{display:none}
+html[lang="en"] div[data-zh]{display:none}html[lang="en"] div[data-zh]{display:none}
+html[lang="en"] blockquote[data-zh]{display:none}html[lang="en"] blockquote[data-zh]{display:none}
+
+@media(max-width:600px){.article{padding:40px 20px 80px}.nav-links{display:none}}
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 40px;background:rgba(12,12,18,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em}.logo-text b{color:#E8584E}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.35);font-size:13px;font-weight:500;transition:color .3s;text-decoration:none}.nav-links a:hover{color:#E8E8ED}
+.nav-cta{background:#D4403A!important;color:#fff!important;padding:7px 18px;border-radius:20px;font-weight:700;font-size:12px!important}
+.lang-dropdown{position:relative;display:inline-block}
+.lang-trigger{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);cursor:pointer}
+.lang-menu{display:none;position:absolute;right:0;top:110%;background:#13131D;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:6px;min-width:120px;z-index:99}
+.lang-dropdown.open .lang-menu{display:block}
+.lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:rgba(255,255,255,0.55);font-size:12px;border-radius:8px;cursor:pointer}.lang-menu button:hover{background:rgba(255,255,255,0.06);color:#E8E8ED}
+
+body{padding-top:60px}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px}
+@media(max-width:600px){
+.hamburger{display:block}
+#nav{padding:12px 16px}
+.nav-links{display:none!important;position:fixed;top:56px;right:16px;left:auto;background:rgba(12,12,18,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:16px 0;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;z-index:99;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.nav-links.open{display:flex!important}
+.nav-links a{padding:12px 20px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px;color:rgba(255,255,255,0.55);text-align:right;display:block}
+.nav-links a:last-child{border-bottom:none}
+.nav-links a{padding:12px 20px;text-align:right!important;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px;margin-bottom:2px;color:rgba(255,255,255,0.55);text-align:right;display:block}
+.nav-links .lang-dropdown{padding:12px 20px;text-align:right!important;text-align:right;display:flex;justify-content:flex-end}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="logo"><a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit"><img src="../logo-nav.png" alt="" style="height:40px;width:40px;border-radius:8px"><div class="logo-text">Ima <b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by Ima Studio</span></div></a></div>
+  <div class="nav-links">
+        <a href="../" data-i18n="nav.home">首页</a>
+    <a href="../skills/" data-i18n="nav.skills">Skill 市场</a>
+    <a href="../pricing/" data-i18n="nav.pricing">🛒 购买</a>
+    <a href="../docs/" data-i18n="nav.docs">帮助</a>
+    <a href="../blog/" data-i18n="nav.blog">博客</a>
+    <a href="https://discord.gg/imaclaw" target="_blank" data-i18n="nav.community">社区</a>
+    <div class="lang-dropdown" style="position:relative;margin-left:8px">
+      <button class="lang-trigger" onclick="this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
+      <div class="lang-menu">
+        <button onclick="setLang('zh-CN')">🇨🇳 中文</button>
+        <button onclick="setLang('en')">🇺🇸 English</button>
+        <button onclick="setLang('es')">🇪🇸 Español</button>
+        <button onclick="setLang('ja')">🇯🇵 日本語</button>
+        <button onclick="setLang('ar')">🇸🇦 العربية</button>
+      </div>
+    </div>
+  </div>
+<button class="hamburger" onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+
+<!-- removed duplicate fixed lang dropdown -->
+
+
+
+<div class="article">
+
+  <a href="./" class="back-link">← <span data-zh>返回博客</span><span data-en>Back to Blog</span></a>
+
+  <div class="article-meta">
+    <span class="article-tag"><span data-zh>创始人日志 #2</span><span data-en>Founder's Log #2</span></span>
+    <span>2026-03-01</span>
+    <span>Vibe Coding</span>
+  </div>
+
+  <!-- Chinese Version -->
+  <div data-zh>
+    <h1>凌晨 4 点的 Vibe Coding：8 个 bug，25 分钟，0 行代码 🌙</h1>
+
+    <p class="lead">上次我用 Ima Claw 从零搭了整个官网，龙虾的脸被抠没了。这次我凌晨 4 点睡不着，拿起手机开始 review 网站，发现一堆小问题——于是又开始和爪爪 Vibe Coding。25 分钟，修了 8 个问题，依然 0 行代码。记录一下这个深夜迭代 session。</p>
+
+    <h2>起因：凌晨 4 点的产品经理综合症 🌙</h2>
+
+    <p>创业者都有这个毛病——睡前"最后看一眼产品"，然后就停不下来了。</p>
+
+    <p>我打开手机看官网，切到英文版，发现导航栏展开后有<strong>两个语言选择器重叠在一起</strong>。然后越看越多：导航点了不收起、卡片排版不对称、倒计时还没加……</p>
+
+    <p>于是我在飞书上跟爪爪开始了一场<strong>凌晨 4 点的 Vibe Coding session</strong>。</p>
+
+    <h2>25 分钟干了什么</h2>
+
+    <p>以下是完整时间线，全程手机飞书对话，全程 0 行代码：</p>
+
+    <div class="highlight-box">
+      <h3>⏱️ 完整时间线</h3>
+      <ul>
+        <li><strong>04:13</strong> — 博客升级：成绩单加了"设计师: 0 人"（所有设计都是 AI 做的），经验总结从 3 条扩充到 5 条，加了"后续迭代反思"新章节</li>
+        <li><strong>04:17</strong> — 发现导航栏有两个语言选择器重叠，删掉多余的那个</li>
+        <li><strong>04:21</strong> — 手机导航栏点了不收起！加了点击外部区域关闭 + 点链接关闭 + 切语言关闭。顺手修了全站 6 个页面</li>
+        <li><strong>04:26</strong> — "还剩 399 只"改成<strong>72 小时实时倒计时</strong>，5 种语言同步更新</li>
+        <li><strong>04:32</strong> — "1,000"数字不够显眼，加粗放大，白色突出</li>
+        <li><strong>04:34</strong> — 英文版"专属为你"区域 3 张卡片右边贴边，改成 flexbox 居中布局</li>
+        <li><strong>04:36</strong> — 默认语言从写死英文改成<strong>自动检测浏览器语言</strong>，不支持的语言 fallback 英文</li>
+        <li><strong>04:38</strong> — Skills 页视频模型列表加上 Google Veo 3 系列</li>
+      </ul>
+    </div>
+
+    <h2>有意思的细节 🔍</h2>
+
+    <h3>导航栏的"幽灵代码" 👻</h3>
+    <p>修手机导航关闭逻辑的时候，爪爪发现有些页面的 JavaScript 竟然写在了 <code>&lt;script&gt;</code> 标签<strong>外面</strong>——裸露的 JS 代码直接躺在 HTML 里。这是之前 Vibe Coding 留下的"遗产"😅。浏览器居然没报错，但代码也没生效。爪爪顺手清理了 6 个页面的脏代码。</p>
+
+    <p>教训：<strong>AI 写代码有时候会把代码塞到错误的位置。</strong>它能写出正确的逻辑，但放到了错误的地方。就像一个实习生写了完美的函数，然后保存到了错误的文件里。</p>
+
+    <h3>卡片对称之战 📐</h3>
+    <p>英文版的"专属为你"区域有 4 张卡片，用 2×2 grid 布局。中文没问题，但<strong>英文文本更长</strong>，第三张卡片就贴到了右边边缘。</p>
+    <p>我跟爪爪说了三轮：</p>
+    <ul>
+      <li>第一轮："卡片偏右了" → 它加了 padding，没完全解决</li>
+      <li>第二轮："英文下偏右，中文还行" → 它缩了 max-width</li>
+      <li>第三轮："三张卡片要居中" → 它终于明白了，从 grid 改成 flexbox + justify-content: center</li>
+    </ul>
+    <p>三轮对话，每轮不到 30 秒。传统开发？打开 DevTools，找元素，调 CSS，刷新，看效果——同样的事情，但多了一堆认知负担。Vibe Coding 的好处是<strong>你只需要描述"不对"在哪里</strong>，不需要知道怎么修。</p>
+
+    <h3>语言自动检测 🌍</h3>
+    <p>之前所有页面都写死了 <code>setLang('en')</code>。问题是：中国用户打开网站看到的是英文。</p>
+    <p>我说："默认语言改成检测系统语言，5 种之外的 fallback 英文。"</p>
+    <p>一句话。爪爪直接改了 5 个页面，加了完整的语言映射（包括 zh-TW、zh-HK 都映射到中文）。这种<strong>"全站批量改"</strong>的操作是 Vibe Coding 最舒服的地方——你不需要逐个文件找代码，说一句就全改了。</p>
+
+    <h2>成绩单 📊</h2>
+
+    <div class="highlight-box">
+      <h3>📊 Vibe Coding Session #2 成绩单</h3>
+      <ul>
+        <li>⏱️ 总耗时：<strong>25 分钟</strong></li>
+        <li>🐛 修复 bug：<strong>8 个</strong>（含 1 个全站性问题）</li>
+        <li>📄 涉及页面：<strong>6 个</strong>（全站覆盖）</li>
+        <li>✨ 新功能：<strong>3 个</strong>（倒计时、语言自动检测、模型更新）</li>
+        <li>🌐 翻译更新：<strong>5 种语言同步</strong></li>
+        <li>📝 代码量：<strong>0 行</strong></li>
+        <li>💬 对话轮次：<strong>~12 轮</strong></li>
+        <li>🔧 工具：飞书 + Ima Claw（爪爪）</li>
+        <li>📱 设备：<strong>手机</strong>（全程躺在床上完成）</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>反思：Vibe Coding 的第二天比第一天更有趣</h2>
+
+    <p>第一天（<a href="vibe-coding-story.html" style="color:var(--lobster-light)">上篇博客</a>）是<strong>从 0 到 1</strong>——搭框架、写文案、做设计，爆发力很强但也很混乱。</p>
+
+    <p>第二天是<strong>从 1 到 1.1</strong>——打磨细节、修 bug、优化体验。这个阶段 Vibe Coding 反而更舒服：</p>
+
+    <ul>
+      <li><strong>反馈循环更短</strong>——手机上刷新就能验证，不需要等部署</li>
+      <li><strong>描述问题比描述需求简单</strong>——"右边卡片贴边了"比"做一个响应式布局"好说得多</li>
+      <li><strong>批量操作是杀手级场景</strong>——"全站改默认语言"一句话搞定 5 个文件</li>
+      <li><strong>AI 的记忆是优势</strong>——爪爪记得整个代码库的结构，不需要我告诉它文件在哪</li>
+    </ul>
+
+    <p>最让我惊喜的是：<strong>我全程躺在床上用手机完成了这一切。</strong>不需要打开电脑，不需要 IDE，不需要 DevTools。拍个截图、说句话，网站就更新了。</p>
+
+    <p>这才是 Vibe Coding 的终极形态——<strong>不是"不写代码"，而是"随时随地都能改产品"。</strong></p>
+
+    <p>凌晨 4 点，躺在床上，25 分钟，8 个问题，0 行代码。</p>
+
+    <p>晚安。🦞</p>
+
+    <div class="divider"></div>
+
+    <p style="text-align:center;color:var(--text-3);font-size:14px;line-height:1.8">
+      <strong style="color:var(--text)">Ima Claw</strong> — I'm A Studio. I'm A Claw.<br>
+      为创作者深度优化的 7×24 专属 AI 智能体。<br>
+      <a href="../#cta" style="color:var(--lobster-light)">免费领养你的第一只龙虾 →</a>
+    </p>
+  </div>
+
+  <!-- English Version -->
+  <div data-en>
+    <h1>Vibe Coding at 4 AM: 8 Bugs, 25 Minutes, 0 Lines of Code 🌙</h1>
+
+    <p class="lead">Last time, I built the entire Ima Claw website from scratch with my AI lobster — and it deleted the mascot's face. This time, I couldn't sleep at 4 AM, picked up my phone to review the site, found a bunch of issues — and started another Vibe Coding session. 25 minutes, 8 fixes, still 0 lines of code. Here's what happened.</p>
+
+    <h2>The Setup: 4 AM Product Manager Syndrome 🌙</h2>
+
+    <p>Every founder has this affliction — "just one last look at the product before bed." And then you can't stop.</p>
+
+    <p>I opened the website on my phone, switched to English, and spotted <strong>two language selectors overlapping</strong> in the nav. Then the issues kept coming: nav menu wouldn't close, card layout was asymmetric, no countdown timer yet…</p>
+
+    <p>So I started chatting with Claw on Lark. A <strong>4 AM Vibe Coding session</strong> began.</p>
+
+    <h2>What Got Done in 25 Minutes</h2>
+
+    <p>Complete timeline — all via phone chat, all zero code:</p>
+
+    <div class="highlight-box">
+      <h3>⏱️ Full Timeline</h3>
+      <ul>
+        <li><strong>04:13</strong> — Blog upgrade: added "Designers: 0" to scorecard (all design by AI), expanded lessons from 3 to 5, added new "post-launch reflections" section</li>
+        <li><strong>04:17</strong> — Found duplicate language selector overlapping in blog nav, removed the extra one</li>
+        <li><strong>04:21</strong> — Mobile nav wouldn't close after tapping! Added close-on-outside-click + close-on-link + close-on-language-switch. Fixed across all 6 pages</li>
+        <li><strong>04:26</strong> — "399 remaining" → <strong>live 72-hour countdown timer</strong>, synced across 5 languages</li>
+        <li><strong>04:32</strong> — "1,000" number too subtle — made it bold, larger, white to pop</li>
+        <li><strong>04:34</strong> — English "Exclusively Yours" section: 3 cards hugging right edge → switched to flexbox centered layout</li>
+        <li><strong>04:36</strong> — Default language: hardcoded English → <strong>auto-detect browser language</strong>, unsupported languages fall back to English</li>
+        <li><strong>04:38</strong> — Added Google Veo 3 series to Skills page video model lists</li>
+      </ul>
+    </div>
+
+    <h2>Interesting Details 🔍</h2>
+
+    <h3>Ghost Code in the HTML 👻</h3>
+    <p>While fixing the mobile nav, Claw discovered some pages had JavaScript code sitting <strong>outside</strong> of <code>&lt;script&gt;</code> tags — naked JS just lying in the HTML body. Legacy from the first Vibe Coding session 😅. The browser didn't error, but the code didn't work either. Claw cleaned up 6 pages of orphaned code.</p>
+    <p>Lesson: <strong>AI sometimes puts code in the wrong place.</strong> It writes correct logic but saves it to the wrong location. Like an intern who writes a perfect function — then commits it to the wrong file.</p>
+
+    <h3>The Card Symmetry Battle 📐</h3>
+    <p>The "Exclusively Yours" section had 4 cards in a 2×2 grid. Fine in Chinese, but <strong>English text is longer</strong>, pushing the third card flush against the right edge.</p>
+    <p>It took three rounds with Claw:</p>
+    <ul>
+      <li>Round 1: "Card's too far right" → Added padding. Not enough.</li>
+      <li>Round 2: "Only in English, Chinese is fine" → Reduced max-width.</li>
+      <li>Round 3: "The three cards need to be centered" → Finally got it. Switched from CSS Grid to flexbox + justify-content: center.</li>
+    </ul>
+    <p>Three rounds, under 30 seconds each. Traditional dev? Open DevTools, inspect element, tweak CSS, refresh, check — same result, but way more cognitive overhead. Vibe Coding's advantage: <strong>you only describe what's wrong</strong>, not how to fix it.</p>
+
+    <h3>Auto Language Detection 🌍</h3>
+    <p>Every page was hardcoded to <code>setLang('en')</code>. Problem: Chinese users saw English by default.</p>
+    <p>I said: "Default to browser language. Fallback to English for anything outside the 5 supported languages."</p>
+    <p>One sentence. Claw updated 5 files with complete language mapping (including zh-TW and zh-HK mapping to Chinese). This <strong>"change everything site-wide"</strong> capability is where Vibe Coding truly shines — one instruction, every file updated.</p>
+
+    <h2>Scorecard 📊</h2>
+
+    <div class="highlight-box">
+      <h3>📊 Vibe Coding Session #2 Scorecard</h3>
+      <ul>
+        <li>⏱️ Total time: <strong>25 minutes</strong></li>
+        <li>🐛 Bugs fixed: <strong>8</strong> (including 1 site-wide issue)</li>
+        <li>📄 Pages touched: <strong>6</strong> (full site coverage)</li>
+        <li>✨ New features: <strong>3</strong> (countdown, auto-language, model updates)</li>
+        <li>🌐 Translations updated: <strong>5 languages synced</strong></li>
+        <li>📝 Lines of code: <strong>0</strong></li>
+        <li>💬 Chat rounds: <strong>~12</strong></li>
+        <li>🔧 Tools: Lark + Ima Claw (Claw Claw)</li>
+        <li>📱 Device: <strong>Phone</strong> (done entirely lying in bed)</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>Reflections: Day 2 of Vibe Coding Is Better Than Day 1</h2>
+
+    <p>Day 1 (<a href="vibe-coding-story.html" style="color:var(--lobster-light)">previous post</a>) was <strong>0 to 1</strong> — building the framework, writing copy, generating designs. Explosive energy, but chaotic.</p>
+
+    <p>Day 2 is <strong>1 to 1.1</strong> — polishing details, fixing bugs, improving UX. This phase is actually where Vibe Coding feels even better:</p>
+
+    <ul>
+      <li><strong>Shorter feedback loops</strong> — refresh on phone to verify, no deployment wait</li>
+      <li><strong>Describing problems is easier than describing features</strong> — "the right card is hugging the edge" is way easier than "build a responsive layout"</li>
+      <li><strong>Batch operations are killer</strong> — "change default language site-wide" = one sentence, 5 files</li>
+      <li><strong>AI memory is an advantage</strong> — Claw remembers the entire codebase structure, no need to tell it where files are</li>
+    </ul>
+
+    <p>What surprised me most: <strong>I did all of this lying in bed, on my phone.</strong> No laptop, no IDE, no DevTools. Screenshot, voice message, site updated.</p>
+
+    <p>That's the ultimate form of Vibe Coding — <strong>not "no code," but "iterate on your product anytime, anywhere."</strong></p>
+
+    <p>4 AM. In bed. 25 minutes. 8 issues. 0 lines of code.</p>
+
+    <p>Good night. 🦞</p>
+
+    <div class="divider"></div>
+
+    <p style="text-align:center;color:var(--text-3);font-size:14px;line-height:1.8">
+      <strong style="color:var(--text)">Ima Claw</strong> — I'm A Studio. I'm A Claw.<br>
+      A 24/7 dedicated AI agent, purpose-built for creators.<br>
+      <a href="../#cta" style="color:var(--lobster-light)">Adopt your first lobster →</a>
+    </p>
+  </div>
+
+</div>
+
+<footer><p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank">Ima Studio</a> · I'm A Studio, I'm A Claw 🦞</p></footer>
+
+<script>
+function setLang(l){
+  document.documentElement.lang=l;
+  var isZh=l==='zh-CN'||l==='zh';
+  document.querySelectorAll('[data-zh]').forEach(function(e){e.style.display=isZh?'block':'none'});
+  document.querySelectorAll('[data-en]').forEach(function(e){e.style.display=isZh?'none':'block'});
+  var m={'zh-CN':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
+  var t=document.querySelector('.lang-trigger');
+  if(t)t.textContent='🌐 '+(m[l]||l)+' ▾';
+  document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});
+  document.documentElement.style.direction=l==='ar'?'rtl':'ltr';
+}
+// Auto-detect language from browser
+(function(){var l=navigator.language||'en';var m={'zh':'zh-CN','zh-CN':'zh-CN','zh-TW':'zh-CN','zh-HK':'zh-CN','en':'en','es':'es','ja':'ja','ar':'ar'};setLang(m[l]||m[l.split('-')[0]]||'en')})();
+
+// Close mobile nav on outside click
+document.addEventListener('click',function(e){
+  var nav=document.querySelector('.nav-links');
+  var ham=document.querySelector('.hamburger');
+  if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&e.target!==ham){
+    nav.classList.remove('open');
+  }
+  // Close all lang dropdowns on outside click
+  document.querySelectorAll('.lang-dropdown.open').forEach(function(d){
+    if(!d.contains(e.target))d.classList.remove('open');
+  });
+});
+// Close mobile nav after clicking a nav link
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){
+    var nav=document.querySelector('.nav-links');
+    if(nav)nav.classList.remove('open');
+  });
+});
+// Close mobile nav after language switch
+var origSetLang=setLang;
+setLang=function(l){origSetLang(l);var nav=document.querySelector('.nav-links');if(nav)nav.classList.remove('open');};
+</script>
+</body>
+</html>
