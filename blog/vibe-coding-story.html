@@ -254,6 +254,7 @@ body{padding-top:60px}
     <div class="story-img"><img src="../article-assets/07-all-languages-bug.jpg" alt="五国语言同屏"><div class="caption">名场面：五国语言同屏，联合国级别的 bug 🌍</div></div>
 
     <p>原因？爪爪第一版的方案是把所有语言的文字都塞进 HTML 里，然后用 CSS 控制显示/隐藏。结果 JS 出了个小 bug，所有语言全部亮出来了。</p>
+    <p>关键是——<strong>那之前其实差一点点就要成功了。</strong>语言切换基本能用了，就差最后一步调试。结果爪爪一通"优化"，直接给我整成了这样。那一刻我是真的有点崩溃了，心想：<em>完了，它不会改不回去了吧？</em> 🤦‍♀️</p>
     <p>修完之后我说：<strong>这个方案不行，HTML 里堆五种语言太疯了。</strong>于是全部推倒重来，改成 JS 翻译字典方案——HTML 只保留中文，其他语言用 JavaScript 动态替换。光这一步，重构了 88 个翻译键。</p>
     <p>Vibe Coding 不是一帆风顺的。但翻车的过程本身，也挺好笑的。</p>
 
@@ -389,6 +390,7 @@ body{padding-top:60px}
     <div class="story-img"><img src="../article-assets/07-all-languages-bug.jpg" alt="Five languages on screen"><div class="caption">The moment: all 5 languages displayed at once — a UN-level bug 🌍</div></div>
 
     <p>The culprit? Claw's first approach was to stuff all translations directly into the HTML, toggling visibility with CSS. A small JS bug later, every language lit up at once.</p>
+    <p>Here's the thing — <strong>it was THIS close to working.</strong> The language toggle was basically functional, just one last tweak needed. Then Claw decided to "optimize" it and... produced this masterpiece. I genuinely panicked: <em>Oh no, can it even fix this? Did we just break everything?</em> 🤦‍♀️</p>
     <p>After fixing it, I said: <strong>This approach is insane — we can't have five languages living in the HTML.</strong> So we scrapped it entirely and rebuilt with a JS translation dictionary — HTML stays Chinese-only, other languages swap in dynamically via JavaScript. Just this refactor alone: 88 translation keys.</p>
     <p>Vibe Coding isn't always smooth sailing. But the crashes themselves? Pretty hilarious.</p>
 
