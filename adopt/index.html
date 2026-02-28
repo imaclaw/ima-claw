@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>免费领养 - Ima Claw</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Noto Sans SC',sans-serif;background:#0a0a0f;color:#e8e8e8;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;overflow:hidden}
+.lobster{font-size:120px;animation:float 3s ease-in-out infinite;margin-bottom:24px}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-15px) rotate(-5deg)}75%{transform:translateY(-8px) rotate(3deg)}}
+h1{font-size:28px;font-weight:900;margin-bottom:12px;background:linear-gradient(135deg,#ff6b5b,#f2c744);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:#a0a0a0;font-size:15px;margin-bottom:32px;line-height:1.6}
+.status{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:#111;border:1px solid #222;border-radius:12px;font-size:13px;color:#a0a0a0;margin-bottom:24px}
+.dot{width:8px;height:8px;border-radius:50%;background:#f2c744;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
+.progress{width:280px;height:6px;background:#1a1a22;border-radius:3px;overflow:hidden;margin-bottom:32px}
+.progress-bar{height:100%;width:35%;background:linear-gradient(90deg,#e74c3c,#f2c744);border-radius:3px;animation:loading 2s ease-in-out infinite}
+@keyframes loading{0%{width:25%}50%{width:45%}100%{width:25%}}
+.bubbles{position:relative;margin-bottom:32px}
+.bubble{background:#111;border:1px solid #222;border-radius:16px;padding:10px 16px;font-size:12px;color:#a0a0a0;position:relative;display:inline-block;margin:4px;animation:pop .5s ease-out both}
+.bubble:nth-child(1){animation-delay:0.5s}
+.bubble:nth-child(2){animation-delay:1s}
+.bubble:nth-child(3){animation-delay:1.5s}
+.bubble:nth-child(4){animation-delay:2s}
+@keyframes pop{from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
+.back{color:#ff6b5b;text-decoration:none;font-size:14px;margin-top:8px}
+.back:hover{text-decoration:underline}
+.tiny{color:#333;font-size:11px;margin-top:40px;max-width:300px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="lobster">🦞</div>
+<h1>龙虾正坐在云端<br>等开发来更新…</h1>
+<p class="sub">它已经准备好了。就差一个按钮。<br>（以及一个通宵的程序员。）</p>
+
+<div class="status">
+<span class="dot"></span>
+<span>开发进度：正在摸鱼中</span>
+</div>
+
+<div class="progress"><div class="progress-bar"></div></div>
+
+<div class="bubbles">
+<div class="bubble">🔧 服务器已就位</div>
+<div class="bubble">🧠 AI 模型已待命</div>
+<div class="bubble">🎨 技能包已打包</div>
+<div class="bubble">⏰ 就差上线按钮了</div>
+</div>
+
+<a href="../" class="back">← 先回首页逛逛</a>
+
+<p class="tiny">* 这只龙虾已经在云端蹲了好几天了。<br>它说它不急，但其实它偷偷练了 200 多个技能。<br>快了快了。真的快了。大概。</p>
+</body>
+</html>

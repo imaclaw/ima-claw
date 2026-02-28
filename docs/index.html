@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用文档 - Ima Claw</title>
+  <style>
+    :root{--bg:#0a0a0f;--surface:#111;--surface-2:#1a1a20;--border:#222;--border-hover:#333;--text:#e8e8e8;--text-2:#a0a0a0;--lobster:#e74c3c;--lobster-light:#ff6b5b;--yellow:#f2c744;--blue:#4a9eff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+    a{color:var(--lobster-light);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:800px;margin:0 auto;padding:80px 20px 40px}
+    h1{font-size:32px;margin-bottom:8px;color:#fff}
+    .subtitle{color:var(--text-2);margin-bottom:40px}
+    h2{font-size:22px;margin:40px 0 16px;color:#fff;border-left:3px solid var(--lobster);padding-left:12px}
+    h3{font-size:16px;margin:24px 0 12px;color:var(--lobster-light)}
+    p{margin-bottom:16px}
+    .step{display:flex;gap:16px;margin:24px 0;padding:20px;background:var(--surface);border:1px solid var(--border);border-radius:12px}
+    .step-num{width:32px;height:32px;background:var(--lobster);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+    .step-content{flex:1}
+    .step-content h4{font-size:15px;margin-bottom:8px;color:#fff}
+    .tip{padding:12px 16px;background:var(--surface-2);border-left:3px solid var(--yellow);border-radius:0 8px 8px 0;margin:16px 0;font-size:14px}
+    .channel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:16px 0}
+    .channel-item{padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:14px}
+    .channel-item strong{display:block;color:var(--lobster-light);margin-bottom:4px}
+    code{background:var(--surface-2);padding:2px 6px;border-radius:4px;font-family:monospace;font-size:13px}
+    .nav{position:fixed;top:0;left:0;right:0;background:rgba(10,10,15,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:16px 20px;z-index:100}
+    .nav a{font-size:14px;color:var(--text-2)}
+    .nav a:hover{color:var(--lobster-light)}
+    @media(max-width:600px){.container{padding-top:70px}.channel-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav class="nav"><a href="../">← <span data-zh>返回首页</span><span data-en>Back to Home</span></a></nav>
+  
+  <div class="container">
+    <h1><span data-zh>🦞 Ima Claw 使用文档</span><span data-en>Ima Claw Documentation</span></h1>
+    <p class="subtitle"><span data-zh>从领养你的第一只龙虾，到养成你的专属创作伙伴</span><span data-en>From adoption to raising your creative partner</span></p>
+
+    <h2><span data-zh>第一步：领养你的龙虾</span><span data-en>Step 1: Adopt Your Claw</span></h2>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4><span data-zh>点击"免费领养"</span><span data-en>Click "Adopt Free"</span></h4>
+        <p><span data-zh>在 Ima Studio 平台首页点击 💙 免费领养按钮，开始创建你的专属龙虾。</span><span data-en>Click the 💙 Adopt Free button on the Ima Studio homepage to start creating your Claw.</span></p>
+      </div>
+    </div>
+    
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4><span data-zh>注册账号</span><span data-en>Register Account</span></h4>
+        <p><span data-zh>使用邮箱或第三方账号注册。你的 Ima Claw 账号与 Ima Studio 账号是打通的，无需重复注册。</span><span data-en>Register with email or third-party account. Your Ima Claw account is connected to Ima Studio — no separate registration needed.</span></p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <strong>💡 <span data-zh>账号互通</span><span data-en>Account Integration</span></strong><br>
+      <span data-zh>Ima Claw 与 Ima Studio 使用同一账号体系。你在 Ima Studio 的作品、积分、社区身份都可以在 Claw 中无缝使用。</span>
+      <span data-en>Ima Claw shares the same account system with Ima Studio. Your works, credits, and community identity are seamlessly available in Claw.</span>
+    </div>
+
+    <h2><span data-zh>第二步：云端部署</span><span data-en>Step 2: Cloud Deployment</span></h2>
+    <p><span data-zh>完成注册后，我们会立即在云端为你配置专属空间：</span><span data-en>After registration, we immediately provision your dedicated cloud space:</span></p>
+    
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4><span data-zh>专属虚拟空间</span><span data-en>Dedicated Virtual Space</span></h4>
+        <p><span data-zh>每台龙虾运行在独立的云端容器中，确保数据隔离和安全性。这是你的龙虾专属的计算资源和存储空间。</span><span data-en>Each Claw runs in an isolated cloud container with dedicated compute resources and storage for maximum security and privacy.</span></p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4><span data-zh>预装核心技能</span><span data-en>Pre-installed Core Skills</span></h4>
+        <p><span data-zh>我们会一键预装：</span><span data-en>We pre-install with one click:</span></p>
+        <ul style="margin:8px 0 0 20px">
+          <li><span data-zh>基础操作技能（文件管理、网络请求、安全沙箱）</span><span data-en>Basic operations (file management, network, secure sandbox)</span></li>
+          <li><span data-zh>Ima Claw 专属多媒体创作 All-in-One 技能包</span><span data-en>Ima Claw exclusive multimedia creation skill pack</span></li>
+          <li><span data-zh>社交媒体发布技能（Twitter、LinkedIn、小红书等）</span><span data-en>Social media publishing skills (Twitter, LinkedIn, Xiaohongshu, etc.)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip">
+      <strong>🚀 <span data-zh>零配置开箱即用</span><span data-en>Zero-Config Setup</span></strong><br>
+      <span data-zh>所有技能都已预装配置好，你不需要手动安装任何依赖或编写配置文件。</span>
+      <span data-en>All skills are pre-configured. No manual dependency installation or config files needed.</span>
+    </div>
+
+    <h2><span data-zh>第三步：连接聊天渠道</span><span data-en>Step 3: Connect Chat Channels</span></h2>
+    <p><span data-zh>将你的龙虾连接到你常用的聊天应用，随时随地与它对话：</span><span data-en>Connect your Claw to your favorite chat apps:</span></p>
+
+    <div class="channel-grid">
+      <div class="channel-item">
+        <strong>WhatsApp</strong>
+        <span data-zh>扫描二维码绑定个人 WhatsApp 账号</span>
+        <span data-en>Scan QR code to link your WhatsApp</span>
+      </div>
+      <div class="channel-item">
+        <strong>Telegram</strong>
+        <span data-zh>搜索 @ImaClawBot 或创建专属 Bot</span>
+        <span data-en>Search @ImaClawBot or create dedicated bot</span>
+      </div>
+      <div class="channel-item">
+        <strong>飞书 Lark</strong>
+        <span data-zh>企业微信授权或自建应用</span>
+        <span data-en>Enterprise authorization or custom app</span>
+      </div>
+      <div class="channel-item">
+        <strong>Discord</strong>
+        <span data-zh>邀请 Bot 到服务器或 DM 对话</span>
+        <span data-en>Invite bot to server or use DM</span>
+      </div>
+    </div>
+
+    <p><span data-zh>你可以同时连接多个渠道，龙虾会在所有连接的平台同步响应。配置方法详见各平台的详细接入指南。</span><span data-en>You can connect multiple channels simultaneously. Your Claw will respond across all connected platforms. See detailed guides for each platform.</span></p>
+
+    <h2><span data-zh>第四步：开始对话创作</span><span data-en>Step 4: Start Creating</span></h2>
+    <p><span data-zh>现在你可以直接给龙虾发消息了：</span><span data-en>Now you can message your Claw directly:</span></p>
+    
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4><span data-zh>简单任务</span><span data-en>Simple Tasks</span></h4>
+        <p><span data-zh>对于常规创作任务，龙虾可以直接完成：</span><span data-en>For routine tasks, your Claw handles them directly:</span></p>
+        <code>"帮我生成一张赛博朋克风格的产品海报"</code><br>
+        <code>"把这个视频剪成 15 秒的短视频"</code><br>
+        <code>"写一条关于 AI 创业的小红书文案"</code>
+      </div>
+    </div>
+
+    <h2><span data-zh>第五步：训练与进化</span><span data-en>Step 5: Train & Evolve</span></h2>
+    <p><span data-zh>这是 Ima Claw 与传统 AI 工具最大的区别——<strong>养成</strong>。</span><span data-en>This is what sets Ima Claw apart — <strong>raising</strong>, not just using.</span></p>
+
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h4><span data-zh>反馈与纠正</span><span data-en>Feedback & Correction</span></h4>
+        <p><span data-zh>当龙虾的任务完成不够好时，直接告诉它：</span><span data-en>When the output isn't perfect, tell your Claw:</span></p>
+        <code>"这个海报的颜色太暗了，换成亮一点的蓝色调"</code><br>
+        <code>"文案太正式了，用更口语化的风格重写"</code><br>
+        <code>"视频的节奏太快，前面加 2 秒缓冲"</code>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <h4><span data-zh>安装新技能</span><span data-en>Install New Skills</span></h4>
+        <p><span data-zh>Ima Claw 平台持续更新官方技能库。你可以随时为龙虾安装：</span><span data-en>The Ima Claw platform continuously updates official skills. Install anytime:</span></p>
+        <ul style="margin:8px 0 0 20px">
+          <li><span data-zh>行业专属技能（电商、教育、金融等）</span><span data-en>Industry-specific skills (e-commerce, education, finance)</span></li>
+          <li><span data-zh>平台专用技能（Shopify、Notion、Figma 等）</span><span data-en>Platform integrations (Shopify, Notion, Figma)</span></li>
+          <li><span data-zh>创意技能（3D 建模、动画、音效设计）</span><span data-en>Creative skills (3D modeling, animation, sound design)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip">
+      <strong>🔄 <span data-zh>养成闭环</span><span data-en>The Growth Loop</span></strong><br>
+      <span data-zh">对话创作 → 反馈训练 → 技能升级 → 龙虾进化 → 更好的创作 → 循环往复</span><br>
+      <span data-en>Chat to create → Feedback to train → Skill upgrade → Claw evolves → Better creation → Repeat</span>
+    </div>
+
+    <h2><span data-zh>最终形态：你的超级创作大脑</span><span data-en>Final Form: Your Creative Superbrain</span></h2>
+    <p><span data-zh>经过持续训练，你的龙虾会成为：</span><span data-en>After continuous training, your Claw becomes:</span></p>
+    <ul style="margin:16px 0 16px 24px">
+      <li><span data-zh><strong>懂你的风格</strong> — 知道你喜欢什么色调、什么语气、什么节奏</span><span data-en><strong>Knows your style</strong> — your colors, tone, rhythm</span></li>
+      <li><span data-zh"><strong>知你的习惯</strong> — 记得你常用的平台、格式、工作流</span><span data-en><strong>Remembers your habits</strong> — platforms, formats, workflows</span></li>
+      <li><span data-zh"><strong>省你的时间</strong> — 复杂任务自动拆解，不需要你操心细节</span><span data-en><strong>Saves your time</strong> — breaks down complex tasks automatically</span></li>
+      <li><span data-zh"><strong>扩你的能力</strong> — 7×24 随时响应，同时处理多个创作项目</span><span data-en><strong>Extends your capacity</strong> — 24/7 availability, multiple projects</span></li>
+    </ul>
+
+    <p style="background:var(--surface-2);padding:20px;border-radius:12px;margin-top:24px">
+      <span data-zh>就像我现在与你的互动一样——你提出想法，我执行创作，你给予反馈，我持续进化。这不仅是工具，是<strong>伙伴</strong>。</span>
+      <span data-en>Just like this interaction — you propose ideas, I execute, you give feedback, I evolve. Not just a tool, but a <strong>partner</strong>.</span>
+    </p>
+
+    <div style="text-align:center;margin-top:40px;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:12px">
+      <p style="font-size:18px;font-weight:600;color:#fff;margin-bottom:8px">🦞 <span data-zh>准备好领养你的龙虾了吗？</span><span data-en>Ready to adopt your Claw?</span></p>
+      <a href="../" style="display:inline-block;margin-top:12px;padding:12px 24px;background:var(--lobster);color:#fff;border-radius:8px;text-decoration:none"><span data-zh>免费领养</span><span data-en>Adopt Free</span></a>
+    </div>
+  </div>
+</body>
+</html>
