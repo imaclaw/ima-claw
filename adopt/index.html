@@ -3,53 +3,275 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>免费领养 - Ima Claw</title>
+<title>免费领养你的龙虾 🦞 - Ima Claw</title>
 <style>
+:root{--bg:#0a0a0f;--surface:#12121a;--surface-2:#1a1a24;--border:#222;--text:#e8e8e8;--text-2:#a0a0a0;--lobster:#e74c3c;--gold:#f2c744;--green:#2ecc71;--blue:#3498db}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Noto Sans SC',sans-serif;background:#0a0a0f;color:#e8e8e8;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;overflow:hidden}
-.lobster{font-size:120px;animation:float 3s ease-in-out infinite;margin-bottom:24px}
-@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-15px) rotate(-5deg)}75%{transform:translateY(-8px) rotate(3deg)}}
-h1{font-size:28px;font-weight:900;margin-bottom:12px;background:linear-gradient(135deg,#ff6b5b,#f2c744);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sub{color:#a0a0a0;font-size:15px;margin-bottom:32px;line-height:1.6}
-.status{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:#111;border:1px solid #222;border-radius:12px;font-size:13px;color:#a0a0a0;margin-bottom:24px}
-.dot{width:8px;height:8px;border-radius:50%;background:#f2c744;animation:pulse 1.5s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
-.progress{width:280px;height:6px;background:#1a1a22;border-radius:3px;overflow:hidden;margin-bottom:32px}
-.progress-bar{height:100%;width:35%;background:linear-gradient(90deg,#e74c3c,#f2c744);border-radius:3px;animation:loading 2s ease-in-out infinite}
-@keyframes loading{0%{width:25%}50%{width:45%}100%{width:25%}}
-.bubbles{position:relative;margin-bottom:32px}
-.bubble{background:#111;border:1px solid #222;border-radius:16px;padding:10px 16px;font-size:12px;color:#a0a0a0;position:relative;display:inline-block;margin:4px;animation:pop .5s ease-out both}
-.bubble:nth-child(1){animation-delay:0.5s}
-.bubble:nth-child(2){animation-delay:1s}
-.bubble:nth-child(3){animation-delay:1.5s}
-.bubble:nth-child(4){animation-delay:2s}
-@keyframes pop{from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
-.back{color:#ff6b5b;text-decoration:none;font-size:14px;margin-top:8px}
+body{font-family:-apple-system,'PingFang SC','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:0;line-height:1.6}
+
+/* Hero */
+.hero{text-align:center;padding:60px 20px 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 50% 50%,rgba(231,76,60,0.06) 0%,transparent 60%);pointer-events:none}
+.lobster{font-size:100px;animation:float 3s ease-in-out infinite;margin-bottom:16px}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-12px) rotate(-3deg)}75%{transform:translateY(-6px) rotate(2deg)}}
+.hero h1{font-size:clamp(24px,5vw,36px);font-weight:900;background:linear-gradient(135deg,#ff6b5b,#f2c744);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.hero .sub{color:var(--text-2);font-size:16px;max-width:520px;margin:0 auto 8px}
+.hero .tiny{color:#555;font-size:13px}
+
+/* Steps */
+.steps{max-width:720px;margin:0 auto;padding:20px 20px 60px}
+.step{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 32px;margin-bottom:20px;position:relative}
+.step-num{position:absolute;top:-12px;left:24px;background:var(--lobster);color:#fff;font-size:13px;font-weight:800;padding:4px 14px;border-radius:20px}
+.step h2{font-size:20px;margin:8px 0 12px;font-weight:700}
+.step p{color:var(--text-2);font-size:14px;margin-bottom:16px}
+.step .time{display:inline-flex;align-items:center;gap:6px;color:var(--gold);font-size:12px;font-weight:600;margin-bottom:12px}
+
+/* Code box */
+.code-box{background:#0d0d12;border:1px solid #2a2a35;border-radius:10px;padding:14px 18px;font-family:'SF Mono','Fira Code','Cascadia Code',monospace;font-size:14px;color:var(--green);position:relative;overflow-x:auto;margin:12px 0}
+.code-box .label{color:#555;font-size:11px;margin-bottom:6px;font-family:-apple-system,sans-serif}
+.code-box code{display:block;white-space:pre;user-select:all}
+.copy-btn{position:absolute;top:10px;right:10px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);font-size:11px;padding:4px 10px;border-radius:6px;cursor:pointer;font-family:inherit}
+.copy-btn:hover{background:#2a2a35;color:#fff}
+.copy-btn.copied{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* Platform tabs */
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+.tab{padding:6px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);transition:all .2s}
+.tab.active{background:var(--lobster);color:#fff;border-color:var(--lobster)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* Checklist */
+.checklist{list-style:none;padding:0}
+.checklist li{padding:8px 0;font-size:14px;color:var(--text-2);display:flex;align-items:flex-start;gap:10px}
+.checklist li::before{content:'✅';flex-shrink:0}
+
+/* Provider cards */
+.providers{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:16px 0}
+.provider{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;font-size:13px;transition:all .2s}
+.provider:hover{border-color:var(--gold);transform:translateY(-2px)}
+.provider .icon{font-size:28px;margin-bottom:6px}
+.provider .name{font-weight:600;color:var(--text)}
+.provider .tag{font-size:11px;color:var(--text-2);margin-top:4px}
+
+/* Skills showcase */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:16px 0}
+.skill-card{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px;font-size:13px}
+.skill-card .emoji{font-size:24px;margin-bottom:6px}
+.skill-card .title{font-weight:600;color:var(--text);margin-bottom:4px}
+.skill-card .desc{color:var(--text-2);font-size:12px}
+
+/* CTA */
+.cta-section{text-align:center;padding:40px 20px 60px;background:linear-gradient(180deg,transparent,rgba(231,76,60,0.03))}
+.cta-section h2{font-size:24px;margin-bottom:12px}
+.cta-section p{color:var(--text-2);margin-bottom:24px}
+.btn-start{display:inline-block;padding:14px 48px;background:linear-gradient(135deg,var(--lobster),#c0392b);color:#fff;font-size:16px;font-weight:700;border-radius:12px;text-decoration:none;transition:all .3s;border:none;cursor:pointer}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(231,76,60,0.3)}
+
+/* Tips */
+.tip{background:rgba(242,199,68,0.06);border:1px solid rgba(242,199,68,0.15);border-radius:10px;padding:14px 18px;font-size:13px;color:var(--gold);margin:12px 0}
+.tip strong{color:#f2c744}
+
+/* Back link */
+.back{display:block;text-align:center;color:var(--lobster);text-decoration:none;font-size:14px;padding:20px}
 .back:hover{text-decoration:underline}
-.tiny{color:#333;font-size:11px;margin-top:40px;max-width:300px;line-height:1.5}
+
+/* FAQ */
+.faq{max-width:720px;margin:0 auto;padding:0 20px 40px}
+.faq h2{text-align:center;font-size:22px;margin-bottom:24px}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-q{font-weight:700;font-size:15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:'▸';transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(90deg)}
+.faq-a{color:var(--text-2);font-size:14px;padding-top:10px;display:none}
+.faq-item.open .faq-a{display:block}
+
+@media(max-width:480px){.step{padding:20px 18px}.code-box{font-size:12px}}
 </style>
 </head>
 <body>
+
+<!-- Hero -->
+<section class="hero">
 <div class="lobster">🦞</div>
-<h1>龙虾正坐在云端<br>等开发来更新…</h1>
-<p class="sub">它已经准备好了。就差一个按钮。<br>（以及一个通宵的程序员。）</p>
+<h1>领养一只 AI 创作龙虾</h1>
+<p class="sub">3 分钟完成安装，0 行代码，永久免费。<br>你只需要一台电脑和一个 API Key。</p>
+<p class="tiny">macOS · Linux · Windows (WSL2) · 树莓派 · 云服务器 全平台支持</p>
+</section>
 
-<div class="status">
-<span class="dot"></span>
-<span>开发进度：正在摸鱼中</span>
+<!-- Steps -->
+<section class="steps">
+
+<!-- Step 1: Install -->
+<div class="step">
+<span class="step-num">STEP 1</span>
+<div class="time">⏱ 约 30 秒</div>
+<h2>一行命令，安装 OpenClaw</h2>
+<p>打开终端（Terminal），粘贴下面的命令回车即可。脚本会自动检测环境、安装 Node.js（如果没有的话）、然后启动配置向导。</p>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab(this,'install','mac')">🍎 macOS / Linux</div>
+  <div class="tab" onclick="switchTab(this,'install','win')">🪟 Windows</div>
 </div>
 
-<div class="progress"><div class="progress-bar"></div></div>
-
-<div class="bubbles">
-<div class="bubble">🔧 服务器已就位</div>
-<div class="bubble">🧠 AI 模型已待命</div>
-<div class="bubble">🎨 技能包已打包</div>
-<div class="bubble">⏰ 就差上线按钮了</div>
+<div id="install-mac" class="tab-content active">
+<div class="code-box">
+<div class="label">Terminal</div>
+<code>curl -fsSL https://openclaw.ai/install.sh | bash</code>
+<button class="copy-btn" onclick="copyCode(this)">复制</button>
+</div>
 </div>
 
-<a href="../" class="back">← 先回首页逛逛</a>
+<div id="install-win" class="tab-content">
+<div class="code-box">
+<div class="label">PowerShell（管理员）</div>
+<code>iwr -useb https://openclaw.ai/install.ps1 | iex</code>
+<button class="copy-btn" onclick="copyCode(this)">复制</button>
+</div>
+<div class="tip">💡 <strong>Windows 用户建议：</strong>先安装 <a href="https://learn.microsoft.com/en-us/windows/wsl/install" style="color:var(--gold)">WSL2</a>，然后在 WSL 里用 macOS/Linux 的命令安装，体验更丝滑。</div>
+</div>
+</div>
 
-<p class="tiny">* 这只龙虾已经在云端蹲了好几天了。<br>它说它不急，但其实它偷偷练了 200 多个技能。<br>快了快了。真的快了。大概。</p>
+<!-- Step 2: API Key -->
+<div class="step">
+<span class="step-num">STEP 2</span>
+<div class="time">⏱ 约 1 分钟</div>
+<h2>给龙虾一个大脑 🧠</h2>
+<p>安装向导会问你用哪个 AI 模型。选一个你有 API Key 的就行，没有的话现在去申请一个（大部分都有免费额度）：</p>
+
+<div class="providers">
+  <div class="provider"><div class="icon">🟢</div><div class="name">OpenAI</div><div class="tag">GPT-4o / o1</div></div>
+  <div class="provider"><div class="icon">🟠</div><div class="name">Anthropic</div><div class="tag">Claude Sonnet/Opus</div></div>
+  <div class="provider"><div class="icon">🔵</div><div class="name">Google</div><div class="tag">Gemini 2.5 Pro</div></div>
+  <div class="provider"><div class="icon">🟡</div><div class="name">AWS Bedrock</div><div class="tag">多模型托管</div></div>
+  <div class="provider"><div class="icon">🌙</div><div class="name">Moonshot</div><div class="tag">Kimi K2.5</div></div>
+  <div class="provider"><div class="icon">🔥</div><div class="name">更多...</div><div class="tag">20+ 供应商</div></div>
+</div>
+
+<div class="tip">💡 <strong>推荐新手选 Anthropic Claude：</strong>注册就送 $5 额度，足够玩好几天。<a href="https://console.anthropic.com/" style="color:var(--gold)" target="_blank">去注册 →</a></div>
+</div>
+
+<!-- Step 3: Connect -->
+<div class="step">
+<span class="step-num">STEP 3</span>
+<div class="time">⏱ 约 1 分钟</div>
+<h2>把龙虾带回你的聊天 💬</h2>
+<p>安装完成后，配置向导会引导你把龙虾连到你常用的聊天工具。它支持：</p>
+
+<div class="providers">
+  <div class="provider"><div class="icon">✈️</div><div class="name">Telegram</div><div class="tag">推荐 · 最简单</div></div>
+  <div class="provider"><div class="icon">📱</div><div class="name">WhatsApp</div><div class="tag">扫码即连</div></div>
+  <div class="provider"><div class="icon">💬</div><div class="name">Discord</div><div class="tag">Bot 模式</div></div>
+  <div class="provider"><div class="icon">🔷</div><div class="name">Signal</div><div class="tag">端到端加密</div></div>
+  <div class="provider"><div class="icon">🍎</div><div class="name">iMessage</div><div class="tag">macOS 原生</div></div>
+  <div class="provider"><div class="icon">🐦</div><div class="name">飞书</div><div class="tag">企业版</div></div>
+</div>
+
+<p style="font-size:13px;color:var(--text-2);margin-top:12px">也可以跳过这步，先用网页 / 终端界面聊天，随时再连接。</p>
+</div>
+
+<!-- Step 4: Done! -->
+<div class="step" style="border-color:rgba(46,204,113,0.3);background:linear-gradient(135deg,var(--surface),rgba(46,204,113,0.03))">
+<span class="step-num" style="background:var(--green)">🎉 DONE</span>
+<h2>开始和你的龙虾对话！</h2>
+<p>恭喜！你的龙虾已经醒了。试试跟它说：</p>
+
+<div class="code-box" style="background:#0d120d;border-color:rgba(46,204,113,0.2)">
+<div class="label">跟龙虾说的第一句话</div>
+<code>"嘿，你好！你是谁？我是你的新主人 😊"</code>
+</div>
+
+<p style="font-size:14px;color:var(--text-2)">它会自我介绍、了解你、然后问你想叫它什么名字。每只龙虾都是独一无二的——养出你自己的风格！</p>
+
+<div class="tip">🎯 <strong>第一次聊天的灵感：</strong><br>
+• "帮我写一封催客户的英文邮件，语气委婉但有压力"<br>
+• "搜一下今天 AI 领域有什么大新闻"<br>
+• "帮我生成一张赛博朋克风格的龙虾图片"<br>
+• "我要做一个产品发布的社媒文案，帮我想 5 个版本"</div>
+</div>
+
+</section>
+
+<!-- Skills showcase -->
+<section class="steps">
+<h2 style="text-align:center;margin-bottom:24px;font-size:22px">🎯 龙虾出厂就会的技能</h2>
+<div class="skills-grid">
+  <div class="skill-card"><div class="emoji">🎨</div><div class="title">AI 图片生成</div><div class="desc">文字变图片，支持 Seedream、Midjourney、Nano Banana 等模型</div></div>
+  <div class="skill-card"><div class="emoji">🎬</div><div class="title">AI 视频制作</div><div class="desc">一句话生成视频，Wan 2.6、Sora、Kling 等 14 个模型</div></div>
+  <div class="skill-card"><div class="emoji">🎵</div><div class="title">AI 音乐创作</div><div class="desc">Suno、DouBao 驱动，文字生成完整歌曲</div></div>
+  <div class="skill-card"><div class="emoji">🌐</div><div class="title">网页搜索 & 分析</div><div class="desc">实时联网搜索，深度研究，竞品分析</div></div>
+  <div class="skill-card"><div class="emoji">📝</div><div class="title">文案 & 翻译</div><div class="desc">写邮件、周报、社媒文案、多语言翻译</div></div>
+  <div class="skill-card"><div class="emoji">📊</div><div class="title">数据分析</div><div class="desc">读表格、出报告、做图表，发个截图就行</div></div>
+  <div class="skill-card"><div class="emoji">🔧</div><div class="title">自动化工作流</div><div class="desc">定时任务、文件管理、API 对接、代码执行</div></div>
+  <div class="skill-card"><div class="emoji">🧩</div><div class="title">200+ 扩展 Skill</div><div class="desc">ClawHub 技能市场，一键安装新能力</div></div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+<h2>❓ 常见问题</h2>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">真的免费吗？</div>
+<div class="faq-a">OpenClaw 本身完全免费开源。你需要自己提供 AI 模型的 API Key（大部分供应商有免费额度）。龙虾跑在你自己的电脑上，数据也在你自己手里。</div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">需要什么样的电脑？</div>
+<div class="faq-a">只要能跑 Node.js 就行——MacBook、Windows 笔记本、Linux 服务器、甚至树莓派都可以。不需要 GPU，因为 AI 推理跑在云端（通过你的 API Key）。</div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">和 ChatGPT 有什么区别？</div>
+<div class="faq-a">ChatGPT 是个聊天窗口。龙虾是你的<strong>私人 AI 助手</strong>——它能记住你、自动执行任务、连接你的工具（日历、邮件、社媒）、24 小时待命，还能学会你教它的任何新技能。</div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">数据安全吗？</div>
+<div class="faq-a">龙虾跑在你自己的机器上，数据不经过任何第三方服务器。它的记忆、对话历史、你的文件全部存在本地。你可以随时查看、删除、导出。</div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">IMA Studio 的技能需要额外付费吗？</div>
+<div class="faq-a">IMA Studio 的图片、视频、音乐生成走积分制，注册就送免费积分。搭配龙虾使用，一句话就能生成专业级内容。<a href="https://imastudio.com" style="color:var(--gold)" target="_blank">了解 IMA Studio →</a></div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">遇到问题怎么办？</div>
+<div class="faq-a">加入 <a href="https://discord.com/invite/clawd" style="color:var(--gold)" target="_blank">Discord 社区</a> 提问，或者查看 <a href="https://docs.openclaw.ai" style="color:var(--gold)" target="_blank">官方文档</a>。龙虾的开发者和用户社区非常活跃！</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+<h2>准备好了吗？</h2>
+<p>打开终端，复制这行命令，你的龙虾 30 秒后就到 🦞</p>
+<div class="code-box" style="max-width:520px;margin:0 auto 24px;text-align:left">
+<code>curl -fsSL https://openclaw.ai/install.sh | bash</code>
+<button class="copy-btn" onclick="copyCode(this)">复制</button>
+</div>
+<a href="https://docs.openclaw.ai" class="btn-start" target="_blank">📖 查看完整文档</a>
+</section>
+
+<a href="../" class="back">← 回到首页</a>
+
+<script>
+function switchTab(el, group, id) {
+  el.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  const parent = el.closest('.step');
+  parent.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  parent.querySelector('#' + group + '-' + id).classList.add('active');
+}
+
+function copyCode(btn) {
+  const code = btn.parentElement.querySelector('code').textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    btn.textContent = '已复制 ✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '复制'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
 </body>
 </html>
