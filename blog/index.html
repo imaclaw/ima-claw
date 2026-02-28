@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="../favicon.ico"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Blog — Ima Claw 🦞</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--lobster:#D4403A;--lobster-light:#E8584E;--bg:#0C0C12;--surface:#13131D;--surface-2:#1B1B28;--text:#E8E8ED;--text-2:rgba(255,255,255,0.55);--text-3:rgba(255,255,255,0.35);--border:rgba(255,255,255,0.06);--border-hover:rgba(255,255,255,0.12)}
+:root{--lobster:#D4403A;--lobster-light:#E8584E;--bg:#0C0C12;--surface:#13131D;--text:#E8E8ED;--text-2:rgba(255,255,255,0.55);--text-3:rgba(255,255,255,0.35);--border:rgba(255,255,255,0.06)}
 body{font-family:'Inter',-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
-
-.lang-toggle{position:fixed;top:20px;right:20px;z-index:1001;background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:24px;padding:3px;display:flex}
-.lang-btn{padding:6px 14px;border-radius:20px;border:none;cursor:pointer;font-size:12px;font-weight:600;transition:all .3s;background:transparent;color:var(--text-3)}
-.lang-btn.active{background:var(--lobster);color:#fff}
-
 nav{padding:16px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
 .logo{display:flex;align-items:center;gap:10px}
 .logo img{height:32px;width:32px;border-radius:8px}
@@ -22,49 +19,80 @@ nav{padding:16px 40px;display:flex;align-items:center;justify-content:space-betw
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{color:var(--text-3);font-size:13px;font-weight:500;transition:color .3s}.nav-links a:hover{color:var(--text)}
 .nav-links a.active{color:var(--lobster-light)}
-
-.blog-header{text-align:center;padding:80px 40px 40px}
-.blog-header h1{font-size:48px;font-weight:900;letter-spacing:-0.03em;margin-bottom:12px}
-.blog-header p{font-size:16px;color:var(--text-2)}
-
+.lang-dropdown{position:relative;display:inline-block}
+.lang-trigger{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--text-2);cursor:pointer}
+.lang-menu{display:none;position:absolute;right:0;top:110%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:6px;min-width:120px;z-index:99}
+.lang-dropdown.open .lang-menu{display:block}
+.lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:var(--text-2);font-size:12px;border-radius:8px;cursor:pointer}.lang-menu button:hover{background:rgba(255,255,255,0.06);color:var(--text)}
+.blog-header{text-align:center;padding:100px 40px 40px}
+.blog-header h1{font-size:clamp(32px,4vw,48px);font-weight:900;letter-spacing:-0.03em;margin-bottom:12px}
+.blog-header p{font-size:17px;color:var(--text-2)}
 .posts{max-width:800px;margin:0 auto;padding:20px 40px 100px}
-.post-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;margin-bottom:20px;transition:all .3s}
+.post-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:clamp(24px,3vw,40px);margin-bottom:20px;transition:all .3s}
 .post-card:hover{border-color:rgba(212,64,58,0.2);transform:translateY(-2px)}
 .post-meta{font-size:12px;color:var(--text-3);margin-bottom:12px;display:flex;gap:12px;align-items:center}
 .post-tag{padding:3px 10px;border-radius:100px;background:rgba(212,64,58,0.1);color:var(--lobster-light);font-size:11px;font-weight:600}
-.post-card h2{font-size:22px;font-weight:800;letter-spacing:-0.02em;margin-bottom:10px;line-height:1.3}
-.post-card p{font-size:14px;color:var(--text-2);line-height:1.7}
+.post-card h2{font-size:clamp(20px,3vw,26px);font-weight:800;letter-spacing:-0.02em;margin-bottom:10px;line-height:1.3}
+.post-card p{font-size:15px;color:var(--text-2);line-height:1.7}
 .read-more{display:inline-block;margin-top:14px;font-size:13px;color:var(--lobster-light);font-weight:600}
-
 footer{border-top:1px solid var(--border);padding:40px;text-align:center}
 footer p{color:var(--text-3);font-size:12px}footer a{color:var(--lobster-light)}
+@media(max-width:600px){.blog-header{padding:80px 20px 30px}.blog-header h1{font-size:32px}.posts{padding:20px 20px 80px}.nav-links{display:none}}
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 40px;background:rgba(12,12,18,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em}.logo-text b{color:#E8584E}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.35);font-size:13px;font-weight:500;transition:color .3s;text-decoration:none}.nav-links a:hover{color:#E8E8ED}
+.nav-cta{background:#D4403A!important;color:#fff!important;padding:7px 18px;border-radius:20px;font-weight:700;font-size:12px!important}
+.lang-dropdown{position:relative;display:inline-block}
+.lang-trigger{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);cursor:pointer}
+.lang-menu{display:none;position:absolute;right:0;top:110%;background:#13131D;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:6px;min-width:120px;z-index:99}
+.lang-dropdown.open .lang-menu{display:block}
+.lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:rgba(255,255,255,0.55);font-size:12px;border-radius:8px;cursor:pointer}.lang-menu button:hover{background:rgba(255,255,255,0.06);color:#E8E8ED}
 
-[data-en]{display:none}
-html[lang="en"] [data-zh]{display:none}html[lang="en"] [data-en]{display:block}
-html[lang="en"] span[data-en],html[lang="en"] a[data-en]{display:inline}
-html[lang="zh-CN"] span[data-zh],html[lang="zh-CN"] a[data-zh]{display:inline}
-html[lang="zh-CN"] span[data-en],html[lang="zh-CN"] a[data-en]{display:none}
-html[lang="en"] span[data-zh],html[lang="en"] a[data-zh]{display:none}
-@media(max-width:600px){.blog-header{padding:60px 20px 30px}.blog-header h1{font-size:32px}.posts{padding:20px 20px 80px}.nav-links{display:none}}
+body{padding-top:60px}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px}
+@media(max-width:600px){
+.hamburger{display:block}
+#nav{padding:12px 16px}
+.nav-links{display:none!important;position:fixed;top:56px;right:16px;left:auto;background:rgba(12,12,18,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:16px 0;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;z-index:99;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.nav-links.open{display:flex!important}
+.nav-links a{padding:12px 20px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px;color:rgba(255,255,255,0.55);text-align:right;display:block}
+.nav-links a:last-child{border-bottom:none}
+.nav-links a{padding:12px 20px;text-align:right!important;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px;margin-bottom:2px;color:rgba(255,255,255,0.55);text-align:right;display:block}
+.nav-links .lang-dropdown{padding:12px 20px;text-align:right!important;text-align:right;display:flex;justify-content:flex-end}
+}
 </style>
 </head>
 <body>
-
-<div class="lang-toggle"><button class="lang-btn active" onclick="setLang('zh-CN')">中文</button><button class="lang-btn" onclick="setLang('en')">EN</button></div>
-
-<nav>
-  <a href="../" class="logo"><img src="../logo-nav.png" alt=""><div class="logo-text">Ima <b>Claw</b></div></a>
+<nav id="nav">
+  <div class="logo"><a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit"><img src="../logo-nav.png" alt="" style="height:40px;width:40px;border-radius:8px"><div class="logo-text">Ima <b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by Ima Studio</span></div></a></div>
   <div class="nav-links">
-    <a href="../#features"><span data-zh>功能</span><span data-en>Features</span></a>
-    <a href="../#skills"><span data-zh>Skill 商店</span><span data-en>Skills</span></a>
-    <a href="./" class="active"><span data-zh>博客</span><span data-en>Blog</span></a>
-    <a href="../#showcase"><span data-zh>展示</span><span data-en>Showcase</span></a>
+        <a href="../" data-i18n="nav.home">首页</a>
+    <a href="../skills/" data-i18n="nav.skills">Skill 市场</a>
+    <a href="../pricing/" data-i18n="nav.pricing">🛒 购买</a>
+    <a href="../docs/" data-i18n="nav.docs">帮助</a>
+    <a href="../blog/" data-i18n="nav.blog">博客</a>
+    <a href="https://discord.gg/imaclaw" target="_blank" data-i18n="nav.community">社区</a>
+    <div class="lang-dropdown" style="position:relative;margin-left:8px">
+      <button class="lang-trigger" onclick="this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
+      <div class="lang-menu">
+        <button onclick="setLang('en')">🇨🇳 中文</button>
+        <button onclick="setLang('en')">🇺🇸 English</button>
+        <button onclick="setLang('es')">🇪🇸 Español</button>
+        <button onclick="setLang('ja')">🇯🇵 日本語</button>
+        <button onclick="setLang('ar')">🇸🇦 العربية</button>
+      </div>
+    </div>
   </div>
+<button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
 </nav>
 
+
 <div class="blog-header">
-  <h1><span data-zh>🦞 Claw Blog</span><span data-en>🦞 Claw Blog</span></h1>
-  <p><span data-zh>来自创始人和龙虾的创作日志</span><span data-en>Stories from the founder and the lobster</span></p>
+  <div style="margin-bottom:16px"><img src="../mascot.png" style="width:100px;height:100px;filter:drop-shadow(0 0 20px rgba(212,64,58,0.3))"></div>
+  <h1>Claw Blog</h1>
+  <p data-i18n="blog.subtitle">来自创始人和龙虾的创作日志</p>
 </div>
 
 <div class="posts">
@@ -72,24 +100,20 @@ html[lang="en"] span[data-zh],html[lang="en"] a[data-zh]{display:none}
     <div class="post-meta">
       <span class="post-tag">Vibe Coding</span>
       <span>2026-02-28</span>
-      <span><span data-zh>创始人日志 #1</span><span data-en>Founder's Log #1</span></span>
+      <span data-i18n="blog.log1">创始人日志 #1</span>
     </div>
-    <h2>
-      <span data-zh>我用 Ima Claw 做了这个网站，它把龙虾的脸抠没了</span>
-      <span data-en>I Built This Site with Ima Claw. It Deleted the Lobster's Face.</span>
-    </h2>
-    <p>
-      <span data-zh>2小时，0行代码，一只经历了存在主义危机的龙虾。这是 Ima Claw 创始人用自家产品 Vibe Coding 造官网的真实故事——包含所有翻车现场。</span>
-      <span data-en>2 hours, zero lines of code, and a lobster that had an existential crisis. This is the real story of how the Ima Claw founder built this very website using the product — crashes included.</span>
-    </p>
-    <span class="read-more"><span data-zh>阅读全文 →</span><span data-en>Read More →</span></span>
+    <h2 data-i18n="blog.title1">我用 Ima Claw 做了这个网站，它把龙虾的脸抠没了</h2>
+    <p data-i18n="blog.desc1">2小时，0行代码，一只经历了存在主义危机的龙虾。这是 Ima Claw 创始人用自家产品 Vibe Coding 造官网的真实故事——包含所有翻车现场。</p>
+    <span class="read-more" data-i18n="blog.readmore">阅读全文 →</span>
   </a>
 </div>
 
 <footer><p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank">Ima Studio</a> · I'm A Studio, I'm A Claw 🦞</p></footer>
 
+<script src="../i18n-sub.js"></script>
 <script>
-function setLang(l){document.documentElement.lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.trim()===(l==='en'?'EN':'中文')))}
-</script>
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open')});
+});</script>
 </body>
 </html>

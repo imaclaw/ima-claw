@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>提交技能 - Ima Claw Skill 市场</title>
+<style>
+:root{--bg:#0a0a0f;--surface:#111118;--surface-2:#1a1a22;--border:#222;--text:#e8e8e8;--text-2:#a0a0a0;--text-3:#666;--lobster:#e74c3c;--lobster-light:#ff6b5b;--yellow:#f2c744;--green:#2ecc71;--blue:#4a9eff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+a{color:var(--lobster-light);text-decoration:none}a:hover{opacity:0.85}
+
+/* Nav - same as all pages */
+#nav{position:fixed;top:0;left:0;right:0;background:rgba(10,10,15,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 32px;z-index:100;display:flex;align-items:center;justify-content:space-between}
+.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em}.logo-text b{color:var(--lobster-light)}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-size:13px;font-weight:500;color:var(--text-3);transition:color .3s}.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--lobster-light)}
+.lang-dropdown{position:relative}.lang-trigger{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--text-2);cursor:pointer}
+.lang-menu{display:none;position:absolute;top:100%;right:0;margin-top:8px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:6px;min-width:140px;z-index:200}
+.lang-dropdown.open .lang-menu{display:block}
+.lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:var(--text-2);font-size:12px;border-radius:8px;cursor:pointer}.lang-menu button:hover{background:rgba(255,255,255,0.06);color:var(--text)}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px}
+
+/* Content */
+.container{max-width:720px;margin:0 auto;padding:90px 20px 60px}
+.hero{text-align:center;margin-bottom:48px}
+.hero .badge{display:inline-block;padding:6px 16px;background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.2);border-radius:20px;font-size:12px;color:var(--lobster-light);font-weight:600;margin-bottom:20px}
+.hero h1{font-size:36px;font-weight:900;letter-spacing:-0.02em;margin-bottom:12px}
+.hero p{font-size:16px;color:var(--text-2);max-width:520px;margin:0 auto}
+
+/* Steps */
+.steps{display:flex;flex-direction:column;gap:24px;margin-bottom:48px}
+.step{display:flex;gap:20px;padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:16px;transition:border-color .3s}
+.step:hover{border-color:rgba(231,76,60,0.3)}
+.step-num{width:40px;height:40px;background:var(--lobster);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex-shrink:0;color:#fff}
+.step-body h3{font-size:17px;font-weight:700;margin-bottom:6px}
+.step-body p{font-size:14px;color:var(--text-2)}
+.step-body code{background:var(--surface-2);padding:2px 8px;border-radius:4px;font-size:13px;color:var(--lobster-light)}
+
+/* Guidelines */
+.guidelines{margin-bottom:48px}
+.guidelines h2{font-size:24px;font-weight:800;margin-bottom:20px;text-align:center}
+.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.guide{padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:14px}
+.guide .icon{font-size:28px;margin-bottom:10px}
+.guide h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.guide p{font-size:13px;color:var(--text-2)}
+
+/* Structure */
+.structure{margin-bottom:48px;padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:16px}
+.structure h2{font-size:20px;font-weight:800;margin-bottom:16px}
+.tree{font-family:monospace;font-size:14px;color:var(--text-2);line-height:2}
+.tree .file{color:var(--lobster-light)}
+.tree .comment{color:var(--text-3);font-style:italic}
+
+/* Benefits */
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:48px}
+.benefit{text-align:center;padding:24px 16px;background:var(--surface);border:1px solid var(--border);border-radius:14px}
+.benefit .emoji{font-size:32px;margin-bottom:8px}
+.benefit h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.benefit p{font-size:12px;color:var(--text-2)}
+
+/* CTA */
+.cta{text-align:center;padding:48px 32px;background:linear-gradient(135deg,var(--surface) 0%,rgba(231,76,60,0.05) 100%);border:1px solid rgba(231,76,60,0.15);border-radius:20px}
+.cta h2{font-size:24px;font-weight:800;margin-bottom:8px}
+.cta p{font-size:14px;color:var(--text-2);margin-bottom:24px}
+.cta .btn{display:inline-block;padding:14px 36px;background:var(--lobster);color:#fff;font-size:16px;font-weight:700;border-radius:12px;transition:all .3s}
+.cta .btn:hover{background:var(--lobster-light);transform:scale(1.03)}
+.cta .btn-alt{display:inline-block;margin-left:12px;padding:14px 36px;background:transparent;color:var(--text-2);font-size:16px;font-weight:700;border-radius:12px;border:1px solid var(--border);transition:all .3s}
+.cta .btn-alt:hover{border-color:var(--lobster-light);color:var(--text)}
+
+/* Footer */
+footer{text-align:center;padding:32px 20px;border-top:1px solid var(--border);margin-top:48px}
+footer p{color:var(--text-3);font-size:12px}
+
+@media(max-width:600px){
+.hamburger{display:block}
+#nav{padding:12px 16px}
+.nav-links{display:none!important;position:fixed;top:56px;right:16px;left:auto;background:rgba(12,12,18,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:16px 0;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;z-index:99;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.nav-links.open{display:flex!important}
+.nav-links a{padding:12px 20px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px;color:rgba(255,255,255,0.55);text-align:right;display:block}
+.nav-links a:last-child{border-bottom:none}
+.nav-links .lang-dropdown{padding:12px 20px;text-align:right;text-align:right;display:flex;justify-content:flex-end}
+.hero h1{font-size:28px}
+.step{flex-direction:column;gap:12px}
+.guide-grid{grid-template-columns:1fr}
+.benefits{grid-template-columns:1fr}
+.cta .btn-alt{margin-left:0;margin-top:12px}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="logo"><a href="../../" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit"><img src="../../logo-nav.png" alt="" style="height:40px;width:40px;border-radius:8px"><div class="logo-text">Ima <b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by Ima Studio</span></div></a></div>
+  <div class="nav-links">
+        <a href="../../" data-i18n="nav.home">首页</a>
+    <a href="../" data-i18n="nav.skills">Skill 市场</a>
+    <a href="../../pricing/" data-i18n="nav.pricing">🛒 购买</a>
+    <a href="../../docs/" data-i18n="nav.docs">帮助</a>
+    <a href="../../blog/" data-i18n="nav.blog">博客</a>
+    <a href="https://discord.gg/imaclaw" target="_blank" data-i18n="nav.community">社区</a>
+    <div class="lang-dropdown" style="position:relative;margin-left:8px">
+      <button class="lang-trigger" onclick="this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
+      <div class="lang-menu">
+        <button onclick="setLang('en')">🇨🇳 中文</button>
+        <button onclick="setLang('en')">🇺🇸 English</button>
+        <button onclick="setLang('es')">🇪🇸 Español</button>
+        <button onclick="setLang('ja')">🇯🇵 日本語</button>
+        <button onclick="setLang('ar')">🇸🇦 العربية</button>
+      </div>
+    </div>
+  </div>
+  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <div class="badge">🦞 开发者计划</div>
+    <h1>提交你的技能</h1>
+    <p>打造你的 Skill，分享给全球龙虾用户。通过审核即可上架 Skill 市场。</p>
+  </div>
+
+  <!-- Benefits -->
+  <div class="benefits">
+    <div class="benefit"><div class="emoji">🌍</div><h4>全球分发</h4><p>上架即触达所有 Ima Claw 用户</p></div>
+    <div class="benefit"><div class="emoji">⭐</div><h4>官方认证</h4><p>通过审核获得官方推荐标签</p></div>
+    <div class="benefit"><div class="emoji">💰</div><h4>收益分成</h4><p>付费 Skill 享受开发者分成</p></div>
+  </div>
+
+  <!-- Steps -->
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>创建 Skill 项目</h3>
+        <p>按照标准目录结构创建你的 Skill。每个 Skill 必须包含一个 <code>SKILL.md</code> 文件作为入口。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>编写 SKILL.md</h3>
+        <p>描述技能的触发条件、执行流程、输入输出。这是龙虾理解和执行你技能的关键文档。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>本地测试</h3>
+        <p>在你的龙虾上安装测试：<code>clawhub install ./your-skill</code>，确保功能正常、无安全风险。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>发布到 ClawHub</h3>
+        <p>使用 <code>clawhub publish</code> 提交到社区市场。通过安全审核后自动上架。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Structure -->
+  <div class="structure">
+    <h2>📁 标准目录结构</h2>
+    <div class="tree">
+      <span class="file">my-awesome-skill/</span><br>
+      ├── <span class="file">SKILL.md</span> <span class="comment">← 必需：技能描述和执行指令</span><br>
+      ├── <span class="file">README.md</span> <span class="comment">← 推荐：使用说明和示例</span><br>
+      ├── <span class="file">scripts/</span> <span class="comment">← 可选：辅助脚本</span><br>
+      │&nbsp;&nbsp; └── <span class="file">run.sh</span><br>
+      ├── <span class="file">templates/</span> <span class="comment">← 可选：模板文件</span><br>
+      └── <span class="file">assets/</span> <span class="comment">← 可选：图片等资源</span>
+    </div>
+  </div>
+
+  <!-- Guidelines -->
+  <div class="guidelines">
+    <h2>审核标准</h2>
+    <div class="guide-grid">
+      <div class="guide"><div class="icon">🔒</div><h4>安全优先</h4><p>不得包含恶意代码、数据窃取或危险系统命令。所有外部 API 调用需明确声明。</p></div>
+      <div class="guide"><div class="icon">📝</div><h4>文档完整</h4><p>SKILL.md 必须清晰描述功能、触发条件和使用方法。无文档不审核。</p></div>
+      <div class="guide"><div class="icon">⚡</div><h4>功能明确</h4><p>一个 Skill 做好一件事。避免功能过于庞杂或与已有 Skill 高度重复。</p></div>
+      <div class="guide"><div class="icon">🧪</div><h4>经过测试</h4><p>提交前请充分本地测试，确保在不同场景下稳定运行。</p></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>🦞 准备好了？</h2>
+    <p>加入开发者社区，一起让每只龙虾更强大</p>
+    <a href="https://discord.gg/imaclaw" target="_blank" class="btn">加入 Discord 社区</a>
+    <a href="https://clawhub.com" target="_blank" class="btn-alt">访问 ClawHub</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Ima Claw · <a href="https://www.imastudio.com">Ima Studio</a> · I'm A Studio, I'm A Claw 🦞</p>
+</footer>
+
+<script>
+function setLang(l){
+  var m={'zh-CN':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
+  var t=document.querySelector('.lang-trigger');if(t)t.textContent='🌐 '+(m[l]||l)+' ▾';
+  document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});
+}
+setLang('en');
+</script>
+</body>
+</html>

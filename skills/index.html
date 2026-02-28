@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="../favicon.ico"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Skill Store - Ima Claw</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
@@ -11,56 +13,104 @@
 html{scrollbar-width:none}html::-webkit-scrollbar{display:none}
 body{font-family:'Inter',-apple-system,'PingFang SC','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
 a{color:var(--lobster-light);text-decoration:none}
-.nav{position:fixed;top:0;left:0;right:0;background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 20px;z-index:100;display:flex;align-items:center;justify-content:space-between}
-.nav-left{display:flex;align-items:center;gap:8px}
-.nav-left a{color:var(--text-2);font-size:14px}
+
+
+
 .lang-btns{display:flex;gap:4px}
 .lang-btn{padding:4px 10px;border-radius:6px;font-size:12px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text-3)}
 .lang-btn.active{background:var(--lobster);border-color:var(--lobster);color:#fff}
-.hero{text-align:center;padding:100px 20px 40px}
+.lang-dropdown{position:relative;display:inline-block}
+.lang-trigger{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--text-2);cursor:pointer}
+.lang-menu{display:none;position:absolute;right:0;top:110%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:6px;min-width:120px;z-index:99}
+.lang-dropdown.open .lang-menu{display:block}
+.lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:var(--text-2);font-size:12px;border-radius:8px;cursor:pointer}.lang-menu button:hover{background:rgba(255,255,255,0.06);color:var(--text)}
+.hero{text-align:center;padding:60px 20px 32px}
 .hero .badge{display:inline-block;margin-bottom:16px;padding:4px 12px;background:rgba(231,76,60,0.12);border:1px solid rgba(231,76,60,0.25);border-radius:20px;font-size:12px;color:var(--lobster-light);font-weight:600}
-.hero h1{font-size:32px;font-weight:900;margin-bottom:8px}
+.hero h1{font-size:48px;font-weight:900;margin-bottom:8px}
 .hero h1 .accent{color:var(--lobster-light)}
-.hero p{color:var(--text-2);font-size:14px;max-width:460px;margin:0 auto}
+.hero p{color:var(--text-2);font-size:16px;max-width:460px;margin:0 auto}
 .filter-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:0 20px 28px}
-.filter-btn{padding:6px 14px;border-radius:20px;font-size:12px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text-2);transition:all .2s}
+.filter-btn{padding:8px 18px;border-radius:20px;font-size:14px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text-2);transition:all .2s}
 .filter-btn:hover,.filter-btn.active{background:var(--lobster);border-color:var(--lobster);color:#fff}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:900px;margin:0 auto;padding:0 16px 50px}
 @media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr);padding:0 24px 50px}}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;transition:all .3s;position:relative}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .3s;position:relative}
 .card:hover{border-color:rgba(231,76,60,0.3);transform:translateY(-2px)}
-.card .ic{font-size:24px;margin-bottom:8px}
-.card h3{font-size:13px;font-weight:700;margin-bottom:3px;color:#fff}
-.card p{font-size:11px;color:var(--text-2);line-height:1.4;margin-bottom:8px}
+.card .ic{font-size:30px;margin-bottom:8px}
+.card h3{font-size:20px;font-weight:700;margin-bottom:3px;color:#fff}
+.card p{font-size:14px;color:var(--text-2);line-height:1.4;margin-bottom:8px}
 .meta{display:flex;gap:4px;flex-wrap:wrap}
-.tag{padding:2px 7px;border-radius:10px;font-size:9px;font-weight:600}
+.tag{padding:3px 9px;border-radius:10px;font-size:11px;font-weight:600}
 .t-off{background:rgba(231,76,60,0.12);color:var(--lobster-light)}
 .t-pop{background:rgba(242,199,68,0.12);color:var(--yellow)}
 .t-new{background:rgba(46,204,113,0.12);color:var(--green)}
 .t-com{background:rgba(74,158,255,0.12);color:var(--blue)}
-.card .models{font-size:9px;color:var(--text-3);margin-top:5px}
+.card .models{font-size:11px;color:var(--text-3);margin-top:5px}
 .feat{grid-column:1/-1;background:linear-gradient(135deg,var(--surface) 0%,rgba(231,76,60,0.05) 100%);border-color:rgba(231,76,60,0.2);padding:16px;display:flex;gap:14px;align-items:center}
 .feat .ic{font-size:32px;margin:0;flex-shrink:0}
 .feat .fc{flex:1}
-.feat h3{font-size:15px;margin-bottom:4px}
-.feat p{font-size:12px;margin-bottom:6px}
-@media(max-width:500px){.feat{flex-direction:column;text-align:center}}
+.feat h3{font-size:22px;margin-bottom:4px}
+.feat p{font-size:14px;margin-bottom:6px}
+@media(max-width:600px){.feat{flex-direction:column;text-align:center;grid-column:auto}.feat-main{grid-column:1/-1}}
 .cta{text-align:center;padding:40px 20px 50px}
-.cta h2{font-size:20px;margin-bottom:8px;color:#fff}
-.cta p{color:var(--text-2);font-size:13px;margin-bottom:16px}
+.cta h2{font-size:32px;margin-bottom:8px;color:#fff}
+.cta p{color:var(--text-2);font-size:15px;margin-bottom:16px}
 .cta a{display:inline-block;padding:12px 28px;background:var(--lobster);color:#fff;font-size:15px;font-weight:700;border-radius:12px}
 .ft{text-align:center;padding:24px 20px;border-top:1px solid var(--border);color:var(--text-3);font-size:12px}
 .ft a{color:var(--text-2)}
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 40px;background:rgba(12,12,18,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em}.logo-text b{color:#E8584E}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.35);font-size:13px;font-weight:500;transition:color .3s;text-decoration:none}.nav-links a:hover{color:#E8E8ED}
+.nav-cta{background:#D4403A!important;color:#fff!important;padding:7px 18px;border-radius:20px;font-weight:700;font-size:12px!important}
+.lang-dropdown{position:relative;display:inline-block}
+.lang-trigger{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);cursor:pointer}
+.lang-menu{display:none;position:absolute;right:0;top:110%;background:#13131D;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:6px;min-width:120px;z-index:99}
+.lang-dropdown.open .lang-menu{display:block}
+.lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:rgba(255,255,255,0.55);font-size:12px;border-radius:8px;cursor:pointer}.lang-menu button:hover{background:rgba(255,255,255,0.06);color:#E8E8ED}
+
+body{padding-top:60px}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px}
+@media(max-width:600px){
+.hamburger{display:block}
+#nav{padding:12px 16px}
+.nav-links{display:none!important;position:fixed;top:56px;right:16px;left:auto;background:rgba(12,12,18,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:16px 0;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;z-index:99;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.nav-links.open{display:flex!important}
+.nav-links a{padding:12px 20px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px;color:rgba(255,255,255,0.55);text-align:right;display:block}
+.nav-links a:last-child{border-bottom:none}
+.nav-links a{padding:12px 20px;text-align:right!important;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px;margin-bottom:2px;color:rgba(255,255,255,0.55);text-align:right;display:block}
+.nav-links .lang-dropdown{padding:12px 20px;text-align:right!important;text-align:right;display:flex;justify-content:flex-end}
+}
 </style>
 </head>
 <body>
-<nav class="nav">
-<div class="nav-left"><a href="../">🦞 <b style="color:var(--lobster-light)">Ima Claw</b></a><span style="color:var(--text-3);margin:0 4px">›</span><span style="color:var(--text-2);font-size:13px" data-zh>技能商店</span><span style="color:var(--text-2);font-size:13px" data-en>Skill Store</span></div>
-<div class="lang-btns"><button class="lang-btn active" onclick="setLang('zh')">中文</button><button class="lang-btn" onclick="setLang('en')">EN</button></div>
+<nav id="nav">
+  <div class="logo"><a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit"><img src="../logo-nav.png" alt="" style="height:40px;width:40px;border-radius:8px"><div class="logo-text">Ima <b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by Ima Studio</span></div></a></div>
+  <div class="nav-links">
+        <a href="../" data-i18n="nav.home">首页</a>
+    <a href="../skills/" data-i18n="nav.skills">Skill 市场</a>
+    <a href="../pricing/" data-i18n="nav.pricing">🛒 购买</a>
+    <a href="../docs/" data-i18n="nav.docs">帮助</a>
+    <a href="../blog/" data-i18n="nav.blog">博客</a>
+    <a href="https://discord.gg/imaclaw" target="_blank" data-i18n="nav.community">社区</a>
+    <div class="lang-dropdown" style="position:relative;margin-left:8px">
+      <button class="lang-trigger" onclick="this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
+      <div class="lang-menu">
+        <button onclick="setLang('en')">🇨🇳 中文</button>
+        <button onclick="setLang('en')">🇺🇸 English</button>
+        <button onclick="setLang('es')">🇪🇸 Español</button>
+        <button onclick="setLang('ja')">🇯🇵 日本語</button>
+        <button onclick="setLang('ar')">🇸🇦 العربية</button>
+      </div>
+    </div>
+  </div>
+<button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
 </nav>
+
 <section class="hero">
-<div class="badge">🦞 <span data-zh>官方技能库</span><span data-en>Official Skill Store</span></div>
-<h1><span data-zh>给龙虾装上<br><span class="accent">超能力</span></span><span data-en>Give Your Claw<br><span class="accent">Superpowers</span></span></h1>
+<div class="badge"><img src="../mascot.png" style="width:20px;height:20px;vertical-align:-4px"> <span data-zh>龙虾 Skill 市场</span><span data-en>Claw Skill Market</span></div>
+<h1><span data-zh>给龙虾装上<span class="accent">超能力</span></span><span data-en>Give Your Claw <span class="accent">Superpowers</span></span></h1>
 <p><span data-zh>安全审核、一键安装。每个技能都让你的龙虾更强大。</span><span data-en>Security-reviewed, one-click install. Every skill makes your Claw stronger.</span></p>
 </section>
 <div class="filter-bar">
@@ -72,19 +122,19 @@ a{color:var(--lobster-light);text-decoration:none}
 <button class="filter-btn" onclick="filter('brain')">🧠 <span data-zh>智能</span><span data-en>Brain</span></button><button class="filter-btn" onclick="filter('tool')">🔧 <span data-zh>工具</span><span data-en>Tools</span></button>
 </div>
 <div class="grid">
-<div class="card feat" data-cat="create">
-<span class="ic">🦞</span>
+<div class="card feat feat-main" data-cat="create">
+<span class="ic"><img src="../mascot.png" style="width:32px;height:32px"></span>
 <div class="fc">
 <h3><span data-zh>IMA 全能创作 All-in-One</span><span data-en>IMA All-in-One Creation</span></h3>
 <p><span data-zh>图片+视频+音乐，一个技能搞定。集成 40+ AI 模型，覆盖完整创作链路。</span><span data-en>Images+Videos+Music in one skill. 40+ AI models, full creative pipeline.</span></p>
 <div class="meta"><span class="tag t-off"><span data-zh>官方</span><span data-en>Official</span></span><span class="tag t-pop">⭐ <span data-zh>推荐</span><span data-en>Featured</span></span></div>
 <div class="models">SeeDream · GPT Image · Midjourney · Wan · Kling · Sora · Veo · Suno</div>
 </div></div>
+<div class="card" data-cat="create"><div class="ic">💃</div><h3>Seedance 2.0</h3><p><span data-zh>ByteDance 视频生成，1.5 Pro 含音频。</span><span data-en>ByteDance video gen, 1.5 Pro with audio.</span></p><div class="meta"><span class="tag t-off"><span data-zh>官方</span><span data-en>Official</span></span><span class="tag t-pop">🔥</span><span class="tag t-new">NEW</span></div></div>
+<div class="card" data-cat="create"><div class="ic">🍌</div><h3>Nano Banana 2</h3><p><span data-zh>Gemini 图片生成，支持 4K。</span><span data-en>Gemini image gen, up to 4K.</span></p><div class="meta"><span class="tag t-pop">🔥</span><span class="tag t-com"><span data-zh>社区</span><span data-en>Community</span></span></div></div>
 <div class="card" data-cat="create"><div class="ic">🎨</div><h3><span data-zh>IMA 图片生成</span><span data-en>IMA Image Gen</span></h3><p><span data-zh>10+ 模型，文生图、图生图，一句话出图。</span><span data-en>10+ models. Text-to-image & image-to-image.</span></p><div class="meta"><span class="tag t-off"><span data-zh>官方</span><span data-en>Official</span></span></div><div class="models">SeeDream 4.5 · GPT Image · Midjourney · Imagen 4</div></div>
 <div class="card" data-cat="create"><div class="ic">🎬</div><h3><span data-zh>IMA 视频制作</span><span data-en>IMA Video Gen</span></h3><p><span data-zh>20+ 模型，广告片、短剧、MV，分钟级交付。</span><span data-en>20+ models. Ads, shorts, MVs in minutes.</span></p><div class="meta"><span class="tag t-off"><span data-zh>官方</span><span data-en>Official</span></span></div><div class="models">Wan 2.6 · Kling 2.1 · Sora · Veo 3.1</div></div>
 <div class="card" data-cat="create"><div class="ic">🎵</div><h3><span data-zh>IMA 音乐创作</span><span data-en>IMA Music Gen</span></h3><p><span data-zh>歌曲、BGM、音效，自定义风格和人声。</span><span data-en>Songs, BGM, effects with custom vocals.</span></p><div class="meta"><span class="tag t-off"><span data-zh>官方</span><span data-en>Official</span></span></div><div class="models">Suno · DouBao GenBGM · GenSong</div></div>
-<div class="card" data-cat="create"><div class="ic">💃</div><h3>Seedance Video</h3><p><span data-zh>ByteDance 视频生成，1.5 Pro 含音频。</span><span data-en>ByteDance video gen, 1.5 Pro with audio.</span></p><div class="meta"><span class="tag t-off"><span data-zh>官方</span><span data-en>Official</span></span><span class="tag t-new">NEW</span></div></div>
-<div class="card" data-cat="create"><div class="ic">🍌</div><h3>Nano Banana Pro</h3><p><span data-zh>Gemini 图片生成，支持 4K。</span><span data-en>Gemini image gen, up to 4K.</span></p><div class="meta"><span class="tag t-com"><span data-zh>社区</span><span data-en>Community</span></span></div></div>
 <div class="card" data-cat="create"><div class="ic">📖</div><h3><span data-zh>视频创作指南</span><span data-en>Video Guide</span></h3><p><span data-zh>AI 视频经验库：运镜、提示词、选型。</span><span data-en>AI video best practices & model selection.</span></p><div class="meta"><span class="tag t-off"><span data-zh>官方</span><span data-en>Official</span></span></div></div>
 <div class="card" data-cat="social"><div class="ic">📕</div><h3><span data-zh>小红书创作</span><span data-en>XHS Creator</span></h3><p><span data-zh>笔记撰写+封面生成+一键发布。</span><span data-en>Write, generate covers, publish.</span></p><div class="meta"><span class="tag t-off"><span data-zh>官方</span><span data-en>Official</span></span><span class="tag t-pop">🔥</span></div></div>
 <div class="card" data-cat="social"><div class="ic">📊</div><h3><span data-zh>小红书分析</span><span data-en>XHS Analytics</span></h3><p><span data-zh>热点追踪、舆情分析、竞品监控。</span><span data-en>Trends, sentiment, competitor tracking.</span></p><div class="meta"><span class="tag t-off"><span data-zh>官方</span><span data-en>Official</span></span></div></div>
@@ -109,12 +159,62 @@ a{color:var(--lobster-light);text-decoration:none}
 <section class="cta">
 <h2><span data-zh>🛠️ 开发者？发布你的技能</span><span data-en>🛠️ Developer? Publish Your Skill</span></h2>
 <p><span data-zh>为 Ima Claw 开发技能，提交到官方商店，让所有龙虾更强大。</span><span data-en>Build skills for Ima Claw. Submit to the store and empower every Claw.</span></p>
-<a href="#"><span data-zh>📦 提交技能</span><span data-en>📦 Submit Skill</span></a>
+<a href="submit/"><span data-zh>📦 提交技能</span><span data-en>📦 Submit Skill</span></a>
 </section>
 <footer class="ft"><p>&copy; 2026 Ima Claw &middot; <a href="https://www.imastudio.com" target="_blank">Ima Studio</a> &middot; <a href="../">&larr; <span data-zh>返回首页</span><span data-en>Back</span></a></p></footer>
 <script>
-function setLang(l){document.documentElement.lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.trim()===(l==='en'?'EN':'中文')));document.querySelectorAll('[data-zh]').forEach(e=>e.style.display=l==='zh'?'':'none');document.querySelectorAll('[data-en]').forEach(e=>e.style.display=l==='en'?'':'none')}
-function filter(cat){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));event.target.closest('.filter-btn').classList.add('active');document.querySelectorAll('.card').forEach(c=>{if(cat==='all'){c.style.display='';return}c.style.display=c.dataset.cat&&c.dataset.cat.includes(cat)?'':'none'})}
+var ZH_CACHE={};
+function setLang(l){
+  var isZh=l==='zh'||l==='zh-CN';
+  // Show/hide data-zh/data-en spans (keep existing behavior)
+  document.querySelectorAll('[data-zh]').forEach(function(e){e.style.display=isZh?'':'none'});
+  document.querySelectorAll('[data-en]').forEach(function(e){e.style.display=(!isZh&&(l==='en'||l==='es'||l==='ja'||l==='ar'))?'':'none'});
+  // For non-en foreign langs, translate data-en elements
+  var TR={
+    es:{
+      "Claw Skill Market":"Tienda Oficial de Skills","Give Your Claw":"Dale a Tu Claw","Superpowers":"Superpoderes",
+      "Security-reviewed, one-click install. Every skill makes your Claw stronger.":"Verificado, un clic. Cada skill hace más fuerte a tu Claw.",
+      "All":"Todo","Create":"Crear","Social":"Social","Write":"Escribir","Brain":"Cerebro","Tools":"Herramientas",
+      "Official":"Oficial","Community":"Comunidad","Featured":"Destacado","Essential":"Esencial",
+      "Developer? Publish Your Skill":"¿Desarrollador? Publica tu Skill",
+      "Build skills for Ima Claw. Submit to the store and empower every Claw.":"Crea skills para Ima Claw. Envía a la tienda y fortalece todos los Claws.",
+      "Submit Skill":"Enviar Skill","Back":"Volver"
+    },
+    ja:{
+      "Claw Skill Market":"公式スキルストア","Give Your Claw":"あなたのClawに","Superpowers":"超能力を",
+      "Security-reviewed, one-click install. Every skill makes your Claw stronger.":"審査済み、ワンクリック。全スキルがClawを強化。",
+      "All":"全て","Create":"創作","Social":"SNS","Write":"執筆","Brain":"知能","Tools":"ツール",
+      "Official":"公式","Community":"コミュニティ","Featured":"おすすめ","Essential":"必須",
+      "Developer? Publish Your Skill":"開発者？スキルを公開しよう",
+      "Build skills for Ima Claw. Submit to the store and empower every Claw.":"Ima Clawのスキルを開発してストアに公開しよう。",
+      "Submit Skill":"スキルを提出","Back":"戻る"
+    },
+    ar:{
+      "Claw Skill Market":"متجر المهارات الرسمي","Give Your Claw":"امنح كلاو الخاص بك","Superpowers":"قوى خارقة",
+      "Security-reviewed, one-click install. Every skill makes your Claw stronger.":"مُراجع أمنيًا، تثبيت بنقرة. كل مهارة تجعل كلاو أقوى.",
+      "All":"الكل","Create":"إبداع","Social":"تواصل","Write":"كتابة","Brain":"ذكاء","Tools":"أدوات",
+      "Official":"رسمي","Community":"مجتمع","Featured":"مميز","Essential":"أساسي",
+      "Developer? Publish Your Skill":"مطور؟ انشر مهارتك",
+      "Build skills for Ima Claw. Submit to the store and empower every Claw.":"طوّر مهارات لـ Ima Claw وانشرها في المتجر.",
+      "Submit Skill":"إرسال مهارة","Back":"رجوع"
+    }
+  };
+  if(TR[l]){
+    document.querySelectorAll('[data-en]').forEach(function(e){
+      if(!ZH_CACHE[e.textContent])ZH_CACHE[e.textContent]=e.textContent;
+      var t=TR[l][e.textContent.trim()];
+      if(t){e.textContent=t;e.style.display='';}
+      else{e.style.display='';}
+    });
+  }
+  // Update trigger
+  var m={'zh':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
+  var t=document.querySelector('.lang-trigger');
+  if(t)t.textContent='🌐 '+(m[l]||l)+' ▾';
+  document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});
+  document.documentElement.style.direction=l==='ar'?'rtl':'ltr';
+}
+function filter(cat){document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});event.target.closest('.filter-btn').classList.add('active');document.querySelectorAll('.card').forEach(function(c){if(cat==='all'){c.style.display='';return}c.style.display=c.dataset.cat&&c.dataset.cat.includes(cat)?'':'none'})}
 setLang('zh');
 </script>
 </body>
