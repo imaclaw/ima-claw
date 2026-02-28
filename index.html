@@ -236,7 +236,7 @@ footer a{color:var(--lobster-light)}
   </a>
   <div class="cta-row" style="flex-direction:column;align-items:center">
     <a href="adopt/" class="btn btn-primary" style="padding:12px 52px 16px;font-size:18px;text-decoration:none;display:inline-block" data-i18n="cta.adopt" data-i18n="cta.adopt">💙 免费领养</a>
-    <p style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.02em" data-i18n="cta.limit">🔥 限量 1,000 只，还剩 <b style="color:var(--lobster-light)">399</b> 只</p>
+    <p style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.02em" data-i18n="cta.limit">🔥 限量 1,000 只，<b style="color:var(--lobster-light)" class="countdown-timer"></b> 后开放领取</p>
   </div>
 </section>
 
@@ -352,7 +352,7 @@ footer a{color:var(--lobster-light)}
   <h2 data-i18n="final.title">I'm A Studio. I'm A Claw.<br>你呢？</h2>
   <p data-i18n="final.desc">领养你的第一只创作智能体龙虾 🦞</p><div class="cta-row" style="flex-direction:column;align-items:center;justify-content:center">
     <a href="adopt/" class="btn btn-primary" style="padding:12px 52px 16px;font-size:18px;text-decoration:none;display:inline-block" data-i18n="cta.adopt">💙 免费领养</a>
-    <p style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.02em" data-i18n="cta.limit">🔥 限量 1,000 只，还剩 <b style="color:var(--lobster-light)">399</b> 只</p>
+    <p style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.02em" data-i18n="cta.limit">🔥 限量 1,000 只，<b style="color:var(--lobster-light)" class="countdown-timer"></b> 后开放领取</p>
     <a href="#" style="color:var(--text-3);font-size:clamp(13px,1.1vw,16px);margin-top:8px;text-decoration:none" data-i18n="footer.contact">联系我们 →</a>
   </div>
 </section>
@@ -390,6 +390,21 @@ window.addEventListener('scroll',function(){document.getElementById('nav').class
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
 document.addEventListener('click',function(e){if(!e.target.closest('.lang-dropdown'))document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')})});
 setLang('en');
+
+// Countdown timer — 72h from launch (2026-03-01 04:30 CST)
+(function(){
+  var end=new Date('2026-03-04T04:30:00+08:00').getTime();
+  function tick(){
+    var now=Date.now(),d=end-now;
+    var els=document.querySelectorAll('.countdown-timer');
+    if(d<=0){els.forEach(function(e){e.textContent='即刻'});return}
+    var h=Math.floor(d/36e5),m=Math.floor((d%36e5)/6e4),s=Math.floor((d%6e4)/1e3);
+    var t=(h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+    els.forEach(function(e){e.textContent=t});
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
 // Close mobile nav on outside click
 document.addEventListener("click",function(e){var nav=document.querySelector(".nav-links");var ham=document.querySelector(".hamburger");if(nav&&nav.classList.contains("open")&&!nav.contains(e.target)&&e.target!==ham){nav.classList.remove("open")}document.querySelectorAll(".lang-dropdown.open").forEach(function(d){if(!d.contains(e.target))d.classList.remove("open")})});
 document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",function(){var nav=document.querySelector(".nav-links");if(nav)nav.classList.remove("open")})});
