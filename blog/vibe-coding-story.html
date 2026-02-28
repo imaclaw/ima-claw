@@ -18,9 +18,7 @@ a{text-decoration:none;color:inherit}
 .lang-menu{display:none;position:absolute;right:0;top:110%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:6px;min-width:120px;z-index:99}
 .lang-dropdown.open .lang-menu{display:block}
 .lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:var(--text-2);font-size:12px;border-radius:8px;cursor:pointer}.lang-menu button:hover{background:rgba(255,255,255,0.06);color:var(--text)}
-.lang-toggle{position:fixed;top:20px;right:20px;z-index:1001;background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:24px;padding:3px;display:flex}
-.lang-btn{padding:6px 14px;border-radius:20px;border:none;cursor:pointer;font-size:12px;font-weight:600;transition:all .3s;background:transparent;color:var(--text-3)}
-.lang-btn.active{background:var(--lobster);color:#fff}
+/* lang toggle removed - using nav only */
 
 nav{padding:16px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
 .logo{display:flex;align-items:center;gap:10px}
@@ -128,15 +126,7 @@ body{padding-top:60px}
 <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
 </nav>
 
-<div class="lang-dropdown" style="position:fixed;top:20px;right:20px;z-index:1001">
-  <button class="lang-trigger" onclick="this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
-  <div class="lang-menu">
-    <button onclick="setLang('zh-CN')">🇨🇳 中文</button>
-    <button onclick="setLang('en')">🇺🇸 English</button>
-    <button onclick="setLang('es')">🇪🇸 Español</button>
-    <button onclick="setLang('ja')">🇯🇵 日本語</button>
-    <button onclick="setLang('ar')">🇸🇦 العربية</button>
-  </div></div>
+<!-- removed duplicate fixed lang dropdown -->
 
 
 
