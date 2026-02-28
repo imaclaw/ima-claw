@@ -123,7 +123,7 @@ body{padding-top:60px}
       </div>
     </div>
   </div>
-<button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+<button class="hamburger" onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')">☰</button>
 </nav>
 
 <!-- removed duplicate fixed lang dropdown -->
@@ -453,6 +453,29 @@ function setLang(l){
   document.documentElement.style.direction=l==='ar'?'rtl':'ltr';
 }
 setLang('en');
+
+// Close mobile nav on outside click
+document.addEventListener('click',function(e){
+  var nav=document.querySelector('.nav-links');
+  var ham=document.querySelector('.hamburger');
+  if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&e.target!==ham){
+    nav.classList.remove('open');
+  }
+  // Close all lang dropdowns on outside click
+  document.querySelectorAll('.lang-dropdown.open').forEach(function(d){
+    if(!d.contains(e.target))d.classList.remove('open');
+  });
+});
+// Close mobile nav after clicking a nav link
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){
+    var nav=document.querySelector('.nav-links');
+    if(nav)nav.classList.remove('open');
+  });
+});
+// Close mobile nav after language switch
+var origSetLang=setLang;
+setLang=function(l){origSetLang(l);var nav=document.querySelector('.nav-links');if(nav)nav.classList.remove('open');};
 </script>
 </body>
 </html>
