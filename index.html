@@ -71,13 +71,13 @@ nav.scrolled{background:rgba(12,12,18,0.92);backdrop-filter:blur(20px);border-bo
 
 .hero-byline{font-size:13px;color:var(--text-3);margin-bottom:8px;letter-spacing:0.02em}
 .private{padding:80px 40px;text-align:center;max-width:1100px;margin:0 auto}
-.priv-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:840px;margin:40px auto 0;padding:0 24px;text-align:left}
-.priv-box{padding:32px;background:var(--surface);border:1px solid var(--border);border-radius:16px}
+.priv-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;max-width:1100px;margin:40px auto 0;padding:0 24px;text-align:left}
+.priv-box{padding:32px;background:var(--surface);border:1px solid var(--border);border-radius:16px;width:calc(33.333% - 20px);min-width:240px}
 .priv-box h3{font-size:18px;margin-bottom:12px;font-weight:700}
 .priv-box p{font-size:14px;color:var(--text-2);line-height:1.7}
 .plat-icons{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .plat-icons span{padding:8px 16px;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;font-size:13px;font-weight:600}
-@media(max-width:700px){.priv-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.priv-grid{flex-direction:column;align-items:stretch}.priv-box{width:100%}}
 .ch{padding:6px 14px;border-radius:6px;background:var(--surface);border:1px solid var(--border);font-size:12px;color:var(--text-3);font-weight:500;transition:all .3s}
 .ch:hover{border-color:var(--lobster);color:var(--lobster-light)}
 /* Announcement pill like OpenClaw */
