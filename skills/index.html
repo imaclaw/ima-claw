@@ -97,7 +97,7 @@ body{padding-top:60px}
     <div class="lang-dropdown" style="position:relative;margin-left:8px">
       <button class="lang-trigger" onclick="this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
       <div class="lang-menu">
-        <button onclick="setLang('en')">🇨🇳 中文</button>
+        <button onclick="setLang('zh-CN')">🇨🇳 中文</button>
         <button onclick="setLang('en')">🇺🇸 English</button>
         <button onclick="setLang('es')">🇪🇸 Español</button>
         <button onclick="setLang('ja')">🇯🇵 日本語</button>
@@ -215,7 +215,7 @@ function setLang(l){
   document.documentElement.style.direction=l==='ar'?'rtl':'ltr';
 }
 function filter(cat){document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});event.target.closest('.filter-btn').classList.add('active');document.querySelectorAll('.card').forEach(function(c){if(cat==='all'){c.style.display='';return}c.style.display=c.dataset.cat&&c.dataset.cat.includes(cat)?'':'none'})}
-setLang('zh');
+setLang('zh-CN');
 </script>
 </body>
 </html>
