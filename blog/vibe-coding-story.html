@@ -49,6 +49,9 @@ nav{padding:16px 40px;display:flex;align-items:center;justify-content:space-betw
 
 .img-placeholder{margin:24px 0;background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:40px;text-align:center;color:var(--text-3);font-size:13px}
 .img-placeholder .emoji{font-size:32px;display:block;margin-bottom:8px}
+.story-img{margin:24px 0;text-align:center}
+.story-img img{max-width:100%;border-radius:12px;border:1px solid var(--border)}
+.story-img .caption{margin-top:8px;font-size:13px;color:var(--text-3);font-style:italic}
 
 .highlight-box{margin:32px 0;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:16px}
 .highlight-box h3{font-size:16px;font-weight:700;margin-bottom:12px;color:var(--text)}
@@ -179,13 +182,15 @@ body{padding-top:60px}
 
     <p>接下来只需要把背景去掉。对吧？应该很简单对吧？</p>
 
+    <div class="story-img"><img src="../article-assets/01-original.jpg" alt="Seedream生成的龙虾原图"><div class="caption">Seedream 4.5 生成的龙虾 logo 原图 — 此时一切还很美好 🦞</div></div>
+
     <h2>抠图阶段：名场面</h2>
 
     <h3>❌ 第一次</h3>
     <p>爪爪用白色阈值法处理。结果：只把白色圆角方块变透明了。大楼？还在。它以为背景就是白色的部分。</p>
     <p>我说：<strong>大楼也是背景啊兄弟……</strong></p>
 
-    <div class="img-placeholder"><span class="emoji">📸</span>【配图：第一次抠图 — 大楼还在】</div>
+    <div class="story-img"><img src="../article-assets/02-first-attempt.png" alt="第一次抠图 — 大楼还在"><div class="caption">第一次抠图：白色没了，大楼还在 🏢</div></div>
 
     <h3>❌❌ 第二次</h3>
     <p>这次用了 AI 识别龙虾主体 + 清理白色残留。大楼终于没了。但我打开图一看——</p>
@@ -193,14 +198,14 @@ body{padding-top:60px}
     <p>因为龙虾的脸是浅蓝白色的，AI 把它当成背景一起抠掉了。屏幕上只剩一个红色龙虾壳，脸的位置是一个透明的洞。</p>
     <p>我盯着它看了三秒，然后笑到不行。</p>
 
-    <div class="img-placeholder"><span class="emoji">💀</span>【配图：脸没了 — 龙虾的存在主义危机】</div>
+    <div class="story-img"><img src="../article-assets/03-no-face.png" alt="脸没了"><div class="caption">第二次抠图：脸没了 💀 龙虾的存在主义危机</div></div>
 
     <h3>✅ 第三次（大概吧）</h3>
     <p>爪爪痛定思痛，换了"边缘连通区域算法"——只去掉和图片边缘相连的白色像素，保护内部颜色。</p>
     <p>脸回来了！但表情不太一样了。原来是怒萌，现在是——<em>茫然中带着一丝"我经历了什么"</em>。大概是灵魂出窍又被硬塞回来的样子。</p>
     <p>我说：<strong>算了，先放上去吧。</strong></p>
 
-    <div class="img-placeholder"><img src="../mascot.png" style="width:60px;height:60px">【配图：脸回来了 — 但那个表情……】</div>
+    <div class="story-img"><img src="../article-assets/04-face-back.png" alt="脸回来了"><div class="caption">第三次抠图：脸回来了！但那个表情…… 😶</div></div>
 
     <p>于是这只经历了面部重建手术的龙虾，正式登上了我们的产品官网。看到左上角那个 logo 了吗？对，就是它。就是那个表情。</p>
 
@@ -287,13 +292,15 @@ body{padding-top:60px}
 
     <p>Now I just needed to remove the background. Should be simple, right?</p>
 
+    <div class="story-img"><img src="../article-assets/01-original.jpg" alt="Original Seedream lobster"><div class="caption">The original Seedream 4.5 lobster — before everything went wrong 🦞</div></div>
+
     <h2>Background Removal: The Main Event</h2>
 
     <h3>❌ Attempt 1</h3>
     <p>White threshold method. Result: only removed the white rounded rectangle. The building behind the lobster? Still there. The AI thought "background" meant "white pixels only."</p>
     <p>Me: <strong>The building is also background, buddy…</strong></p>
 
-    <div class="img-placeholder"><span class="emoji">📸</span>Attempt 1 — building still standing</div>
+    <div class="story-img"><img src="../article-assets/02-first-attempt.png" alt="Attempt 1 — building still standing"><div class="caption">Attempt 1: White gone, building still standing 🏢</div></div>
 
     <h3>❌❌ Attempt 2</h3>
     <p>AI subject extraction + white cleanup. Building gone! But when I opened the result —</p>
@@ -301,14 +308,14 @@ body{padding-top:60px}
     <p>Its face was pale blue-white, so the AI classified it as background and nuked it. What remained was a red lobster shell with a transparent hole where the face should be.</p>
     <p>I stared at it for three seconds, then lost it.</p>
 
-    <div class="img-placeholder"><span class="emoji">💀</span>Attempt 2 — an existential crisis, visualized</div>
+    <div class="story-img"><img src="../article-assets/03-no-face.png" alt="Attempt 2 — face gone"><div class="caption">Attempt 2: Face gone 💀 An existential crisis, visualized</div></div>
 
     <h3>✅ Attempt 3 (kinda)</h3>
     <p>New approach: "edge-connected region algorithm" — only remove white pixels connected to the image border, protecting interior colors.</p>
     <p>The face came back! But the expression was... different. Originally fierce-cute, now it looked more like <em>"my soul left my body and was forcibly reinserted."</em></p>
     <p>I said: <strong>Fine, ship it.</strong></p>
 
-    <div class="img-placeholder"><img src="../mascot.png" style="width:60px;height:60px">Attempt 3 — face restored, dignity questionable</div>
+    <div class="story-img"><img src="../article-assets/04-face-back.png" alt="Attempt 3 — face restored"><div class="caption">Attempt 3: Face restored, dignity questionable 😶</div></div>
 
     <p>And so this lobster, fresh from facial reconstruction surgery, officially launched on our product website. See that logo in the top left? That's it. That's the expression.</p>
 
