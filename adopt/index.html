@@ -95,26 +95,43 @@ body{font-family:-apple-system,'PingFang SC','Noto Sans SC',sans-serif;backgroun
   .nav-links.open{display:flex!important}
   .nav-links a{padding:12px 20px!important;text-align:right!important;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px!important;display:block}
 }
+
+.lang-dropdown{position:relative;display:inline-block}
+.lang-trigger{background:rgba(255,255,255,0.06);border:1px solid #333;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:#aaa;cursor:pointer}
+.lang-menu{display:none;position:absolute;right:0;top:110%;background:#12121a;border:1px solid #333;border-radius:12px;padding:6px;min-width:120px;z-index:99}
+.lang-dropdown.open .lang-menu{display:block}
+.lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:#aaa;font-size:12px;border-radius:8px;cursor:pointer}
+.lang-menu button:hover{background:rgba(255,255,255,0.06);color:#e8e8e8}
 </style>
 </head>
 <body>
 <nav id="nav" style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 40px;background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid #222">
   <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit"><img src="../logo-nav.png" alt="" style="height:40px;width:40px;border-radius:8px"><div style="font-size:18px;font-weight:800;letter-spacing:-0.02em">Ima <b style="color:#E8584E">Claw</b> <span style="font-size:11px;color:#777;font-weight:400;margin-left:6px">by ImaStudio</span></div></a>
   <div class="nav-links" style="display:flex;gap:20px;align-items:center">
-    <a href="../" style="color:#777;font-size:13px;font-weight:500">首页</a>
-    <a href="../skills/" style="color:#777;font-size:13px;font-weight:500">Skills</a>
-    <a href="../pricing/" style="color:#777;font-size:13px;font-weight:500">🛒 购买</a>
-    <a href="../docs/" style="color:#777;font-size:13px;font-weight:500">帮助</a>
-    <a href="../blog/" style="color:#777;font-size:13px;font-weight:500">博客</a>
-  </div>
-  <button class="hamburger" onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')" style="display:none;background:none;border:none;color:#e8e8e8;font-size:24px;cursor:pointer">☰</button>
+    <a href="../" style="color:#777;font-size:13px;font-weight:500" data-i18n="nav.home">首页</a>
+    <a href="../skills/" style="color:#777;font-size:13px;font-weight:500" data-i18n="nav.skills">Skills</a>
+    <a href="../pricing/" style="color:#777;font-size:13px;font-weight:500" data-i18n="nav.pricing">🛒 购买</a>
+    <a href="../docs/" style="color:#777;font-size:13px;font-weight:500" data-i18n="nav.docs">帮助</a>
+    <a href="../blog/" style="color:#777;font-size:13px;font-weight:500" data-i18n="nav.blog">博客</a>
+  <div class="lang-dropdown" style="position:relative;margin-left:8px">
+      <button class="lang-trigger" onclick="event.stopPropagation();this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
+      <div class="lang-menu">
+        <button onclick="setLang('zh')">🇨🇳 中文</button>
+        <button onclick="setLang('en')">🇺🇸 English</button>
+        <button onclick="setLang('es')">🇪🇸 Español</button>
+        <button onclick="setLang('ja')">🇯🇵 日本語</button>
+        <button onclick="setLang('ar')">🇸🇦 العربية</button>
+      </div>
+    </div>
+  
+  <button onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')" style="display:none;background:none;border:none;color:#e8e8e8;font-size:24px;cursor:pointer">☰</button>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
 <div class="lobster">🦞</div>
-<h1>领养一只 AI 创作龙虾</h1>
-<p class="sub">3 分钟完成安装，0 行代码，永久免费。<br>你只需要一台电脑和一个 API Key。</p>
+<h1 data-i18n="adopt.title">领养一只 AI 创作龙虾</h1>
+<p class="sub" data-i18n="adopt.sub1">3 分钟完成安装，0 行代码，永久免费。<br data-i18n="adopt.sub2">你只需要一台电脑和一个 API Key。</p>
 <p class="tiny">macOS · Linux · Windows (WSL2) · 树莓派 · 云服务器 全平台支持</p>
 </section>
 
@@ -125,7 +142,7 @@ body{font-family:-apple-system,'PingFang SC','Noto Sans SC',sans-serif;backgroun
 <div class="step">
 <span class="step-num">STEP 1</span>
 <div class="time">⏱ 约 30 秒</div>
-<h2>一行命令，安装 OpenClaw</h2>
+<h2 data-i18n="step1.title">一行命令，安装 OpenClaw</h2>
 <p>打开终端（Terminal），粘贴下面的命令回车即可。脚本会自动检测环境、安装 Node.js（如果没有的话）、然后启动配置向导。</p>
 
 <div class="tabs">
@@ -302,6 +319,64 @@ document.addEventListener('click',function(e){
 document.querySelectorAll('.nav-links a').forEach(function(a){
   a.addEventListener('click',function(){var nav=document.querySelector('.nav-links');if(nav)nav.classList.remove('open')});
 });
+</script>
+
+<script>
+var ADOPT_I18N = {
+en: {
+  "adopt.title": "Adopt an AI Creative Lobster",
+  "adopt.sub1": "3 minutes to install. 0 lines of code. Free forever.",
+  "adopt.sub2": "All you need is a computer and an API Key.",
+  "adopt.platforms": "macOS · Linux · Windows (WSL2) · Raspberry Pi · Cloud · All platforms",
+  "step1.title": "One Command, Install OpenClaw",
+  "step1.desc": "Open Terminal, paste the command below and hit Enter. The script auto-detects your environment, installs Node.js (if needed), and launches the config wizard.",
+  "step2.title": "Give Your Lobster a Brain",
+  "step2.desc": "During setup, paste your AI provider API Key. This is the brain of your lobster — which model you choose determines its personality.",
+  "step3.title": "Connect Your Chat",
+  "step3.desc": "Choose your preferred messaging platform. Your lobster will be available wherever you chat.",
+  "step4.title": "Start Creating!",
+  "step4.desc": "Open your chat app and say hi to your lobster. It's ready to create images, videos, music, manage social media — whatever you need.",
+  "faq.title": "FAQ",
+  "nav.home": "Home", "nav.skills": "Skills", "nav.pricing": "🛒 Store", "nav.docs": "Docs", "nav.blog": "Blog"
+},
+ja: {
+  "adopt.title": "AI クリエイティブロブスターを迎えよう",
+  "adopt.sub1": "3分でインストール。コード不要。永久無料。",
+  "adopt.sub2": "必要なのはパソコンとAPI Keyだけ。",
+  "nav.home": "ホーム", "nav.skills": "スキル", "nav.pricing": "🛒 購入", "nav.docs": "ヘルプ", "nav.blog": "ブログ"
+},
+es: {
+  "adopt.title": "Adopta un Langosta IA Creativa",
+  "adopt.sub1": "3 minutos. 0 líneas de código. Gratis para siempre.",
+  "adopt.sub2": "Solo necesitas una computadora y una API Key.",
+  "nav.home": "Inicio", "nav.skills": "Skills", "nav.pricing": "🛒 Tienda", "nav.docs": "Ayuda", "nav.blog": "Blog"
+},
+ar: {
+  "adopt.title": "تبنَّ جراد بحر ذكي للإبداع",
+  "adopt.sub1": "٣ دقائق للتثبيت. بدون كود. مجاني للأبد.",
+  "adopt.sub2": "كل ما تحتاجه هو حاسوب ومفتاح API.",
+  "nav.home": "الرئيسية", "nav.skills": "المهارات", "nav.pricing": "🛒 المتجر", "nav.docs": "المساعدة", "nav.blog": "المدونة"
+}
+};
+
+var _zhStore = {};
+function setLang(l) {
+  var isZh = l==='zh'||l==='zh-CN';
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n');
+    if(!_zhStore[k]) _zhStore[k] = el.innerHTML;
+    if(isZh) { el.innerHTML = _zhStore[k]; }
+    else if(ADOPT_I18N[l]&&ADOPT_I18N[l][k]) { el.innerHTML = ADOPT_I18N[l][k]; }
+    else if(ADOPT_I18N['en']&&ADOPT_I18N['en'][k]) { el.innerHTML = ADOPT_I18N['en'][k]; }
+  });
+  var m={'zh':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
+  var t=document.querySelector('.lang-trigger');
+  if(t)t.textContent='🌐 '+(m[l]||l)+' ▾';
+  document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});
+  document.documentElement.style.direction=l==='ar'?'rtl':'ltr';
+}
+// Auto-detect
+(function(){var l=navigator.language||'en';var m={'zh':'zh','zh-CN':'zh','zh-TW':'zh','zh-HK':'zh','en':'en','es':'es','ja':'ja','ar':'ar'};setLang(m[l]||m[l.split('-')[0]]||'en')})();
 </script>
 </body>
 </html>
