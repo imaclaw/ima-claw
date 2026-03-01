@@ -384,8 +384,6 @@ nav{padding:14px 16px}
 </div>
 <p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank">Ima Studio</a> 出品· I'm A Studio, I'm A Claw 🦞 · <a href="https://github.com/openclaw/openclaw" target="_blank">Built on OpenClaw</a></p></footer>
 
-document.addEventListener("click",function(e){var nav=document.querySelector(".nav-links");var ham=document.querySelector(".hamburger");if(nav&&nav.classList.contains("open")&&!nav.contains(e.target)&&e.target!==ham){nav.classList.remove("open")}document.querySelectorAll(".lang-dropdown.open").forEach(function(d){if(!d.contains(e.target))d.classList.remove("open")})});
-document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",function(){var nav=document.querySelector(".nav-links");if(nav)nav.classList.remove("open")})});
 <script src="i18n.js?v=1772308492"></script>
 <script src="app.js"></script>
 </body>
