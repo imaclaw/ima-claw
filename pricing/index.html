@@ -375,6 +375,80 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
     </div>
   </div>
 
+  <!-- COMPARISON TABLE -->
+  <div class="compare-section">
+    <h2>📊 功能对比</h2>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr><th>功能</th><th>免费版</th><th>Plus</th><th class="col-pro">Pro ⭐</th><th>Ultra</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>每月积分</td><td>50/天</td><td>700</td><td class="col-pro">3,200</td><td>18,000</td></tr>
+          <tr><td>AI 模型</td><td>全部</td><td>全部</td><td class="col-pro">全部</td><td>全部</td></tr>
+          <tr><td>图片 / 视频 / 音乐</td><td>✅</td><td>✅</td><td class="col-pro">✅</td><td>✅</td></tr>
+          <tr><td>Bot 智能助手</td><td>❌</td><td>Lite</td><td class="col-pro">完整</td><td>完整</td></tr>
+          <tr><td>云端实例</td><td>❌</td><td>❌</td><td class="col-pro">1核2G</td><td>2核4G</td></tr>
+          <tr><td>24/7 运行</td><td>❌</td><td>❌</td><td class="col-pro">✅</td><td>✅</td></tr>
+          <tr><td>定时任务 / 自动化</td><td>❌</td><td>❌</td><td class="col-pro">✅</td><td>✅</td></tr>
+          <tr><td>多平台部署</td><td>❌</td><td>❌</td><td class="col-pro">✅</td><td>✅</td></tr>
+          <tr><td>浏览器工具</td><td>❌</td><td>❌</td><td class="col-pro">❌</td><td>✅</td></tr>
+          <tr><td>建站工具</td><td>❌</td><td>❌</td><td class="col-pro">❌</td><td>基础</td></tr>
+          <tr><td>并发 / 队列</td><td>—</td><td>1 / —</td><td class="col-pro">1 / 10</td><td>2 / 50</td></tr>
+          <tr><td>单次时长上限</td><td>—</td><td>5 分钟</td><td class="col-pro">15 分钟</td><td>60 分钟</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>❓ 常见问题</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>积分是什么？700 积分能做什么？</span><span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">积分是 Ima Claw 的计费单位。700 积分约等于：200 次对话 + 50 张图片 + 5 条短视频。不同操作消耗不同积分：对话 1-3 分/次，图片 3-18 分/张，视频 8-320 分/条（取决于模型和时长）。每月自动重置。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>为什么说"一个订阅替代 5 个工具"？</span><span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">单独购买 ChatGPT Plus($20) + Midjourney($24) + Kling Pro($26) + Suno($10) 需要 $80+/月。Ima Claw Pro $49.99/月全部包含，还额外提供 24/7 AI Agent、定时自动化、多平台部署等独家能力——这些是任何单一工具都没有的。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>免费版和付费版有什么区别？</span><span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">免费版可以使用所有 AI 生成能力（图片/视频/音乐），每天 50 积分。付费版额外解锁 Bot 智能助手、云端实例、24/7 运行、定时任务、多平台部署等核心能力。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>可以随时更换套餐吗？</span><span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">可以。你可以随时升级或降级套餐，升级立即生效，降级在当前计费周期结束后生效。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>积分用完了怎么办？</span><span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">积分用完后 Bot 功能会暂停，但免费版的基础生成功能不受影响。你可以等待下月自动重置，或升级到更高级的套餐。后续会推出积分包供单独购买。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>支持哪些支付方式？</span><span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">我们支持 Visa / Mastercard 信用卡、PayPal，以及微信支付、支付宝。具体支付方式将在定价正式发布时公布。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCORD BANNER -->
+  <a href="https://discord.gg/UdXFVYhh" target="_blank" class="discord-banner">
+    💬 加入 Discord 社区，与其他龙虾主人交流
+  </a>
+
   <!-- CTA -->
   <div class="cta-section">
     <h2>🦞 准备好领养你的龙虾了吗？</h2>
