@@ -178,15 +178,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <div id="steps-local" style="border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(46,204,113,0.03) 0%,transparent 120px)">
 
 <!-- Local info panel -->
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;font-size:12px">
-<div style="background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.15);border-radius:8px;padding:10px 12px">
-<div style="color:#2ecc71;font-weight:600;margin-bottom:6px">✅ 优势</div>
-<div style="color:var(--text-2);line-height:1.7">数据 100% 本地<br>与工作环境深度联动<br>永久免费，无月费<br>开源透明，完全掌控</div>
-</div>
-<div style="background:rgba(231,126,34,0.06);border:1px solid rgba(231,126,34,0.15);border-radius:8px;padding:10px 12px">
-<div style="color:#e67e22;font-weight:600;margin-bottom:6px">⚠️ 注意</div>
-<div style="color:var(--text-2);line-height:1.7">电脑关机则离线<br>需要基础命令行操作<br>性能取决于本机配置</div>
-</div>
+<div style="margin-bottom:20px;padding:14px 16px;background:rgba(46,204,113,0.04);border:1px solid rgba(46,204,113,0.12);border-radius:10px;font-size:13px;color:var(--text-2);line-height:1.8">
+<div style="font-weight:600;color:var(--text);margin-bottom:8px;font-size:14px">💻 本地领养 — 你的龙虾住在你的电脑里</div>
+<span style="color:#2ecc71">✅</span> 数据 100% 本地存储，隐私完全掌控<br>
+<span style="color:#2ecc71">✅</span> 与本地工作环境深度联动（文件、终端、浏览器）<br>
+<span style="color:#2ecc71">✅</span> 永久免费，无月费，开源透明<br>
+<span style="color:var(--text-3)">⚠️ 电脑关机时龙虾会休眠 · 需要基础命令行操作</span>
 </div>
 
 
@@ -298,15 +295,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <div id="steps-cloud" style="display:none;border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(51,112,255,0.03) 0%,transparent 120px)">
 
 <!-- Cloud info panel -->
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;font-size:12px">
-<div style="background:rgba(51,112,255,0.06);border:1px solid rgba(51,112,255,0.15);border-radius:8px;padding:10px 12px">
-<div style="color:#3370FF;font-weight:600;margin-bottom:6px">✅ 优势</div>
-<div style="color:var(--text-2);line-height:1.7">7×24 小时在线<br>多设备随时访问<br>数据安全备份<br>零配置，注册即用</div>
-</div>
-<div style="background:rgba(231,126,34,0.06);border:1px solid rgba(231,126,34,0.15);border-radius:8px;padding:10px 12px">
-<div style="color:#e67e22;font-weight:600;margin-bottom:6px">⚠️ 注意</div>
-<div style="color:var(--text-2);line-height:1.7">需要月费<br>数据存储在云端<br>依赖网络连接</div>
-</div>
+<div style="margin-bottom:20px;padding:14px 16px;background:rgba(51,112,255,0.04);border:1px solid rgba(51,112,255,0.12);border-radius:10px;font-size:13px;color:var(--text-2);line-height:1.8">
+<div style="font-weight:600;color:var(--text);margin-bottom:8px;font-size:14px">☁️ 云端领养 — 你的龙虾住在云上，随时待命</div>
+<span style="color:#3370FF">✅</span> 7×24 小时在线，永不关机<br>
+<span style="color:#3370FF">✅</span> 手机、电脑、平板随时访问<br>
+<span style="color:#3370FF">✅</span> 企业级数据安全备份，永不丢失<br>
+<span style="color:#3370FF">✅</span> 零配置，注册即用，无需命令行<br>
+<span style="color:var(--text-3)">⚠️ 需要云端月费 · 数据托管在云端</span>
 </div>
 
 <div style="text-align:center;margin-bottom:20px">
@@ -454,19 +449,27 @@ function switchMode(mode) {
     cloud.style.display = 'block';
     modeLocal.style.background = 'var(--surface)';
     modeLocal.style.borderBottom = '3px solid transparent';
-    modeLocal.style.opacity = '0.5';
-    modeCloud.style.background = 'rgba(51,112,255,0.1)';
+    modeLocal.style.opacity = '0.4';
+    modeLocal.style.padding = '10px 12px';
+    modeCloud.style.background = 'rgba(51,112,255,0.15)';
     modeCloud.style.borderBottom = '3px solid #3370FF';
     modeCloud.style.opacity = '1';
+    modeCloud.style.padding = '14px 12px';
+    cloud.style.background = 'linear-gradient(180deg,rgba(51,112,255,0.05) 0%,transparent 200px)';
+    local.style.background = '';
   } else {
     local.style.display = 'block';
     cloud.style.display = 'none';
-    modeLocal.style.background = 'rgba(46,204,113,0.1)';
+    modeLocal.style.background = 'rgba(46,204,113,0.15)';
     modeLocal.style.borderBottom = '3px solid #2ecc71';
     modeLocal.style.opacity = '1';
+    modeLocal.style.padding = '14px 12px';
     modeCloud.style.background = 'var(--surface)';
     modeCloud.style.borderBottom = '3px solid transparent';
-    modeCloud.style.opacity = '0.5';
+    modeCloud.style.opacity = '0.4';
+    modeCloud.style.padding = '10px 12px';
+    local.style.background = 'linear-gradient(180deg,rgba(46,204,113,0.05) 0%,transparent 200px)';
+    cloud.style.background = '';
   }
   var stepsLocal = document.getElementById('steps-local');
   var stepsCloud = document.getElementById('steps-cloud');
