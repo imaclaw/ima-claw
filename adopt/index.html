@@ -173,10 +173,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <div style="font-size:11px;color:#3370FF;margin-top:2px">即将推出 · 7×24h 在线</div>
 </div>
 </div>
-</section>
 
-<!-- Local Install Steps (shown by default) -->
-<section class="steps" id="steps-local">
+<!-- Content area with visual connection to tabs -->
+<div id="steps-local" style="border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(46,204,113,0.03) 0%,transparent 120px)">
+
+<!-- Local info panel -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;font-size:12px">
+<div style="background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.15);border-radius:8px;padding:10px 12px">
+<div style="color:#2ecc71;font-weight:600;margin-bottom:6px">✅ 优势</div>
+<div style="color:var(--text-2);line-height:1.7">数据 100% 本地<br>与工作环境深度联动<br>永久免费，无月费<br>开源透明，完全掌控</div>
+</div>
+<div style="background:rgba(231,126,34,0.06);border:1px solid rgba(231,126,34,0.15);border-radius:8px;padding:10px 12px">
+<div style="color:#e67e22;font-weight:600;margin-bottom:6px">⚠️ 注意</div>
+<div style="color:var(--text-2);line-height:1.7">电脑关机则离线<br>需要基础命令行操作<br>性能取决于本机配置</div>
+</div>
+</div>
 
 
 <!-- Step 1: Install -->
@@ -282,8 +293,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 </section>
 
-<!-- Cloud Adopt Section (hidden by default) -->
-<section class="steps" id="steps-cloud" style="display:none">
+</div>
+
+<div id="steps-cloud" style="display:none;border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(51,112,255,0.03) 0%,transparent 120px)">
+
+<!-- Cloud info panel -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;font-size:12px">
+<div style="background:rgba(51,112,255,0.06);border:1px solid rgba(51,112,255,0.15);border-radius:8px;padding:10px 12px">
+<div style="color:#3370FF;font-weight:600;margin-bottom:6px">✅ 优势</div>
+<div style="color:var(--text-2);line-height:1.7">7×24 小时在线<br>多设备随时访问<br>数据安全备份<br>零配置，注册即用</div>
+</div>
+<div style="background:rgba(231,126,34,0.06);border:1px solid rgba(231,126,34,0.15);border-radius:8px;padding:10px 12px">
+<div style="color:#e67e22;font-weight:600;margin-bottom:6px">⚠️ 注意</div>
+<div style="color:var(--text-2);line-height:1.7">需要月费<br>数据存储在云端<br>依赖网络连接</div>
+</div>
+</div>
 
 <div style="text-align:center;margin-bottom:20px">
 <span style="background:rgba(51,112,255,0.15);color:#3370FF;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600">☁️ 云端领养流程</span>
@@ -340,6 +364,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 <p style="color:var(--text-3);font-size:13px;margin-top:16px">等不及？先试试 <a href="javascript:switchMode('local')" style="color:var(--lobster-light)">本地领养</a>，3 分钟就能用！</p>
 
+</div>
 </div>
 </section>
 
@@ -443,7 +468,10 @@ function switchMode(mode) {
     modeCloud.style.borderBottom = '3px solid transparent';
     modeCloud.style.opacity = '0.5';
   }
-  window.scrollTo({top: document.querySelector('.adopt-modes').offsetTop - 80, behavior: 'smooth'});
+  var stepsLocal = document.getElementById('steps-local');
+  var stepsCloud = document.getElementById('steps-cloud');
+  if (stepsLocal) stepsLocal.style.background = mode === 'local' ? 'linear-gradient(180deg,rgba(46,204,113,0.03) 0%,transparent 120px)' : '';
+  if (stepsCloud) stepsCloud.style.background = mode === 'cloud' ? 'linear-gradient(180deg,rgba(51,112,255,0.03) 0%,transparent 120px)' : '';
 }
 function notifyCloud() {
   var email = document.getElementById('cloud-email').value;
