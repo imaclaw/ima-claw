@@ -161,21 +161,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 <!-- Tabs -->
 <div style="display:flex;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-bottom:0">
-<div id="mode-local" onclick="switchMode('local')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:rgba(46,204,113,0.1);border-bottom:3px solid #2ecc71">
+<div id="mode-local" onclick="switchMode('local')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:rgba(46,204,113,0.1);border-bottom:none">
 <div style="font-size:24px;margin-bottom:4px">💻</div>
 <div style="font-size:15px;font-weight:700;color:var(--text)">本地领养</div>
 <div style="font-size:11px;color:#2ecc71;margin-top:2px">免费 · 数据在你手中</div>
 </div>
 <div style="width:1px;background:var(--border)"></div>
-<div id="mode-cloud" onclick="switchMode('cloud')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:var(--surface);border-bottom:3px solid transparent;opacity:0.5">
+<div id="mode-cloud" onclick="switchMode('cloud')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:var(--surface);border-bottom:none;opacity:0.5">
 <div style="font-size:24px;margin-bottom:4px">☁️</div>
 <div style="font-size:15px;font-weight:700;color:var(--text)">云端领养</div>
 <div style="font-size:11px;color:#3370FF;margin-top:2px">即将推出 · 7×24h 在线</div>
 </div>
 </div>
+<div id="mode-bar" style="height:3px;background:#2ecc71;border-radius:0;transition:all 0.3s"></div>
 
 <!-- Content area with visual connection to tabs -->
-<div id="steps-local" style="border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(46,204,113,0.03) 0%,transparent 120px);border-left:3px solid #2ecc71">
+<div id="steps-local" style="border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(46,204,113,0.03) 0%,transparent 120px);border-left:2px solid rgba(46,204,113,0.2)">
 
 <!-- Local info panel -->
 <div style="margin-bottom:20px;padding:14px 16px;background:rgba(46,204,113,0.04);border:1px solid rgba(46,204,113,0.12);border-radius:10px;font-size:13px;color:var(--text-2);line-height:1.8">
@@ -292,7 +293,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 </div>
 
-<div id="steps-cloud" style="display:none;border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(51,112,255,0.03) 0%,transparent 120px);border-left:3px solid #3370FF">
+<div id="steps-cloud" style="display:none;border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(51,112,255,0.03) 0%,transparent 120px);border-left:2px solid rgba(51,112,255,0.2)">
 
 <!-- Cloud info panel -->
 <div style="margin-bottom:20px;padding:14px 16px;background:rgba(51,112,255,0.04);border:1px solid rgba(51,112,255,0.12);border-radius:10px;font-size:13px;color:var(--text-2);line-height:1.8">
@@ -443,11 +444,11 @@ function switchMode(mode) {
     local.style.display = 'none';
     cloud.style.display = 'block';
     modeLocal.style.background = 'var(--surface)';
-    modeLocal.style.borderBottom = '3px solid transparent';
+    
     modeLocal.style.opacity = '0.4';
     modeLocal.style.padding = '10px 12px';
     modeCloud.style.background = 'rgba(51,112,255,0.15)';
-    modeCloud.style.borderBottom = '3px solid #3370FF';
+    document.getElementById('mode-bar').style.background = '#3370FF';
     modeCloud.style.opacity = '1';
     modeCloud.style.padding = '14px 12px';
     cloud.style.background = 'linear-gradient(180deg,rgba(51,112,255,0.05) 0%,transparent 200px)';
@@ -456,11 +457,11 @@ function switchMode(mode) {
     local.style.display = 'block';
     cloud.style.display = 'none';
     modeLocal.style.background = 'rgba(46,204,113,0.15)';
-    modeLocal.style.borderBottom = '3px solid #2ecc71';
+    document.getElementById('mode-bar').style.background = '#2ecc71';
     modeLocal.style.opacity = '1';
     modeLocal.style.padding = '14px 12px';
     modeCloud.style.background = 'var(--surface)';
-    modeCloud.style.borderBottom = '3px solid transparent';
+    
     modeCloud.style.opacity = '0.4';
     modeCloud.style.padding = '10px 12px';
     local.style.background = 'linear-gradient(180deg,rgba(46,204,113,0.05) 0%,transparent 200px)';
