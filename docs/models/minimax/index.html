@@ -154,10 +154,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <div class="tut-tags">
 <span class="tut-tag tag-easy">⭐ 简单</span>
 <span class="tut-tag tag-time">⏱ 约 2 分钟</span>
-<span class="tut-tag tag-free">🔑 IMA Cloud</span>
+<span class="tut-tag tag-free">🔑 ImaClaw</span>
 </div></div></div>
 
-<div class="tip">💡 <strong>Ima Claw 已封装所有模型。</strong>你不需要单独去 MiniMax 注册账号或获取 API Key。只需一个 <strong>IMA Cloud 账号</strong>，即可使用包括 MiniMax 在内的所有 30+ 模型。</div>
+<div class="tip">💡 <strong>Ima Claw 已封装所有模型。</strong>你不需要单独去 MiniMax 注册账号或获取 API Key。只需一个 <strong>ImaClaw 账号</strong>，即可使用包括 MiniMax 在内的所有 30+ 模型。</div>
 
 <div class="info-box"><h3>📋 前置条件</h3>
 <ul class="info-list">
@@ -172,19 +172,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 </div>
 
 <div class="step"><div class="step-badge">STEP 2</div>
-<h2>获取 IMA Cloud API Key</h2>
+<h2>获取 ImaClaw API Key</h2>
 <p>登录后进入 <span class="highlight">Settings → API Keys</span>，点击创建新 Key。</p>
 <p>复制你的 API Key，格式类似：</p>
-<div class="code-block"><span class="comment"># 你的 IMA Cloud API Key（示例）</span><br>ima_sk_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<div class="code-block"><span class="comment"># 你的 ImaClaw API Key（示例）</span><br>imaclaw_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
 <div class="warning">⚠️ API Key 只显示一次，请立即复制保存。如果丢失，可以删除旧 Key 重新创建。</div>
 </div>
 
 <div class="step"><div class="step-badge">STEP 3</div>
 <h2>填入龙虾配置</h2>
-<p>编辑配置文件，填入你的 IMA Cloud API Key：</p>
+<p>编辑配置文件，填入你的 ImaClaw API Key：</p>
 <div class="code-block">nano ~/.openclaw/openclaw.json<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
 <p>在配置文件中设置：</p>
-<div class="code-block">{<br>&nbsp;&nbsp;"ai": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"provider": "ima-cloud",<br>&nbsp;&nbsp;&nbsp;&nbsp;"apiKey": "<span style="color:var(--gold)">你的 IMA Cloud API Key</span>"<br>&nbsp;&nbsp;}<br>}<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<div class="code-block">{<br>&nbsp;&nbsp;"ai": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"provider": "imaclaw",<br>&nbsp;&nbsp;&nbsp;&nbsp;"apiKey": "<span style="color:var(--gold)">你的 ImaClaw API Key</span>"<br>&nbsp;&nbsp;}<br>}<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
 <p>保存后重启：</p>
 <div class="code-block">openclaw gateway restart<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
 </div>
@@ -201,24 +201,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <div class="success-box">
 <div class="emoji"><img src="../../../logo-nav.png" style="width:64px;height:64px;display:inline-block;vertical-align:middle">🎉</div>
 <h3>恭喜！你的 Ima 龙虾已连接 MiniMax</h3>
-<p>通过 IMA Cloud，你可以随时切换使用所有 30+ 模型</p></div>
+<p>通过 ImaClaw，你可以随时切换使用所有 30+ 模型</p></div>
 
 <div class="info-box"><h3>📦 MiniMax 可用模型</h3>
 <p style="color:var(--text-2);font-size:14px">MiniMax-Text-01、abab6.5s</p>
-<p style="color:var(--text-3);font-size:12px;margin-top:8px">所有模型通过 IMA Cloud 统一调用，无需单独配置。</p></div>
+<p style="color:var(--text-3);font-size:12px;margin-top:8px">所有模型通过 ImaClaw 统一调用，无需单独配置。</p></div>
 
 <div class="faq"><h2>❓ 常见问题</h2>
 <div class="faq-item">
 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">需要去 MiniMax 官网注册吗？<span class="faq-arrow">▾</span></div>
-<div class="faq-a"><p>不需要！Ima Claw 通过 IMA Cloud 封装了所有模型。你只需要 IMA Studio 账号和 API Key，就能使用包括 MiniMax 在内的 30+ 模型。</p></div></div>
+<div class="faq-a"><p>不需要！Ima Claw 通过 ImaClaw 封装了所有模型。你只需要 IMA Studio 账号和 API Key，就能使用包括 MiniMax 在内的 30+ 模型。</p></div></div>
 
 <div class="faq-item">
 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">怎么切换不同的模型？<span class="faq-arrow">▾</span></div>
 <div class="faq-a"><p>直接在对话中告诉龙虾"切换到 XXX 模型"即可。也可以在配置文件中设置默认模型。</p></div></div>
 
 <div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">IMA Cloud 怎么计费？<span class="faq-arrow">▾</span></div>
-<div class="faq-a"><p>IMA Cloud 提供免费额度供体验。超出后按用量计费，费用在 IMA Studio 后台统一结算。具体价格见 <a href="../../../pricing/" style="color:var(--lobster-light)">定价页面</a>。</p></div></div>
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">ImaClaw 怎么计费？<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>ImaClaw 提供免费额度供体验。超出后按用量计费，费用在 IMA Studio 后台统一结算。具体价格见 <a href="../../../pricing/" style="color:var(--lobster-light)">定价页面</a>。</p></div></div>
 </div>
 
 <div class="bottom-nav">
