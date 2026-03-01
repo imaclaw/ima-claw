@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>免费领养你的龙虾 🦞 - Ima Claw</title>
+<title data-i18n="page.title">免费领养你的龙虾 🦞 - Ima Claw</title>
 <style>
 :root{--bg:#0a0a0f;--surface:#12121a;--surface-2:#1a1a24;--border:#222;--text:#e8e8e8;--text-2:#a0a0a0;--text-3:#666;--lobster:#D4403A;--lobster-light:#E8584E;--gold:#f2c744;--green:#E8584E;--blue:#4A80D4}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -178,7 +178,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 </div>
 <div style="width:1px;background:var(--border)"></div>
 <div id="mode-cloud" onclick="switchMode('cloud')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:var(--surface);opacity:0.4;position:relative;overflow:visible">
-<div style="position:absolute;top:-1px;right:-1px;background:var(--lobster);color:white;font-size:11px;font-weight:700;padding:4px 10px 4px 12px;border-radius:0 12px 0 8px;line-height:1;letter-spacing:0.5px;z-index:2">⭐推荐</div>
+<div style="position:absolute;top:-1px;right:-1px;background:var(--lobster);color:white;font-size:11px;font-weight:700;padding:4px 10px 4px 12px;border-radius:0 12px 0 8px;line-height:1;letter-spacing:0.5px;z-index:2" data-i18n="tab.recommend">⭐推荐</div>
 <div style="font-size:24px;margin-bottom:4px">☁️</div>
 <div style="font-size:15px;font-weight:700;color:var(--text)" data-i18n="tab.cloud">云端领养</div>
 <div style="font-size:11px;color:#4A80D4;margin-top:2px" data-i18n="tab.cloud.sub">即将推出 · 7×24h 在线</div>
@@ -223,7 +223,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 <div id="install-win" class="tab-content">
 <div class="code-box">
-<div class="label">PowerShell（管理员）</div>
+<div class="label" data-i18n="step1.ps.label">PowerShell（管理员）</div>
 <code>iwr -useb https://openclaw.ai/install.ps1 | iex</code>
 <button class="copy-btn" onclick="copyCode(this)" data-i18n="btn.copy">复制</button>
 </div>
@@ -243,12 +243,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <div class="providers">
   <a href="../docs/models/google/" class="provider"><div class="icon"><img src="logos/google.svg" alt="Google"></div><div class="name">Google</div><div class="tag">Gemini 2.5 Pro</div></a>
   <a href="../docs/models/anthropic/" class="provider"><div class="icon"><img src="logos/anthropic.svg" alt="Anthropic"></div><div class="name">Anthropic</div><div class="tag">Claude Sonnet · Opus</div></a>
-  <a href="../docs/models/qwen/" class="provider"><div class="icon"><img src="logos/qwen.svg" alt="千问"></div><div class="name">阿里千问</div><div class="tag">Qwen-Max · Qwen-Plus</div></a>
+  <a href="../docs/models/qwen/" class="provider"><div class="icon"><img src="logos/qwen.svg" alt="千问"></div><div class="name" data-i18n="provider.qwen.name">阿里千问</div><div class="tag">Qwen-Max · Qwen-Plus</div></a>
   <a href="../docs/models/kimi/" class="provider"><div class="icon"><img src="logos/moonshot.svg" alt="Moonshot"></div><div class="name">Kimi</div><div class="tag">Kimi K2.5</div></a>
   <a href="../docs/models/minimax/" class="provider"><div class="icon"><img src="logos/minimax.svg" alt="MiniMax"></div><div class="name">MiniMax</div><div class="tag">MiniMax-Text-01</div></a>
   <a href="../docs/models/openai/" class="provider"><div class="icon"><img src="logos/openai.svg" alt="OpenAI"></div><div class="name">OpenAI</div><div class="tag">GPT-4o · o3</div></a>
   <a href="../docs/models/aws-bedrock/" class="provider"><div class="icon"><img src="logos/aws.svg" alt="AWS Bedrock"></div><div class="name">AWS Bedrock</div><div class="tag">Claude · Llama</div></a>
-  <div class="provider"><div class="icon"><img src="logos/more.svg" alt="更多"></div><div class="name">更多...</div><div class="tag">20+ 供应商</div></div>
+  <div class="provider"><div class="icon"><img src="logos/more.svg" alt="更多"></div><div class="name" data-i18n="provider.more.name">更多...</div><div class="tag" data-i18n="provider.more.tag">20+ 供应商</div></div>
 </div>
 
 
@@ -273,12 +273,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <p data-i18n="step3.desc">安装完成后，配置向导会引导你把龙虾连到你常用的聊天工具。它支持：</p>
 
 <div class="providers">
-  <a href="../docs/channels/telegram/" class="provider"><div class="icon"><img src="logos/telegram.svg" alt="Telegram"></div><div class="name">Telegram</div><div class="tag">推荐 · 最简单</div></a>
-  <a href="../docs/channels/whatsapp/" class="provider"><div class="icon"><img src="logos/whatsapp.svg" alt="WhatsApp"></div><div class="name">WhatsApp</div><div class="tag">扫码即连</div></a>
-  <a href="../docs/channels/discord/" class="provider"><div class="icon"><img src="logos/discord.svg" alt="Discord"></div><div class="name">Discord</div><div class="tag">Bot 模式</div></a>
-  <a href="../docs/channels/feishu/" class="provider"><div class="icon"><img src="logos/feishu.png" alt="飞书"></div><div class="name">飞书</div><div class="tag">企业版</div></a>
-  <a href="../docs/channels/signal/" class="provider" style="opacity:0.6"><div class="icon"><img src="logos/signal.svg" alt="Signal"></div><div class="name">Signal</div><div class="tag" style="color:var(--text-3)">进阶 · 需自行配置</div></a>
-  <a href="../docs/channels/imessage/" class="provider" style="opacity:0.6"><div class="icon"><img src="logos/imessage.svg" alt="iMessage"></div><div class="name">iMessage</div><div class="tag" style="color:var(--text-3)">进阶 · 需 macOS</div></a>
+  <a href="../docs/channels/telegram/" class="provider"><div class="icon"><img src="logos/telegram.svg" alt="Telegram"></div><div class="name">Telegram</div><div class="tag" data-i18n="channel.telegram.tag">推荐 · 最简单</div></a>
+  <a href="../docs/channels/whatsapp/" class="provider"><div class="icon"><img src="logos/whatsapp.svg" alt="WhatsApp"></div><div class="name">WhatsApp</div><div class="tag" data-i18n="channel.whatsapp.tag">扫码即连</div></a>
+  <a href="../docs/channels/discord/" class="provider"><div class="icon"><img src="logos/discord.svg" alt="Discord"></div><div class="name">Discord</div><div class="tag" data-i18n="channel.discord.tag">Bot 模式</div></a>
+  <a href="../docs/channels/feishu/" class="provider"><div class="icon"><img src="logos/feishu.png" alt="飞书"></div><div class="name" data-i18n="channel.feishu.name">飞书</div><div class="tag" data-i18n="channel.feishu.tag">企业版</div></a>
+  <a href="../docs/channels/signal/" class="provider" style="opacity:0.6"><div class="icon"><img src="logos/signal.svg" alt="Signal"></div><div class="name">Signal</div><div class="tag" style="color:var(--text-3)" data-i18n="channel.signal.tag">进阶 · 需自行配置</div></a>
+  <a href="../docs/channels/imessage/" class="provider" style="opacity:0.6"><div class="icon"><img src="logos/imessage.svg" alt="iMessage"></div><div class="name">iMessage</div><div class="tag" style="color:var(--text-3)" data-i18n="channel.imessage.tag">进阶 · 需 macOS</div></a>
 </div>
 
 <p style="font-size:13px;color:var(--text-2);margin-top:12px" data-i18n="step3.skip">也可以跳过这步，先用网页 / 终端界面聊天，随时再连接。</p>
@@ -484,9 +484,9 @@ function switchTab(el, group, id) {
 function copyCode(btn) {
   const code = btn.parentElement.querySelector('code').textContent;
   navigator.clipboard.writeText(code).then(() => {
-    btn.textContent = '已复制 ✓';
+    btn.textContent = (localStorage.getItem('imaclaw-lang')||'zh')==='zh'?'已复制 ✓':'Copied ✓';
     btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = '复制'; btn.classList.remove('copied'); }, 2000);
+    setTimeout(() => { var _l=localStorage.getItem('imaclaw-lang')||'zh'; btn.textContent = _l==='zh'?'复制':'Copy'; btn.classList.remove('copied'); }, 2000);
   });
 }
 </script>
@@ -522,16 +522,16 @@ en: {
   "local.title": "🖥 Local — Your lobster lives on your computer",
   "local.info": "<span style='color:#E8584E'>✅</span> Free forever, no payment needed<br><span style='color:#E8584E'>✅</span> Deep integration with local files, terminal, browser<br><span style='color:#E8584E'>✅</span> Open source, fully customizable<br><span style='color:#eab308'>⚠️</span> Offline when computer is off<br><span style='color:#eab308'>⚠️</span> Command line required, higher learning curve<br><span style='color:#eab308'>⚠️</span> Self-managed skills, open ecosystem has security risks<br><span style='color:#eab308'>⚠️</span> No managed hosting, all maintenance is on you",
   "cloud.title": "☁️ Cloud — Your lobster lives in the cloud, always ready",
-  "cloud.info": "<span style='color:#4A80D4'>✅</span> 24/7 online, always on duty<br><span style='color:#4A80D4'>✅</span> No setup needed, ready in 3 minutes<br><span style='color:#4A80D4'>✅</span> Auto updates, managed security<br><span style='color:#4A80D4'>✅</span> Multi-platform deployment (WhatsApp, Telegram, Discord...)<br><span style='color:#4A80D4'>✅</span> Team sharing and collaboration",
+  "cloud.info": "<span style='color:#4A80D4'>✅</span> 24/7 online, never offline, always ready to serve<br><span style='color:#4A80D4'>✅</span> Zero config, sign up and use, no command line<br><span style='color:#4A80D4'>✅</span> IMA managed hosting, skill security scanning, worry-free<br><span style='color:#4A80D4'>✅</span> Enterprise data backup, multi-device seamless sync<br><span style='color:#4A80D4'>✅</span> Auto updates, always get the latest capabilities",
   "cloud.coming": "Cloud Adoption Coming Soon",
   "cloud.cta": "📋 Book Beta Access",
   "cloud.compare.title": "Local vs Cloud",
   "cloud.features.title": "☁️ Cloud version will support:",
   "cloud.promo": "🔥 Limited offer: Free cloud beta spots available now!",
   "cloud.promo.sub": "Fill out the form to reserve your spot. We'll notify you first when it opens.",
-  "cloud.desc": "Cloud adoption is under development. Book now for priority access.",
-  "cloud.features": "24/7 online, no computer needed · Multi-platform deployment · Auto updates · Team sharing",
-  "cloud.tryfirst": "Can't wait? Try ",
+  "cloud.desc": "Your lobster runs 24/7 in the cloud, serving you anytime, anywhere.<br>No installation, no command line, just sign up and go.",
+  "cloud.features": "<div>🌐 <strong>Use in Browser</strong> — Open a web page to chat with your lobster</div><div>📱 <strong>Multi-device Sync</strong> — Phone, computer, tablet seamlessly</div><div>⏰ <strong>24/7 Online</strong> — Scheduled tasks, message forwarding, background processing</div><div>🔐 <strong>Data Security</strong> — Enterprise encryption, auto backup</div><div>⚡ <strong>One-click Connect</strong> — Telegram, Discord, Feishu and all channels</div><div>🧠 <strong>Eternal Memory</strong> — Chat memory and preferences never lost</div>",
+  "cloud.tryfirst": "Can't wait? Try <a href='javascript:switchMode(&quot;local&quot;)' style='color:var(--lobster-light)'>local adoption</a> first, ready in 3 minutes!",
   "skills.title": "🎯 Skills Your Lobster Knows Out of the Box",
   "faq.title": "❓ FAQ",
   "faq.q1": "Is it really free?",
@@ -556,7 +556,7 @@ en: {
   "step2.clickhint": "Click any model for details:",
   "step2.register.hint": "💡 Sign up for ImaStudio, get your ImaClaw API Key, and access all 30+ models",
   "step2.register.btn": "Sign Up Free →",
-  "step2.providers": "",
+  "step2.providers": "<div class='pd'><span class='pd-name'>🔑 Unified Access</span> — All models via ImaClaw unified API. One ImaStudio account + API Key for all 30+ models</div><div class='pd'><span class='pd-name'>🟢 Google Gemini</span> — Gemini 2.5 Pro/Flash, powerful multimodal</div><div class='pd'><span class='pd-name'>🟠 Anthropic Claude</span> — Claude Sonnet/Opus, deep reasoning & long context</div><div class='pd'><span class='pd-name'>🟣 Alibaba Qwen</span> — Qwen-Max/Plus, strong Chinese ability</div><div class='pd'><span class='pd-name'>🌙 Kimi K2.5</span> — Long context, balanced Chinese & English</div><div class='pd'><span class='pd-name'>🔵 MiniMax</span> — MiniMax-Text-01, ultra-long context</div><div class='pd'><span class='pd-name'>⚫ OpenAI</span> — GPT-4o/o3, industry benchmark</div><div class='pd'><span class='pd-name'>🟡 AWS Bedrock</span> — Claude/Llama via AWS, enterprise-grade</div>",
   "step3.title": "Connect Your Chat 💬",
   "step3.desc": "After installation, the setup wizard guides you to connect your lobster to your favorite chat platform. It supports:",
   "step3.time": "⏱ ~1 minute",
@@ -610,6 +610,22 @@ en: {
   "skill.feishu.desc": "Docs, calendars, tasks, Bitable — full Feishu workspace integration",
   "skill.more.title": "100+ More Skills",
   "skill.more.desc": "Browse the Skill marketplace, install with one command, infinite expansion",
+  "page.title": "Adopt Your Lobster 🦞 - Ima Claw",
+  "step1.ps.label": "PowerShell (Admin)",
+  "provider.qwen.name": "Alibaba Qwen",
+  "provider.more.name": "More...",
+  "provider.more.tag": "20+ providers",
+  "channel.telegram.tag": "Recommended · Easiest",
+  "channel.whatsapp.tag": "Scan to connect",
+  "channel.discord.tag": "Bot mode",
+  "channel.feishu.name": "Feishu",
+  "channel.feishu.tag": "Enterprise",
+  "channel.signal.tag": "Advanced · Self-config",
+  "channel.imessage.tag": "Advanced · macOS only",
+  "community.title": "🦞 Join the Ima Claw Community",
+  "community.desc": "Connect with other lobster owners. Get updates, tips, and help.",
+  "community.btn": "Join Discord",
+  "cloud.compare": "<tr style='border-bottom:1px solid var(--border)'><td style='padding:6px 4px;font-weight:600;color:var(--text)'></td><td style='padding:6px 4px;text-align:center;font-weight:600;color:#E8584E'>🖥 Local</td><td style='padding:6px 4px;text-align:center;font-weight:600;color:#4A80D4'>☁️ Cloud</td></tr><tr style='border-bottom:1px solid var(--border)'><td style='padding:6px 4px'>Availability</td><td style='text-align:center'>When on</td><td style='text-align:center'>24/7</td></tr><tr style='border-bottom:1px solid var(--border)'><td style='padding:6px 4px'>Data</td><td style='text-align:center'>Local</td><td style='text-align:center'>Encrypted</td></tr><tr style='border-bottom:1px solid var(--border)'><td style='padding:6px 4px'>Cost</td><td style='text-align:center'>Free</td><td style='text-align:center'>Monthly</td></tr><tr style='border-bottom:1px solid var(--border)'><td style='padding:6px 4px'>Setup</td><td style='text-align:center'>CLI</td><td style='text-align:center'>Sign up</td></tr><tr><td style='padding:6px 4px'>Local access</td><td style='text-align:center'>✅ Deep</td><td style='text-align:center'>🔗 Remote</td></tr>",
   "nav.home": "Home", "nav.adopt": "🦞 Adopt", "nav.skills": "Skills", "nav.pricing": "🛒 Store", "nav.docs": "Docs", "nav.blog": "Blog", "nav.community": "Community"
 },
 ja: {
@@ -667,6 +683,7 @@ function setLang(l) {
     else if(ADOPT_I18N[l]&&ADOPT_I18N[l][k]) { el.innerHTML = ADOPT_I18N[l][k]; }
     else if(ADOPT_I18N['en']&&ADOPT_I18N['en'][k]) { el.innerHTML = ADOPT_I18N['en'][k]; }
   });
+  var tt=document.querySelector('title[data-i18n]');if(tt){var tk=tt.getAttribute('data-i18n');if(!_zhStore[tk])_zhStore[tk]=tt.textContent;if(isZh){tt.textContent=_zhStore[tk]}else if(ADOPT_I18N[l]&&ADOPT_I18N[l][tk]){tt.textContent=ADOPT_I18N[l][tk]}else if(ADOPT_I18N['en']&&ADOPT_I18N['en'][tk]){tt.textContent=ADOPT_I18N['en'][tk]}}
   var m={'zh':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
   var t=document.querySelector('.lang-trigger');
   if(t)t.textContent='🌐 '+(m[l]||l)+' ▾';
@@ -676,6 +693,6 @@ function setLang(l) {
 // Auto-detect: default zh, only switch if user explicitly chose another lang in THIS session
 (function(){try{var l=localStorage.getItem('imaclaw-lang');if(!l||l==='en'){localStorage.removeItem('imaclaw-lang');setLang('zh')}else{setLang(l)}}catch(e){setLang('zh')}})();
 </script>
-<div style="text-align:center;margin:32px auto;padding:20px;background:rgba(88,101,242,0.1);border:1px solid rgba(88,101,242,0.3);border-radius:12px;max-width:480px"><div style="font-size:15px;font-weight:600;color:white;margin-bottom:8px">🦞 加入 Ima Claw 社区</div><div style="font-size:13px;color:#a0a0a0;margin-bottom:12px">和其他龙虾主人交流，获取最新动态、技能分享和帮助</div><a href="https://discord.gg/UdXFVYhh" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:#5865F2;color:white;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none"><img src="https://cdn.simpleicons.org/discord/white" style="width:16px;height:16px">加入 Discord</a></div>
+<div style="text-align:center;margin:32px auto;padding:20px;background:rgba(88,101,242,0.1);border:1px solid rgba(88,101,242,0.3);border-radius:12px;max-width:480px"><div style="font-size:15px;font-weight:600;color:white;margin-bottom:8px" data-i18n="community.title">🦞 加入 Ima Claw 社区</div><div style="font-size:13px;color:#a0a0a0;margin-bottom:12px" data-i18n="community.desc">和其他龙虾主人交流，获取最新动态、技能分享和帮助</div><a href="https://discord.gg/UdXFVYhh" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:#5865F2;color:white;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none"><img src="https://cdn.simpleicons.org/discord/white" style="width:16px;height:16px" data-i18n="community.btn">加入 Discord</a></div>
 </body>
 </html>
