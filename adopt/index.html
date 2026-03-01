@@ -79,7 +79,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 .providers{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:16px 0}
 .provider{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;font-size:13px;transition:all .2s}
 .provider:hover{border-color:var(--gold);transform:translateY(-2px)}
-.provider .icon{font-size:28px;margin-bottom:6px}
+.provider .icon{font-size:28px;margin-bottom:6px;display:flex;justify-content:center;align-items:center;height:40px}
+.provider .icon img{width:36px;height:36px;object-fit:contain}
 .provider .name{font-weight:600;color:var(--text)}
 .provider .tag{font-size:11px;color:var(--text-2);margin-top:4px}
 
@@ -193,12 +194,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <p>安装向导会问你用哪个 AI 模型。选一个你有 API Key 的就行，没有的话现在去申请一个（大部分都有免费额度）：</p>
 
 <div class="providers">
-  <div class="provider"><div class="icon">🟢</div><div class="name">OpenAI</div><div class="tag">GPT-4o / o1</div></div>
-  <div class="provider"><div class="icon">🟠</div><div class="name">Anthropic</div><div class="tag">Claude Sonnet/Opus</div></div>
-  <div class="provider"><div class="icon">🔵</div><div class="name">Google</div><div class="tag">Gemini 2.5 Pro</div></div>
-  <div class="provider"><div class="icon">🟡</div><div class="name">AWS Bedrock</div><div class="tag">多模型托管</div></div>
-  <div class="provider"><div class="icon">🌙</div><div class="name">Moonshot</div><div class="tag">Kimi K2.5</div></div>
-  <div class="provider"><div class="icon">🔥</div><div class="name">更多...</div><div class="tag">20+ 供应商</div></div>
+  <div class="provider"><div class="icon"><img src="logos/openai.svg" alt="OpenAI"></div><div class="name">OpenAI</div><div class="tag">GPT-4o / o1</div></div>
+  <div class="provider"><div class="icon"><img src="logos/anthropic.svg" alt="Anthropic"></div><div class="name">Anthropic</div><div class="tag">Claude Sonnet/Opus</div></div>
+  <div class="provider"><div class="icon"><img src="logos/google.svg" alt="Google"></div><div class="name">Google</div><div class="tag">Gemini 2.5 Pro</div></div>
+  <div class="provider"><div class="icon"><img src="logos/aws.svg" alt="AWS Bedrock"></div><div class="name">AWS Bedrock</div><div class="tag">多模型托管</div></div>
+  <div class="provider"><div class="icon"><img src="logos/moonshot.svg" alt="Moonshot"></div><div class="name">Moonshot</div><div class="tag">Kimi K2.5</div></div>
+  <div class="provider"><div class="icon"><img src="logos/more.svg" alt="更多"></div><div class="name">更多...</div><div class="tag">20+ 供应商</div></div>
 </div>
 
 <div class="tip">💡 <strong>推荐新手选 Anthropic Claude：</strong>注册就送 $5 额度，足够玩好几天。<a href="https://console.anthropic.com/" style="color:var(--gold)" target="_blank">去注册 →</a></div>
