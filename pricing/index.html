@@ -457,7 +457,7 @@ function setLang(l){
   document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});
 }
 (function(){try{var l=localStorage.getItem('imaclaw-lang');if(l&&l!=='zh'&&l!=='zh-CN')setTimeout(function(){setLang(l)},50)}catch(e){}})();
-document.addEventListener('click',function(){document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')})});
+document.addEventListener('click',function(){document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});document.querySelector('.nav-links').classList.remove('open')});
 </script>
 </body>
 </html>
