@@ -129,7 +129,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
   <a href="../" class="logo"><img src="../logo-nav.png" alt=""><div class="logo-text">Ima <b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by ImaStudio</span></div></a>
   <div class="nav-links">
     <a href="../" data-i18n="nav.home">首页</a>
-    <a href="./" class="nav-adopt" data-i18n="nav.adopt">🦞 领养</a>
+    <a href="./" class="nav-adopt" data-i18n="nav.adopt" data-i18n="nav.adopt">🦞 领养</a>
     <a href="../skills/" data-i18n="nav.skills">Skill 市场</a>
     <a href="../pricing/" data-i18n="nav.pricing">🛒 购买</a>
     <a href="../docs/" data-i18n="nav.docs">帮助</a>
@@ -163,7 +163,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 </div>
 </div>
 <h1 data-i18n="adopt.title">领养你的 Baby 小龙虾</h1>
-<p class="sub">选择一种方式，开始领养你的专属 AI 龙虾伙伴。</p>
+<p class="sub" data-i18n="adopt.subtitle">选择一种方式，开始领养你的专属 AI 龙虾伙伴。</p>
 </section>
 
 <!-- Adopt Mode Selection -->
@@ -173,15 +173,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <div style="display:flex;gap:0;border-radius:12px;overflow:visible;border:1px solid var(--border);margin-bottom:0">
 <div id="mode-local" onclick="switchMode('local')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:rgba(232,88,78,0.3)">
 <div style="font-size:24px;margin-bottom:4px">💻</div>
-<div style="font-size:15px;font-weight:700;color:var(--text)">本地领养</div>
-<div style="font-size:11px;color:#E8584E;margin-top:2px">免费 · 立即可用</div>
+<div style="font-size:15px;font-weight:700;color:var(--text)" data-i18n="tab.local">本地领养</div>
+<div style="font-size:11px;color:#E8584E;margin-top:2px" data-i18n="tab.local.sub">免费 · 立即可用</div>
 </div>
 <div style="width:1px;background:var(--border)"></div>
 <div id="mode-cloud" onclick="switchMode('cloud')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:var(--surface);opacity:0.4;position:relative;overflow:visible">
 <div style="position:absolute;top:-1px;right:-1px;background:var(--lobster);color:white;font-size:11px;font-weight:700;padding:4px 10px 4px 12px;border-radius:0 12px 0 8px;line-height:1;letter-spacing:0.5px;z-index:2">⭐推荐</div>
 <div style="font-size:24px;margin-bottom:4px">☁️</div>
-<div style="font-size:15px;font-weight:700;color:var(--text)">云端领养</div>
-<div style="font-size:11px;color:#4A80D4;margin-top:2px">即将推出 · 7×24h 在线</div>
+<div style="font-size:15px;font-weight:700;color:var(--text)" data-i18n="tab.cloud">云端领养</div>
+<div style="font-size:11px;color:#4A80D4;margin-top:2px" data-i18n="tab.cloud.sub">即将推出 · 7×24h 在线</div>
 </div>
 </div>
 
@@ -190,7 +190,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 <!-- Local info panel -->
 <div style="margin-bottom:20px;padding:14px 16px;background:rgba(212,64,58,0.04);border:1px solid rgba(212,64,58,0.12);border-radius:10px;font-size:13px;color:var(--text-2);line-height:1.8">
-<div style="font-weight:600;color:var(--text);margin-bottom:8px;font-size:14px">🖥 本地领养 — 你的龙虾住在你的电脑里</div>
+<div style="font-weight:600;color:var(--text);margin-bottom:8px;font-size:14px" data-i18n="local.title">🖥 本地领养 — 你的龙虾住在你的电脑里</div>
 <span style="color:#E8584E">✅</span> 永久免费，无需付费<br>
 <span style="color:#E8584E">✅</span> 与本地文件、终端、浏览器深度联动<br>
 <span style="color:#E8584E">✅</span> 开源透明，自由定制<br>
@@ -311,19 +311,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 <!-- Cloud info panel -->
 <div style="margin-bottom:20px;padding:14px 16px;background:rgba(58,108,190,0.04);border:1px solid rgba(58,108,190,0.12);border-radius:10px;font-size:13px;color:var(--text-2);line-height:1.8">
-<div style="font-weight:600;color:var(--text);margin-bottom:8px;font-size:14px">☁️ 云端领养 — 你的龙虾住在云上，随时待命</div>
+<div style="font-weight:600;color:var(--text);margin-bottom:8px;font-size:14px" data-i18n="cloud.title">☁️ 云端领养 — 你的龙虾住在云上，随时待命</div>
 <span style="color:#4A80D4">✅</span> 7×24 小时在线，永不关机，随时随地服务<br>
 <span style="color:#4A80D4">✅</span> 零配置，注册即用，无需命令行<br>
 <span style="color:#4A80D4">✅</span> IMA 托管运维，Skill 安全扫描，省心安全<br>
 <span style="color:#4A80D4">✅</span> 企业级数据备份，多设备无缝同步<br>
 <span style="color:#4A80D4">✅</span> 自动更新，持续获得最新能力<br>
-<div style="margin-top:12px;padding:16px;background:linear-gradient(135deg,rgba(212,64,58,0.08) 0%,rgba(58,108,190,0.08) 100%);border:1px solid rgba(212,64,58,0.2);border-radius:10px;text-align:center"><div style="color:var(--lobster-light);font-size:13px;margin-bottom:4px">🔥 限时福利：云端领养限量免费内测名额开放中！</div><div style="color:var(--text-2);font-size:12px;margin-bottom:12px">填写表单预约名额，开放时第一时间通知你</div><a href="https://forms.gle/JZ1HnjjHKmqecmCx5" target="_blank" style="display:inline-block;background:var(--lobster);color:white;padding:10px 28px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none">📋 免费预约内测</a></div>
+<div style="margin-top:12px;padding:16px;background:linear-gradient(135deg,rgba(212,64,58,0.08) 0%,rgba(58,108,190,0.08) 100%);border:1px solid rgba(212,64,58,0.2);border-radius:10px;text-align:center"><div style="color:var(--lobster-light);font-size:13px;margin-bottom:4px">🔥 限时福利：云端领养限量免费内测名额开放中！</div><div style="color:var(--text-2);font-size:12px;margin-bottom:12px">填写表单预约名额，开放时第一时间通知你</div><a href="https://forms.gle/JZ1HnjjHKmqecmCx5" target="_blank" style="display:inline-block;background:var(--lobster);color:white;padding:10px 28px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none" data-i18n="cloud.cta">📋 免费预约内测</a></div>
 </div>
 <div style="text-align:center;padding:20px 0">
 
 <div style="margin-bottom:20px"><img src="baby-lobster.png" style="width:160px;height:160px;object-fit:contain" alt="Baby Lobster"></div>
 
-<h2 style="font-size:24px;color:var(--lobster-light);margin-bottom:12px">云端领养即将推出</h2>
+<h2 style="font-size:24px;color:var(--lobster-light);margin-bottom:12px" data-i18n="cloud.coming">云端领养即将推出</h2>
 
 <p style="color:var(--text-2);font-size:15px;line-height:1.8;margin-bottom:24px">
 你的龙虾将 7×24 小时跑在云端，随时随地为你服务。<br>
@@ -367,7 +367,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 <!-- Skills showcase -->
 <section class="steps">
-<h2 style="text-align:center;margin-bottom:24px;font-size:22px">🎯 IMA 龙虾出场就会的技能</h2>
+<h2 style="text-align:center;margin-bottom:24px;font-size:22px" data-i18n="skills.title">🎯 IMA 龙虾出场就会的技能</h2>
 <div class="skills-grid">
   <div class="skill-card" onclick="location.href='../docs/skills/ima-all-in-one/'" style="cursor:pointer;grid-column:1/-1;background:linear-gradient(135deg,var(--surface-2) 0%,rgba(212,64,58,0.08) 100%);border-color:rgba(212,64,58,0.3);padding:18px"><div class="emoji">🦞</div><div class="title" style="font-size:16px">IMA 全能创作包 <span style="background:#D4403A;color:white;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:6px">⭐ 推荐</span></div><div class="desc">图片+视频+音乐 All-in-One，40+ AI 模型，一个技能覆盖完整创作链路</div></div>
   <div class="skill-card" onclick="location.href='../docs/skills/ima-intelligence/'" style="cursor:pointer;grid-column:1/-1;background:linear-gradient(135deg,var(--surface-2) 0%,rgba(58,108,190,0.08) 100%);border-color:rgba(58,108,190,0.3);padding:18px"><div class="emoji">🧠</div><div class="title" style="font-size:16px">IMA 基础智能包 <span style="background:#4A80D4;color:white;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:6px">⭐ 必装</span></div><div class="desc">记忆系统 · 任务追踪 · 深度调研 · 上下文管理，龙虾出厂标配</div></div>
@@ -394,7 +394,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 <!-- FAQ -->
 <section class="faq">
-<h2>❓ 常见问题</h2>
+<h2 data-i18n="faq.title">❓ 常见问题</h2>
 
 <div class="faq-item" onclick="this.classList.toggle('open')">
 <div class="faq-q">真的免费吗？</div>
@@ -505,7 +505,21 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
 <script>
 var ADOPT_I18N = {
 en: {
-  "adopt.title": "Adopt an AI Creative Lobster",
+  "adopt.title": "Adopt Your Baby Lobster",
+  "adopt.subtitle": "Choose a way to start adopting your AI lobster companion.",
+  "bubble.adopt": "Master, come adopt me! ❤️",
+  "bubble.cta": "Book Now →",
+  "tab.local": "Local",
+  "tab.local.sub": "Free · Ready Now",
+  "tab.cloud": "Cloud",
+  "tab.cloud.sub": "Coming Soon · 24/7 Online",
+  "tab.recommend": "⭐ Pick",
+  "local.title": "🖥 Local — Your lobster lives on your computer",
+  "cloud.title": "☁️ Cloud — Your lobster lives in the cloud, always ready",
+  "cloud.coming": "Cloud Adoption Coming Soon",
+  "cloud.cta": "📋 Book Beta Access",
+  "skills.title": "🎯 Skills Your Lobster Knows Out of the Box",
+  "faq.title": "❓ FAQ",
   "adopt.sub1": "3 minutes to install. 0 lines of code. Free forever.",
   "adopt.sub2": "All you need is a computer and an API Key.",
   "adopt.platforms": "macOS · Linux · Windows (WSL2) · Raspberry Pi · Cloud · All platforms",
@@ -517,8 +531,7 @@ en: {
   "step3.desc": "Choose your preferred messaging platform. Your lobster will be available wherever you chat.",
   "step4.title": "Start Creating!",
   "step4.desc": "Open your chat app and say hi to your lobster. It's ready to create images, videos, music, manage social media — whatever you need.",
-  "faq.title": "FAQ",
-  "nav.home": "Home", "nav.skills": "Skills", "nav.pricing": "🛒 Store", "nav.docs": "Docs", "nav.blog": "Blog"
+  "nav.home": "Home", "nav.adopt": "🦞 Adopt", "nav.skills": "Skills", "nav.pricing": "🛒 Store", "nav.docs": "Docs", "nav.blog": "Blog", "nav.community": "Community"
 },
 ja: {
   "adopt.title": "AI クリエイティブロブスターを迎えよう",
@@ -527,10 +540,33 @@ ja: {
   "nav.home": "ホーム", "nav.skills": "スキル", "nav.pricing": "🛒 購入", "nav.docs": "ヘルプ", "nav.blog": "ブログ"
 },
 es: {
-  "adopt.title": "Adopta un Langosta IA Creativa",
+  "adopt.title": "Adopta Tu Baby Langosta",
+  "adopt.subtitle": "Elige una forma de adoptar a tu compañero langosta IA.",
+  "bubble.adopt": "¡Amo, ven a adoptarme! ❤️",
+  "bubble.cta": "Reservar →",
+  "tab.local": "Local",
+  "tab.local.sub": "Gratis · Disponible Ya",
+  "tab.cloud": "Nube",
+  "tab.cloud.sub": "Próximamente · 24/7 Online",
+  "tab.recommend": "⭐ Top",
+  "local.title": "🖥 Local — Tu langosta vive en tu computadora",
+  "cloud.title": "☁️ Nube — Tu langosta vive en la nube, siempre lista",
+  "cloud.coming": "Adopción en la Nube Próximamente",
+  "cloud.cta": "📋 Reservar Acceso Beta",
+  "skills.title": "🎯 Habilidades que Tu Langosta Ya Tiene",
+  "faq.title": "❓ Preguntas Frecuentes",
   "adopt.sub1": "3 minutos. 0 líneas de código. Gratis para siempre.",
   "adopt.sub2": "Solo necesitas una computadora y una API Key.",
-  "nav.home": "Inicio", "nav.skills": "Skills", "nav.pricing": "🛒 Tienda", "nav.docs": "Ayuda", "nav.blog": "Blog"
+  "adopt.platforms": "macOS · Linux · Windows (WSL2) · Raspberry Pi · Nube · Todas las plataformas",
+  "step1.title": "Un Comando, Instala Ima Claw",
+  "step1.desc": "Abre la Terminal, pega el comando y presiona Enter. El script detecta tu entorno, instala Node.js (si falta) e inicia el asistente.",
+  "step2.title": "Dale un Cerebro a Tu Langosta",
+  "step2.desc": "Durante la configuración, pega tu API Key. Este es el cerebro de tu langosta — el modelo que elijas define su personalidad.",
+  "step3.title": "Conecta Tu Chat",
+  "step3.desc": "Elige tu plataforma de mensajería preferida. Tu langosta estará donde tú chatees.",
+  "step4.title": "¡A Crear!",
+  "step4.desc": "Abre tu app de chat y saluda a tu langosta. Puede crear imágenes, videos, música, gestionar redes — lo que necesites.",
+  "nav.home": "Inicio", "nav.adopt": "🦞 Adoptar", "nav.skills": "Skills", "nav.pricing": "🛒 Tienda", "nav.docs": "Ayuda", "nav.blog": "Blog", "nav.community": "Comunidad"
 },
 ar: {
   "adopt.title": "تبنَّ جراد بحر ذكي للإبداع",
