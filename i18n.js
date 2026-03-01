@@ -218,4 +218,4 @@ function setLang(l){
   document.querySelectorAll('.hero-mascot img').forEach(function(i){i.src=l==='ar'?'mascot-ar.png?v=2':'mascot.png'});
 }
 
-(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l&&l!=='zh-CN')setLang(l)}catch(e){}})();
+document.addEventListener('DOMContentLoaded',function(){try{var l=localStorage.getItem('imaclaw-lang');if(l&&l!=='zh-CN')setLang(l)}catch(e){}});

@@ -129,7 +129,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
   <a href="../" class="logo"><img src="../logo-nav.png" alt=""><div class="logo-text">Ima <b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by ImaStudio</span></div></a>
   <div class="nav-links">
     <a href="../" data-i18n="nav.home">首页</a>
-    <a href="./" class="nav-adopt" data-i18n="nav.adopt" data-i18n="nav.adopt">🦞 领养</a>
+    <a href="./" class="nav-adopt" data-i18n="nav.adopt">🦞 领养</a>
     <a href="../skills/" data-i18n="nav.skills">Skill 市场</a>
     <a href="../pricing/" data-i18n="nav.pricing">🛒 购买</a>
     <a href="../docs/" data-i18n="nav.docs">帮助</a>
@@ -217,7 +217,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <div class="code-box">
 <div class="label">Terminal</div>
 <code>curl -fsSL https://openclaw.ai/install.sh | bash</code>
-<button class="copy-btn" onclick="copyCode(this)">复制</button>
+<button class="copy-btn" onclick="copyCode(this)" data-i18n="btn.copy">复制</button>
 </div>
 </div>
 
@@ -225,7 +225,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <div class="code-box">
 <div class="label">PowerShell（管理员）</div>
 <code>iwr -useb https://openclaw.ai/install.ps1 | iex</code>
-<button class="copy-btn" onclick="copyCode(this)">复制</button>
+<button class="copy-btn" onclick="copyCode(this)" data-i18n="btn.copy">复制</button>
 </div>
 <div class="tip" data-i18n="step1.wsl">💡 <strong>Windows 用户建议：</strong>先安装 <a href="https://learn.microsoft.com/en-us/windows/wsl/install" style="color:var(--gold)">WSL2</a>，然后在 WSL 里用 macOS/Linux 的命令安装，体验更丝滑。</div>
 </div>
@@ -344,8 +344,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 
 <div style="margin-top:24px;padding:16px;background:var(--surface);border-radius:12px;border:1px solid var(--border);font-size:12px">
-<h3 style="color:var(--text);font-size:14px;margin-bottom:10px;text-align:center">本地 vs 云端</h3>
-<table style="width:100%;border-collapse:collapse;color:var(--text-2)">
+<h3 style="color:var(--text);font-size:14px;margin-bottom:10px;text-align:center" data-i18n="cloud.compare.title">本地 vs 云端</h3>
+<table style="width:100%;border-collapse:collapse;color:var(--text-2)" data-i18n="cloud.compare">
 <tr style="border-bottom:1px solid var(--border)">
 <td style="padding:6px 4px;font-weight:600;color:var(--text)"></td>
 <td style="padding:6px 4px;text-align:center;font-weight:600;color:#E8584E">🖥 本地</td>
@@ -359,7 +359,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 </table>
 </div>
 
-<p style="color:var(--text-3);font-size:13px;margin-top:16px">等不及？先试试 <a href="javascript:switchMode('local')" style="color:var(--lobster-light)">本地领养</a>，3 分钟就能用！</p>
+<p style="color:var(--text-3);font-size:13px;margin-top:16px" data-i18n="cloud.tryfirst">等不及？先试试 <a href="javascript:switchMode('local')" style="color:var(--lobster-light)">本地领养</a>，3 分钟就能用！</p>
 
 </div>
 </div>
@@ -369,26 +369,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <section class="steps">
 <h2 style="text-align:center;margin-bottom:24px;font-size:22px" data-i18n="skills.title">🎯 IMA 龙虾出场就会的技能</h2>
 <div class="skills-grid">
-  <div class="skill-card" onclick="location.href='../docs/skills/ima-all-in-one/'" style="cursor:pointer;grid-column:1/-1;background:linear-gradient(135deg,var(--surface-2) 0%,rgba(212,64,58,0.08) 100%);border-color:rgba(212,64,58,0.3);padding:18px"><div class="emoji">🦞</div><div class="title" style="font-size:16px">IMA 全能创作包 <span style="background:#D4403A;color:white;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:6px">⭐ 推荐</span></div><div class="desc">图片+视频+音乐 All-in-One，40+ AI 模型，一个技能覆盖完整创作链路</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/ima-intelligence/'" style="cursor:pointer;grid-column:1/-1;background:linear-gradient(135deg,var(--surface-2) 0%,rgba(58,108,190,0.08) 100%);border-color:rgba(58,108,190,0.3);padding:18px"><div class="emoji">🧠</div><div class="title" style="font-size:16px">IMA 基础智能包 <span style="background:#4A80D4;color:white;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:6px">⭐ 必装</span></div><div class="desc">记忆系统 · 任务追踪 · 深度调研 · 上下文管理，龙虾出厂标配</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/ima-image/'" style="cursor:pointer"><div class="emoji">🎨</div><div class="title">IMA 图片生成</div><div class="desc">10+ 模型，SeeDream 4.5 · Midjourney · Imagen 4，文生图/图生图</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/ima-video/'" style="cursor:pointer"><div class="emoji">🎬</div><div class="title">IMA 视频制作</div><div class="desc">20+ 模型，Wan 2.6 · Kling 2.1 · Sora · Veo 3.1，分钟级交付</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/ima-music/'" style="cursor:pointer"><div class="emoji">🎵</div><div class="title">IMA 音乐创作</div><div class="desc">Suno · DouBao GenBGM · GenSong，自定义风格和人声</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/video-guide/'" style="cursor:pointer"><div class="emoji">📖</div><div class="title">视频创作指南</div><div class="desc">AI 视频经验库：运镜控制、提示词优化、模型选型</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/seedance/'" style="cursor:pointer"><div class="emoji">💃</div><div class="title">Seedance 2.0</div><div class="desc">ByteDance 视频生成，1.5 Pro 含音频</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/nano-banana/'" style="cursor:pointer"><div class="emoji">🍌</div><div class="title">Nano Banana 2</div><div class="desc">Gemini 图片生成，支持 1K/2K/4K</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/xhs-creator/'" style="cursor:pointer"><div class="emoji">📕</div><div class="title">小红书创作</div><div class="desc">笔记撰写 + 封面生成 + 一键发布</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/xhs-analytics/'" style="cursor:pointer"><div class="emoji">📊</div><div class="title">小红书分析</div><div class="desc">热点追踪、舆情分析、竞品监控</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/twitter/'" style="cursor:pointer"><div class="emoji">🐦</div><div class="title">Twitter / X</div><div class="desc">搜索 + 发布 + 互动分析，一站式</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/linkedin-writer/'" style="cursor:pointer"><div class="emoji">💼</div><div class="title">LinkedIn Writer</div><div class="desc">写出像真人的 LinkedIn 帖子</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/wechat-publisher/'" style="cursor:pointer"><div class="emoji">💚</div><div class="title">微信公众号</div><div class="desc">Markdown 一键发公众号草稿箱</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/deep-research/'" style="cursor:pointer"><div class="emoji">🧠</div><div class="title">深度研究</div><div class="desc">AI Researcher + Gemini 深度研究，结构化分析报告</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/seo-writer/'" style="cursor:pointer"><div class="emoji">🔍</div><div class="title">SEO Writer</div><div class="desc">搜索引擎 + 读者双优化长文</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/humanizer/'" style="cursor:pointer"><div class="emoji">🧑</div><div class="title">AI 文本人性化</div><div class="desc">去除 AI 痕迹，让文字更自然</div></div>
-  <div class="skill-card" onclick="location.href='../docs/skills/feishu-calendar/'" style="cursor:pointer"><div class="emoji">📅</div><div class="title">飞书日历</div><div class="desc">查询、创建、修改日历事件</div></div>
-  <div class="skill-card"><div class="emoji">🌤️</div><div class="title">天气查询</div><div class="desc">实时天气和预报，免 API Key</div></div>
-  <div class="skill-card"><div class="emoji">🌐</div><div class="title">网页搜索 & 分析</div><div class="desc">实时联网搜索，深度研究，竞品分析</div></div>
-  <div class="skill-card"><div class="emoji">🧩</div><div class="title">200+ 扩展 Skill</div><div class="desc">ClawHub 技能市场，一键安装新能力</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/ima-all-in-one/'" style="cursor:pointer;grid-column:1/-1;background:linear-gradient(135deg,var(--surface-2) 0%,rgba(212,64,58,0.08) 100%);border-color:rgba(212,64,58,0.3);padding:18px"><div class="emoji">🦞</div><div class="title" style="font-size:16px" data-i18n="skill.allinone.title">IMA 全能创作包 <span style="background:#D4403A;color:white;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:6px">⭐ 推荐</span></div><div class="desc" data-i18n="skill.allinone.desc">图片+视频+音乐 All-in-One，40+ AI 模型，一个技能覆盖完整创作链路</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/ima-intelligence/'" style="cursor:pointer;grid-column:1/-1;background:linear-gradient(135deg,var(--surface-2) 0%,rgba(58,108,190,0.08) 100%);border-color:rgba(58,108,190,0.3);padding:18px"><div class="emoji">🧠</div><div class="title" style="font-size:16px" data-i18n="skill.intelligence.title">IMA 基础智能包 <span style="background:#4A80D4;color:white;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:6px">⭐ 必装</span></div><div class="desc" data-i18n="skill.intelligence.desc">记忆系统 · 任务追踪 · 深度调研 · 上下文管理，龙虾出厂标配</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/ima-image/'" style="cursor:pointer"><div class="emoji">🎨</div><div class="title" data-i18n="skill.image.title">IMA 图片生成</div><div class="desc" data-i18n="skill.image.desc">10+ 模型，SeeDream 4.5 · Midjourney · Imagen 4，文生图/图生图</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/ima-video/'" style="cursor:pointer"><div class="emoji">🎬</div><div class="title" data-i18n="skill.video.title">IMA 视频制作</div><div class="desc" data-i18n="skill.video.desc">20+ 模型，Wan 2.6 · Kling 2.1 · Sora · Veo 3.1，分钟级交付</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/ima-music/'" style="cursor:pointer"><div class="emoji">🎵</div><div class="title" data-i18n="skill.music.title">IMA 音乐创作</div><div class="desc" data-i18n="skill.music.desc">Suno · DouBao GenBGM · GenSong，自定义风格和人声</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/video-guide/'" style="cursor:pointer"><div class="emoji">📖</div><div class="title" data-i18n="skill.videoguide.title">视频创作指南</div><div class="desc" data-i18n="skill.videoguide.desc">AI 视频经验库：运镜控制、提示词优化、模型选型</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/seedance/'" style="cursor:pointer"><div class="emoji">💃</div><div class="title" data-i18n="skill.seedance.title">Seedance 2.0</div><div class="desc" data-i18n="skill.seedance.desc">ByteDance 视频生成，1.5 Pro 含音频</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/nano-banana/'" style="cursor:pointer"><div class="emoji">🍌</div><div class="title" data-i18n="skill.nano.title">Nano Banana 2</div><div class="desc" data-i18n="skill.nano.desc">Gemini 图片生成，支持 1K/2K/4K</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/xhs-creator/'" style="cursor:pointer"><div class="emoji">📕</div><div class="title" data-i18n="skill.xhs.title">小红书创作</div><div class="desc" data-i18n="skill.xhs.desc">笔记撰写 + 封面生成 + 一键发布</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/xhs-analytics/'" style="cursor:pointer"><div class="emoji">📊</div><div class="title" data-i18n="skill.xhsanalytics.title">小红书分析</div><div class="desc" data-i18n="skill.xhsanalytics.desc">热点追踪、舆情分析、竞品监控</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/twitter/'" style="cursor:pointer"><div class="emoji">🐦</div><div class="title" data-i18n="skill.twitter.title">Twitter / X</div><div class="desc" data-i18n="skill.twitter.desc">搜索 + 发布 + 互动分析，一站式</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/linkedin-writer/'" style="cursor:pointer"><div class="emoji">💼</div><div class="title" data-i18n="skill.linkedin.title">LinkedIn Writer</div><div class="desc" data-i18n="skill.linkedin.desc">写出像真人的 LinkedIn 帖子</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/wechat-publisher/'" style="cursor:pointer"><div class="emoji">💚</div><div class="title" data-i18n="skill.wechat.title">微信公众号</div><div class="desc" data-i18n="skill.wechat.desc">Markdown 一键发公众号草稿箱</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/deep-research/'" style="cursor:pointer"><div class="emoji">🧠</div><div class="title" data-i18n="skill.research.title">深度研究</div><div class="desc" data-i18n="skill.research.desc">AI Researcher + Gemini 深度研究，结构化分析报告</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/seo-writer/'" style="cursor:pointer"><div class="emoji">🔍</div><div class="title" data-i18n="skill.seo.title">SEO Writer</div><div class="desc" data-i18n="skill.seo.desc">搜索引擎 + 读者双优化长文</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/humanizer/'" style="cursor:pointer"><div class="emoji">🧑</div><div class="title" data-i18n="skill.humanizer.title">AI 文本人性化</div><div class="desc" data-i18n="skill.humanizer.desc">去除 AI 痕迹，让文字更自然</div></div>
+  <div class="skill-card" onclick="location.href='../docs/skills/feishu-calendar/'" style="cursor:pointer"><div class="emoji">📅</div><div class="title" data-i18n="skill.feishu.title">飞书日历</div><div class="desc" data-i18n="skill.feishu.desc">查询、创建、修改日历事件</div></div>
+  <div class="skill-card"><div class="emoji">🌤️</div><div class="title" data-i18n="skill.weather.title">天气查询</div><div class="desc" data-i18n="skill.weather.desc">实时天气和预报，免 API Key</div></div>
+  <div class="skill-card"><div class="emoji">🌐</div><div class="title" data-i18n="skill.web.title">网页搜索 & 分析</div><div class="desc" data-i18n="skill.web.desc">实时联网搜索，深度研究，竞品分析</div></div>
+  <div class="skill-card"><div class="emoji">🧩</div><div class="title" data-i18n="skill.more.title">200+ 扩展 Skill</div><div class="desc" data-i18n="skill.more.desc">ClawHub 技能市场，一键安装新能力</div></div>
 </div>
 </section>
 
@@ -397,48 +397,48 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <h2 data-i18n="faq.title">❓ 常见问题</h2>
 
 <div class="faq-item" onclick="this.classList.toggle('open')">
-<div class="faq-q">真的免费吗？</div>
-<div class="faq-a">Ima Claw 本身完全免费开源。你需要自己提供 AI 模型的 API Key（大部分供应商有免费额度）。龙虾跑在你自己的电脑上，数据也在你自己手里。</div>
+<div class="faq-q" data-i18n="faq.q1">真的免费吗？</div>
+<div class="faq-a" data-i18n="faq.a1">Ima Claw 本身完全免费开源。你需要自己提供 AI 模型的 API Key（大部分供应商有免费额度）。龙虾跑在你自己的电脑上，数据也在你自己手里。</div>
 </div>
 
 <div class="faq-item" onclick="this.classList.toggle('open')">
-<div class="faq-q">需要什么样的电脑？</div>
-<div class="faq-a">只要能跑 Node.js 就行——MacBook、Windows 笔记本、Linux 服务器、甚至树莓派都可以。不需要 GPU，因为 AI 推理跑在云端（通过你的 API Key）。</div>
+<div class="faq-q" data-i18n="faq.q2">需要什么样的电脑？</div>
+<div class="faq-a" data-i18n="faq.a2">只要能跑 Node.js 就行——MacBook、Windows 笔记本、Linux 服务器、甚至树莓派都可以。不需要 GPU，因为 AI 推理跑在云端（通过你的 API Key）。</div>
 </div>
 
 <div class="faq-item" onclick="this.classList.toggle('open')">
-<div class="faq-q">和 ChatGPT 有什么区别？</div>
-<div class="faq-a">ChatGPT 是个聊天窗口。龙虾是你的<strong>私人 AI 助手</strong>——它能记住你、自动执行任务、连接你的工具（日历、邮件、社媒）、24 小时待命，还能学会你教它的任何新技能。</div>
+<div class="faq-q" data-i18n="faq.q3">和 ChatGPT 有什么区别？</div>
+<div class="faq-a" data-i18n="faq.a3">ChatGPT 是个聊天窗口。龙虾是你的<strong>私人 AI 助手</strong>——它能记住你、自动执行任务、连接你的工具（日历、邮件、社媒）、24 小时待命，还能学会你教它的任何新技能。</div>
 </div>
 
 <div class="faq-item" onclick="this.classList.toggle('open')">
-<div class="faq-q">数据安全吗？</div>
-<div class="faq-a">龙虾跑在你自己的机器上，数据不经过任何第三方服务器。它的记忆、对话历史、你的文件全部存在本地。你可以随时查看、删除、导出。</div>
+<div class="faq-q" data-i18n="faq.q4">数据安全吗？</div>
+<div class="faq-a" data-i18n="faq.a4">龙虾跑在你自己的机器上，数据不经过任何第三方服务器。它的记忆、对话历史、你的文件全部存在本地。你可以随时查看、删除、导出。</div>
 </div>
 
 <div class="faq-item" onclick="this.classList.toggle('open')">
-<div class="faq-q">IMA Studio 的技能需要额外付费吗？</div>
-<div class="faq-a">IMA Studio 的图片、视频、音乐生成走积分制，注册就送免费积分。搭配龙虾使用，一句话就能生成专业级内容。<a href="https://imastudio.com" style="color:var(--gold)" target="_blank">了解 IMA Studio →</a></div>
+<div class="faq-q" data-i18n="faq.q5">IMA Studio 的技能需要额外付费吗？</div>
+<div class="faq-a" data-i18n="faq.a5">IMA Studio 的图片、视频、音乐生成走积分制，注册就送免费积分。搭配龙虾使用，一句话就能生成专业级内容。<a href="https://imastudio.com" style="color:var(--gold)" target="_blank">了解 IMA Studio →</a></div>
 </div>
 
 <div class="faq-item" onclick="this.classList.toggle('open')">
-<div class="faq-q">遇到问题怎么办？</div>
-<div class="faq-a">加入 <a href="https://imastudio.com/community" style="color:var(--gold)" target="_blank">IMA 社区</a> 提问，或者查看 <a href="../docs/" style="color:var(--gold)" target="_blank">Ima Claw 文档</a>。龙虾的开发者和用户社区非常活跃！</div>
+<div class="faq-q" data-i18n="faq.q6">遇到问题怎么办？</div>
+<div class="faq-a" data-i18n="faq.a6">加入 <a href="https://imastudio.com/community" style="color:var(--gold)" target="_blank">IMA 社区</a> 提问，或者查看 <a href="../docs/" style="color:var(--gold)" target="_blank">Ima Claw 文档</a>。龙虾的开发者和用户社区非常活跃！</div>
 </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
-<h2>准备好了吗？</h2>
-<p>打开终端，复制这行命令，你的龙虾 30 秒后就到 🦞</p>
+<h2 data-i18n="cta.title">准备好了吗？</h2>
+<p data-i18n="cta.desc">打开终端，复制这行命令，你的龙虾 30 秒后就到 🦞</p>
 <div class="code-box" style="max-width:520px;margin:0 auto 24px;text-align:left">
 <code>curl -fsSL https://openclaw.ai/install.sh | bash</code>
-<button class="copy-btn" onclick="copyCode(this)">复制</button>
+<button class="copy-btn" onclick="copyCode(this)" data-i18n="btn.copy">复制</button>
 </div>
-<a href="../docs/" class="btn-start" target="_blank">📖 查看完整文档</a>
+<a href="../docs/" class="btn-start" target="_blank" data-i18n="cta.btn">📖 查看完整文档</a>
 </section>
 
-<a href="../" class="back">← 回到首页</a>
+<a href="../" class="back" data-i18n="back">← 回到首页</a>
 
 <script>
 function switchMode(mode) {
