@@ -83,6 +83,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 .provider .icon img{width:36px;height:36px;object-fit:contain}
 .provider .name{font-weight:600;color:var(--text)}
 .provider .tag{font-size:11px;color:var(--text-2);margin-top:4px}
+.provider-details{margin:16px 0;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:12px}
+.pd{font-size:13px;color:var(--text-2);line-height:1.8;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.pd:last-child{border-bottom:none}
+.pd-name{color:var(--text);font-weight:600}
 
 /* Skills showcase */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:16px 0}
@@ -205,6 +209,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 </div>
 
 <div class="tip">💡 <strong>推荐新手选 Google Gemini：</strong>免费 tier 永久可用，每天 1000 次请求，无需信用卡。<a href="https://aistudio.google.com/apikey" style="color:var(--gold)" target="_blank">获取 API Key →</a></div>
+
+<div class="provider-details">
+  <div class="pd"><span class="pd-name">🟢 Google Gemini</span> — 免费 tier 永久可用，每天 1000 次请求，支持 Gemini 2.5 Pro/Flash，新手首选</div>
+  <div class="pd"><span class="pd-name">🟠 Anthropic Claude</span> — 注册送 $5 额度，无需信用卡，3个月有效，够玩好几天</div>
+  <div class="pd"><span class="pd-name">🟣 阿里千问 Qwen</span> — 百炼平台新用户送 100 万 Token，国内访问快，中文能力强</div>
+  <div class="pd"><span class="pd-name">🌙 Kimi K2.5</span> — 充 $5 送 $5 翻倍，NVIDIA 还提供免费 API 端点</div>
+  <div class="pd"><span class="pd-name">🔵 MiniMax M2.5</span> — $0.30/百万 Token 超低价，偶有限时免费活动</div>
+  <div class="pd"><span class="pd-name">⚫ OpenAI</span> — GPT-4o/o1 业界标杆，需付费使用</div>
+  <div class="pd"><span class="pd-name">🟡 AWS Bedrock</span> — 多模型托管，企业级稳定，按用量计费</div>
+</div>
 </div>
 
 <!-- Step 3: Connect -->
