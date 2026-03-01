@@ -3,381 +3,373 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<link rel="icon" href="../favicon.ico"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="icon" href="../favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>定价方案 - Ima Claw</title>
 <style>
-:root{--bg:#0a0a0f;--surface:#12121a;--border:#222;--text:#e8e8e8;--text-2:#a0a0a0;--text-3:#666;--lobster:#D4403A;--lobster-light:#E8584E;--green:#22c55e;--red:#ef4444;--yellow:#eab308;--blue:#4A80D4}
+:root{--bg:#0a0a0f;--surface:#12121a;--border:#252530;--text:#f0f0f5;--text-2:#a0a0b0;--lobster:#D4403A;--lobster-light:#E8584E;--green:#22c55e;--red:#ef4444;--yellow:#eab308}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
 a{color:var(--lobster-light);text-decoration:none}
-a:hover{opacity:.85}
+.container{max-width:1100px;margin:0 auto;padding:100px 20px 60px}
 
-/* === NAV === */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;background:rgba(12,12,18,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
 .logo img{height:40px;width:40px;border-radius:8px}
-.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em;color:var(--text)}
+.logo-text{font-size:18px;font-weight:800}
 .logo-text b{color:var(--lobster-light)}
 .nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:var(--text-3);font-size:13px;font-weight:500;transition:color .3s;text-decoration:none}
-.nav-links a:hover{color:var(--text)}
+.nav-links a{color:var(--text-2);font-size:13px;font-weight:500}
 .nav-adopt{color:var(--lobster-light)!important;font-weight:600!important}
-.hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px}
-.lang-dropdown{display:inline-block;position:relative}
-.lang-trigger{padding:6px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text-2);font-size:12px;cursor:pointer;font-weight:500}
-.lang-trigger:hover{border-color:var(--lobster)}
-.lang-menu{display:none;position:absolute;top:100%;right:0;margin-top:6px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:4px;min-width:140px;z-index:1002;box-shadow:0 8px 24px rgba(0,0,0,0.4)}
-.lang-dropdown.open .lang-menu{display:block}
-.lang-menu button{display:block;width:100%;padding:8px 12px;border:none;background:transparent;color:var(--text-2);font-size:13px;text-align:left;cursor:pointer;border-radius:6px}
-.lang-menu button:hover{background:rgba(212,64,58,0.1);color:var(--lobster-light)}
-@media(max-width:768px){
-  nav{padding:14px 16px}
-  .hamburger{display:block}
-  .nav-links{display:none!important;position:fixed;top:56px;right:16px;left:auto;background:rgba(12,12,18,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:16px 0;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;z-index:99;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
-  .nav-links.open{display:flex!important}
-  .nav-links a{padding:12px 20px!important;text-align:right!important;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px!important;color:rgba(255,255,255,0.55)!important;display:block}
-  .nav-links a:last-child{border-bottom:none}
-  .nav-links .lang-dropdown{padding:12px 20px;text-align:right;display:flex;justify-content:flex-end}
-}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px}
+@media(max-width:768px){.hamburger{display:block}.nav-links{display:none;position:fixed;top:56px;right:16px;background:var(--surface);border:1px solid var(--border);border-radius:14px;flex-direction:column;padding:16px 0;min-width:160px}.nav-links.open{display:flex}.nav-links a{padding:12px 20px}}
 
-/* === PAGE === */
-.container{max-width:1200px;margin:0 auto;padding:100px 20px 60px}
-.page-header{text-align:center;margin-bottom:56px}
-.page-header h1{font-size:42px;font-weight:900;margin-bottom:12px}
-.page-header .subtitle{color:var(--text-2);font-size:17px}
+.hero{text-align:center;padding:40px 0 60px}
+.hero-badge{display:inline-flex;gap:8px;padding:8px 16px;background:rgba(212,64,58,0.1);border:1px solid rgba(212,64,58,0.2);border-radius:30px;font-size:13px;color:var(--lobster-light);margin-bottom:24px}
+.hero h1{font-size:52px;font-weight:900;line-height:1.15;margin-bottom:20px}
+.hero h1 span{color:var(--lobster-light)}
+.hero-desc{font-size:18px;color:var(--text-2);max-width:560px;margin:0 auto}
+@media(max-width:600px){.hero h1{font-size:36px}.hero-desc{font-size:16px}}
 
-/* === VALUE COMPARISON SECTION (NEW) === */
-.value-section{background:linear-gradient(135deg,rgba(212,64,58,0.08) 0%,rgba(74,128,212,0.06) 100%);border:1px solid rgba(212,64,58,0.15);border-radius:20px;padding:40px 32px;margin-bottom:60px;text-align:center}
-.value-section h2{font-size:24px;font-weight:800;margin-bottom:24px}
-.value-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:32px 0}
-.value-item{background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px 12px}
-.value-item .icon{font-size:28px;margin-bottom:8px}
-.value-item .name{font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:4px}
-.value-item .price{font-size:15px;font-weight:700;color:var(--text);text-decoration:line-through;opacity:.6}
-.value-item .desc{font-size:11px;color:var(--text-3);margin-top:4px}
-.value-plus{font-size:36px;font-weight:200;color:var(--text-3);display:flex;align-items:center;justify-content:center}
-.value-total{background:var(--surface);border:2px solid var(--lobster);border-radius:16px;padding:24px;max-width:600px;margin:32px auto}
-.value-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:15px}
-.value-total-row .old{color:var(--text-2);text-decoration:line-through}
-.value-total-row .new{color:var(--lobster-light);font-size:24px;font-weight:800}
-.value-total .save{background:rgba(34,197,94,0.15);color:var(--green);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;display:inline-block}
-@media(max-width:900px){
-  .value-grid{grid-template-columns:repeat(3,1fr)}
-  .value-plus{display:none}
-}
-@media(max-width:600px){
-  .value-grid{grid-template-columns:repeat(2,1fr)}
-  .value-section{padding:24px 16px}
-}
+.pain-section{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:40px;margin-bottom:60px}
+.pain-header{text-align:center;margin-bottom:32px}
+.pain-header h2{font-size:24px;font-weight:800;margin-bottom:8px}
+.pain-header p{color:var(--text-2);font-size:15px}
+.pain-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}
+.pain-item{background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px 12px;text-align:center}
+.pain-item .icon{font-size:28px;margin-bottom:8px}
+.pain-item .name{font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:4px}
+.pain-item .price{font-size:15px;font-weight:700;text-decoration:line-through;opacity:.5}
+.pain-item .problem{font-size:11px;color:var(--text-3);margin-top:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,0.1)}
+.pain-total{text-align:center;padding:20px;background:rgba(239,68,68,0.08);border:1px dashed rgba(239,68,68,0.3);border-radius:12px}
+.pain-total .label{font-size:14px;color:var(--text-2)}
+.pain-total .amount{font-size:28px;font-weight:800;color:var(--red)}
+.pain-total .note{font-size:12px;color:var(--text-3);margin-top:4px}
+@media(max-width:900px){.pain-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.pain-grid{grid-template-columns:repeat(2,1fr)}.pain-section{padding:24px}}
 
-/* === PRICING CARDS === */
-.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:60px}
-.pricing-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;position:relative;transition:transform .2s,box-shadow .2s}
-.pricing-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
-.pricing-card.recommended{border-color:var(--lobster);box-shadow:0 0 30px rgba(212,64,58,0.15)}
-.pricing-card.popular{border-color:var(--yellow);box-shadow:0 0 20px rgba(234,179,8,0.1)}
-.card-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap}
+.solution-section{background:linear-gradient(135deg,rgba(212,64,58,0.08) 0%,rgba(74,128,212,0.06) 100%);border:1px solid rgba(212,64,58,0.15);border-radius:20px;padding:40px;margin-bottom:60px;text-align:center}
+.solution-badge{display:inline-flex;gap:6px;padding:6px 14px;background:rgba(34,197,94,0.15);border-radius:20px;font-size:12px;color:var(--green);font-weight:600;margin-bottom:20px}
+.solution-section h2{font-size:26px;font-weight:800;margin-bottom:16px}
+.solution-section .desc{color:var(--text-2);font-size:15px;max-width:600px;margin:0 auto 32px}
+.solution-compare{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:24px}
+.solution-old{text-align:center}
+.solution-old .label{font-size:13px;color:var(--text-3)}
+.solution-old .price{font-size:36px;font-weight:800;text-decoration:line-through;opacity:.4}
+.solution-arrow{font-size:32px;color:var(--green)}
+.solution-new{text-align:center;padding:24px 40px;background:var(--surface);border:2px solid var(--lobster);border-radius:16px}
+.solution-new .label{font-size:14px;color:var(--lobster-light);font-weight:600}
+.solution-new .price{font-size:42px;font-weight:900;color:var(--lobster-light)}
+.solution-save{background:rgba(34,197,94,0.12);color:var(--green);padding:8px 20px;border-radius:30px;font-size:14px;font-weight:700;display:inline-block}
+@media(max-width:600px){.solution-section{padding:28px 20px}.solution-new{padding:20px 28px}.solution-new .price{font-size:32px}}
+
+.diff-section{margin-bottom:60px}
+.diff-header{text-align:center;margin-bottom:40px}
+.diff-header h2{font-size:24px;font-weight:800;margin-bottom:8px}
+.diff-header p{color:var(--text-2);font-size:15px}
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.diff-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px}
+.diff-card .icon{font-size:32px;margin-bottom:16px}
+.diff-card h3{font-size:17px;font-weight:700;margin-bottom:10px}
+.diff-card p{font-size:14px;color:var(--text-2);line-height:1.6}
+.diff-card .highlight{color:var(--lobster-light);font-weight:600}
+@media(max-width:900px){.diff-grid{grid-template-columns:1fr}}
+
+.pricing-section{margin-bottom:60px}
+.pricing-header{text-align:center;margin-bottom:40px}
+.pricing-header h2{font-size:24px;font-weight:800;margin-bottom:8px}
+.pricing-header p{color:var(--text-2);font-size:15px}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pricing-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 20px;display:flex;flex-direction:column;position:relative}
+.pricing-card.popular{border-color:var(--yellow);box-shadow:0 0 20px rgba(234,179,8,0.08)}
+.pricing-card.recommended{border-color:var(--lobster);box-shadow:0 0 20px rgba(212,64,58,0.1)}
+.card-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700}
 .badge-popular{background:var(--yellow);color:#000}
 .badge-recommended{background:var(--lobster);color:#fff}
-.card-name{font-size:22px;font-weight:800;margin-bottom:8px;margin-top:8px}
-.card-price{font-size:36px;font-weight:900;margin-bottom:4px}
-.card-price span{font-size:14px;font-weight:400;color:var(--text-2)}
-.card-annual{font-size:12px;color:var(--text-3);margin-bottom:12px;padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:8px}
-.card-features{list-style:none;margin:16px 0;flex:1;text-align:left;line-height:1.5}
-.card-features li{padding:6px 0;font-size:13px;color:var(--text-2);display:flex;align-items:flex-start;gap:8px}
-.card-features li .icon{flex-shrink:0;width:18px;text-align:center}
+.card-name{font-size:20px;font-weight:800;margin-bottom:4px;margin-top:8px}
+.card-price{font-size:32px;font-weight:900;margin-bottom:2px}
+.card-price span{font-size:13px;font-weight:400;color:var(--text-2)}
+.card-annual{font-size:11px;color:var(--text-3);margin-bottom:16px}
+.card-features{list-style:none;margin:0 0 20px;flex:1}
+.card-features li{padding:5px 0;font-size:13px;color:var(--text-2);display:flex;gap:8px}
+.card-features li strong{color:var(--text)}
+.card-btn{display:block;width:100%;padding:12px;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;text-align:center}
+.btn-free{background:rgba(255,255,255,0.06);color:var(--text);border:1px solid var(--border)}
+.btn-primary{background:var(--lobster);color:#fff}
+.btn-popular{background:var(--yellow);color:#000}
 .feat-yes{color:var(--green)}
 .feat-no{color:var(--red);opacity:.5}
-.feat-warn{color:var(--yellow)}
-.feat-info{color:var(--text-3)}
-.feat-highlight{color:var(--lobster-light);font-weight:600}
-.card-btn{display:block;width:100%;padding:12px;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;text-align:center;transition:all .2s;text-decoration:none}
-.btn-free{background:rgba(255,255,255,0.06);color:var(--text);border:1px solid var(--border)}
-.btn-free:hover{background:rgba(255,255,255,0.1)}
-.btn-primary{background:var(--lobster);color:#fff}
-.btn-primary:hover{background:var(--lobster-light)}
-.btn-popular{background:var(--yellow);color:#000}
-.btn-popular:hover{opacity:.9}
+@media(max-width:1024px){.pricing-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.pricing-grid{grid-template-columns:1fr}}
 
-/* === WHAT YOU GET === */
-.what-you-get{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px 32px;margin-bottom:60px}
-.what-you-get h2{text-align:center;font-size:24px;font-weight:800;margin-bottom:32px}
-.what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.what-item{display:flex;gap:16px}
-.what-icon{font-size:32px;flex-shrink:0}
-.what-content h3{font-size:16px;font-weight:700;margin-bottom:6px}
-.what-content p{font-size:13px;color:var(--text-2);line-height:1.6}
-.what-examples{font-size:12px;color:var(--text-3);margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
-@media(max-width:900px){.what-grid{grid-template-columns:1fr}}
+.cap-section{margin-bottom:60px}
+.cap-header{text-align:center;margin-bottom:32px}
+.cap-header h2{font-size:24px;font-weight:800;margin-bottom:8px}
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cap-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px}
+.cap-card .icon{font-size:28px;margin-bottom:10px}
+.cap-card h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.cap-card p{font-size:13px;color:var(--text-2)}
+@media(max-width:900px){.cap-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.cap-grid{grid-template-columns:1fr}}
 
-/* === COMPARISON TABLE === */
-.compare-section{margin-bottom:80px}
-.compare-section h2{text-align:center;font-size:28px;font-weight:800;margin-bottom:32px}
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:14px}
+.compare-section{margin-bottom:60px}
+.compare-header{text-align:center;margin-bottom:32px}
+.compare-header h2{font-size:24px;font-weight:800;margin-bottom:8px}
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px}
 .compare-table{width:100%;min-width:700px;border-collapse:collapse}
 .compare-table th,.compare-table td{padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);font-size:13px}
-.compare-table th{background:rgba(255,255,255,0.03);font-weight:700;color:var(--text);position:sticky;top:0}
+.compare-table th{background:rgba(255,255,255,0.02);font-weight:700;position:sticky;top:0}
 .compare-table td:first-child,.compare-table th:first-child{text-align:left;font-weight:600;color:var(--text-2)}
-.compare-table tbody tr:last-child td{border-bottom:none}
-.compare-table tbody tr:hover{background:rgba(255,255,255,0.02)}
-.col-pro{background:rgba(212,64,58,0.04)}
+.col-pro{background:rgba(212,64,58,0.03)}
 
-/* === FAQ === */
-.faq-section{margin-bottom:80px}
-.faq-section h2{text-align:center;font-size:28px;font-weight:800;margin-bottom:32px}
+.faq-section{margin-bottom:60px}
+.faq-header{text-align:center;margin-bottom:32px}
+.faq-header h2{font-size:24px;font-weight:800;margin-bottom:8px}
 .faq-list{max-width:800px;margin:0 auto}
 .faq-item{border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;background:var(--surface)}
-.faq-q{padding:16px 20px;cursor:pointer;font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.faq-q{padding:16px 20px;cursor:pointer;font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:center}
 .faq-q:hover{background:rgba(255,255,255,0.02)}
 .faq-q .arrow{transition:transform .2s;color:var(--text-3)}
-.faq-item.open .faq-q .arrow{transform:rotate(180deg)}
-.faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;color:var(--text-2);font-size:14px;line-height:1.8}
+.faq-item.open .arrow{transform:rotate(180deg)}
+.faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all .3s;color:var(--text-2);font-size:14px;line-height:1.8}
 .faq-item.open .faq-a{max-height:300px;padding:0 20px 16px}
 
-/* === CTA === */
-.cta-section{text-align:center;padding:60px 40px;background:linear-gradient(135deg,rgba(212,64,58,0.08) 0%,rgba(74,128,212,0.08) 100%);border:1px solid rgba(212,64,58,0.15);border-radius:20px;margin-bottom:60px}
+.cta-section{text-align:center;padding:60px 40px;background:var(--surface);border:1px solid var(--border);border-radius:20px;margin-bottom:40px}
 .cta-section h2{font-size:28px;font-weight:800;margin-bottom:12px}
-.cta-section p{color:var(--text-2);margin-bottom:24px;font-size:15px}
-.cta-btn{display:inline-block;padding:16px 48px;background:var(--lobster);color:#fff;border-radius:12px;font-weight:700;font-size:16px;transition:all .2s}
-.cta-btn:hover{background:var(--lobster-light);transform:translateY(-2px)}
+.cta-section p{color:var(--text-2);margin-bottom:24px}
+.cta-btn{display:inline-block;padding:16px 48px;background:var(--lobster);color:#fff;border-radius:12px;font-weight:700;font-size:16px}
 
-/* === DISCORD BANNER === */
-.discord-banner{display:flex;align-items:center;justify-content:center;gap:12px;padding:20px;background:linear-gradient(135deg,#5865F2 0%,#7289DA 100%);border-radius:14px;margin-bottom:40px;text-align:center;color:#fff;font-weight:600;font-size:15px}
-.discord-banner:hover{opacity:.92}
-
-/* === RESPONSIVE === */
-@media(max-width:1024px){
-  .pricing-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:600px){
-  .pricing-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .pricing-card{padding:16px 12px}
-  .card-name{font-size:18px}
-  .card-price{font-size:28px}
-  .card-features li{font-size:12px;padding:1px 0;line-height:1.3}
-  .card-features .icon{width:16px;font-size:12px}
-  .pricing-card .btn{padding:10px 16px;font-size:13px}
-  .page-header h1{font-size:30px}
-  .cta-section{padding:40px 20px}
-  .value-total{padding:16px}
-}
+.discord-section{text-align:center;margin-bottom:40px}
+.discord-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:linear-gradient(135deg,#5865F2 0%,#7289DA 100%);color:#fff;border-radius:12px;font-weight:600;font-size:15px}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="../" class="logo"><img src="../logo-nav.png" alt=""><div class="logo-text">Ima <b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by ImaStudio</span></div></a>
+  <a href="../" class="logo">
+    <img src="../logo-nav.png" alt="">
+    <div class="logo-text">Ima <b>Claw</b></div>
+  </a>
   <div class="nav-links">
-    <a href="../" data-i18n="nav.home">首页</a>
-    <a href="../adopt/" class="nav-adopt" data-i18n="nav.adopt">🦞 领养</a>
-    <a href="../skills/" data-i18n="nav.skills">Skill 市场</a>
-    <a href="../pricing/" data-i18n="nav.pricing">🛒 购买</a>
-    <a href="../docs/" data-i18n="nav.docs">帮助</a>
-    <a href="../blog/" data-i18n="nav.blog">博客</a>
-    <a href="https://imastudio.com/community" target="_blank" data-i18n="nav.community">社区</a>
-    <div class="lang-dropdown">
-      <button class="lang-trigger" onclick="event.stopPropagation();this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
-      <div class="lang-menu">
-        <button onclick="setLang('zh')">🇨🇳 中文</button>
-        <button onclick="setLang('en')">🇺🇸 English</button>
-        <button onclick="setLang('es')">🇪🇸 Español</button>
-        <button onclick="setLang('ja')">🇯🇵 日本語</button>
-        <button onclick="setLang('ar')">🇸🇦 العربية</button>
-      </div>
-    </div>
+    <a href="../">首页</a>
+    <a href="../adopt/" class="nav-adopt">🦞 领养</a>
+    <a href="../skills/">Skill 市场</a>
+    <a href="../pricing/">🛒 购买</a>
+    <a href="../docs/">帮助</a>
+    <a href="../blog/">博客</a>
+    <a href="https://imastudio.com/community" target="_blank">社区</a>
   </div>
-  <button class="hamburger" onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
 </nav>
 
 <div class="container">
 
-  <!-- HEADER -->
-  <div class="page-header">
-    <h1>🦞 选择你的龙虾套餐</h1>
-    <p class="subtitle">一个订阅，替代五个工具 —— 你的 AI 创作工作站</p>
-  </div>
+  <section class="hero">
+    <div class="hero-badge">
+      <span>🦞</span> Ima Claw Pro — 一个订阅，全部搞定
+    </div>
+    <h1>不要再为 <span>5 个订阅</span> 分别付费了</h1>
+    <p class="hero-desc">你正在用 ChatGPT 聊天、Midjourney 画图、Kling 做视频、Suno 配音乐吗？Ima Claw 一个平台，全部包含，还送你 24/7 工作的 AI Agent。</p>
+  </section>
 
-  <!-- VALUE COMPARISON (NEW) -->
-  <div class="value-section">
-    <h2>💡 为什么要用 Ima Claw？</h2>
-    <p style="color:var(--text-2);font-size:15px;max-width:700px;margin:0 auto">如果你单独购买这些工具，每月需要支付：</p>
-    <div class="value-grid">
-      <div class="value-item">
+  <section class="pain-section">
+    <div class="pain-header">
+      <h2>💸 现在的你，可能正在这样付费...</h2>
+      <p>每个月管理 5 个订阅，切换 5 个平台，记住 5 套操作逻辑</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-item">
         <div class="icon">💬</div>
         <div class="name">AI 对话</div>
         <div class="price">$20/月</div>
-        <div class="desc">ChatGPT Plus</div>
+        <div class="problem">ChatGPT Plus<br>只能聊天</div>
       </div>
-      <div class="value-item">
+      <div class="pain-item">
         <div class="icon">🎨</div>
         <div class="name">AI 图片</div>
         <div class="price">$24/月</div>
-        <div class="desc">Midjourney</div>
+        <div class="problem">Midjourney<br>只能画图</div>
       </div>
-      <div class="value-item">
+      <div class="pain-item">
         <div class="icon">🎬</div>
         <div class="name">AI 视频</div>
         <div class="price">$26/月</div>
-        <div class="desc">Kling Pro</div>
+        <div class="problem">Kling Pro<br>只能做视频</div>
       </div>
-      <div class="value-item">
+      <div class="pain-item">
         <div class="icon">🎵</div>
         <div class="name">AI 音乐</div>
         <div class="price">$10/月</div>
-        <div class="desc">Suno</div>
+        <div class="problem">Suno<br>只能作曲</div>
       </div>
-      <div class="value-item">
+      <div class="pain-item">
+        <div class="icon">⏰</div>
+        <div class="name">24/7 工作</div>
+        <div class="price">$?/月</div>
+        <div class="problem">没有工具<br>能做到</div>
+      </div>
+    </div>
+    <div class="pain-total">
+      <div class="label">每月订阅费用</div>
+      <div class="amount">$80+ / 月</div>
+      <div class="note">还没算学习成本、切换成本、以及你的时间</div>
+    </div>
+  </section>
+
+  <section class="solution-section">
+    <div class="solution-badge">✨ 更好的选择</div>
+    <h2>Ima Claw Pro — 一个平台，全部包含</h2>
+    <p class="desc">ChatGPT + Midjourney + Kling + Suno + 独家 Agent 能力，全部打包</p>
+    <div class="solution-compare">
+      <div class="solution-old">
+        <div class="label">5 个订阅</div>
+        <div class="price">$80+</div>
+      </div>
+      <div class="solution-arrow">→</div>
+      <div class="solution-new">
+        <div class="label">Ima Claw Pro</div>
+        <div class="price">$49.99/月</div>
+      </div>
+    </div>
+    <div class="solution-save">💰 节省 38%，还多一个 24/7 AI Agent</div>
+  </section>
+
+  <section class="diff-section">
+    <div class="diff-header">
+      <h2>🎯 但 Ima Claw 不只是"打包"这么简单</h2>
+      <p>真正让你和其他人拉开差距的，是这些独家能力</p>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card">
         <div class="icon">🤖</div>
-        <div class="name">24/7 Agent</div>
-        <div class="price">无竞品</div>
-        <div class="desc">自动化工作流</div>
+        <h3>24/7 永不休息的 Agent</h3>
+        <p>ChatGPT 需要你打开才能用，Ima Claw 的龙虾<span class="highlight">自己就能工作</span>。定时发推、监控竞品、自动回复——睡觉时也在为你干活。</p>
+      </div>
+      <div class="diff-card">
+        <div class="icon">📱</div>
+        <h3>一键部署到所有平台</h3>
+        <p>WhatsApp、Telegram、Discord、飞书...<span class="highlight">你的龙虾可以同时活在多个地方</span>。客服、社群、个人助手，统一管理。</p>
+      </div>
+      <div class="diff-card">
+        <div class="icon">⚡</div>
+        <h3>10+ 模型自由切换</h3>
+        <p>不用纠结选 ChatGPT 还是 Claude。一句话<span class="highlight">自动选最合适模型</span>，或者用最强的，或者用最便宜的——你说了算。</p>
       </div>
     </div>
-    <div class="value-total">
-      <div class="value-total-row">
-        <span>单独购买 5 个工具</span>
-        <span class="old">$80+/月</span>
-      </div>
-      <div class="value-total-row">
-        <span>Ima Claw Pro <span style="font-size:12px;color:var(--text-3);font-weight:400">（全部包含）</span></span>
-        <span class="new">$49.99/月</span>
-      </div>
-      <div style="text-align:center;margin-top:16px">
-        <span class="save">💰 节省 38% + 独家 Agent 能力</span>
-      </div>
-    </div>
-  </div>
+  </section>
 
-  <!-- PRICING CARDS -->
-  <div class="pricing-grid">
-    <!-- FREE -->
-    <div class="pricing-card">
-      <div class="card-name">免费版</div>
-      <div class="card-price">$0 <span>/月</span></div>
-      <div class="card-annual">50 积分/天 · 体验所有基础能力</div>
-      <ul class="card-features">
-        <li><span class="icon feat-yes">✓</span> 图片生成（全模型）</li>
-        <li><span class="icon feat-yes">✓</span> 视频生成（全模型）</li>
-        <li><span class="icon feat-yes">✓</span> 音乐创作（全模型）</li>
-        <li><span class="icon feat-no">✗</span> <span class="feat-highlight">Bot 智能助手</span></li>
-        <li><span class="icon feat-no">✗</span> 云端 24/7 运行</li>
-        <li><span class="icon feat-no">✗</span> 定时任务/自动化</li>
-        <li><span class="icon feat-no">✗</span> 多平台部署</li>
-      </ul>
-      <a href="../adopt/" class="card-btn btn-free">免费开始</a>
+  <section class="pricing-section">
+    <div class="pricing-header">
+      <h2>💳 选择适合你的套餐</h2>
+      <p>从免费开始，随时升级。年付更省。</p>
     </div>
-    <!-- PLUS -->
-    <div class="pricing-card popular">
-      <div class="card-badge badge-popular">🔥 入门首选</div>
-      <div class="card-name">Plus</div>
-      <div class="card-price">$9.99<span>/月</span></div>
-      <div class="card-annual">年付 $7.99/月 <span style="color:var(--green)">省 20%</span></div>
-      <ul class="card-features">
-        <li><span class="icon feat-yes">✓</span> <strong>700 积分/月</strong></li>
-        <li><span class="icon feat-yes">✓</span> <span class="feat-highlight">Bot Lite</span>（轻量体验）</li>
-        <li><span class="icon feat-yes">✓</span> 全模型池（含 Claude）</li>
-        <li><span class="icon feat-yes">✓</span> Skill 工具箱</li>
-        <li><span class="icon feat-no">✗</span> 云端实例</li>
-        <li><span class="icon feat-no">✗</span> 定时任务</li>
-        <li><span class="icon feat-warn">⚠</span> 并发 1 · ≤5分钟/次</li>
-      </ul>
-      <a href="../adopt/" class="card-btn btn-popular">立即订阅</a>
-    </div>
-    <!-- PRO -->
-    <div class="pricing-card recommended">
-      <div class="card-badge badge-recommended">⭐ 推荐</div>
-      <div class="card-name">Pro</div>
-      <div class="card-price">$49.99<span>/月</span></div>
-      <div class="card-annual">年付 $39.99/月 <span style="color:var(--green)">省 20%</span></div>
-      <ul class="card-features">
-        <li><span class="icon feat-yes">✓</span> <strong>3,200 积分/月</strong></li>
-        <li><span class="icon feat-yes">✓</span> <span class="feat-highlight">完整 Bot 功能</span></li>
-        <li><span class="icon feat-yes">✓</span> 1核2G 云端实例</li>
-        <li><span class="icon feat-yes">✓</span> 定时任务/自动化</li>
-        <li><span class="icon feat-yes">✓</span> 多平台部署</li>
-        <li><span class="icon feat-yes">✓</span> 全模型池</li>
-        <li><span class="icon feat-info">ℹ</span> 并发 1 · 队列 10 · ≤15分钟</li>
-      </ul>
-      <a href="../adopt/" class="card-btn btn-primary">立即订阅</a>
-    </div>
-    <!-- ULTRA -->
-    <div class="pricing-card">
-      <div class="card-name">Ultra</div>
-      <div class="card-price">$199.99<span>/月</span></div>
-      <div class="card-annual">年付 $159.99/月 <span style="color:var(--green)">省 20%</span></div>
-      <ul class="card-features">
-        <li><span class="icon feat-yes">✓</span> <strong>18,000 积分/月</strong></li>
-        <li><span class="icon feat-yes">✓</span> <span class="feat-highlight">2核4G 云端实例</span></li>
-        <li><span class="icon feat-yes">✓</span> 浏览器自动化工具</li>
-        <li><span class="icon feat-yes">✓</span> 基础建站工具</li>
-        <li><span class="icon feat-yes">✓</span> 优先队列</li>
-        <li><span class="icon feat-yes">✓</span> 专属支持</li>
-        <li><span class="icon feat-info">ℹ</span> 并发 2 · 队列 50 · ≤60分钟</li>
-      </ul>
-      <a href="../adopt/" class="card-btn btn-primary">立即订阅</a>
-    </div>
-  </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="card-name">免费版</div>
+        <div class="card-price">$0 <span>/月</span></div>
+        <div class="card-annual">每天 50 积分，体验全部 AI 能力</div>
+        <ul class="card-features">
+          <li><span class="feat-yes">✓</span> <strong>图片生成</strong>（10+ 模型）</li>
+          <li><span class="feat-yes">✓</span> <strong>视频生成</strong>（20+ 模型）</li>
+          <li><span class="feat-yes">✓</span> <strong>音乐创作</strong>（全模型）</li>
+          <li><span class="feat-no">✗</span> Bot 智能助手</li>
+          <li><span class="feat-no">✗</span> 云端 24/7 运行</li>
+          <li><span class="feat-no">✗</span> 定时自动化</li>
+        </ul>
+        <a href="../adopt/" class="card-btn btn-free">免费开始</a>
+      </div>
 
-  <!-- WHAT YOU GET -->
-  <div class="what-you-get">
-    <h2>🎯 你的龙虾能做什么？</h2>
-    <div class="what-grid">
-      <div class="what-item">
-        <div class="what-icon">🎨</div>
-        <div class="what-content">
-          <h3>AI 图片生成</h3>
-          <p>10+ 模型自由切换：Midjourney、SeeDream、Banana Pro、GPT-4o 等，支持 0.5K-4K 分辨率</p>
-          <div class="what-examples">示例：电商主图、社交媒体配图、产品展示图、概念设计</div>
-        </div>
+      <div class="pricing-card popular">
+        <div class="card-badge badge-popular">🔥 入门首选</div>
+        <div class="card-name">Plus</div>
+        <div class="card-price">$9.99 <span>/月</span></div>
+        <div class="card-annual">年付 $7.99/月 · 省 20%</div>
+        <ul class="card-features">
+          <li><span class="feat-yes">✓</span> <strong>700 积分/月</strong></li>
+          <li><span class="feat-yes">✓</span> Bot Lite（轻量体验）</li>
+          <li><span class="feat-yes">✓</span> 全部 AI 模型（含 Claude）</li>
+          <li><span class="feat-yes">✓</span> 全部 Skill 工具箱</li>
+          <li><span class="feat-no">✗</span> 云端实例</li>
+          <li><span class="feat-no">✗</span> 定时任务</li>
+        </ul>
+        <a href="../adopt/" class="card-btn btn-popular">立即订阅</a>
       </div>
-      <div class="what-item">
-        <div class="what-icon">🎬</div>
-        <div class="what-content">
-          <h3>AI 视频生成</h3>
-          <p>20+ 视频模型：Wan 2.6、Kling、Veo 3、Sora 2、Seedance、Hailuo 等，支持文生/图生/首尾帧</p>
-          <div class="what-examples">示例：商品短视频、广告片、口播素材、社交媒体视频</div>
-        </div>
+
+      <div class="pricing-card recommended">
+        <div class="card-badge badge-recommended">⭐ 推荐</div>
+        <div class="card-name">Pro</div>
+        <div class="card-price">$49.99 <span>/月</span></div>
+        <div class="card-annual">年付 $39.99/月 · 省 20%</div>
+        <ul class="card-features">
+          <li><span class="feat-yes">✓</span> <strong>3,200 积分/月</strong></li>
+          <li><span class="feat-yes">✓</span> <strong>完整 Bot 功能</strong></li>
+          <li><span class="feat-yes">✓</span> 1核2G 云端实例</li>
+          <li><span class="feat-yes">✓</span> 定时任务 + 自动化</li>
+          <li><span class="feat-yes">✓</span> 多平台部署</li>
+          <li><span class="feat-yes">✓</span> 10+ AI 模型自由切换</li>
+        </ul>
+        <a href="../adopt/" class="card-btn btn-primary">立即订阅</a>
       </div>
-      <div class="what-item">
-        <div class="what-icon">🎵</div>
-        <div class="what-content">
-          <h3>AI 音乐创作</h3>
-          <p>Suno、DouBao 等主流音乐模型，支持背景音、歌曲、音效生成</p>
-          <div class="what-examples">示例：视频配乐、广告音效、播客片头、品牌音乐</div>
-        </div>
-      </div>
-      <div class="what-item">
-        <div class="what-icon">🤖</div>
-        <div class="what-content">
-          <h3>24/7 AI Agent</h3>
-          <p>你的龙虾永不休息，定时执行任务，自动完成工作流，无需人工值守</p>
-          <div class="what-examples">示例：定时发推、自动回复客服、每日数据汇总、内容自动发布</div>
-        </div>
-      </div>
-      <div class="what-item">
-        <div class="what-icon">📱</div>
-        <div class="what-content">
-          <h3>多平台部署</h3>
-          <p>一键部署到 WhatsApp、Telegram、Discord、飞书等平台，统一管理</p>
-          <div class="what-examples">示例：客服机器人、社群助手、内容发布 Bot、智能问答</div>
-        </div>
-      </div>
-      <div class="what-item">
-        <div class="what-icon">🛠️</div>
-        <div class="what-content">
-          <h3>无限扩展 Skills</h3>
-          <p>100+ 技能随心组合：搜索、研究、社交监听、内容生成、数据分析...</p>
-          <div class="what-examples">示例：竞品监控、舆情分析、SEO 优化、自动报告生成</div>
-        </div>
+
+      <div class="pricing-card">
+        <div class="card-name">Ultra</div>
+        <div class="card-price">$199.99 <span>/月</span></div>
+        <div class="card-annual">年付 $159.99/月 · 省 20%</div>
+        <ul class="card-features">
+          <li><span class="feat-yes">✓</span> <strong>18,000 积分/月</strong></li>
+          <li><span class="feat-yes">✓</span> <strong>2核4G 云端实例</strong></li>
+          <li><span class="feat-yes">✓</span> 浏览器自动化</li>
+          <li><span class="feat-yes">✓</span> 基础建站工具</li>
+          <li><span class="feat-yes">✓</span> 优先队列 + 专属支持</li>
+        </ul>
+        <a href="../adopt/" class="card-btn btn-primary">立即订阅</a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- COMPARISON TABLE -->
-  <div class="compare-section">
-    <h2>📊 功能对比</h2>
+  <section class="cap-section">
+    <div class="cap-header">
+      <h2>🚀 一个订阅，全部这些能力</h2>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="icon">🎨</div>
+        <h3>AI 图片</h3>
+        <p>Midjourney、SeeDream、GPT-4o、Banana Pro... 10+ 模型，0.5K-4K</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">🎬</div>
+        <h3>AI 视频</h3>
+        <p>Wan 2.6、Kling、Veo 3、Sora、Seedance... 20+ 模型，文生/图生/首尾帧</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">🎵</div>
+        <h3>AI 音乐</h3>
+        <p>Suno、DouBao BGM/GenSong，歌曲、配乐、音效全搞定</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">💬</div>
+        <h3>AI 对话</h3>
+        <p>GPT-4o、Claude、Kimi、MiniMax... 最强模型随时切换</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">🤖</div>
+        <h3>24/7 Agent</h3>
+        <p>定时任务、自动化工作流、长期记忆、多平台部署</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">🛠️</div>
+        <h3>100+ Skills</h3>
+        <p>搜索、研究、社媒、SEO、数据分析... 无限扩展</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="compare-section">
+    <div class="compare-header">
+      <h2>📊 功能对比一览</h2>
+    </div>
     <div class="table-wrap">
       <table class="compare-table">
         <thead>
@@ -385,88 +377,70 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
         </thead>
         <tbody>
           <tr><td>每月积分</td><td>50/天</td><td>700</td><td class="col-pro">3,200</td><td>18,000</td></tr>
-          <tr><td>AI 模型</td><td>全部</td><td>全部</td><td class="col-pro">全部</td><td>全部</td></tr>
-          <tr><td>图片 / 视频 / 音乐</td><td>✅</td><td>✅</td><td class="col-pro">✅</td><td>✅</td></tr>
-          <tr><td>Bot 智能助手</td><td>❌</td><td>Lite</td><td class="col-pro">完整</td><td>完整</td></tr>
+          <tr><td>AI 图片/视频/音乐</td><td>✅ 全模型</td><td>✅ 全模型</td><td class="col-pro">✅ 全模型</td><td>✅ 全模型</td></tr>
+          <tr><td>AI 对话模型</td><td>基础</td><td>全部含 Claude</td><td class="col-pro">全部</td><td>全部</td></tr>
+          <tr><td>Bot 智能助手</td><td>❌</td><td>Lite</td><td class="col-pro">完整版</td><td>完整版</td></tr>
           <tr><td>云端实例</td><td>❌</td><td>❌</td><td class="col-pro">1核2G</td><td>2核4G</td></tr>
           <tr><td>24/7 运行</td><td>❌</td><td>❌</td><td class="col-pro">✅</td><td>✅</td></tr>
-          <tr><td>定时任务 / 自动化</td><td>❌</td><td>❌</td><td class="col-pro">✅</td><td>✅</td></tr>
+          <tr><td>定时任务/自动化</td><td>❌</td><td>❌</td><td class="col-pro">✅</td><td>✅</td></tr>
           <tr><td>多平台部署</td><td>❌</td><td>❌</td><td class="col-pro">✅</td><td>✅</td></tr>
-          <tr><td>浏览器工具</td><td>❌</td><td>❌</td><td class="col-pro">❌</td><td>✅</td></tr>
-          <tr><td>建站工具</td><td>❌</td><td>❌</td><td class="col-pro">❌</td><td>基础</td></tr>
-          <tr><td>并发 / 队列</td><td>—</td><td>1 / —</td><td class="col-pro">1 / 10</td><td>2 / 50</td></tr>
-          <tr><td>单次时长上限</td><td>—</td><td>5 分钟</td><td class="col-pro">15 分钟</td><td>60 分钟</td></tr>
+          <tr><td>队列/并发</td><td>—</td><td>— / 1</td><td class="col-pro">10 / 1</td><td>50 / 2</td></tr>
         </tbody>
       </table>
     </div>
-  </div>
+  </section>
 
-  <!-- FAQ -->
-  <div class="faq-section">
-    <h2>❓ 常见问题</h2>
+  <section class="faq-section">
+    <div class="faq-header">
+      <h2>❓ 常见问题</h2>
+    </div>
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>积分是什么？700 积分能做什么？</span><span class="arrow">▼</span>
+          <span>700 积分能做什么？</span><span class="arrow">▼</span>
         </div>
-        <div class="faq-a">积分是 Ima Claw 的计费单位。700 积分约等于：200 次对话 + 50 张图片 + 5 条短视频。不同操作消耗不同积分：对话 1-3 分/次，图片 3-18 分/张，视频 8-320 分/条（取决于模型和时长）。每月自动重置。</div>
+        <div class="faq-a">约等于 200 次对话 + 50 张图片 + 5 条短视频。对话 1-3 分/次，图片 3-18 分/张，视频 8-320 分/条。每月自动重置。</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>为什么说"一个订阅替代 5 个工具"？</span><span class="arrow">▼</span>
+          <span>和单独买 ChatGPT + Midjourney 有什么区别？</span><span class="arrow">▼</span>
         </div>
-        <div class="faq-a">单独购买 ChatGPT Plus($20) + Midjourney($24) + Kling Pro($26) + Suno($10) 需要 $80+/月。Ima Claw Pro $49.99/月全部包含，还额外提供 24/7 AI Agent、定时自动化、多平台部署等独家能力——这些是任何单一工具都没有的。</div>
+        <div class="faq-a">单独买需要管理 5 个订阅、5 个平台。Ima Claw 一个平台全包，还额外送你 24/7 Agent、定时自动化、多平台部署——这些是任何单一工具都没有的。</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>免费版和付费版有什么区别？</span><span class="arrow">▼</span>
+          <span>免费版和付费版的核心区别？</span><span class="arrow">▼</span>
         </div>
-        <div class="faq-a">免费版可以使用所有 AI 生成能力（图片/视频/音乐），每天 50 积分。付费版额外解锁 Bot 智能助手、云端实例、24/7 运行、定时任务、多平台部署等核心能力。</div>
+        <div class="faq-a">免费版能用所有 AI 生成能力（图/视频/音乐）。付费版解锁 Bot 智能助手、云端实例、24/7 运行、自动化——让你的龙虾真正成为"员工"而不是"工具"。</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
           <span>可以随时更换套餐吗？</span><span class="arrow">▼</span>
         </div>
-        <div class="faq-a">可以。你可以随时升级或降级套餐，升级立即生效，降级在当前计费周期结束后生效。</div>
+        <div class="faq-a">可以。升级立即生效，降级在当前计费周期结束后生效。</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>积分用完了怎么办？</span><span class="arrow">▼</span>
+          <span>积分用完怎么办？</span><span class="arrow">▼</span>
         </div>
-        <div class="faq-a">积分用完后 Bot 功能会暂停，但免费版的基础生成功能不受影响。你可以等待下月自动重置，或升级到更高级的套餐。后续会推出积分包供单独购买。</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>支持哪些支付方式？</span><span class="arrow">▼</span>
-        </div>
-        <div class="faq-a">我们支持 Visa / Mastercard 信用卡、PayPal，以及微信支付、支付宝。具体支付方式将在定价正式发布时公布。</div>
+        <div class="faq-a">Bot 功能暂停，但免费版基础功能不受影响。可以等下月重置，或升级套餐。后续会推出积分包。</div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- DISCORD BANNER -->
-  <a href="https://discord.gg/UdXFVYhh" target="_blank" class="discord-banner">
-    💬 加入 Discord 社区，与其他龙虾主人交流
-  </a>
-
-  <!-- CTA -->
-  <div class="cta-section">
+  <section class="cta-section">
     <h2>🦞 准备好领养你的龙虾了吗？</h2>
     <p>从免费版开始，随时升级解锁更多能力</p>
     <a href="../adopt/" class="cta-btn">立即开始</a>
-  </div>
+  </section>
+
+  <section class="discord-section">
+    <a href="https://discord.gg/UdXFVYhh" target="_blank" class="discord-btn">
+      💬 加入 Discord 社区，与其他龙虾主人交流
+    </a>
+  </section>
 
 </div>
 
-<script>
-function setLang(l){
-  var m={'zh':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
-  var t=document.querySelector('.lang-trigger');if(t)t.textContent='🌐 '+(m[l]||l)+' ▾';
-  document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});
-}
-(function(){var l=navigator.language||'en';var m={'zh':'zh','zh-CN':'zh','zh-TW':'zh','zh-HK':'zh','en':'en','es':'es','ja':'ja','ar':'ar'};setLang(m[l]||m[l.split('-')[0]]||'en')})();
-document.addEventListener("click",function(e){var nav=document.querySelector(".nav-links");var ham=document.querySelector(".hamburger");if(nav&&nav.classList.contains("open")&&!nav.contains(e.target)&&e.target!==ham){nav.classList.remove("open")}document.querySelectorAll(".lang-dropdown.open").forEach(function(d){if(!d.contains(e.target))d.classList.remove("open")})});
-document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",function(){var nav=document.querySelector(".nav-links");if(nav)nav.classList.remove("open")})});
-</script>
 </body>
 </html>
