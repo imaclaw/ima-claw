@@ -14,13 +14,6 @@ html{scrollbar-width:none}html::-webkit-scrollbar{display:none}
 body{font-family:'Inter',-apple-system,'PingFang SC','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
 a{color:var(--lobster-light);text-decoration:none}
 
-
-
-.lang-dropdown{position:relative;display:inline-block}
-.lang-trigger{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--text-2);cursor:pointer}
-.lang-menu{display:none;position:absolute;right:0;top:110%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:6px;min-width:120px;z-index:99}
-.lang-dropdown.open .lang-menu{display:block}
-.lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:var(--text-2);font-size:12px;border-radius:8px;cursor:pointer}.lang-menu button:hover{background:rgba(255,255,255,0.06);color:var(--text)}
 .hero{text-align:center;padding:80px 20px 32px}
 .hero .badge{display:inline-block;margin-bottom:16px;padding:4px 12px;background:rgba(231,76,60,0.12);border:1px solid rgba(231,76,60,0.25);border-radius:20px;font-size:12px;color:var(--lobster-light);font-weight:600}
 .hero h1{font-size:48px;font-weight:900;margin-bottom:8px}
@@ -55,26 +48,23 @@ a{color:var(--lobster-light);text-decoration:none}
 .cta a{display:inline-block;padding:12px 28px;background:var(--lobster);color:#fff;font-size:15px;font-weight:700;border-radius:12px}
 .ft{text-align:center;padding:24px 20px;border-top:1px solid var(--border);color:var(--text-3);font-size:12px}
 .ft a{color:var(--text-2)}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em}.logo-text b{color:#E8584E}
 .nav-cta{background:#D4403A!important;color:#fff!important;padding:7px 18px;border-radius:20px;font-weight:700;font-size:12px!important}
-.lang-dropdown{position:relative;display:inline-block}
-.lang-trigger{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);cursor:pointer}
-.lang-menu{display:none;position:absolute;right:0;top:110%;background:#13131D;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:6px;min-width:120px;z-index:99}
-.lang-dropdown.open .lang-menu{display:block}
-.lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:rgba(255,255,255,0.55);font-size:12px;border-radius:8px;cursor:pointer}.lang-menu button:hover{background:rgba(255,255,255,0.06);color:#E8E8ED}
 
 body{padding-top:60px}
 @media(max-width:600px){
 }
 /* Nav */
+@media(max-width:768px){
+  .nav-links .lang-dropdown{padding:12px 20px;text-align:right;display:flex;justify-content:flex-end}
+}
+/* === SHARED NAV CSS === */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;background:rgba(12,12,18,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.logo{display:flex;align-items:center;gap:10px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
 .logo img{height:40px;width:40px;border-radius:8px}
 .logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em;color:var(--text)}
 .logo-text b{color:var(--lobster-light)}
 .nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:var(--text-3);font-size:13px;font-weight:500;transition:color .3s}
+.nav-links a{color:var(--text-3);font-size:13px;font-weight:500;transition:color .3s;text-decoration:none}
 .nav-links a:hover{color:var(--text)}
 .nav-adopt{color:var(--lobster-light)!important;font-weight:600!important}
 .hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px}
@@ -94,6 +84,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
   .nav-links a:last-child{border-bottom:none}
   .nav-links .lang-dropdown{padding:12px 20px;text-align:right;display:flex;justify-content:flex-end}
 }
+/* === END SHARED NAV CSS === */
 </style>
 </head>
 <body>

@@ -11,12 +11,6 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
 a{color:var(--lobster-light);text-decoration:none}
-.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em}.logo-text b{color:var(--lobster-light)}
-.nav-links a.active{color:var(--lobster-light)}
-.lang-dropdown{position:relative}.lang-trigger{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--text-2);cursor:pointer}
-.lang-menu{display:none;position:absolute;top:100%;right:0;margin-top:8px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:6px;min-width:140px;z-index:200}
-.lang-dropdown.open .lang-menu{display:block}
-.lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:var(--text-2);font-size:12px;border-radius:8px;cursor:pointer}.lang-menu button:hover{background:rgba(255,255,255,0.06);color:var(--text)}
 .container{max-width:900px;margin:0 auto;padding:90px 20px 60px;text-align:center}
 h1{font-size:40px;font-weight:900;margin-bottom:12px}
 .subtitle{color:var(--text-2);font-size:17px;margin-bottom:48px}
@@ -25,13 +19,17 @@ h1{font-size:40px;font-weight:900;margin-bottom:12px}
 @media(max-width:600px){
 }
 /* Nav */
+@media(max-width:768px){
+  .nav-links .lang-dropdown{padding:12px 20px;text-align:right;display:flex;justify-content:flex-end}
+}
+/* === SHARED NAV CSS === */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;background:rgba(12,12,18,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.logo{display:flex;align-items:center;gap:10px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
 .logo img{height:40px;width:40px;border-radius:8px}
 .logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em;color:var(--text)}
 .logo-text b{color:var(--lobster-light)}
 .nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:var(--text-3);font-size:13px;font-weight:500;transition:color .3s}
+.nav-links a{color:var(--text-3);font-size:13px;font-weight:500;transition:color .3s;text-decoration:none}
 .nav-links a:hover{color:var(--text)}
 .nav-adopt{color:var(--lobster-light)!important;font-weight:600!important}
 .hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px}
@@ -51,6 +49,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
   .nav-links a:last-child{border-bottom:none}
   .nav-links .lang-dropdown{padding:12px 20px;text-align:right;display:flex;justify-content:flex-end}
 }
+/* === END SHARED NAV CSS === */
 </style>
 </head>
 <body>
