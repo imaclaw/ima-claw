@@ -157,59 +157,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 </section>
 
 <!-- Adopt Mode Selection -->
-<section class="adopt-modes" style="max-width:700px;margin:0 auto 32px;padding:0 20px">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<section class="adopt-modes" style="max-width:700px;margin:0 auto 0;padding:0 20px">
 
-<!-- 本地领养 -->
-<div class="mode-card active" id="mode-local" onclick="switchMode('local')" style="background:linear-gradient(135deg,var(--surface) 0%,rgba(46,204,113,0.08) 100%);border:2px solid #2ecc71;border-radius:16px;padding:20px;cursor:pointer;transition:all 0.3s;position:relative">
-<div style="position:absolute;top:-10px;right:12px;background:#2ecc71;color:white;font-size:11px;padding:2px 10px;border-radius:10px;font-weight:700">当前可用</div>
-<div style="font-size:32px;margin-bottom:8px">💻</div>
-<h3 style="font-size:18px;color:var(--text);margin-bottom:6px">本地领养</h3>
-<p style="font-size:13px;color:var(--text-2);line-height:1.6;margin-bottom:12px">安装在你自己的电脑上，数据完全掌控。</p>
-<div style="font-size:12px;color:var(--text-3);line-height:1.8">
-<div>✅ 数据 100% 本地，隐私安全</div>
-<div>✅ 与本地工作环境深度联动</div>
-<div>✅ 无需额外服务器费用</div>
-<div>✅ 永久免费，开源透明</div>
-<div style="margin-top:6px;color:#e67e22">⚠️ 需本机运行，关机则离线</div>
-<div style="color:#e67e22">⚠️ 需要基础命令行操作</div>
+<!-- Tabs -->
+<div style="display:flex;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-bottom:0">
+<div id="mode-local" onclick="switchMode('local')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:rgba(46,204,113,0.1);border-bottom:3px solid #2ecc71">
+<div style="font-size:24px;margin-bottom:4px">💻</div>
+<div style="font-size:15px;font-weight:700;color:var(--text)">本地领养</div>
+<div style="font-size:11px;color:#2ecc71;margin-top:2px">免费 · 数据在你手中</div>
 </div>
-<div style="margin-top:12px;text-align:center;background:var(--lobster);color:white;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600">3 分钟安装 →</div>
+<div style="width:1px;background:var(--border)"></div>
+<div id="mode-cloud" onclick="switchMode('cloud')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:var(--surface);border-bottom:3px solid transparent;opacity:0.5">
+<div style="font-size:24px;margin-bottom:4px">☁️</div>
+<div style="font-size:15px;font-weight:700;color:var(--text)">云端领养</div>
+<div style="font-size:11px;color:#3370FF;margin-top:2px">即将推出 · 7×24h 在线</div>
 </div>
-
-<!-- 云端领养 -->
-<div class="mode-card" id="mode-cloud" onclick="switchMode('cloud')" style="background:linear-gradient(135deg,var(--surface) 0%,rgba(51,112,255,0.08) 100%);border:2px solid rgba(51,112,255,0.3);border-radius:16px;padding:20px;cursor:pointer;transition:all 0.3s;position:relative">
-<div style="position:absolute;top:-10px;right:12px;background:#3370FF;color:white;font-size:11px;padding:2px 10px;border-radius:10px;font-weight:700">即将推出</div>
-<div style="font-size:32px;margin-bottom:8px">☁️</div>
-<h3 style="font-size:18px;color:var(--text);margin-bottom:6px">云端领养</h3>
-<p style="font-size:13px;color:var(--text-2);line-height:1.6;margin-bottom:12px">跑在云端，随时随地，永不离线。</p>
-<div style="font-size:12px;color:var(--text-3);line-height:1.8">
-<div>✅ 7×24 小时在线，永不关机</div>
-<div>✅ 随时随地访问，多设备同步</div>
-<div>✅ 数据安全备份，永不丢失</div>
-<div>✅ 零配置，注册即用</div>
-<div style="margin-top:6px;color:#e67e22">⚠️ 需要云端服务费用</div>
-<div style="color:#e67e22">⚠️ 数据存储在云端</div>
-</div>
-<div style="margin-top:12px;text-align:center;background:rgba(51,112,255,0.15);color:#3370FF;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;border:1px solid rgba(51,112,255,0.3)">🔔 开放时通知我</div>
-</div>
-
-</div>
-
-<!-- Comparison -->
-<div style="margin-top:20px;padding:16px;background:var(--surface);border-radius:12px;border:1px solid var(--border);font-size:12px">
-<table style="width:100%;border-collapse:collapse;color:var(--text-2)">
-<tr style="border-bottom:1px solid var(--border)">
-<td style="padding:8px 4px;font-weight:600;color:var(--text)"></td>
-<td style="padding:8px 4px;text-align:center;font-weight:600;color:#2ecc71">💻 本地</td>
-<td style="padding:8px 4px;text-align:center;font-weight:600;color:#3370FF">☁️ 云端</td>
-</tr>
-<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 4px">可用性</td><td style="text-align:center">开机时在线</td><td style="text-align:center">7×24h</td></tr>
-<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 4px">数据位置</td><td style="text-align:center">本机</td><td style="text-align:center">云端加密</td></tr>
-<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 4px">费用</td><td style="text-align:center">免费</td><td style="text-align:center">月费制</td></tr>
-<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 4px">安装</td><td style="text-align:center">命令行</td><td style="text-align:center">注册即用</td></tr>
-<tr><td style="padding:6px 4px">本地联动</td><td style="text-align:center">✅ 深度</td><td style="text-align:center">🔗 远程</td></tr>
-</table>
 </div>
 </section>
 
@@ -362,7 +324,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <p id="cloud-msg" style="color:#2ecc71;font-size:12px;margin-top:8px;display:none">✅ 已记录！开放时第一时间通知你。</p>
 </div>
 
-<p style="color:var(--text-3);font-size:13px">等不及？先试试 <a href="javascript:switchMode('local')" style="color:var(--lobster-light)">本地领养</a>，3 分钟就能用！</p>
+
+<div style="margin-top:24px;padding:16px;background:var(--surface);border-radius:12px;border:1px solid var(--border);font-size:12px">
+<h3 style="color:var(--text);font-size:14px;margin-bottom:10px;text-align:center">本地 vs 云端</h3>
+<table style="width:100%;border-collapse:collapse;color:var(--text-2)">
+<tr style="border-bottom:1px solid var(--border)">
+<td style="padding:6px 4px;font-weight:600;color:var(--text)"></td>
+<td style="padding:6px 4px;text-align:center;font-weight:600;color:#2ecc71">💻 本地</td>
+<td style="padding:6px 4px;text-align:center;font-weight:600;color:#3370FF">☁️ 云端</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 4px">可用性</td><td style="text-align:center">开机在线</td><td style="text-align:center">7×24h</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 4px">数据</td><td style="text-align:center">本机</td><td style="text-align:center">云端加密</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 4px">费用</td><td style="text-align:center">免费</td><td style="text-align:center">月费</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 4px">安装</td><td style="text-align:center">命令行</td><td style="text-align:center">注册即用</td></tr>
+<tr><td style="padding:6px 4px">本地联动</td><td style="text-align:center">✅ 深度</td><td style="text-align:center">🔗 远程</td></tr>
+</table>
+</div>
+
+<p style="color:var(--text-3);font-size:13px;margin-top:16px">等不及？先试试 <a href="javascript:switchMode('local')" style="color:var(--lobster-light)">本地领养</a>，3 分钟就能用！</p>
 
 </div>
 </section>
@@ -451,17 +430,21 @@ function switchMode(mode) {
   if (mode === 'cloud') {
     local.style.display = 'none';
     cloud.style.display = 'block';
-    modeLocal.style.borderColor = 'var(--border)';
-    modeLocal.style.opacity = '0.6';
-    modeCloud.style.borderColor = '#3370FF';
+    modeLocal.style.background = 'var(--surface)';
+    modeLocal.style.borderBottom = '3px solid transparent';
+    modeLocal.style.opacity = '0.5';
+    modeCloud.style.background = 'rgba(51,112,255,0.1)';
+    modeCloud.style.borderBottom = '3px solid #3370FF';
     modeCloud.style.opacity = '1';
   } else {
     local.style.display = 'block';
     cloud.style.display = 'none';
-    modeLocal.style.borderColor = '#2ecc71';
+    modeLocal.style.background = 'rgba(46,204,113,0.1)';
+    modeLocal.style.borderBottom = '3px solid #2ecc71';
     modeLocal.style.opacity = '1';
-    modeCloud.style.borderColor = 'rgba(51,112,255,0.3)';
-    modeCloud.style.opacity = '0.6';
+    modeCloud.style.background = 'var(--surface)';
+    modeCloud.style.borderBottom = '3px solid transparent';
+    modeCloud.style.opacity = '0.5';
   }
   window.scrollTo({top: document.querySelector('.adopt-modes').offsetTop - 80, behavior: 'smooth'});
 }
