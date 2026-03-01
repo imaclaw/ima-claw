@@ -1,13 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-  <defs>
-    <linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3370FF"/>
-      <stop offset="50%" style="stop-color:#2B5CED"/>
-      <stop offset="100%" style="stop-color:#00D6B9"/>
-    </linearGradient>
-  </defs>
-  <!-- Feishu/Lark logo: stylized bird/paper plane -->
-  <path d="M4.5 3.5C4.5 3.5 11 7.5 14.5 9.5C18 11.5 21 13 21 13C21 13 14 12.5 10.5 14C7 15.5 3 19 3 19C3 19 4 15.5 5.5 13C7 10.5 4.5 3.5 4.5 3.5Z" fill="url(#fg)"/>
-  <path d="M3 19C3 19 7 15.5 10.5 14C14 12.5 21 13 21 13C21 13 15 16 12 17.5C9 19 6 21 6 21C6 21 5.5 19.5 3 19Z" fill="#00D6B9" opacity="0.8"/>
-  <path d="M6 21C6 21 9 19 12 17.5C15 16 21 13 21 13L14.5 20.5C14.5 20.5 10 21 6 21Z" fill="#3370FF" opacity="0.6"/>
+  <!-- Lark/Feishu logo: two overlapping chevrons/arrows -->
+  <path d="M2 4L12 12L8 16L2 4Z" fill="#00D6B9"/>
+  <path d="M12 12L22 4L16 16L8 16L12 12Z" fill="#3370FF"/>
+  <path d="M8 16L16 16L12 22L8 16Z" fill="#2B5CED"/>
 </svg>
