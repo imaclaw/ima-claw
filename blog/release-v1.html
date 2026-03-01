@@ -89,9 +89,10 @@ footer p{color:var(--text-3);font-size:12px}footer a{color:var(--lobster-light)}
 @media(max-width:768px){
   .page{padding:40px 16px 80px;max-width:100%}
   nav{padding:14px 16px}
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(12,12,18,0.98);flex-direction:column;padding:16px 20px;gap:0;border-bottom:1px solid var(--border)}
-  .nav-links.open{display:flex}
-  .nav-links a{padding:12px 0;border-bottom:1px solid var(--border)}
+  .nav-links{display:none!important;position:fixed;top:56px;right:16px;left:auto;background:rgba(12,12,18,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:16px 0;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;z-index:99;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+  .nav-links.open{display:flex!important}
+  .nav-links a{padding:12px 20px!important;text-align:right!important;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px!important;color:rgba(255,255,255,0.55)!important;display:block}
+  .nav-links a:last-child{border-bottom:none}
   .hamburger{display:block}
   .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .stats-grid-4{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
