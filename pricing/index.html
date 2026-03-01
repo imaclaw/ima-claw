@@ -156,13 +156,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <nav>
   <a href="../" class="logo"><img src="../logo-nav.png" alt=""><div class="logo-text">Ima <b>Claw</b></div></a>
   <div class="nav-links">
-    <a href="../">首页</a>
-    <a href="../adopt/" class="nav-adopt">🦞 领养</a>
-    <a href="../skills/">Skill 市场</a>
-    <a href="../pricing/">🛒 购买</a>
-    <a href="../docs/">帮助</a>
-    <a href="../blog/">博客</a>
-    <a href="https://imastudio.com/community" target="_blank">社区</a>
+    <a href="../" data-i18n="nav.home">首页</a>
+    <a href="../adopt/" class="nav-adopt" data-i18n="nav.adopt">🦞 领养</a>
+    <a href="../skills/" data-i18n="nav.skills">Skill 市场</a>
+    <a href="../pricing/" data-i18n="nav.pricing">🛒 购买</a>
+    <a href="../docs/" data-i18n="nav.docs">帮助</a>
+    <a href="../blog/" data-i18n="nav.blog">博客</a>
+    <a href="https://imastudio.com/community" target="_blank" data-i18n="nav.community">社区</a>
     <div class="lang-dropdown">
       <button class="lang-trigger" onclick="event.stopPropagation();this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
       <div class="lang-menu">
@@ -478,14 +478,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 </div>
 
 <script>
+var _zhStore={};
+var PRICING_I18N={en:{"nav.home":"Home","nav.adopt":"🦞 Adopt","nav.skills":"Skills","nav.pricing":"🛒 Store","nav.docs":"Docs","nav.blog":"Blog","nav.community":"Community"}};
 function setLang(l){
   try{localStorage.setItem('imaclaw-lang',l)}catch(e){}
+  var isZh=l==='zh'||l==='zh-CN';
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(!_zhStore[k])_zhStore[k]=el.innerHTML;
+    if(isZh){el.innerHTML=_zhStore[k]}
+    else if(PRICING_I18N['en']&&PRICING_I18N['en'][k]){el.innerHTML=PRICING_I18N['en'][k]}
+  });
   var m={'zh':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
   var t=document.querySelector('.lang-trigger');
   if(t)t.textContent='🌐 '+(m[l]||l)+' ▾';
   document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});
 }
-(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l){var m={'zh':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};var t=document.querySelector('.lang-trigger');if(t)t.textContent='🌐 '+(m[l]||l)+' ▾'}}catch(e){}})();
+(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l&&l!=='zh'&&l!=='zh-CN')setTimeout(function(){setLang(l)},50)}catch(e){}})();
 document.addEventListener('click',function(){document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')})});
 </script>
 </body>
