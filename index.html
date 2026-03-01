@@ -35,7 +35,7 @@ a{text-decoration:none;color:inherit}
 .lang-menu button:hover{background:rgba(231,76,60,0.1);color:var(--lobster-light)}
 
 /* Navigation - minimal like OpenClaw */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;background:rgba(12,12,18,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 nav.scrolled{background:rgba(12,12,18,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .logo{display:flex;align-items:center;gap:10px}
 .logo img{height:40px;width:40px;border-radius:8px}
@@ -179,14 +179,14 @@ footer a{color:var(--lobster-light)}
 /* i18n */
 
 .hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px}
-@media(max-width:600px){
+@media(max-width:768px){
+nav{padding:14px 16px}
 .hamburger{display:block}
 .nav-links{display:none!important;position:fixed;top:56px;right:16px;left:auto;background:rgba(12,12,18,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:16px 0;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;z-index:99;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
 .nav-links.open{display:flex!important}
-.nav-links a{padding:12px 20px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px;color:rgba(255,255,255,0.55);text-align:right;display:block}
+.nav-links a{padding:12px 20px!important;text-align:right!important;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px!important;color:rgba(255,255,255,0.55)!important;display:block}
 .nav-links a:last-child{border-bottom:none}
-
-.nav-links .lang-dropdown{padding:12px 20px;text-align:right!important;text-align:right;display:flex;justify-content:flex-end}
+.nav-links .lang-dropdown{padding:12px 20px;text-align:right;display:flex;justify-content:flex-end}
 }
 </style>
 </head>
