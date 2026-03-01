@@ -351,7 +351,7 @@ body{padding-top:60px}
 
 <script src="../i18n-sub.js?v=20260301"></script>
 <script>
-function setLang(l){
+function setLang(l){try{localStorage.setItem("imaclaw-lang",l)}catch(e){}
   document.documentElement.lang=l;
   var isZh=l==='zh-CN'||l==='zh';
   document.querySelectorAll('[data-zh]').forEach(function(e){e.style.display=isZh?'block':'none'});

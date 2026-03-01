@@ -202,6 +202,7 @@ ar:{
 };
 var ZH={};
 function setLang(l){
+  try{localStorage.setItem('imaclaw-lang',l)}catch(e){}
   document.documentElement.lang=l;
   var m={'zh-CN':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
   var t=document.querySelector('.lang-trigger');
@@ -216,3 +217,5 @@ function setLang(l){
   document.documentElement.style.direction=l==='ar'?'rtl':'ltr';
   document.querySelectorAll('.hero-mascot img').forEach(function(i){i.src=l==='ar'?'mascot-ar.png?v=2':'mascot.png'});
 }
+
+(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l&&l!=='zh-CN')setLang(l)}catch(e){}})();

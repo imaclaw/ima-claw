@@ -191,22 +191,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <!-- Local info panel -->
 <div style="margin-bottom:20px;padding:14px 16px;background:rgba(212,64,58,0.04);border:1px solid rgba(212,64,58,0.12);border-radius:10px;font-size:13px;color:var(--text-2);line-height:1.8">
 <div style="font-weight:600;color:var(--text);margin-bottom:8px;font-size:14px" data-i18n="local.title">🖥 本地领养 — 你的龙虾住在你的电脑里</div>
-<div data-i18n="local.info"><span style="color:#E8584E">✅</span> 永久免费，无需付费<br>
+<span style="color:#E8584E">✅</span> 永久免费，无需付费<br>
 <span style="color:#E8584E">✅</span> 与本地文件、终端、浏览器深度联动<br>
 <span style="color:#E8584E">✅</span> 开源透明，自由定制<br>
 <span style="color:#e67e22">⚠️</span> 电脑关机则离线，需要保持开机运行<br>
 <span style="color:#e67e22">⚠️</span> 需要命令行操作，上手门槛较高<br>
 <span style="color:#e67e22">⚠️</span> Skill 安装需自行维护，开放生态存在安全风险<br>
-<span style="color:#e67e22">⚠️</span> 没有托管运维，系统维护全靠自己</div>
+<span style="color:#e67e22">⚠️</span> 没有托管运维，系统维护全靠自己
 </div>
 
 
 <!-- Step 1: Install -->
 <div class="step">
 <span class="step-num">STEP 1</span>
-<div class="time" data-i18n="step1.time">⏱ 约 30 秒</div>
+<div class="time">⏱ 约 30 秒</div>
 <h2 data-i18n="step1.title">一行命令，安装 Ima Claw</h2>
-<p data-i18n="step1.desc">打开终端（Terminal），粘贴下面的命令回车即可。脚本会自动检测环境、安装 Node.js（如果没有的话）、然后启动配置向导。</p>
+<p>打开终端（Terminal），粘贴下面的命令回车即可。脚本会自动检测环境、安装 Node.js（如果没有的话）、然后启动配置向导。</p>
 
 <div class="tabs">
   <div class="tab active" onclick="switchTab(this,'install','mac')">🍎 macOS / Linux</div>
@@ -227,18 +227,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <code>iwr -useb https://openclaw.ai/install.ps1 | iex</code>
 <button class="copy-btn" onclick="copyCode(this)">复制</button>
 </div>
-<div class="tip" data-i18n="step1.wsl">💡 <strong>Windows 用户建议：</strong>先安装 <a href="https://learn.microsoft.com/en-us/windows/wsl/install" style="color:var(--gold)">WSL2</a>，然后在 WSL 里用 macOS/Linux 的命令安装，体验更丝滑。</div>
+<div class="tip">💡 <strong>Windows 用户建议：</strong>先安装 <a href="https://learn.microsoft.com/en-us/windows/wsl/install" style="color:var(--gold)">WSL2</a>，然后在 WSL 里用 macOS/Linux 的命令安装，体验更丝滑。</div>
 </div>
 </div>
 
 <!-- Step 2: API Key -->
 <div class="step">
 <span class="step-num">STEP 2</span>
-<div class="time" data-i18n="step2.time">⏱ 约 1 分钟</div>
-<h2 id="step-ai" data-i18n="step2.title">给龙虾一个大脑 🧠</h2>
-<p data-i18n="step2.desc">Ima Claw 已封装 30+ AI 模型，只需一个 <strong>ImaStudio 账号</strong>即可全部使用。</p>
-<div style="margin:12px 0 16px;padding:14px 16px;background:rgba(212,64,58,0.06);border:1px solid rgba(212,64,58,0.15);border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap"><span style="font-size:13px;color:var(--text-2)" data-i18n="step2.register.hint">💡 注册 ImaStudio 账号，获取 ImaClaw API Key，即可使用全部 30+ 模型</span><a href="https://www.imastudio.com" target="_blank" style=";background:var(--lobster);color:white;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none" data-i18n="step2.register.btn">免费注册 ImaStudio →</a></div>
-<p style="font-size:13px;color:var(--text-3);margin-bottom:12px" data-i18n="step2.clickhint">点击任意模型查看详情：</p>
+<div class="time">⏱ 约 1 分钟</div>
+<h2 id="step-ai">给龙虾一个大脑 🧠</h2>
+<p>Ima Claw 已封装 30+ AI 模型，只需一个 <strong>ImaStudio 账号</strong>即可全部使用。</p>
+<div style="margin:12px 0 16px;padding:14px 16px;background:rgba(212,64,58,0.06);border:1px solid rgba(212,64,58,0.15);border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap"><span style="font-size:13px;color:var(--text-2)">💡 注册 ImaStudio 账号，获取 ImaClaw API Key，即可使用全部 30+ 模型</span><a href="https://www.imastudio.com" target="_blank" style=";background:var(--lobster);color:white;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none">免费注册 ImaStudio →</a></div>
+<p style="font-size:13px;color:var(--text-3);margin-bottom:12px">点击任意模型查看详情：</p>
 
 <div class="providers">
   <a href="../docs/models/google/" class="provider"><div class="icon"><img src="logos/google.svg" alt="Google"></div><div class="name">Google</div><div class="tag">Gemini 2.5 Pro</div></a>
@@ -253,7 +253,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 
 
-<div class="provider-details" data-i18n="step2.providers">
+<div class="provider-details">
   <div class="pd"><span class="pd-name">🔑 统一接入</span> — 所有模型通过 ImaClaw 统一封装，只需一个 ImaStudio 账号和 ImaClaw API Key 即可使用全部 30+ 模型，无需逐个注册</div>
   <div class="pd"><span class="pd-name">🟢 Google Gemini</span> — Gemini 2.5 Pro/Flash，强大的多模态能力</div>
   <div class="pd"><span class="pd-name">🟠 Anthropic Claude</span> — Claude Sonnet/Opus，深度推理与长文本</div>
@@ -268,9 +268,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <!-- Step 3: Connect -->
 <div class="step">
 <span class="step-num">STEP 3</span>
-<div class="time" data-i18n="step3.time">⏱ 约 1 分钟</div>
-<h2 id="step-channel" data-i18n="step3.title">把龙虾带回你的聊天 💬</h2>
-<p data-i18n="step3.desc">安装完成后，配置向导会引导你把龙虾连到你常用的聊天工具。它支持：</p>
+<div class="time">⏱ 约 1 分钟</div>
+<h2 id="step-channel">把龙虾带回你的聊天 💬</h2>
+<p>安装完成后，配置向导会引导你把龙虾连到你常用的聊天工具。它支持：</p>
 
 <div class="providers">
   <a href="../docs/channels/telegram/" class="provider"><div class="icon"><img src="logos/telegram.svg" alt="Telegram"></div><div class="name">Telegram</div><div class="tag">推荐 · 最简单</div></a>
@@ -281,23 +281,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
   <a href="../docs/channels/imessage/" class="provider" style="opacity:0.6"><div class="icon"><img src="logos/imessage.svg" alt="iMessage"></div><div class="name">iMessage</div><div class="tag" style="color:var(--text-3)">进阶 · 需 macOS</div></a>
 </div>
 
-<p style="font-size:13px;color:var(--text-2);margin-top:12px" data-i18n="step3.skip">也可以跳过这步，先用网页 / 终端界面聊天，随时再连接。</p>
+<p style="font-size:13px;color:var(--text-2);margin-top:12px">也可以跳过这步，先用网页 / 终端界面聊天，随时再连接。</p>
 </div>
 
 <!-- Step 4: Done! -->
 <div class="step" style="border-color:rgba(212,64,58,0.3);background:linear-gradient(135deg,var(--surface),rgba(212,64,58,0.03))">
 <span class="step-num" style="background:var(--green)">🎉 DONE</span>
-<h2 data-i18n="step4.title">开始和你的龙虾对话！</h2>
-<p data-i18n="step4.desc">恭喜！你的龙虾已经醒了。试试跟它说：</p>
+<h2>开始和你的龙虾对话！</h2>
+<p>恭喜！你的龙虾已经醒了。试试跟它说：</p>
 
 <div class="code-box" style="background:#0d120d;border-color:rgba(232,88,78,0.3)">
-<div class="label" data-i18n="step4.label">跟龙虾说的第一句话</div>
-<code data-i18n="step4.firstmsg">"嘿，你好！你是谁？我是你的新主人 😊"</code>
+<div class="label">跟龙虾说的第一句话</div>
+<code>"嘿，你好！你是谁？我是你的新主人 😊"</code>
 </div>
 
-<p style="font-size:14px;color:var(--text-2)" data-i18n="step4.intro">它会自我介绍、了解你、然后问你想叫它什么名字。每只龙虾都是独一无二的——养出你自己的风格！</p>
+<p style="font-size:14px;color:var(--text-2)">它会自我介绍、了解你、然后问你想叫它什么名字。每只龙虾都是独一无二的——养出你自己的风格！</p>
 
-<div class="tip" data-i18n="step4.tips">🎯 <strong>第一次聊天的灵感：</strong><br>
+<div class="tip">🎯 <strong>第一次聊天的灵感：</strong><br>
 • "帮我写一封催客户的英文邮件，语气委婉但有压力"<br>
 • "搜一下今天 AI 领域有什么大新闻"<br>
 • "帮我生成一张赛博朋克风格的龙虾图片"<br>
@@ -312,12 +312,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <!-- Cloud info panel -->
 <div style="margin-bottom:20px;padding:14px 16px;background:rgba(58,108,190,0.04);border:1px solid rgba(58,108,190,0.12);border-radius:10px;font-size:13px;color:var(--text-2);line-height:1.8">
 <div style="font-weight:600;color:var(--text);margin-bottom:8px;font-size:14px" data-i18n="cloud.title">☁️ 云端领养 — 你的龙虾住在云上，随时待命</div>
-<div data-i18n="cloud.info"><span style="color:#4A80D4">✅</span> 7×24 小时在线，永不关机，随时随地服务<br>
+<span style="color:#4A80D4">✅</span> 7×24 小时在线，永不关机，随时随地服务<br>
 <span style="color:#4A80D4">✅</span> 零配置，注册即用，无需命令行<br>
 <span style="color:#4A80D4">✅</span> IMA 托管运维，Skill 安全扫描，省心安全<br>
 <span style="color:#4A80D4">✅</span> 企业级数据备份，多设备无缝同步<br>
-<span style="color:#4A80D4">✅</span> 自动更新，持续获得最新能力</div>
-<div style="margin-top:12px;padding:16px;background:linear-gradient(135deg,rgba(212,64,58,0.08) 0%,rgba(58,108,190,0.08) 100%);border:1px solid rgba(212,64,58,0.2);border-radius:10px;text-align:center"><div style="color:var(--lobster-light);font-size:13px;margin-bottom:4px" data-i18n="cloud.promo">🔥 限时福利：云端领养限量免费内测名额开放中！</div><div style="color:var(--text-2);font-size:12px;margin-bottom:12px" data-i18n="cloud.promo.sub">填写表单预约名额，开放时第一时间通知你</div><a href="https://forms.gle/JZ1HnjjHKmqecmCx5" target="_blank" style="display:inline-block;background:var(--lobster);color:white;padding:10px 28px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none" data-i18n="cloud.cta">📋 免费预约内测</a></div>
+<span style="color:#4A80D4">✅</span> 自动更新，持续获得最新能力<br>
+<div style="margin-top:12px;padding:16px;background:linear-gradient(135deg,rgba(212,64,58,0.08) 0%,rgba(58,108,190,0.08) 100%);border:1px solid rgba(212,64,58,0.2);border-radius:10px;text-align:center"><div style="color:var(--lobster-light);font-size:13px;margin-bottom:4px">🔥 限时福利：云端领养限量免费内测名额开放中！</div><div style="color:var(--text-2);font-size:12px;margin-bottom:12px">填写表单预约名额，开放时第一时间通知你</div><a href="https://forms.gle/JZ1HnjjHKmqecmCx5" target="_blank" style="display:inline-block;background:var(--lobster);color:white;padding:10px 28px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none" data-i18n="cloud.cta">📋 免费预约内测</a></div>
 </div>
 <div style="text-align:center;padding:20px 0">
 
@@ -325,14 +325,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 <h2 style="font-size:24px;color:var(--lobster-light);margin-bottom:12px" data-i18n="cloud.coming">云端领养即将推出</h2>
 
-<p style="color:var(--text-2);font-size:15px;line-height:1.8;margin-bottom:24px" data-i18n="cloud.desc">
+<p style="color:var(--text-2);font-size:15px;line-height:1.8;margin-bottom:24px">
 你的龙虾将 7×24 小时跑在云端，随时随地为你服务。<br>
 不需要安装，不需要命令行，注册即用。
 </p>
 
 <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:left;margin-bottom:24px">
-<h3 style="color:var(--text);font-size:16px;margin-bottom:12px" data-i18n="cloud.features.title">☁️ 云端版将支持：</h3>
-<div style="font-size:14px;color:var(--text-2);line-height:2" data-i18n="cloud.features">
+<h3 style="color:var(--text);font-size:16px;margin-bottom:12px">☁️ 云端版将支持：</h3>
+<div style="font-size:14px;color:var(--text-2);line-height:2">
 <div>🌐 <strong>浏览器直接使用</strong> — 打开网页就能和龙虾对话</div>
 <div>📱 <strong>多设备同步</strong> — 手机、电脑、平板无缝切换</div>
 <div>⏰ <strong>7×24 在线</strong> — 定时任务、消息转发、后台处理全天候</div>
@@ -577,9 +577,7 @@ ar: {
 };
 
 var _zhStore = {};
-(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l&&l!=='zh'&&l!=='zh-CN')setTimeout(function(){setLang(l)},50)}catch(e){}})();
 function setLang(l) {
-  try{localStorage.setItem('imaclaw-lang',l)}catch(e){}
   var isZh = l==='zh'||l==='zh-CN';
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var k = el.getAttribute('data-i18n');

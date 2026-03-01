@@ -46,6 +46,7 @@ ar:{
 };
 var ZH={};
 function setLang(l){
+  try{localStorage.setItem('imaclaw-lang',l)}catch(e){}
   document.documentElement.lang=l;
   var m={'zh-CN':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
   var t=document.querySelector('.lang-trigger');
@@ -59,3 +60,6 @@ function setLang(l){
   });
   document.documentElement.style.direction=l==='ar'?'rtl':'ltr';
 }
+
+// Auto-restore language on page load
+(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l&&l!=='zh-CN')setLang(l)}catch(e){}})();
