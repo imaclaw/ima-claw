@@ -1,7 +1,7 @@
 var I18N={
 en:{
 "nav.features":"Features","nav.skills":"Skills","nav.blog":"Blog","nav.showcase":"Showcase","nav.store":"🛒 Store","nav.community":"Community",
-"blog.title":"Yuki & Claw: The Build Log","blog.subtitle":"A founder and her AI lobster — building, breaking, and evolving together.",
+"blog.title":"Yuki & 🦞 The Chaos Diaries","blog.subtitle":"Me and my lobster building stuff,<br>breaking stuff, laughing about it.",
 "blog.log1":"Founder's Log #1",
 "blog.title1":"I Built This Site with Ima Claw. It Deleted the Lobster's Face.",
 "blog.desc1":"2 hours, zero lines of code, and a lobster that had an existential crisis. The real story of how the founder built this site with Vibe Coding — crashes included.",
@@ -12,7 +12,7 @@ en:{
 },
 es:{
 "nav.features":"Funciones","nav.skills":"Skills","nav.blog":"Blog","nav.showcase":"Galería","nav.store":"🛒 Tienda","nav.community":"Comunidad",
-"blog.title":"Yuki & Claw: Diario de Creación","blog.subtitle":"Una fundadora y su langosta IA — construyendo y evolucionando juntas.",
+"blog.title":"Yuki & 🦞 Diario del Caos","blog.subtitle":"Yo y mi langosta: creamos y rompemos,<br>nos reímos y seguimos.",
 "blog.log1":"Diario de Fundadora #1",
 "blog.title1":"Hice este sitio con Ima Claw. Borró la cara de la langosta.",
 "blog.desc1":"2 horas, cero líneas de código y una langosta con crisis existencial. La historia real de cómo la fundadora creó este sitio con Vibe Coding — incluidos los desastres.",
@@ -23,7 +23,7 @@ es:{
 },
 ja:{
 "nav.features":"機能","nav.skills":"スキル","nav.blog":"ブログ","nav.showcase":"作品集","nav.store":"🛒 ストア","nav.community":"コミュニティ",
-"blog.title":"Yuki & Claw の創作日誌","blog.subtitle":"創業者とAIロブスター、一緒にプロダクトを作る記録。",
+"blog.title":"Yuki & 🦞 ドタバタ日記","blog.subtitle":"私とロブスターで一緒にモノを作って、<br>壊して、笑って、また作る。",
 "blog.log1":"創業者ログ #1",
 "blog.title1":"Ima Clawでこのサイトを作った。ロブスターの顔が消えた。",
 "blog.desc1":"2時間、コードゼロ行、存在危機に陥ったロブスター。創業者がVibe Codingで公式サイトを作った実話——全事故現場付き。",
@@ -34,7 +34,7 @@ ja:{
 },
 ar:{
 "nav.features":"الميزات","nav.skills":"المهارات","nav.blog":"المدونة","nav.showcase":"المعرض","nav.store":"🛒 المتجر","nav.community":"المجتمع",
-"blog.title":"يوكي و 🦞 يوميات الفوضى","blog.subtitle":"أنا وجرادي نبني ونكسر ونضحك ونكمل.",
+"blog.title":"يوكي و 🦞 يوميات الفوضى","blog.subtitle":"أنا وجرادي نبني ونكسر،<br>نضحك ونكمل.",
 "blog.log1":"سجل المؤسسة #1",
 "blog.title1":"بنيتُ هذا الموقع بـ Ima Claw. حذف وجه الجراد البحري.",
 "blog.desc1":"ساعتان، صفر أسطر كود، وجراد بحر في أزمة وجودية. القصة الحقيقية لبناء هذا الموقع بـ Vibe Coding — بكل الكوارث.",
