@@ -153,12 +153,72 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <section class="hero">
 <div class="lobster"><img src="baby-lobster.png" style="width:300px;height:300px;object-fit:contain" alt="Baby Lobster"></div>
 <h1 data-i18n="adopt.title">领养你的 Baby 小龙虾</h1>
-<p class="sub" data-i18n="adopt.sub1">3 分钟完成安装，0 行代码，永久免费。<br data-i18n="adopt.sub2">你只需要一台电脑和一个 API Key。</p>
-<p class="tiny">macOS · Linux · Windows (WSL2) · 树莓派 · 云服务器 全平台支持</p>
+<p class="sub">选择一种方式，开始养成你的专属 AI 龙虾伙伴。</p>
 </section>
 
-<!-- Steps -->
-<section class="steps">
+<!-- Adopt Mode Selection -->
+<section class="adopt-modes" style="max-width:700px;margin:0 auto 32px;padding:0 20px">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+<!-- 本地养成 -->
+<div class="mode-card active" id="mode-local" onclick="switchMode('local')" style="background:linear-gradient(135deg,var(--surface) 0%,rgba(46,204,113,0.08) 100%);border:2px solid #2ecc71;border-radius:16px;padding:20px;cursor:pointer;transition:all 0.3s;position:relative">
+<div style="position:absolute;top:-10px;right:12px;background:#2ecc71;color:white;font-size:11px;padding:2px 10px;border-radius:10px;font-weight:700">当前可用</div>
+<div style="font-size:32px;margin-bottom:8px">💻</div>
+<h3 style="font-size:18px;color:var(--text);margin-bottom:6px">本地养成</h3>
+<p style="font-size:13px;color:var(--text-2);line-height:1.6;margin-bottom:12px">安装在你自己的电脑上，数据完全掌控。</p>
+<div style="font-size:12px;color:var(--text-3);line-height:1.8">
+<div>✅ 数据 100% 本地，隐私安全</div>
+<div>✅ 与本地工作环境深度联动</div>
+<div>✅ 无需额外服务器费用</div>
+<div>✅ 永久免费，开源透明</div>
+<div style="margin-top:6px;color:#e67e22">⚠️ 需本机运行，关机则离线</div>
+<div style="color:#e67e22">⚠️ 需要基础命令行操作</div>
+</div>
+<div style="margin-top:12px;text-align:center;background:var(--lobster);color:white;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600">3 分钟安装 →</div>
+</div>
+
+<!-- 云端养成 -->
+<div class="mode-card" id="mode-cloud" onclick="switchMode('cloud')" style="background:linear-gradient(135deg,var(--surface) 0%,rgba(51,112,255,0.08) 100%);border:2px solid rgba(51,112,255,0.3);border-radius:16px;padding:20px;cursor:pointer;transition:all 0.3s;position:relative">
+<div style="position:absolute;top:-10px;right:12px;background:#3370FF;color:white;font-size:11px;padding:2px 10px;border-radius:10px;font-weight:700">即将推出</div>
+<div style="font-size:32px;margin-bottom:8px">☁️</div>
+<h3 style="font-size:18px;color:var(--text);margin-bottom:6px">云端养成</h3>
+<p style="font-size:13px;color:var(--text-2);line-height:1.6;margin-bottom:12px">跑在云端，随时随地，永不离线。</p>
+<div style="font-size:12px;color:var(--text-3);line-height:1.8">
+<div>✅ 7×24 小时在线，永不关机</div>
+<div>✅ 随时随地访问，多设备同步</div>
+<div>✅ 数据安全备份，永不丢失</div>
+<div>✅ 零配置，注册即用</div>
+<div style="margin-top:6px;color:#e67e22">⚠️ 需要云端服务费用</div>
+<div style="color:#e67e22">⚠️ 数据存储在云端</div>
+</div>
+<div style="margin-top:12px;text-align:center;background:rgba(51,112,255,0.15);color:#3370FF;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;border:1px solid rgba(51,112,255,0.3)">🔔 开放时通知我</div>
+</div>
+
+</div>
+
+<!-- Comparison -->
+<div style="margin-top:20px;padding:16px;background:var(--surface);border-radius:12px;border:1px solid var(--border);font-size:12px">
+<table style="width:100%;border-collapse:collapse;color:var(--text-2)">
+<tr style="border-bottom:1px solid var(--border)">
+<td style="padding:8px 4px;font-weight:600;color:var(--text)"></td>
+<td style="padding:8px 4px;text-align:center;font-weight:600;color:#2ecc71">💻 本地</td>
+<td style="padding:8px 4px;text-align:center;font-weight:600;color:#3370FF">☁️ 云端</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 4px">可用性</td><td style="text-align:center">开机时在线</td><td style="text-align:center">7×24h</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 4px">数据位置</td><td style="text-align:center">本机</td><td style="text-align:center">云端加密</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 4px">费用</td><td style="text-align:center">免费</td><td style="text-align:center">月费制</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 4px">安装</td><td style="text-align:center">命令行</td><td style="text-align:center">注册即用</td></tr>
+<tr><td style="padding:6px 4px">本地联动</td><td style="text-align:center">✅ 深度</td><td style="text-align:center">🔗 远程</td></tr>
+</table>
+</div>
+</section>
+
+<!-- Local Install Steps (shown by default) -->
+<section class="steps" id="steps-local">
+
+<div style="text-align:center;margin-bottom:20px">
+<span style="background:rgba(46,204,113,0.15);color:#2ecc71;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600">💻 本地养成流程</span>
+</div>
 
 <!-- Step 1: Install -->
 <div class="step">
@@ -263,6 +323,50 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 </section>
 
+<!-- Cloud Adopt Section (hidden by default) -->
+<section class="steps" id="steps-cloud" style="display:none">
+
+<div style="text-align:center;margin-bottom:20px">
+<span style="background:rgba(51,112,255,0.15);color:#3370FF;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600">☁️ 云端养成流程</span>
+</div>
+
+<div style="max-width:600px;margin:0 auto;text-align:center;padding:40px 20px">
+
+<div style="font-size:64px;margin-bottom:20px">☁️🦞</div>
+
+<h2 style="font-size:24px;color:var(--text);margin-bottom:12px">云端养成即将推出</h2>
+
+<p style="color:var(--text-2);font-size:15px;line-height:1.8;margin-bottom:24px">
+你的龙虾将 7×24 小时跑在云端，随时随地为你服务。<br>
+不需要安装，不需要命令行，注册即用。
+</p>
+
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:left;margin-bottom:24px">
+<h3 style="color:var(--text);font-size:16px;margin-bottom:12px">☁️ 云端版将支持：</h3>
+<div style="font-size:14px;color:var(--text-2);line-height:2">
+<div>🌐 <strong>浏览器直接使用</strong> — 打开网页就能和龙虾对话</div>
+<div>📱 <strong>多设备同步</strong> — 手机、电脑、平板无缝切换</div>
+<div>⏰ <strong>7×24 在线</strong> — 定时任务、消息转发、后台处理全天候</div>
+<div>🔐 <strong>数据安全</strong> — 企业级加密存储，自动备份</div>
+<div>⚡ <strong>一键接入</strong> — 连接 Telegram、Discord、飞书等所有渠道</div>
+<div>🧠 <strong>记忆永存</strong> — 对话记忆、偏好设置永不丢失</div>
+</div>
+</div>
+
+<div style="background:linear-gradient(135deg,rgba(51,112,255,0.1) 0%,rgba(51,112,255,0.05) 100%);border:1px solid rgba(51,112,255,0.2);border-radius:12px;padding:20px;margin-bottom:24px">
+<p style="color:var(--text);font-size:15px;margin-bottom:12px">🔔 <strong>留下邮箱，第一时间获得内测资格</strong></p>
+<div style="display:flex;gap:8px">
+<input type="email" id="cloud-email" placeholder="your@email.com" style="flex:1;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:14px;outline:none">
+<button onclick="notifyCloud()" style="background:#3370FF;color:white;border:none;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap">通知我</button>
+</div>
+<p id="cloud-msg" style="color:#2ecc71;font-size:12px;margin-top:8px;display:none">✅ 已记录！开放时第一时间通知你。</p>
+</div>
+
+<p style="color:var(--text-3);font-size:13px">等不及？先试试 <a href="javascript:switchMode('local')" style="color:var(--lobster-light)">本地养成</a>，3 分钟就能用！</p>
+
+</div>
+</section>
+
 <!-- Skills showcase -->
 <section class="steps">
 <h2 style="text-align:center;margin-bottom:24px;font-size:22px">🎯 IMA 龙虾出场就会的技能</h2>
@@ -339,6 +443,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <a href="../" class="back">← 回到首页</a>
 
 <script>
+function switchMode(mode) {
+  var local = document.getElementById('steps-local');
+  var cloud = document.getElementById('steps-cloud');
+  var modeLocal = document.getElementById('mode-local');
+  var modeCloud = document.getElementById('mode-cloud');
+  if (mode === 'cloud') {
+    local.style.display = 'none';
+    cloud.style.display = 'block';
+    modeLocal.style.borderColor = 'var(--border)';
+    modeLocal.style.opacity = '0.6';
+    modeCloud.style.borderColor = '#3370FF';
+    modeCloud.style.opacity = '1';
+  } else {
+    local.style.display = 'block';
+    cloud.style.display = 'none';
+    modeLocal.style.borderColor = '#2ecc71';
+    modeLocal.style.opacity = '1';
+    modeCloud.style.borderColor = 'rgba(51,112,255,0.3)';
+    modeCloud.style.opacity = '0.6';
+  }
+  window.scrollTo({top: document.querySelector('.adopt-modes').offsetTop - 80, behavior: 'smooth'});
+}
+function notifyCloud() {
+  var email = document.getElementById('cloud-email').value;
+  if (email && email.includes('@')) {
+    document.getElementById('cloud-msg').style.display = 'block';
+    document.getElementById('cloud-email').value = '';
+  }
+}
 function switchTab(el, group, id) {
   el.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
