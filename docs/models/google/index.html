@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>接入 Google Gemini - Ima Claw</title>
+<title>Google Gemini - Ima Claw</title>
 <style>
 :root{--bg:#0a0a0f;--surface:#12121a;--surface-2:#1a1a24;--border:#222;--border-hover:#333;--text:#e8e8e8;--text-2:#a0a0a0;--text-3:#666;--lobster:#e74c3c;--lobster-light:#ff6b5b;--gold:#f2c744;--green:#2ecc71;--blue:#3498db}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -142,6 +142,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
   <button class="hamburger" onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')">☰</button>
 </nav>
 <div class="tutorial">
+
 <div class="breadcrumb">
 <a href="../../../adopt/">领养龙虾</a><span class="sep">›</span>
 <a href="#">AI 模型</a><span class="sep">›</span>
@@ -149,75 +150,88 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 <div class="tut-header">
 <div class="tut-icon"><img src="../../../adopt/logos/google.svg" alt="Google Gemini"></div>
-<div class="tut-meta"><h1>接入 Google Gemini</h1>
+<div class="tut-meta"><h1>使用 Google Gemini</h1>
 <div class="tut-tags">
 <span class="tut-tag tag-easy">⭐ 简单</span>
-<span class="tut-tag tag-time">⏱ 约 1 分钟</span>
-<span class="tut-tag tag-free">💰 免费 tier</span>
+<span class="tut-tag tag-time">⏱ 约 2 分钟</span>
+<span class="tut-tag tag-free">🔑 IMA Cloud</span>
 </div></div></div>
 
+<div class="tip">💡 <strong>Ima Claw 已封装所有模型。</strong>你不需要单独去 Google Gemini 注册账号或获取 API Key。只需一个 <strong>IMA Cloud 账号</strong>，即可使用包括 Google Gemini 在内的所有 30+ 模型。</div>
+
 <div class="info-box"><h3>📋 前置条件</h3>
-<ul class="info-list"><li>Google 账号（Gmail 即可）</li>
-<li>已完成 Ima Claw 安装</li></ul></div>
+<ul class="info-list">
+<li>已完成 Ima Claw 安装（<a href="../../../adopt/" style="color:var(--lobster-light)">还没装？去领养 →</a>）</li>
+<li>IMA Studio 账号（下方注册，免费）</li>
+</ul></div>
 
 <div class="step"><div class="step-badge">STEP 1</div>
-<h2>访问 Google AI Studio</h2>
-<p>打开浏览器，访问 <a href='https://aistudio.google.com/apikey' target='_blank' style='color:var(--gold)'>aistudio.google.com/apikey</a>，用 Google 账号登录。</p>
-</div>
-<div class="step"><div class="step-badge">STEP 2</div>
-<h2>创建 API Key</h2>
-<p>点击 <span class='highlight'>Create API Key</span> 按钮，选择一个项目（没有就新建），Key 会立即生成。</p>
-</div>
-<div class="step"><div class="step-badge">STEP 3</div>
-<h2>复制 API Key</h2>
-<p>点击复制按钮，保存好你的 API Key。格式类似：</p>
-<div class="code-block"><span class="comment"># 示例</span><br>AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-</div>
-<div class="step"><div class="step-badge">STEP 4</div>
-<h2>填入配置</h2>
-<div class="code-block">nano ~/.openclaw/openclaw.json<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-<p>在配置文件中设置 AI 模型：</p>
-<div class="code-block">{<br>&nbsp;&nbsp;"ai": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"provider": "google",<br>&nbsp;&nbsp;&nbsp;&nbsp;"model": "gemini-2.5-pro",<br>&nbsp;&nbsp;&nbsp;&nbsp;"apiKey": "<你的 API Key>"<br>&nbsp;&nbsp;}<br>}<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-</div>
-<div class="step"><div class="step-badge">STEP 5</div>
-<h2>重启验证</h2>
-<p>保存配置后重启，给龙虾发条消息测试：</p>
-<div class="code-block">openclaw gateway restart<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
-<div class="code-block" style="text-align:center;font-size:16px;color:var(--text)">嘿，你好！你是谁？</div>
-<p>如果龙虾回复了你，说明一切就绪！🎉</p>
+<h2>注册 IMA Studio 账号</h2>
+<p>访问 <a href="https://www.imastudio.com" target="_blank" style="color:var(--gold)">imastudio.com</a>，点击注册。支持邮箱和 Google 账号快速注册。</p>
+<p>注册完全<span class="highlight">免费</span>，无需信用卡。</p>
 </div>
 
+<div class="step"><div class="step-badge">STEP 2</div>
+<h2>获取 IMA Cloud API Key</h2>
+<p>登录后进入 <span class="highlight">Settings → API Keys</span>，点击创建新 Key。</p>
+<p>复制你的 API Key，格式类似：</p>
+<div class="code-block"><span class="comment"># 你的 IMA Cloud API Key（示例）</span><br>ima_sk_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<div class="warning">⚠️ API Key 只显示一次，请立即复制保存。如果丢失，可以删除旧 Key 重新创建。</div>
+</div>
+
+<div class="step"><div class="step-badge">STEP 3</div>
+<h2>填入龙虾配置</h2>
+<p>编辑配置文件，填入你的 IMA Cloud API Key：</p>
+<div class="code-block">nano ~/.openclaw/openclaw.json<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<p>在配置文件中设置：</p>
+<div class="code-block">{<br>&nbsp;&nbsp;"ai": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"provider": "ima-cloud",<br>&nbsp;&nbsp;&nbsp;&nbsp;"apiKey": "<span style="color:var(--gold)">你的 IMA Cloud API Key</span>"<br>&nbsp;&nbsp;}<br>}<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<p>保存后重启：</p>
+<div class="code-block">openclaw gateway restart<button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+</div>
+
+<div class="step"><div class="step-badge">STEP 4</div>
+<h2>选择模型并验证</h2>
+<p>配置完成后，你可以在对话中随时切换模型。给龙虾发一条消息测试：</p>
+<div class="code-block" style="text-align:center;font-size:16px;color:var(--text)">嘿，你好！你是谁？</div>
+<p>如果龙虾回复了你，说明一切就绪！🎉</p>
+<p>想切换到 Google Gemini？直接告诉龙虾：</p>
+<div class="code-block" style="text-align:center;font-size:14px;color:var(--text)">帮我切换到 Google Gemini</div>
+</div>
 
 <div class="success-box">
 <div class="emoji"><img src="../../../logo-nav.png" style="width:64px;height:64px;display:inline-block;vertical-align:middle">🎉</div>
 <h3>恭喜！你的 Ima 龙虾已连接 Google Gemini</h3>
-<p>现在可以用 Google Gemini 的强大能力和龙虾对话了</p></div>
+<p>通过 IMA Cloud，你可以随时切换使用所有 30+ 模型</p></div>
 
-<div class="tip">🔥 <strong>免费 tier 永久可用：</strong>每天最多 1000 次请求，支持 Gemini 2.5 Pro/Flash，无需信用卡，无时间限制。新手首选！</div>
+<div class="info-box"><h3>📦 Google Gemini 可用模型</h3>
+<p style="color:var(--text-2);font-size:14px">Gemini 2.5 Pro、Gemini 2.5 Flash、Gemini 2.0 Flash</p>
+<p style="color:var(--text-3);font-size:12px;margin-top:8px">所有模型通过 IMA Cloud 统一调用，无需单独配置。</p></div>
 
-<div class="faq"><h2>❓ 常见问题</h2><div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">免费 tier 有什么限制？<span class="faq-arrow">▾</span></div>
-<div class="faq-a"><p>每分钟 15 次请求，每天最多 1000 次。对个人使用完全够用。超出后需要开通付费计划。</p></div></div>
+<div class="faq"><h2>❓ 常见问题</h2>
 <div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">需要翻墙吗？<span class="faq-arrow">▾</span></div>
-<div class="faq-a"><p>Google AI Studio 在部分地区可能需要网络代理。API 调用也需要能访问 Google 服务。</p></div></div>
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">需要去 Google Gemini 官网注册吗？<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>不需要！Ima Claw 通过 IMA Cloud 封装了所有模型。你只需要 IMA Studio 账号和 API Key，就能使用包括 Google Gemini 在内的 30+ 模型。</p></div></div>
+
 <div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">支持哪些模型？<span class="faq-arrow">▾</span></div>
-<div class="faq-a"><p>Gemini 2.5 Pro、Gemini 2.5 Flash、Gemini 2.0 Flash 等。推荐 2.5 Pro（最强）或 2.5 Flash（最快）。</p></div></div>
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">怎么切换不同的模型？<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>直接在对话中告诉龙虾"切换到 XXX 模型"即可。也可以在配置文件中设置默认模型。</p></div></div>
+
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">IMA Cloud 怎么计费？<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>IMA Cloud 提供免费额度供体验。超出后按用量计费，费用在 IMA Studio 后台统一结算。具体价格见 <a href="../../../pricing/" style="color:var(--lobster-light)">定价页面</a>。</p></div></div>
 </div>
 
 <div class="bottom-nav">
 <a href="../../../adopt/" class="btn-back">← 返回领养页</a>
 <a href="https://imastudio.com/community" target="_blank" class="btn-community">💬 遇到问题？加入社区</a></div>
 
-<div class="other-channels"><h3>接入其他模型</h3>
+<div class="other-channels"><h3>查看其他模型</h3>
 <div class="channel-row"><a href="../anthropic/" class="channel-link"><img src="../../../adopt/logos/anthropic.svg" alt="">Anthropic Claude</a>
 <a href="../qwen/" class="channel-link"><img src="../../../adopt/logos/qwen.svg" alt="">阿里千问 Qwen</a>
 <a href="../kimi/" class="channel-link"><img src="../../../adopt/logos/moonshot.svg" alt="">Kimi (Moonshot)</a>
 <a href="../minimax/" class="channel-link"><img src="../../../adopt/logos/minimax.svg" alt="">MiniMax</a>
 <a href="../openai/" class="channel-link"><img src="../../../adopt/logos/openai.svg" alt="">OpenAI</a>
-<a href="../aws-bedrock/" class="channel-link"><img src="../../../adopt/logos/aws.svg" alt="">AWS Bedrock</a>
-</div></div>
+<a href="../aws-bedrock/" class="channel-link"><img src="../../../adopt/logos/aws.svg" alt="">AWS Bedrock</a></div></div>
 
 </div>
 <script>
