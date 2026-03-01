@@ -21,7 +21,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{color:var(--text-2);font-size:13px;font-weight:500}
 .nav-adopt{color:var(--lobster-light)!important;font-weight:600!important}
-.hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px}
+.lang-dropdown{display:inline-block;position:relative}
+.lang-trigger{padding:6px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text-2);font-size:12px;cursor:pointer;font-weight:500}
+.lang-trigger:hover{border-color:var(--lobster)}
+.lang-menu{display:none;position:absolute;top:100%;right:0;margin-top:6px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:4px;min-width:140px;z-index:1002;box-shadow:0 8px 24px rgba(0,0,0,0.4)}
+.lang-dropdown.open .lang-menu{display:block}
+.lang-menu button{display:block;width:100%;padding:8px 12px;border:none;background:transparent;color:var(--text-2);font-size:13px;text-align:left;cursor:pointer;border-radius:6px}
+.lang-menu button:hover{background:rgba(212,64,58,0.1);color:var(--lobster-light)}
+@media(max-width:768px){.nav-links .lang-dropdown{padding:12px 20px;text-align:right;display:flex;justify-content:flex-end}}
 @media(max-width:768px){.hamburger{display:block}.nav-links{display:none!important;position:fixed;top:56px;right:16px;left:auto;background:rgba(12,12,18,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:16px 0;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;z-index:99;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}.nav-links.open{display:flex!important}.nav-links a{padding:12px 20px!important;text-align:right!important;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px!important;color:rgba(255,255,255,0.55)!important;display:block}.nav-links a:last-child{border-bottom:none}}
 
 .hero{text-align:center;padding:40px 0 60px}
@@ -147,10 +154,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <body>
 
 <nav>
-  <a href="../" class="logo">
-    <img src="../logo-nav.png" alt="">
-    <div class="logo-text">Ima <b>Claw</b></div>
-  </a>
+  <a href="../" class="logo"><img src="../logo-nav.png" alt=""><div class="logo-text">Ima <b>Claw</b></div></a>
   <div class="nav-links">
     <a href="../">首页</a>
     <a href="../adopt/" class="nav-adopt">🦞 领养</a>
@@ -159,8 +163,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
     <a href="../docs/">帮助</a>
     <a href="../blog/">博客</a>
     <a href="https://imastudio.com/community" target="_blank">社区</a>
+    <div class="lang-dropdown">
+      <button class="lang-trigger" onclick="event.stopPropagation();this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
+      <div class="lang-menu">
+        <button onclick="setLang('zh')">🇨🇳 中文</button>
+        <button onclick="setLang('en')">🇺🇸 English</button>
+        <button onclick="setLang('es')">🇪🇸 Español</button>
+        <button onclick="setLang('ja')">🇯🇵 日本語</button>
+        <button onclick="setLang('ar')">🇸🇦 العربية</button>
+      </div>
+    </div>
   </div>
-  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <button class="hamburger" onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')">☰</button>
 </nav>
 
 <div class="container">
@@ -463,5 +477,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 </div>
 
+<script>
+function setLang(l){
+  try{localStorage.setItem('imaclaw-lang',l)}catch(e){}
+  var m={'zh':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
+  var t=document.querySelector('.lang-trigger');
+  if(t)t.textContent='🌐 '+(m[l]||l)+' ▾';
+  document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});
+}
+(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l){var m={'zh':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};var t=document.querySelector('.lang-trigger');if(t)t.textContent='🌐 '+(m[l]||l)+' ▾'}}catch(e){}})();
+document.addEventListener('click',function(){document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')})});
+</script>
 </body>
 </html>
