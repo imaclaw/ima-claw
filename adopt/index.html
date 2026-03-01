@@ -161,7 +161,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 <!-- Tabs -->
 <div style="display:flex;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-bottom:0">
-<div id="mode-local" onclick="switchMode('local')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:rgba(46,204,113,0.1);border-bottom:none">
+<div id="mode-local" onclick="switchMode('local')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:rgba(46,204,113,0.2);border-bottom:none">
 <div style="font-size:24px;margin-bottom:4px">💻</div>
 <div style="font-size:15px;font-weight:700;color:var(--text)">本地领养</div>
 <div style="font-size:11px;color:#2ecc71;margin-top:2px">免费 · 数据在你手中</div>
@@ -175,7 +175,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 </div>
 
 <!-- Content area with visual connection to tabs -->
-<div id="steps-local" style="border:1px solid var(--border);border-top:3px solid #2ecc71;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(46,204,113,0.03) 0%,transparent 120px);border-left:2px solid rgba(46,204,113,0.2)">
+<div id="steps-local" style="border:1px solid var(--border);border-top:3px solid rgba(46,204,113,0.5);border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(46,204,113,0.03) 0%,transparent 120px);border-left:2px solid rgba(46,204,113,0.2)">
 
 <!-- Local info panel -->
 <div style="margin-bottom:20px;padding:14px 16px;background:rgba(46,204,113,0.04);border:1px solid rgba(46,204,113,0.12);border-radius:10px;font-size:13px;color:var(--text-2);line-height:1.8">
@@ -292,7 +292,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 </div>
 
-<div id="steps-cloud" style="display:none;border:1px solid var(--border);border-top:3px solid #3370FF;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(51,112,255,0.03) 0%,transparent 120px);border-left:2px solid rgba(51,112,255,0.2)">
+<div id="steps-cloud" style="display:none;border:1px solid var(--border);border-top:3px solid rgba(51,112,255,0.5);border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(51,112,255,0.03) 0%,transparent 120px);border-left:2px solid rgba(51,112,255,0.2)">
 
 <!-- Cloud info panel -->
 <div style="margin-bottom:20px;padding:14px 16px;background:rgba(51,112,255,0.04);border:1px solid rgba(51,112,255,0.12);border-radius:10px;font-size:13px;color:var(--text-2);line-height:1.8">
@@ -446,7 +446,7 @@ function switchMode(mode) {
     
     modeLocal.style.opacity = '0.4';
     modeLocal.style.padding = '10px 12px';
-    modeCloud.style.background = 'rgba(51,112,255,0.15)';
+    modeCloud.style.background = 'rgba(51,112,255,0.2)';
     
     modeCloud.style.opacity = '1';
     modeCloud.style.padding = '14px 12px';
@@ -455,7 +455,7 @@ function switchMode(mode) {
   } else {
     local.style.display = 'block';
     cloud.style.display = 'none';
-    modeLocal.style.background = 'rgba(46,204,113,0.15)';
+    modeLocal.style.background = 'rgba(46,204,113,0.2)';
     
     modeLocal.style.opacity = '1';
     modeLocal.style.padding = '14px 12px';
