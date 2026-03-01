@@ -4,17 +4,18 @@
 <meta charset="UTF-8">
 <link rel="icon" href="../favicon.ico"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>你能做网站吗？— Ima Claw 🦞</title>
-<meta name="description" content="一句话开始，26小时后，45个页面、12616行代码、0行手写。">
+<title>"你能做网站吗？" — Ima Claw 🦞</title>
+<meta name="description" content="26小时，45个页面，12616行代码，0行手写。一句话开始的奇迹。">
 <meta property="og:title" content="你能做网站吗？然后就成了这样。">
-<meta property="og:description" content="26小时 · 45页面 · 12616行代码 · 0行手写 · 1800+条指令 · 134万字对话">
-<meta property="og:image" content="img/vibe-coding-stats.png">
+<meta property="og:description" content="26小时 · 45页面 · 12616行代码 · 0行手写 · 134万字对话">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--lobster:#D4403A;--lobster-light:#E8584E;--bg:#0C0C12;--surface:#13131D;--text:#E8E8ED;--text-2:rgba(255,255,255,0.55);--text-3:rgba(255,255,255,0.35);--border:rgba(255,255,255,0.06)}
 body{font-family:'Inter',-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;padding-top:60px}
 a{text-decoration:none;color:inherit}
+
+/* Nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(12,12,18,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .logo{display:flex;align-items:center;gap:10px}
 .logo img{height:40px;width:40px;border-radius:8px}
@@ -24,42 +25,76 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 .nav-links a:hover{color:var(--text)}
 .hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer}
 
-.article{max-width:800px;margin:0 auto;padding:60px 40px 100px}
-.meta{font-size:13px;color:var(--text-3);margin-bottom:32px;display:flex;gap:12px;align-items:center}
+/* Content */
+.page{max-width:900px;margin:0 auto;padding:60px 40px 100px}
+
+/* Header */
+.hero{text-align:center;margin-bottom:56px}
+.meta{font-size:13px;color:var(--text-3);margin-bottom:24px;display:flex;gap:12px;align-items:center;justify-content:center}
 .tag{padding:3px 10px;border-radius:100px;background:rgba(212,64,58,0.1);color:var(--lobster-light);font-size:11px;font-weight:600}
+.hero h1{font-size:clamp(28px,5vw,44px);font-weight:900;letter-spacing:-0.03em;line-height:1.3;margin-bottom:16px}
+.hero h1 span{color:var(--lobster-light)}
+.hero-sub{font-size:clamp(14px,2vw,17px);color:var(--text-2);line-height:1.7}
 
-.origin{text-align:center;margin-bottom:48px}
-.origin-quote{font-size:clamp(28px,5vw,42px);font-weight:900;letter-spacing:-0.03em;line-height:1.3;margin-bottom:16px}
-.origin-quote span{color:var(--lobster-light)}
-.origin-sub{font-size:16px;color:var(--text-2);line-height:1.7}
+/* Chat bubble */
+.chat-wrap{max-width:460px;margin:32px auto 40px}
+.chat-sender{font-size:11px;color:var(--text-3);font-weight:600;margin-bottom:6px}
+.chat-bubble{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:20px 20px 20px 4px;padding:18px 22px;font-size:15px;line-height:1.6}
 
-.chat-bubble{max-width:420px;margin:32px auto 48px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:20px 20px 20px 4px;padding:20px 24px;font-size:15px;color:var(--text);line-height:1.6;position:relative}
-.chat-bubble::before{content:'👑 产品经理';position:absolute;top:-22px;left:0;font-size:11px;color:var(--text-3);font-weight:600}
+/* Arrow */
+.arrow{text-align:center;font-size:32px;color:var(--text-3);margin:28px 0;opacity:0.4}
+.time-label{text-align:center;font-size:13px;color:var(--text-3);letter-spacing:4px;font-weight:600;margin-bottom:40px}
 
-.arrow{text-align:center;font-size:36px;color:var(--text-3);margin:24px 0;opacity:0.5}
+/* Stats grid */
+.section-label{text-align:center;font-size:12px;color:#58a6ff;font-weight:600;letter-spacing:5px;margin-bottom:18px}
+.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:14px}
+.stats-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:40px}
+.stat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:24px 12px;text-align:center;transition:transform .3s}
+.stat:hover{transform:translateY(-3px)}
+.stat-tag{font-size:10px;color:#58a6ff;font-weight:600;letter-spacing:1px;margin-bottom:8px}
+.stat-num{font-size:clamp(24px,3vw,38px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:3px}
+.stat-label{font-size:clamp(11px,1.5vw,14px);color:#8b949e;font-weight:500}
+.stat.red{background:linear-gradient(135deg,rgba(255,107,107,0.12),rgba(255,160,122,0.06));border-color:rgba(255,107,107,0.25)}
+.stat.red .stat-num{background:linear-gradient(135deg,#ff6b6b,#ffa07a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat.blue{background:linear-gradient(135deg,rgba(88,166,255,0.10),rgba(88,166,255,0.04));border-color:rgba(88,166,255,0.2)}
+.stat.blue .stat-num{color:#58a6ff}
+.stat.green{background:linear-gradient(135deg,rgba(63,185,80,0.12),rgba(63,185,80,0.04));border-color:rgba(63,185,80,0.25)}
+.stat.green .stat-num{color:#3fb950}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);margin:8px 0 32px}
 
-.stats-img{width:100%;max-width:720px;margin:0 auto;display:block;border-radius:16px;border:1px solid var(--border)}
+/* Footer area */
+.summary{text-align:center;font-size:clamp(14px,2vw,17px);color:#8b949e;margin-bottom:16px;line-height:1.7}
+.summary em{font-style:normal;color:#c9d1d9;font-weight:600}
+.tags-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tags-row span{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:6px 16px;font-size:12px;color:#8b949e}
+.site-link{text-align:center;margin:32px 0}
+.site-link a{color:var(--lobster-light);font-size:14px;font-weight:600}
+.brand{text-align:center;font-size:12px;color:#484f58;margin-top:16px}
+.brand strong{color:var(--lobster-light)}
 
-.result-label{text-align:center;margin:32px 0 16px;font-size:14px;color:var(--text-3);letter-spacing:3px;font-weight:600}
-
+/* CTA */
 .cta-section{text-align:center;margin-top:56px;padding:40px;background:var(--surface);border:1px solid var(--border);border-radius:20px}
 .cta-section h3{font-size:22px;font-weight:800;margin-bottom:8px}
 .cta-section p{font-size:14px;color:var(--text-2);margin-bottom:20px}
 .cta-btn{display:inline-block;padding:12px 32px;background:var(--lobster);color:#fff;border-radius:12px;font-weight:700;font-size:15px;transition:all .3s}
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,64,58,0.3)}
-
-.back{display:inline-block;margin-top:48px;font-size:13px;color:var(--lobster-light);font-weight:600}
+.back{display:inline-block;margin-top:40px;font-size:13px;color:var(--lobster-light);font-weight:600}
 
 footer{border-top:1px solid var(--border);padding:40px;text-align:center}
 footer p{color:var(--text-3);font-size:12px}footer a{color:var(--lobster-light)}
 
-@media(max-width:600px){
-  .article{padding:40px 20px 80px}
+/* Mobile */
+@media(max-width:768px){
+  .page{padding:40px 20px 80px}
+  nav{padding:14px 20px}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(12,12,18,0.98);flex-direction:column;padding:16px 20px;gap:0;border-bottom:1px solid var(--border)}
   .nav-links.open{display:flex}
   .nav-links a{padding:12px 0;border-bottom:1px solid var(--border)}
   .hamburger{display:block}
-  .chat-bubble{max-width:100%}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-grid-4{grid-template-columns:repeat(2,1fr)}
+  .chat-wrap{max-width:100%}
+  .stat{padding:20px 10px}
 }
 </style>
 </head>
@@ -78,32 +113,95 @@ footer p{color:var(--text-3);font-size:12px}footer a{color:var(--lobster-light)}
   <button class="hamburger" onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')">☰</button>
 </nav>
 
-<article class="article">
+<div class="page">
 
-  <div class="meta">
-    <span class="tag">Release Note</span>
-    <span class="tag" style="background:rgba(46,204,113,0.1);color:#2ecc71">v1.0</span>
-    <span>2026-03-02</span>
+  <div class="hero">
+    <div class="meta">
+      <span class="tag">Release Note</span>
+      <span class="tag" style="background:rgba(46,204,113,0.1);color:#2ecc71">v1.0</span>
+      <span>2026-03-02</span>
+    </div>
+    <h1>"你能做网站吗？"<br><span>然后就成了这样。</span></h1>
+    <div class="hero-sub">一个产品经理的一句话，一只 AI 龙虾的 26 小时。<br>零行手写代码，从 0 到 1。</div>
   </div>
 
-  <div class="origin">
-    <div class="origin-quote">"你能做网站吗？"<br><span>然后就成了这样。</span></div>
-    <div class="origin-sub">一个产品经理的一句话，一只 AI 龙虾的 26 小时。<br>零行手写代码，从 0 到 1。</div>
-  </div>
-
-  <div class="chat-bubble">
-    你能做网站吗？我想做一个 Ima Claw 的官网。我不会写代码，你来写，我来指挥。
+  <div class="chat-wrap">
+    <div class="chat-sender">👑 产品经理</div>
+    <div class="chat-bubble">你能做网站吗？我想做一个 Ima Claw 的官网。我不会写代码，你来写，我来指挥。</div>
   </div>
 
   <div class="arrow">↓</div>
+  <div class="time-label">26 HOURS LATER</div>
 
-  <div class="result-label">26 HOURS LATER</div>
-
-  <img src="img/vibe-coding-stats.png" alt="26小时协作数据" class="stats-img">
-
-  <div style="text-align:center;margin-top:24px">
-    <a href="https://imaclaw.github.io/ima-claw/" target="_blank" style="color:var(--lobster-light);font-size:14px;font-weight:600">→ 看看这个网站 imaclaw.github.io/ima-claw</a>
+  <div class="section-label">BUILD</div>
+  <div class="stats-grid">
+    <div class="stat red">
+      <div class="stat-tag">TIME</div>
+      <div class="stat-num">26h</div>
+      <div class="stat-label">总耗时</div>
+    </div>
+    <div class="stat">
+      <div class="stat-tag">PAGES</div>
+      <div class="stat-num">45</div>
+      <div class="stat-label">个页面</div>
+    </div>
+    <div class="stat">
+      <div class="stat-tag">CODE</div>
+      <div class="stat-num">12,616</div>
+      <div class="stat-label">行代码</div>
+    </div>
+    <div class="stat">
+      <div class="stat-tag">COMMITS</div>
+      <div class="stat-num">295</div>
+      <div class="stat-label">次提交</div>
+    </div>
+    <div class="stat green">
+      <div class="stat-tag">MANUAL</div>
+      <div class="stat-num">0</div>
+      <div class="stat-label">行手写代码</div>
+    </div>
   </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">COLLABORATION</div>
+  <div class="stats-grid-4">
+    <div class="stat blue">
+      <div class="stat-tag">HUMAN</div>
+      <div class="stat-num">1,800+</div>
+      <div class="stat-label">条主人指令</div>
+    </div>
+    <div class="stat blue">
+      <div class="stat-tag">AI</div>
+      <div class="stat-num">8,500+</div>
+      <div class="stat-label">条龙虾回复</div>
+    </div>
+    <div class="stat blue">
+      <div class="stat-tag">IMAGES</div>
+      <div class="stat-num">1,700+</div>
+      <div class="stat-label">张截图交互</div>
+    </div>
+    <div class="stat red">
+      <div class="stat-tag">TOTAL</div>
+      <div class="stat-num">134万</div>
+      <div class="stat-label">字对话量</div>
+    </div>
+  </div>
+
+  <div class="summary">对话量相当于<em>两本长篇小说</em>，全程<em>零行手写代码</em></div>
+  <div class="tags-row">
+    <span>5种语言</span>
+    <span>89张图片</span>
+    <span>移动端适配</span>
+    <span>深色主题</span>
+    <span>完整文档站</span>
+  </div>
+
+  <div class="site-link">
+    <a href="https://imaclaw.github.io/ima-claw/" target="_blank">→ 看看这个网站 imaclaw.github.io/ima-claw</a>
+  </div>
+
+  <div class="brand"><strong>IMA Claw</strong> · Powered by OpenClaw</div>
 
   <div class="cta-section">
     <h3>想要一只自己的龙虾？🦞</h3>
@@ -113,7 +211,7 @@ footer p{color:var(--text-3);font-size:12px}footer a{color:var(--lobster-light)}
 
   <a href="./" class="back">← 返回博客</a>
 
-</article>
+</div>
 
 <footer><p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank">ImaStudio</a> · Built on <a href="https://github.com/openclaw/openclaw" target="_blank">OpenClaw</a></p></footer>
 
