@@ -173,10 +173,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <div style="font-size:11px;color:#3370FF;margin-top:2px">即将推出 · 7×24h 在线</div>
 </div>
 </div>
-<div id="mode-bar" style="height:3px;background:#2ecc71;border-radius:0;transition:all 0.3s"></div>
 
 <!-- Content area with visual connection to tabs -->
-<div id="steps-local" style="border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(46,204,113,0.03) 0%,transparent 120px);border-left:2px solid rgba(46,204,113,0.2)">
+<div id="steps-local" style="border:1px solid var(--border);border-top:3px solid #2ecc71;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(46,204,113,0.03) 0%,transparent 120px);border-left:2px solid rgba(46,204,113,0.2)">
 
 <!-- Local info panel -->
 <div style="margin-bottom:20px;padding:14px 16px;background:rgba(46,204,113,0.04);border:1px solid rgba(46,204,113,0.12);border-radius:10px;font-size:13px;color:var(--text-2);line-height:1.8">
@@ -293,7 +292,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 </div>
 
-<div id="steps-cloud" style="display:none;border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(51,112,255,0.03) 0%,transparent 120px);border-left:2px solid rgba(51,112,255,0.2)">
+<div id="steps-cloud" style="display:none;border:1px solid var(--border);border-top:3px solid #3370FF;border-radius:0 0 12px 12px;padding:20px 16px;margin-bottom:24px;background:linear-gradient(180deg,rgba(51,112,255,0.03) 0%,transparent 120px);border-left:2px solid rgba(51,112,255,0.2)">
 
 <!-- Cloud info panel -->
 <div style="margin-bottom:20px;padding:14px 16px;background:rgba(51,112,255,0.04);border:1px solid rgba(51,112,255,0.12);border-radius:10px;font-size:13px;color:var(--text-2);line-height:1.8">
@@ -448,7 +447,7 @@ function switchMode(mode) {
     modeLocal.style.opacity = '0.4';
     modeLocal.style.padding = '10px 12px';
     modeCloud.style.background = 'rgba(51,112,255,0.15)';
-    document.getElementById('mode-bar').style.background = '#3370FF';
+    
     modeCloud.style.opacity = '1';
     modeCloud.style.padding = '14px 12px';
     cloud.style.background = 'linear-gradient(180deg,rgba(51,112,255,0.05) 0%,transparent 200px)';
@@ -457,7 +456,7 @@ function switchMode(mode) {
     local.style.display = 'block';
     cloud.style.display = 'none';
     modeLocal.style.background = 'rgba(46,204,113,0.15)';
-    document.getElementById('mode-bar').style.background = '#2ecc71';
+    
     modeLocal.style.opacity = '1';
     modeLocal.style.padding = '14px 12px';
     modeCloud.style.background = 'var(--surface)';
