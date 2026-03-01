@@ -161,6 +161,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <div class="card" onclick="location.href='../docs/skills/weather/'" style="cursor:pointer"" data-cat="tool"><div class="ic">🌤️</div><h3><span data-zh>天气查询</span><span data-en>Weather</span></h3><p><span data-zh>实时天气和预报，免 Key。</span><span data-en>Weather & forecasts, no API key.</span></p><div class="meta"><span class="tag t-com"><span data-zh>社区</span><span data-en>Community</span></span></div></div>
 <div class="card" onclick="location.href='../docs/skills/feishu-calendar/'" style="cursor:pointer"" data-cat="tool"><div class="ic">📅</div><h3><span data-zh>飞书日历</span><span data-en>Feishu Calendar</span></h3><p><span data-zh>查询、创建、修改日历事件。</span><span data-en>Query, create, modify calendar events.</span></p><div class="meta"><span class="tag t-off"><span data-zh>官方</span><span data-en>Official</span></span></div></div>
 </div>
+
+<!-- Community Skills Section -->
+<div style="max-width:1100px;margin:40px auto 0;padding:0 20px">
+<div style="border-top:1px solid var(--border);padding-top:32px;margin-bottom:24px">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:8px">
+  <h2 style="font-size:24px;font-weight:900"><span data-zh>🌍 社区技能</span><span data-en>🌍 Community Skills</span></h2>
+  <a href="community/" style="font-size:13px;color:var(--lobster-light);font-weight:500;text-decoration:none"><span data-zh>查看全部 5,000+ →</span><span data-en>View all 5,000+ →</span></a>
+</div>
+<p style="color:var(--text-2);font-size:14px;margin-bottom:20px"><span data-zh>来自全球开发者的技能，为你的龙虾解锁无限可能</span><span data-en>Skills from global developers to unlock infinite possibilities</span></p>
+
+<!-- Hot category tags -->
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px">
+  <a href="community/" style="padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;background:rgba(212,64,58,0.08);border:1px solid rgba(212,64,58,0.2);color:var(--lobster-light);text-decoration:none">🎨 图片与视频 <span style="opacity:0.6">170</span></a>
+  <a href="community/" style="padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;background:rgba(212,64,58,0.08);border:1px solid rgba(212,64,58,0.2);color:var(--lobster-light);text-decoration:none">📣 营销与销售 <span style="opacity:0.6">105</span></a>
+  <a href="community/" style="padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;background:rgba(212,64,58,0.08);border:1px solid rgba(212,64,58,0.2);color:var(--lobster-light);text-decoration:none">🤖 AI 与大模型 <span style="opacity:0.6">196</span></a>
+  <a href="community/" style="padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;background:rgba(212,64,58,0.08);border:1px solid rgba(212,64,58,0.2);color:var(--lobster-light);text-decoration:none">🔍 搜索与研究 <span style="opacity:0.6">350</span></a>
+  <a href="community/" style="padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;background:rgba(212,64,58,0.08);border:1px solid rgba(212,64,58,0.2);color:var(--lobster-light);text-decoration:none">💬 通讯与社交 <span style="opacity:0.6">149</span></a>
+  <a href="community/" style="padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;background:rgba(212,64,58,0.08);border:1px solid rgba(212,64,58,0.2);color:var(--lobster-light);text-decoration:none">📋 效率与任务 <span style="opacity:0.6">206</span></a>
+</div>
+
+<!-- Preview cards from community -->
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:20px" id="community-preview"></div>
+
+<div style="text-align:center">
+  <a href="community/" style="display:inline-block;padding:10px 28px;background:var(--surface);border:1px solid var(--border);border-radius:10px;font-size:14px;font-weight:600;color:var(--text);text-decoration:none;transition:all .2s"><span data-zh>🌍 探索全部社区技能</span><span data-en>🌍 Explore All Community Skills</span></a>
+</div>
+</div>
+</div>
+
 <section class="cta">
 <h2><span data-zh>🛠️ 开发者？发布你的技能</span><span data-en>🛠️ Developer? Publish Your Skill</span></h2>
 <p><span data-zh>为 Ima Claw 开发技能，提交到官方商店，让所有龙虾更强大。</span><span data-en>Build skills for Ima Claw. Submit to the store and empower every Claw.</span></p>
@@ -227,6 +256,28 @@ function filter(cat){document.querySelectorAll('.filter-btn').forEach(function(b
 // Close mobile nav on outside click
 document.addEventListener("click",function(e){var nav=document.querySelector(".nav-links");var ham=document.querySelector(".hamburger");if(nav&&nav.classList.contains("open")&&!nav.contains(e.target)&&e.target!==ham){nav.classList.remove("open")}document.querySelectorAll(".lang-dropdown.open").forEach(function(d){if(!d.contains(e.target))d.classList.remove("open")})});
 document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",function(){var nav=document.querySelector(".nav-links");if(nav)nav.classList.remove("open")})});
+</script>
+
+<script>
+fetch('community-skills.json').then(r=>r.json()).then(function(d){
+  var hot=['Image & Video Generation','Marketing & Sales','AI & LLMs','Search & Research'];
+  var picks=[];
+  hot.forEach(function(cat){
+    var items=d.skills.filter(function(s){return s.category===cat});
+    picks=picks.concat(items.slice(0,2));
+  });
+  var html='';
+  picks.slice(0,8).forEach(function(s){
+    var desc=(s.description||'').substring(0,60);
+    if((s.description||'').length>60)desc+='...';
+    html+='<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;transition:all .2s">'
+      +'<div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">'+s.name.replace(/</g,'&lt;')+'</div>'
+      +'<div style="font-size:12px;color:var(--text-2);line-height:1.4;margin-bottom:6px">'+desc.replace(/</g,'&lt;')+'</div>'
+      +'<div style="font-size:11px;color:var(--text-3)">'+s.category+'</div></div>';
+  });
+  var el=document.getElementById('community-preview');
+  if(el)el.innerHTML=html;
+});
 </script>
 </body>
 </html>
