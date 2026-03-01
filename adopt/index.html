@@ -694,6 +694,7 @@ function setLang(l) {
 }
 // Auto-detect: default zh, only switch if user explicitly chose another lang in THIS session
 (function(){try{var l=localStorage.getItem('imaclaw-lang');if(!l||l==='en'){localStorage.removeItem('imaclaw-lang');setLang('zh')}else{setLang(l)}}catch(e){setLang('zh')}})();
+switchMode('cloud');
 </script>
 
 </body>
