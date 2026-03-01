@@ -450,12 +450,6 @@ function switchMode(mode) {
     modeLocal.style.opacity = '0.4';
     modeCloud.style.background = 'rgba(77,138,255,0.3)';
     modeCloud.style.opacity = '1';
-    cloud.style.borderTop = '3px solid rgba(77,138,255,0.7)';
-    cloud.style.borderLeft = '2px solid transparent';
-    cloud.style.borderImage = 'linear-gradient(to bottom, rgba(77,138,255,0.7), transparent 60%) 1';
-    cloud.style.borderImageSlice = '1';
-    cloud.style.background = 'linear-gradient(180deg,rgba(51,112,255,0.05) 0%,transparent 200px)';
-    local.style.background = '';
   } else {
     local.style.display = 'block';
     cloud.style.display = 'none';
@@ -463,12 +457,6 @@ function switchMode(mode) {
     modeLocal.style.opacity = '1';
     modeCloud.style.background = 'var(--surface)';
     modeCloud.style.opacity = '0.4';
-    local.style.borderTop = '3px solid rgba(255,107,91,0.7)';
-    local.style.borderLeft = '2px solid transparent';
-    local.style.borderImage = 'linear-gradient(to bottom, rgba(255,107,91,0.7), transparent 60%) 1';
-    local.style.borderImageSlice = '1';
-    local.style.background = 'linear-gradient(180deg,rgba(224,85,69,0.05) 0%,transparent 200px)';
-    cloud.style.background = '';
   }
   var stepsLocal = document.getElementById('steps-local');
   var stepsCloud = document.getElementById('steps-cloud');
