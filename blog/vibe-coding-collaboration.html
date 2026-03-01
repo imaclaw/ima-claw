@@ -113,7 +113,6 @@ footer a{color:var(--lobster-light)}
     <ul>
       <li>"<strong>这个区域改一下</strong>" → AI 改了错误的区域，因为页面上有3个长得差不多的区域</li>
       <li>"<strong>两个按钮高度不一样</strong>" → 改了5轮，因为每次只改了一个属性</li>
-      <li>"<strong>入门首选的标签过高了</strong>" → 其实不是位置问题，是背景色丢了（CSS变量没定义）</li>
       <li>反复发截图说"<strong>你改了吗？</strong>" → 其实改了，但浏览器缓存</li>
     </ul>
 
@@ -220,21 +219,6 @@ footer a{color:var(--lobster-light)}
     </ol>
 
     <p><strong>教训：</strong>当两个元素需要等高时，直接用固定 <code>height</code>。不要在 padding/font-size/line-height 上反复调。告诉你的 AI 这个原则，一次搞定。</p>
-
-    <h2>真实案例：CSS 变量失踪案</h2>
-
-    <div style="margin:16px 0;text-align:center">
-      <img src="img/blue-missing.jpg" style="max-width:280px;width:100%;border-radius:12px;border:1px solid var(--border)" alt="CSS变量缺失">
-      <p style="font-size:12px;color:var(--text-3);margin-top:8px">"入门首选"标签和"立即订阅"按钮——发现了吗？它们透明了</p>
-    </div>
-
-    <p>Pricing 页面的 Plus 卡片，"🔥 入门首选"标签没有蓝色背景，"立即订阅"按钮也透明了。</p>
-    <p>我一开始以为是定位问题（"标签过高了"），AI 就去调 margin。改了两轮都不对。</p>
-    <p>最后发现：<strong>页面的 CSS 变量定义里根本没有 <code>--blue</code></strong>。所有用 <code>var(--blue)</code> 的元素直接变透明。</p>
-
-    <blockquote>
-      <p><strong>教训：</strong>AI 创建新页面时，第一件事检查 CSS 变量是否完整。人类看到"颜色不对"时，先怀疑变量定义，而不是调布局。</p>
-    </blockquote>
 
     <h2>适用场景</h2>
 
