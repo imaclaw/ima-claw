@@ -42,7 +42,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 .hero{text-align:center;padding:80px 20px 40px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 50% 50%,rgba(212,64,58,0.06) 0%,transparent 60%);pointer-events:none}
 .lobster{animation:float 3s ease-in-out infinite;margin-bottom:-24px;margin-top:0}
-@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-12px) rotate(-3deg)}75%{transform:translateY(-6px) rotate(2deg)}}
+@keyframes popIn{0%{opacity:0;transform:scale(0.5)}50%{transform:scale(1.1)}100%{opacity:1;transform:scale(1)}}@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-12px) rotate(-3deg)}75%{transform:translateY(-6px) rotate(2deg)}}
 .hero h1{font-size:clamp(24px,5vw,36px);font-weight:900;color:var(--lobster-light);margin-bottom:12px}
 .hero .sub{color:var(--text-2);font-size:16px;max-width:520px;margin:0 auto 8px}
 .hero .tiny{color:#555;font-size:13px}
@@ -151,7 +151,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 
 <!-- Hero -->
 <section class="hero">
-<div class="lobster"><img src="baby-lobster.png" style="width:300px;height:300px;object-fit:contain" alt="Baby Lobster"></div>
+<div class="lobster" style="position:relative;display:inline-block">
+<img src="baby-lobster.png" style="width:300px;height:300px;object-fit:contain" alt="Baby Lobster">
+<div class="speech-bubble" style="position:absolute;top:10px;right:-40px;background:white;color:#333;padding:10px 14px;border-radius:16px 16px 16px 4px;font-size:13px;font-weight:600;line-height:1.5;box-shadow:0 4px 16px rgba(0,0,0,0.3);animation:popIn 0.5s ease 1s both;white-space:nowrap;z-index:5">
+<div>主人，快来领养我吧！🦞</div>
+<a href="https://forms.gle/JZ1HnjjHKmqecmCx5" target="_blank" style="display:inline-block;margin-top:6px;background:var(--lobster);color:white;padding:4px 14px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none">预约领养 →</a>
+</div>
+</div>
 <h1 data-i18n="adopt.title">领养你的 Baby 小龙虾</h1>
 <p class="sub">选择一种方式，开始领养你的专属 AI 龙虾伙伴。</p>
 </section>
