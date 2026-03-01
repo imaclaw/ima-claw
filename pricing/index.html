@@ -35,18 +35,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 .pain-header{text-align:center;margin-bottom:32px}
 .pain-header h2{font-size:24px;font-weight:800;margin-bottom:8px}
 .pain-header p{color:var(--text-2);font-size:15px}
-.pain-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}
-.pain-item{background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px 12px;text-align:center}
-.pain-item .icon{font-size:28px;margin-bottom:8px}
-.pain-item .name{font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:4px}
-.pain-item .price{font-size:15px;font-weight:700;text-decoration:line-through;opacity:.5}
-.pain-item .problem{font-size:11px;color:var(--text-3);margin-top:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,0.1)}
-.pain-total{text-align:center;padding:20px;background:rgba(239,68,68,0.08);border:1px dashed rgba(239,68,68,0.3);border-radius:12px}
+.pain-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.pain-item{display:flex;align-items:center;gap:14px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:12px 16px}
+.pain-item .icon{font-size:24px;flex-shrink:0}
+.pain-item .name{font-size:14px;font-weight:600;color:var(--text);flex:1}
+.pain-item .price{font-size:14px;font-weight:700;text-decoration:line-through;color:var(--red);opacity:.7;flex-shrink:0}
+.pain-item .problem{font-size:12px;color:var(--text-3);flex-shrink:0;text-align:right;margin-left:8px}
+.pain-total{text-align:center;padding:20px;background:rgba(239,68,68,0.06);border:2px dashed rgba(239,68,68,0.4);border-radius:12px;position:relative}
 .pain-total .label{font-size:14px;color:var(--text-2)}
-.pain-total .amount{font-size:28px;font-weight:800;color:var(--red)}
+.pain-total .amount{font-size:32px;font-weight:800;color:var(--red);text-decoration:line-through;position:relative;display:inline-block}
+.pain-total .amount::after{content:"✕";position:absolute;top:-6px;right:-20px;font-size:18px;color:var(--red);font-weight:900}
 .pain-total .note{font-size:12px;color:var(--text-3);margin-top:4px}
-@media(max-width:900px){.pain-grid{grid-template-columns:repeat(5,1fr);gap:8px}}
-@media(max-width:600px){.pain-grid{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:10px;padding-bottom:8px;scroll-snap-type:x mandatory}.pain-item{min-width:120px;flex-shrink:0;scroll-snap-align:start}.pain-section{padding:24px}}
+@media(max-width:600px){.pain-section{padding:24px}.pain-item{padding:10px 12px;gap:10px}.pain-item .name{font-size:13px}.pain-item .price{font-size:13px}}
 
 .solution-section{background:linear-gradient(135deg,rgba(212,64,58,0.08) 0%,rgba(74,128,212,0.06) 100%);border:1px solid rgba(212,64,58,0.15);border-radius:20px;padding:40px;margin-bottom:60px;text-align:center}
 .solution-badge{display:inline-flex;gap:6px;padding:6px 14px;background:rgba(34,197,94,0.15);border-radius:20px;font-size:12px;color:var(--green);font-weight:600;margin-bottom:20px}
@@ -181,39 +181,39 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
     <div class="pain-grid">
       <div class="pain-item">
         <div class="icon">💬</div>
-        <div class="name">AI 对话</div>
+        <div class="name">AI 对话 — ChatGPT Plus</div>
         <div class="price">$20/月</div>
-        <div class="problem">ChatGPT Plus<br>只能聊天</div>
+        <div class="problem">只能聊天</div>
       </div>
       <div class="pain-item">
         <div class="icon">🎨</div>
-        <div class="name">AI 图片</div>
+        <div class="name">AI 图片 — Midjourney</div>
         <div class="price">$24/月</div>
-        <div class="problem">Midjourney<br>只能画图</div>
+        <div class="problem">只能画图</div>
       </div>
       <div class="pain-item">
         <div class="icon">🎬</div>
-        <div class="name">AI 视频</div>
+        <div class="name">AI 视频 — Kling Pro</div>
         <div class="price">$26/月</div>
-        <div class="problem">Kling Pro<br>只能做视频</div>
+        <div class="problem">只能做视频</div>
       </div>
       <div class="pain-item">
         <div class="icon">🎵</div>
-        <div class="name">AI 音乐</div>
+        <div class="name">AI 音乐 — Suno</div>
         <div class="price">$10/月</div>
-        <div class="problem">Suno<br>只能作曲</div>
+        <div class="problem">只能作曲</div>
       </div>
       <div class="pain-item">
         <div class="icon">⏰</div>
-        <div class="name">24/7 工作</div>
+        <div class="name">24/7 自动工作</div>
         <div class="price">$?/月</div>
-        <div class="problem">没有工具<br>能做到</div>
+        <div class="problem">没有工具能做到</div>
       </div>
     </div>
     <div class="pain-total">
-      <div class="label">每月订阅费用</div>
+      <div class="label">分别订阅要花</div>
       <div class="amount">$80+ / 月</div>
-      <div class="note">还没算学习成本、切换成本、以及你的时间</div>
+      <div class="note">❌ 5个平台、5套账号、5种操作逻辑</div>
     </div>
   </section>
 
