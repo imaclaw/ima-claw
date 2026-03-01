@@ -160,15 +160,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 <section class="adopt-modes" style="max-width:700px;margin:0 auto 0;padding:0 20px">
 
 <!-- Tabs -->
-<div style="display:flex;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-bottom:0">
+<div style="display:flex;gap:0;border-radius:12px;overflow:visible;border:1px solid var(--border);margin-bottom:0">
 <div id="mode-local" onclick="switchMode('local')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:rgba(232,88,78,0.3)">
 <div style="font-size:24px;margin-bottom:4px">💻</div>
 <div style="font-size:15px;font-weight:700;color:var(--text)">本地领养</div>
 <div style="font-size:11px;color:#E8584E;margin-top:2px">免费 · 立即可用</div>
 </div>
 <div style="width:1px;background:var(--border)"></div>
-<div id="mode-cloud" onclick="switchMode('cloud')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:var(--surface);opacity:0.4;position:relative">
-<div style="font-size:10px;font-weight:700;color:var(--lobster);letter-spacing:1px;margin-bottom:2px">⭐ 推荐</div>
+<div id="mode-cloud" onclick="switchMode('cloud')" style="flex:1;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.3s;background:var(--surface);opacity:0.4;position:relative;overflow:visible">
+<div style="position:absolute;top:-1px;right:-1px;background:var(--lobster);color:white;font-size:9px;font-weight:700;padding:3px 8px 3px 10px;border-radius:0 12px 0 8px;line-height:1;letter-spacing:0.5px;z-index:2">⭐推荐</div>
 <div style="font-size:24px;margin-bottom:4px">☁️</div>
 <div style="font-size:15px;font-weight:700;color:var(--text)">云端领养</div>
 <div style="font-size:11px;color:#4A80D4;margin-top:2px">即将推出 · 7×24h 在线</div>
