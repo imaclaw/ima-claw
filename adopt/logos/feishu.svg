@@ -1,6 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-  <!-- Lark/Feishu logo: two overlapping chevrons/arrows -->
-  <path d="M2 4L12 12L8 16L2 4Z" fill="#00D6B9"/>
-  <path d="M12 12L22 4L16 16L8 16L12 12Z" fill="#3370FF"/>
-  <path d="M8 16L16 16L12 22L8 16Z" fill="#2B5CED"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Lark/Feishu 2024+ logo: stylized bird with spread wing -->
+  <!-- Left wing (darker blue) -->
+  <path d="M6 24C6 24 8 8 16 4C16 4 10 14 12 18L6 24Z" fill="#1456F0"/>
+  <!-- Right wing (lighter blue/teal) -->
+  <path d="M16 4C24 8 28 16 26 22C26 22 20 16 16 14L12 18C10 14 16 4 16 4Z" fill="#3370FF"/>
+  <!-- Tail (teal accent) -->
+  <path d="M6 24L12 18L16 14C16 14 14 20 16 24C18 28 12 28 6 24Z" fill="#00B2A9"/>
 </svg>
