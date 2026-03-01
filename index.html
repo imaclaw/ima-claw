@@ -388,5 +388,25 @@ nav{padding:14px 16px}
 
 <script src="i18n.js?v=20260301b"></script>
 <script src="app.js"></script>
+<script>
+var _zhStore={};
+var NAV_I18N={en:{"nav.home":"Home","nav.adopt":"🦞 Adopt","nav.skills":"Skills","nav.pricing":"🛒 Store","nav.docs":"Docs","nav.blog":"Blog","nav.community":"Community"}};
+function setLang(l){
+  try{localStorage.setItem("imaclaw-lang",l)}catch(e){}
+  var isZh=l==="zh"||l==="zh-CN";
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    var k=el.getAttribute("data-i18n");
+    if(!_zhStore[k])_zhStore[k]=el.innerHTML;
+    if(isZh){el.innerHTML=_zhStore[k]}
+    else if(NAV_I18N["en"]&&NAV_I18N["en"][k]){el.innerHTML=NAV_I18N["en"][k]}
+  });
+  var m={"zh":"🇨🇳 中文","en":"🇺🇸 EN","es":"🇪🇸 ES","ja":"🇯🇵 JA","ar":"🇸🇦 AR"};
+  var t=document.querySelector(".lang-trigger");
+  if(t)t.textContent="🌐 "+(m[l]||l)+" ▾";
+  document.querySelectorAll(".lang-dropdown").forEach(function(d){d.classList.remove("open")});
+}
+(function(){try{var l=localStorage.getItem("imaclaw-lang");if(l&&l!=="zh"&&l!=="zh-CN")setTimeout(function(){setLang(l)},50)}catch(e){}})();
+document.addEventListener("click",function(){document.querySelectorAll(".lang-dropdown").forEach(function(d){d.classList.remove("open")})});
+</script>
 </body>
 </html>
