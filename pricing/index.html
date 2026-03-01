@@ -1,28 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <link rel="icon" href="../favicon.ico"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>购买服务 - Ima Claw</title>
+<title>定价方案 - Ima Claw</title>
 <style>
-:root{--bg:#0a0a0f;--surface:#111118;--border:#222;--text:#e8e8e8;--text-2:#a0a0a0;--text-3:#666;--lobster:#e74c3c;--lobster-light:#ff6b5b}
+:root{--bg:#0a0a0f;--surface:#12121a;--border:#222;--text:#e8e8e8;--text-2:#a0a0a0;--text-3:#666;--lobster:#D4403A;--lobster-light:#E8584E;--green:#22c55e;--red:#ef4444;--yellow:#eab308}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
 a{color:var(--lobster-light);text-decoration:none}
-.container{max-width:900px;margin:0 auto;padding:90px 20px 60px;text-align:center}
-h1{font-size:40px;font-weight:900;margin-bottom:12px}
-.subtitle{color:var(--text-2);font-size:17px;margin-bottom:48px}
-.coming{padding:80px 40px;background:var(--surface);border:1px solid var(--border);border-radius:20px;font-size:18px;color:var(--text-2)}
-.coming .emoji{font-size:48px;display:block;margin-bottom:16px}
-@media(max-width:600px){
-}
-/* Nav */
-@media(max-width:768px){
-  .nav-links .lang-dropdown{padding:12px 20px;text-align:right;display:flex;justify-content:flex-end}
-}
-/* === SHARED NAV CSS === */
+a:hover{opacity:.85}
+
+/* === NAV === */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;background:rgba(12,12,18,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
 .logo img{height:40px;width:40px;border-radius:8px}
@@ -39,7 +30,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 .lang-menu{display:none;position:absolute;top:100%;right:0;margin-top:6px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:4px;min-width:140px;z-index:1002;box-shadow:0 8px 24px rgba(0,0,0,0.4)}
 .lang-dropdown.open .lang-menu{display:block}
 .lang-menu button{display:block;width:100%;padding:8px 12px;border:none;background:transparent;color:var(--text-2);font-size:13px;text-align:left;cursor:pointer;border-radius:6px}
-.lang-menu button:hover{background:rgba(231,76,60,0.1);color:var(--lobster-light)}
+.lang-menu button:hover{background:rgba(212,64,58,0.1);color:var(--lobster-light)}
 @media(max-width:768px){
   nav{padding:14px 16px}
   .hamburger{display:block}
@@ -49,10 +40,90 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
   .nav-links a:last-child{border-bottom:none}
   .nav-links .lang-dropdown{padding:12px 20px;text-align:right;display:flex;justify-content:flex-end}
 }
-/* === END SHARED NAV CSS === */
+
+/* === PAGE === */
+.container{max-width:1200px;margin:0 auto;padding:100px 20px 60px}
+.page-header{text-align:center;margin-bottom:56px}
+.page-header h1{font-size:42px;font-weight:900;margin-bottom:12px}
+.page-header .subtitle{color:var(--text-2);font-size:17px}
+
+/* === PRICING CARDS === */
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:80px}
+.pricing-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;position:relative;transition:transform .2s,box-shadow .2s}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.pricing-card.recommended{border-color:var(--lobster);box-shadow:0 0 30px rgba(212,64,58,0.15)}
+.pricing-card.popular{border-color:var(--yellow);box-shadow:0 0 20px rgba(234,179,8,0.1)}
+.card-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap}
+.badge-popular{background:var(--yellow);color:#000}
+.badge-recommended{background:var(--lobster);color:#fff}
+.card-name{font-size:22px;font-weight:800;margin-bottom:8px;margin-top:8px}
+.card-price{font-size:36px;font-weight:900;margin-bottom:4px}
+.card-price span{font-size:14px;font-weight:400;color:var(--text-2)}
+.card-price-tbd{font-size:18px;color:var(--text-2);margin-bottom:4px;min-height:48px;display:flex;align-items:center;justify-content:center}
+.card-features{list-style:none;margin:20px 0;flex:1;text-align:left}
+.card-features li{padding:6px 0;font-size:13px;color:var(--text-2);display:flex;align-items:flex-start;gap:8px}
+.card-features li .icon{flex-shrink:0;width:18px;text-align:center}
+.feat-yes{color:var(--green)}
+.feat-no{color:var(--red);opacity:.5}
+.feat-warn{color:var(--yellow)}
+.feat-info{color:var(--text-3)}
+.card-btn{display:block;width:100%;padding:12px;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;text-align:center;transition:all .2s;text-decoration:none}
+.btn-free{background:rgba(255,255,255,0.06);color:var(--text);border:1px solid var(--border)}
+.btn-free:hover{background:rgba(255,255,255,0.1)}
+.btn-primary{background:var(--lobster);color:#fff}
+.btn-primary:hover{background:var(--lobster-light)}
+.btn-popular{background:var(--yellow);color:#000}
+.btn-popular:hover{opacity:.9}
+
+/* === COMPARISON TABLE === */
+.compare-section{margin-bottom:80px}
+.compare-section h2{text-align:center;font-size:28px;font-weight:800;margin-bottom:32px}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:14px}
+.compare-table{width:100%;min-width:700px;border-collapse:collapse}
+.compare-table th,.compare-table td{padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);font-size:13px}
+.compare-table th{background:rgba(255,255,255,0.03);font-weight:700;color:var(--text);position:sticky;top:0}
+.compare-table td:first-child,.compare-table th:first-child{text-align:left;font-weight:600;color:var(--text-2)}
+.compare-table tbody tr:last-child td{border-bottom:none}
+.compare-table tbody tr:hover{background:rgba(255,255,255,0.02)}
+.col-pro{background:rgba(212,64,58,0.04)}
+
+/* === FAQ === */
+.faq-section{margin-bottom:80px}
+.faq-section h2{text-align:center;font-size:28px;font-weight:800;margin-bottom:32px}
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;background:var(--surface)}
+.faq-q{padding:16px 20px;cursor:pointer;font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.faq-q:hover{background:rgba(255,255,255,0.02)}
+.faq-q .arrow{transition:transform .2s;color:var(--text-3)}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg)}
+.faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;color:var(--text-2);font-size:14px;line-height:1.8}
+.faq-item.open .faq-a{max-height:300px;padding:0 20px 16px}
+
+/* === CTA === */
+.cta-section{text-align:center;padding:60px 40px;background:var(--surface);border:1px solid var(--border);border-radius:20px;margin-bottom:60px}
+.cta-section h2{font-size:28px;font-weight:800;margin-bottom:12px}
+.cta-section p{color:var(--text-2);margin-bottom:24px;font-size:15px}
+.cta-btn{display:inline-block;padding:14px 40px;background:var(--lobster);color:#fff;border-radius:12px;font-weight:700;font-size:16px;transition:all .2s}
+.cta-btn:hover{background:var(--lobster-light);transform:translateY(-2px)}
+
+/* === DISCORD BANNER === */
+.discord-banner{display:flex;align-items:center;justify-content:center;gap:12px;padding:20px;background:linear-gradient(135deg,#5865F2 0%,#7289DA 100%);border-radius:14px;margin-bottom:40px;text-align:center;color:#fff;font-weight:600;font-size:15px}
+.discord-banner:hover{opacity:.92}
+
+/* === RESPONSIVE === */
+@media(max-width:1024px){
+  .pricing-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .pricing-grid{grid-template-columns:1fr}
+  .page-header h1{font-size:30px}
+  .cta-section{padding:40px 20px}
+}
 </style>
 </head>
 <body>
+
+<!-- NAV -->
 <nav>
   <a href="../" class="logo"><img src="../logo-nav.png" alt=""><div class="logo-text">Ima <b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by ImaStudio</span></div></a>
   <div class="nav-links">
@@ -76,25 +147,195 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
   </div>
   <button class="hamburger" onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')">☰</button>
 </nav>
+
 <div class="container">
-  <h1>🛒 购买服务</h1>
-  <p class="subtitle">选择适合你的龙虾套餐</p>
-  <div class="coming"><span class="emoji">🦞</span>即将上线，敬请期待</div>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <h1>🦞 定价方案</h1>
+    <p class="subtitle">选择适合你的龙虾套餐，从免费开始</p>
+  </div>
+
+  <!-- PRICING CARDS -->
+  <div class="pricing-grid">
+
+    <!-- FREE -->
+    <div class="pricing-card">
+      <div class="card-name">免费版</div>
+      <div class="card-price">¥0 <span>/月</span></div>
+      <ul class="card-features">
+        <li><span class="icon feat-yes">✓</span> 原 IMA 全部功能</li>
+        <li><span class="icon feat-yes">✓</span> 图片生成（基础模型）</li>
+        <li><span class="icon feat-yes">✓</span> 视频生成（基础模型）</li>
+        <li><span class="icon feat-yes">✓</span> 音乐创作（基础模型）</li>
+        <li><span class="icon feat-no">✗</span> Bot 功能</li>
+        <li><span class="icon feat-no">✗</span> 云端实例</li>
+        <li><span class="icon feat-no">✗</span> 定时任务</li>
+        <li><span class="icon feat-no">✗</span> 浏览器工具</li>
+      </ul>
+      <a href="../adopt/" class="card-btn btn-free">免费体验</a>
+    </div>
+
+    <!-- PLUS -->
+    <div class="pricing-card popular">
+      <div class="card-badge badge-popular">🔥 最受欢迎</div>
+      <div class="card-name">Plus</div>
+      <div class="card-price-tbd">即将公布</div>
+      <ul class="card-features">
+        <li><span class="icon feat-yes">✓</span> 原 IMA 全部功能</li>
+        <li><span class="icon feat-yes">✓</span> 700 积分/月</li>
+        <li><span class="icon feat-yes">✓</span> Bot Lite（轻量体验）</li>
+        <li><span class="icon feat-yes">✓</span> 基础模型</li>
+        <li><span class="icon feat-yes">✓</span> 基础 Skill 工具箱</li>
+        <li><span class="icon feat-no">✗</span> 云端实例</li>
+        <li><span class="icon feat-no">✗</span> 定时任务</li>
+        <li><span class="icon feat-no">✗</span> 浏览器工具</li>
+        <li><span class="icon feat-warn">⚠</span> 并发 1 · ≤3分钟/次</li>
+      </ul>
+      <a href="../adopt/" class="card-btn btn-popular">立即订阅</a>
+    </div>
+
+    <!-- PRO -->
+    <div class="pricing-card recommended">
+      <div class="card-badge badge-recommended">⭐ 推荐</div>
+      <div class="card-name">Pro</div>
+      <div class="card-price-tbd">即将公布</div>
+      <ul class="card-features">
+        <li><span class="icon feat-yes">✓</span> 原 IMA 全部功能</li>
+        <li><span class="icon feat-yes">✓</span> 3200 积分/月</li>
+        <li><span class="icon feat-yes">✓</span> 1核2G 云端实例</li>
+        <li><span class="icon feat-yes">✓</span> 完整 Bot 功能</li>
+        <li><span class="icon feat-yes">✓</span> 可选 Kimi / MiniMax</li>
+        <li><span class="icon feat-yes">✓</span> 基础 Skill 工具箱</li>
+        <li><span class="icon feat-yes">✓</span> 定时任务</li>
+        <li><span class="icon feat-no">✗</span> 浏览器工具</li>
+        <li><span class="icon feat-info">ℹ</span> 并发 1 · 队列 10 · ≤15分钟</li>
+      </ul>
+      <a href="../adopt/" class="card-btn btn-primary">立即订阅</a>
+    </div>
+
+    <!-- ULTRA -->
+    <div class="pricing-card">
+      <div class="card-name">Ultra</div>
+      <div class="card-price-tbd">即将公布</div>
+      <ul class="card-features">
+        <li><span class="icon feat-yes">✓</span> 原 IMA 全部功能</li>
+        <li><span class="icon feat-yes">✓</span> 18000 积分/月</li>
+        <li><span class="icon feat-yes">✓</span> 2核4G 云端实例</li>
+        <li><span class="icon feat-yes">✓</span> 完整 Bot 功能</li>
+        <li><span class="icon feat-yes">✓</span> 全模型池（Kimi/MiniMax/Claude）</li>
+        <li><span class="icon feat-yes">✓</span> 全 Skill 工具箱</li>
+        <li><span class="icon feat-yes">✓</span> 浏览器工具箱</li>
+        <li><span class="icon feat-yes">✓</span> 基础建站工具箱</li>
+        <li><span class="icon feat-info">ℹ</span> 并发 2 · 队列 50 · ≤60分钟</li>
+      </ul>
+      <a href="../adopt/" class="card-btn btn-primary">立即订阅</a>
+    </div>
+
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="compare-section">
+    <h2>📊 功能对比</h2>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>功能</th>
+            <th>免费版</th>
+            <th>Plus</th>
+            <th class="col-pro">Pro ⭐</th>
+            <th>Ultra</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>原 IMA 功能</td><td>✅</td><td>✅</td><td class="col-pro">✅</td><td>✅</td></tr>
+          <tr><td>每月积分</td><td>—</td><td>700</td><td class="col-pro">3,200</td><td>18,000</td></tr>
+          <tr><td>图片生成</td><td>基础模型</td><td>基础模型</td><td class="col-pro">基础模型</td><td>基础模型</td></tr>
+          <tr><td>视频生成</td><td>基础模型</td><td>基础模型</td><td class="col-pro">基础模型</td><td>基础模型</td></tr>
+          <tr><td>音乐创作</td><td>基础模型</td><td>基础模型</td><td class="col-pro">基础模型</td><td>基础模型</td></tr>
+          <tr><td>Bot 功能</td><td>❌</td><td>Lite</td><td class="col-pro">完整</td><td>完整</td></tr>
+          <tr><td>云端实例</td><td>❌</td><td>❌</td><td class="col-pro">1核2G</td><td>2核4G</td></tr>
+          <tr><td>AI 模型</td><td>—</td><td>基础</td><td class="col-pro">Kimi / MiniMax</td><td>全模型池</td></tr>
+          <tr><td>Skill 工具箱</td><td>❌</td><td>基础</td><td class="col-pro">基础</td><td>全部</td></tr>
+          <tr><td>定时任务</td><td>❌</td><td>❌</td><td class="col-pro">✅</td><td>✅</td></tr>
+          <tr><td>浏览器工具</td><td>❌</td><td>❌</td><td class="col-pro">❌</td><td>✅</td></tr>
+          <tr><td>建站工具箱</td><td>❌</td><td>❌</td><td class="col-pro">❌</td><td>基础</td></tr>
+          <tr><td>并发数</td><td>—</td><td>1</td><td class="col-pro">1</td><td>2</td></tr>
+          <tr><td>队列数</td><td>—</td><td>—</td><td class="col-pro">10</td><td>50</td></tr>
+          <tr><td>单次时长上限</td><td>—</td><td>3 分钟</td><td class="col-pro">15 分钟</td><td>60 分钟</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>❓ 常见问题</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>积分是什么？怎么消耗？</span><span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">积分用于 Bot 对话、AI 工具调用等操作。不同操作消耗不同积分，例如一次简单对话约消耗 1-3 积分，图片生成约 8-18 积分。每月自动重置。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>免费版和付费版有什么区别？</span><span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">免费版包含原 IMA 的全部功能（图片、视频、音乐生成）。付费版额外提供 Bot 智能助手、云端实例、Skill 工具箱、定时任务等高级功能。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>可以随时更换套餐吗？</span><span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">可以。你可以随时升级或降级套餐，升级立即生效，降级在当前计费周期结束后生效。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>云端实例是什么？</span><span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">云端实例是为你的 Bot 提供的独立运行环境。Pro 版提供 1核2G 配置，Ultra 版提供 2核4G 配置，让 Bot 可以执行更复杂的任务。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>积分用完了怎么办？</span><span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">积分用完后 Bot 功能会暂停，但原 IMA 基础功能不受影响。你可以等待下月自动重置，或升级到更高级的套餐。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>支持哪些支付方式？</span><span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">我们支持微信支付、支付宝以及主流信用卡。具体支付方式将在定价正式发布时公布。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCORD BANNER -->
+  <a href="https://discord.gg/UdXFVYhh" target="_blank" class="discord-banner">
+    💬 加入 Discord 社区，与其他用户交流使用心得
+  </a>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>🦞 准备好领养你的龙虾了吗？</h2>
+    <p>从免费版开始，随时升级解锁更多能力</p>
+    <a href="../adopt/" class="cta-btn">立即开始</a>
+  </div>
+
 </div>
+
 <script>
 function setLang(l){
-  var isZh=l==='zh-CN';
-  document.querySelectorAll('[data-zh]').forEach(function(e){e.style.display=isZh?'':'none'});
-  document.querySelectorAll('[data-en]').forEach(function(e){e.style.display=isZh?'none':''});
-  var m={'zh-CN':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
+  var m={'zh':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
   var t=document.querySelector('.lang-trigger');if(t)t.textContent='🌐 '+(m[l]||l)+' ▾';
   document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});
 }
-// Auto-detect language from browser
-(function(){var l=navigator.language||'en';var m={'zh':'zh-CN','zh-CN':'zh-CN','zh-TW':'zh-CN','zh-HK':'zh-CN','en':'en','es':'es','ja':'ja','ar':'ar'};setLang(m[l]||m[l.split('-')[0]]||'en')})();
-// Close mobile nav on outside click
+(function(){var l=navigator.language||'en';var m={'zh':'zh','zh-CN':'zh','zh-TW':'zh','zh-HK':'zh','en':'en','es':'es','ja':'ja','ar':'ar'};setLang(m[l]||m[l.split('-')[0]]||'en')})();
 document.addEventListener("click",function(e){var nav=document.querySelector(".nav-links");var ham=document.querySelector(".hamburger");if(nav&&nav.classList.contains("open")&&!nav.contains(e.target)&&e.target!==ham){nav.classList.remove("open")}document.querySelectorAll(".lang-dropdown.open").forEach(function(d){if(!d.contains(e.target))d.classList.remove("open")})});
 document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",function(){var nav=document.querySelector(".nav-links");if(nav)nav.classList.remove("open")})});
 </script>
+<script src="../i18n-sub.js" defer></script>
 </body>
 </html>
