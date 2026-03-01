@@ -440,12 +440,23 @@ body{padding-top:60px}
 
 <footer><p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank">Ima Studio</a> · I'm A Studio, I'm A Claw 🦞</p></footer>
 
+<script src="../i18n-sub.js?v=20260301"></script>
 <script>
 function setLang(l){
   document.documentElement.lang=l;
   var isZh=l==='zh-CN'||l==='zh';
   document.querySelectorAll('[data-zh]').forEach(function(e){e.style.display=isZh?'block':'none'});
   document.querySelectorAll('[data-en]').forEach(function(e){e.style.display=isZh?'none':'block'});
+  // Also handle data-i18n elements via i18n-sub.js
+  if(typeof I18N!=='undefined'){
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      if(!el._zh)el._zh=el.innerHTML;
+      if(isZh){el.innerHTML=el._zh}
+      else if(I18N[l]&&I18N[l][k]){el.innerHTML=I18N[l][k]}
+      else if(I18N['en']&&I18N['en'][k]){el.innerHTML=I18N['en'][k]}
+    });
+  }
   var m={'zh-CN':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
   var t=document.querySelector('.lang-trigger');
   if(t)t.textContent='🌐 '+(m[l]||l)+' ▾';
