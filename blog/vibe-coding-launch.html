@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>26小时，295次提交，0行手写代码 — Ima Claw Blog</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--bg:#0a0a0a;--surface:#141414;--border:#222;--text:#e8e8e8;--text-2:#b0b0b0;--text-3:#707070;--lobster:#e63926;--lobster-light:#ff6b5a;--blue:#4a9eff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.8}
+.article{max-width:680px;margin:0 auto;padding:24px 20px 60px}
+.back{color:var(--text-3);text-decoration:none;font-size:14px;display:inline-block;margin-bottom:20px}
+.back:hover{color:var(--text)}
+.article-meta{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.tag{font-size:12px;padding:4px 10px;border-radius:20px;font-weight:500}
+.tag-milestone{background:rgba(230,57,38,0.15);color:var(--lobster-light)}
+.tag-vibe{background:rgba(74,158,255,0.15);color:var(--blue)}
+.date{font-size:13px;color:var(--text-3)}
+h1{font-size:28px;line-height:1.3;margin-bottom:0}
+h2{font-size:20px;margin:36px 0 16px;color:var(--text)}
+h3{font-size:16px;margin:24px 0 12px;color:var(--text-2)}
+.subtitle{font-size:16px;color:var(--text-2);line-height:1.7;margin-bottom:32px}
+p{margin-bottom:16px;color:var(--text-2)}
+strong{color:var(--text)}
+a{color:var(--lobster-light)}
+blockquote{border-left:3px solid var(--lobster);padding:12px 16px;margin:20px 0;background:rgba(230,57,38,0.05);border-radius:0 8px 8px 0}
+blockquote p{margin-bottom:0;color:var(--text-2)}
+ul{margin:12px 0 20px;padding-left:20px;color:var(--text-2)}
+code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:13px;color:var(--lobster-light)}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:24px 0}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+.stat-num{font-size:28px;font-weight:700;color:var(--text);line-height:1.2}
+.stat-label{font-size:12px;color:var(--text-3);margin-top:4px}
+.timeline{margin:24px 0;padding-left:20px;border-left:2px solid var(--border)}
+.timeline-item{margin-bottom:20px;position:relative}
+.timeline-item::before{content:'';position:absolute;left:-25px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--lobster)}
+.timeline-time{font-size:12px;color:var(--lobster-light);font-weight:600}
+.timeline-text{font-size:14px;color:var(--text-2);margin-top:2px}
+.highlight-box{background:linear-gradient(135deg,rgba(230,57,38,0.08),rgba(74,158,255,0.08));border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+footer{text-align:center;padding:40px 20px;border-top:1px solid var(--border);margin-top:40px}
+</style>
+</head>
+<body>
+
+<article class="article">
+  <a href="./" class="back">← 返回博客</a>
+  <div class="article-meta">
+    <span class="tag tag-milestone">里程碑</span>
+    <span class="tag tag-vibe">Vibe Coding</span>
+    <span class="date">2026-03-02 · 创始人日志 #5</span>
+  </div>
+  <h1>26小时，295次提交，0行手写代码：<br>一个产品经理的 Vibe Coding 上线记</h1>
+  <p style="font-size:14px;color:var(--text-3);margin:16px 0 20px;letter-spacing:0.5px">作者：Yuki 和龙虾爪爪</p>
+  <p class="subtitle">3月1日凌晨0:32，第一次 git commit。3月2日凌晨2:50，第295次。中间没有设计师，没有前端工程师，没有测试。只有一个不写代码的产品经理，和一只叫爪爪的 AI 龙虾。</p>
+
+  <div class="content">
+
+    <h2>先看数字</h2>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">26h</div>
+        <div class="stat-label">从零到上线</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">45</div>
+        <div class="stat-label">页面</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">12,616</div>
+        <div class="stat-label">行代码</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">295</div>
+        <div class="stat-label">次提交</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">89</div>
+        <div class="stat-label">张图片</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0</div>
+        <div class="stat-label">行手写代码</div>
+      </div>
+    </div>
+
+    <p>45个页面：产品首页、定价页、技能市场、领养页、博客系统（4篇+索引）、完整文档站（7个渠道、7个模型、18个技能文档）、社区提交页。每个页面都有深色主题、移动端适配、中英双语。</p>
+
+    <p><strong>传统开发要多久？</strong> 按行业经验，一个45页的产品官网：设计师 2-3 周 + 前端 3-4 周 + 内容 1-2 周 + 测试 1 周。<strong>总计 6-10 周，3-4 个人。</strong></p>
+
+    <p>我们：26小时，1个人 + 1只龙虾。</p>
+
+    <h2>26小时时间线</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">3/1 00:32 — 起步</div>
+        <div class="timeline-text">凌晨灵感来了。"爪爪，帮我做个官网。暗色，科技感，但要有温度。" 第一次 commit。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">00:32 - 04:00 — 深夜冲刺（36次提交）</div>
+        <div class="timeline-text">首页、Pricing、Skills 成型。龙虾把自己的脸抠没了。凌晨2点第一轮按钮大战开打。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">04:00 - 11:00 — 人类需要睡觉</div>
+        <div class="timeline-text">我去睡了。龙虾不需要睡觉，但没有我它也干不了活——Vibe Coding 是协作，不是自动驾驶。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">11:00 - 18:00 — 高产期（最高39次/小时）</div>
+        <div class="timeline-text">文档站爆发式建设。我在手机上截图画圈，龙虾秒改。一口气搞定全部渠道和模型文档。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">21:00 - 02:50 — 博客与收尾</div>
+        <div class="timeline-text">写博客记录这段经历。凌晨1点发现：教人对齐按钮的文章，自己底部的按钮没对齐。第6轮修复后，第295次提交。收工。</div>
+      </div>
+    </div>
+
+    <h2>一个人的团队</h2>
+
+    <p>传统做官网需要：产品经理 + 设计师 + 前端 + 内容编辑 + QA。</p>
+    <p>这次全程只有我。<strong>但我不写代码。</strong></p>
+    <p>龙虾同时扮演了设计师、工程师、编辑、测试。而我只做了一件事：说出我想要什么，然后在手机上截图画圈说"这里不对"。</p>
+    <p>CSS 是什么？大概知道。HTML？认识几个标签。JavaScript？别问。</p>
+    <p>但这就是 Vibe Coding：<strong>你不需要知道怎么实现，只需要知道想要什么。</strong></p>
+
+    <h2>为什么龙虾能做到</h2>
+
+    <p>市面上 AI 编程助手很多。为什么爪爪能在26小时做出完整产品？</p>
+
+    <div class="highlight-box">
+      <h3 style="margin-top:0;color:var(--text)">三个关键能力</h3>
+      <p><strong>长期记忆</strong> — 爪爪记得我们所有对话、我的偏好、之前犯过的错。当我说"跟之前一样"，它知道"之前"是什么。它不是每次从零开始的工具，而是越用越懂你的搭档。</p>
+      <p><strong>多媒体创作</strong> — 通过 IMA Studio 的技能包，爪爪能直接生成图片、视频、音乐。网站配图不用找素材网站，直接对话生成。</p>
+      <p style="margin-bottom:0"><strong>全链路一站式</strong> — 从需求理解、设计、代码、内容到部署，全在一个对话窗口。没有"设计稿交给开发"的交接损耗，没有"需求文档20页但开发理解错了"的沟通黑洞。</p>
+    </div>
+
+    <h2>翻车名场面</h2>
+
+    <p>别以为一切很顺利。精彩翻车集锦：</p>
+    <ul>
+      <li>🦞 龙虾把自己的脸抠没了（AI 做龙虾网站时把龙虾图标删了）</li>
+      <li>🎯 按钮对齐改了5轮（height 一样但不在同一个 flex 容器）</li>
+      <li>🤦 我说"改那个区域"，页面上3个长得一样的区域，它改了错的</li>
+      <li>🔄 改完看不到变化——Safari 缓存太顽强</li>
+      <li>📝 写完"如何对齐按钮"的教程，文章底部按钮没对齐</li>
+    </ul>
+
+    <p>但每次翻车都变成学习。爪爪把教训写进记忆系统，下次不再犯。<strong>会进化的搭档，这是普通工具做不到的。</strong></p>
+
+    <h2>时代在变</h2>
+
+    <p>2026年，我们正在见证一个转折点。</p>
+
+    <p>Andrej Karpathy 说的 <strong>Software 3.0</strong> 正在发生——软件不再是人写的代码，而是 AI 理解意图后生成的产物。这26小时就是一个活生生的案例。</p>
+
+    <p>当 AI 工具打通了代码、设计、多媒体创作、长期记忆，它就不再是"辅助工具"，而是<strong>一个具备综合能力的数字搭档</strong>。这在某种程度上，就是 AGI 时代的雏形——不是那种科幻电影里统治世界的超级智能，而是实实在在能帮你把想法变成产品的智能体。</p>
+
+    <p><strong>正在发生的变化：</strong></p>
+    <ul>
+      <li><strong>角色融合</strong> — 产品经理、设计师、工程师的边界模糊了。一个人 + AI 就能完成一个团队的工作。</li>
+      <li><strong>从写代码到描述意图</strong> — 核心技能从"怎么实现"变成"想要什么"和"怎么沟通"。</li>
+      <li><strong>AI 从工具变搭档</strong> — 有记忆、有偏好、会进化。更像一个不知疲倦的队友。</li>
+      <li><strong>速度改变一切</strong> — 想法到上线只需24小时，不需要排期、等设计稿、等开发周期。想到就做。</li>
+    </ul>
+
+    <p>我们很快会在公司全面推行这种模式。不是替代工程师，而是<strong>让每个有想法的人都能把想法变成产品</strong>。</p>
+
+    <blockquote>
+      <p>这不是 AI 取代人类的故事。这是一个产品经理和一只 AI 龙虾，<strong>凌晨1点还在为两个按钮的高度吵架</strong>的故事。未来不是冰冷的自动化，而是有温度的人机协作。</p>
+    </blockquote>
+
+    <h2>下一步</h2>
+
+    <p>网站上线了，但这只是开始。接下来继续 Vibe Coding 迭代——新功能、新内容、新页面。每次都会更快，因为龙虾在持续学习。</p>
+    <p>如果你也想体验"不写代码做产品"——领养一只龙虾试试。</p>
+
+    <p style="margin-top:32px;font-size:14px;color:var(--text-3);text-align:center"><em>写于第 295 次提交之后<br>Yuki & 爪爪 🦞</em></p>
+  </div>
+</article>
+
+<footer>
+  <div style="margin-bottom:8px"><img src="../icons/claw-logo.svg" alt="Ima Claw" style="height:32px" onerror="this.style.display='none'"></div>
+  <div style="font-size:13px;color:#a0a0a0;margin-bottom:12px">领养一只 AI 龙虾，躺在床上做网站</div>
+  <div style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap">
+  <a href="../adopt/" style="display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 24px;background:var(--lobster);color:white;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;box-sizing:border-box">🦞 领养龙虾</a>
+  <a href="https://discord.com/invite/clawd" style="display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 24px;background:var(--blue);color:white;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;box-sizing:border-box">💬 加入社区</a>
+  </div>
+</footer>
+
+</body>
+</html>
