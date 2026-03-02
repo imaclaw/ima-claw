@@ -395,11 +395,14 @@ var NAV_I18N={en:{"nav.home":"Home","nav.adopt":"🦞 Adopt","nav.skills":"Skill
 function setLang(l){
   try{localStorage.setItem("imaclaw-lang",l)}catch(e){}
   var isZh=l==="zh"||l==="zh-CN";
+  var lang=isZh?"zh":l;
+  var dict=(typeof I18N!=="undefined"&&I18N[lang])?I18N[lang]:null;
   document.querySelectorAll("[data-i18n]").forEach(function(el){
     var k=el.getAttribute("data-i18n");
     if(!_zhStore[k])_zhStore[k]=el.innerHTML;
     if(isZh){el.innerHTML=_zhStore[k]}
-    else if(NAV_I18N["en"]&&NAV_I18N["en"][k]){el.innerHTML=NAV_I18N["en"][k]}
+    else if(dict&&dict[k]){el.innerHTML=dict[k]}
+    else if(typeof I18N!=="undefined"&&I18N["en"]&&I18N["en"][k]){el.innerHTML=I18N["en"][k]}
   });
   var m={"zh":"🇨🇳 中文","en":"🇺🇸 EN","es":"🇪🇸 ES","ja":"🇯🇵 JA","ar":"🇸🇦 AR"};
   var t=document.querySelector(".lang-trigger");
