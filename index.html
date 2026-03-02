@@ -203,16 +203,7 @@ nav{padding:14px 16px}
     <a href="blog/" data-i18n="nav.blog">博客</a>
     <a href="https://imastudio.com/community" target="_blank" data-i18n="nav.community">社区</a>
     <a href="https://discord.gg/UdXFVYhh" target="_blank" style="display:inline-flex;align-items:center;gap:4px;color:#5865F2;font-weight:600"><img src="https://cdn.simpleicons.org/discord/5865F2" style="width:14px;height:14px">Discord</a>
-    <div class="lang-dropdown" style="position:relative;margin-left:8px">
-      <button class="lang-trigger" onclick="this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
-      <div class="lang-menu">
-        <button onclick="setLang('zh-CN')">🇨🇳 中文</button>
-        <button onclick="setLang('en')">🇺🇸 English</button>
-        <button onclick="setLang('es')">🇪🇸 Español</button>
-        <button onclick="setLang('ja')">🇯🇵 日本語</button>
-        <button onclick="setLang('ar')">🇸🇦 العربية</button>
-      </div>
-    </div>
+    <a href="#" class="lang-switch" onclick="event.preventDefault();var isZh=document.documentElement.lang!=='en';setLang(isZh?'en':'zh-CN');this.textContent=isZh?'🇨🇳 中文':'🇺🇸 English'" style="font-weight:600;color:var(--lobster-light)">🇺🇸 English</a>
   </div>
 <button class="hamburger" onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')">☰</button>
 </nav>
@@ -390,11 +381,13 @@ nav{padding:14px 16px}
 <script src="i18n.js?v=20260301b"></script>
 <script src="app.js"></script>
 <script>
-/* setLang defined in i18n.js — do not duplicate here */
-/* Global click to close dropdown, but stop propagation on dropdown itself */
-document.addEventListener("click",function(e){
-  if(!e.target.closest(".lang-dropdown")){
-    document.querySelectorAll(".lang-dropdown").forEach(function(d){d.classList.remove("open")});
+/* Language switch sync: update toggle text after setLang */
+var _origSetLang = typeof setLang === 'function' ? setLang : null;
+document.addEventListener('DOMContentLoaded', function(){
+  var sw = document.querySelector('.lang-switch');
+  if(sw){
+    var l = localStorage.getItem('imaclaw-lang') || 'zh-CN';
+    sw.textContent = (l==='en') ? '🇨🇳 中文' : '🇺🇸 English';
   }
 });
 </script>

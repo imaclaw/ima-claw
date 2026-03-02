@@ -32,7 +32,7 @@ en:{
 "priv.train.desc":"Teach it your writing style, aesthetics, brand voice. You evolve, it evolves.",
 "priv.multi.desc":"Use in your existing chat apps — no downloads. WhatsApp, Lark, Discord.",
 "cta.limit":"🔥 Limited <b style='color:#fff;font-size:15px'>1,000</b> — open in <b style='color:var(--lobster-light)' class='countdown-timer'></b>",
-"nav.home":"Home",
+"nav.home":"Home","nav.adopt":"🦞 Adopt",
 "nav.pricing":"🛒 Shop",
 "sk.img":"Image Gen",
 "sk.video":"Video Gen",
