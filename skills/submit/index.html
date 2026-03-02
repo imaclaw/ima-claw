@@ -118,16 +118,16 @@ footer p{color:var(--text-3);font-size:12px}
 
 <div class="container">
   <div class="hero">
-    <div class="badge">🦞 开发者计划</div>
-    <h1>提交你的技能</h1>
-    <p>打造你的 Skill，分享给全球龙虾用户。通过审核即可上架 Skill 市场。</p>
+    <div class="badge" data-i18n="sub.badge">🦞 开发者计划</div>
+    <h1 data-i18n="sub.title">提交你的技能</h1>
+    <p data-i18n="sub.desc">打造你的 Skill，分享给全球龙虾用户。通过审核即可上架 Skill 市场。</p>
   </div>
 
   <!-- Benefits -->
   <div class="benefits">
-    <div class="benefit"><div class="emoji">🌍</div><h4>全球分发</h4><p>上架即触达所有 Ima Claw 用户</p></div>
-    <div class="benefit"><div class="emoji">⭐</div><h4>官方认证</h4><p>通过审核获得官方推荐标签</p></div>
-    <div class="benefit"><div class="emoji">💰</div><h4>收益分成</h4><p>付费 Skill 享受开发者分成</p></div>
+    <div class="benefit"><div class="emoji">🌍</div><h4 data-i18n="sub.b1">全球分发</h4><p data-i18n="sub.b1d">上架即触达所有 Ima Claw 用户</p></div>
+    <div class="benefit"><div class="emoji">⭐</div><h4 data-i18n="sub.b2">官方认证</h4><p data-i18n="sub.b2d">通过审核获得官方推荐标签</p></div>
+    <div class="benefit"><div class="emoji">💰</div><h4 data-i18n="sub.b3">收益分成</h4><p data-i18n="sub.b3d">付费 Skill 享受开发者分成</p></div>
   </div>
 
   <!-- Steps -->
@@ -135,28 +135,28 @@ footer p{color:var(--text-3);font-size:12px}
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-body">
-        <h3>创建 Skill 项目</h3>
-        <p>按照标准目录结构创建你的 Skill。每个 Skill 必须包含一个 <code>SKILL.md</code> 文件作为入口。</p>
+        <h3 data-i18n="sub.s1">创建 Skill 项目</h3>
+        <p data-i18n="sub.s1d">按照标准目录结构创建你的 Skill。每个 Skill 必须包含一个 <code>SKILL.md</code> 文件作为入口。</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-body">
-        <h3>编写 SKILL.md</h3>
-        <p>描述技能的触发条件、执行流程、输入输出。这是龙虾理解和执行你技能的关键文档。</p>
+        <h3 data-i18n="sub.s2">编写 SKILL.md</h3>
+        <p data-i18n="sub.s2d">描述技能的触发条件、执行流程、输入输出。这是龙虾理解和执行你技能的关键文档。</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-body">
-        <h3>本地测试</h3>
+        <h3 data-i18n="sub.s3">本地测试</h3>
         <p>在你的龙虾上安装测试：<code>clawhub install ./your-skill</code>，确保功能正常、无安全风险。</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-body">
-        <h3>发布到 ClawHub</h3>
+        <h3 data-i18n="sub.s4">发布到 ClawHub</h3>
         <p>使用 <code>clawhub publish</code> 提交到社区市场。通过安全审核后自动上架。</p>
       </div>
     </div>
@@ -164,7 +164,7 @@ footer p{color:var(--text-3);font-size:12px}
 
   <!-- Structure -->
   <div class="structure">
-    <h2>📁 标准目录结构</h2>
+    <h2 data-i18n="sub.struct">📁 标准目录结构</h2>
     <div class="tree">
       <span class="file">my-awesome-skill/</span><br>
       ├── <span class="file">SKILL.md</span> <span class="comment">← 必需：技能描述和执行指令</span><br>
@@ -178,21 +178,21 @@ footer p{color:var(--text-3);font-size:12px}
 
   <!-- Guidelines -->
   <div class="guidelines">
-    <h2>审核标准</h2>
+    <h2 data-i18n="sub.review">审核标准</h2>
     <div class="guide-grid">
-      <div class="guide"><div class="icon">🔒</div><h4>安全优先</h4><p>不得包含恶意代码、数据窃取或危险系统命令。所有外部 API 调用需明确声明。</p></div>
-      <div class="guide"><div class="icon">📝</div><h4>文档完整</h4><p>SKILL.md 必须清晰描述功能、触发条件和使用方法。无文档不审核。</p></div>
-      <div class="guide"><div class="icon">⚡</div><h4>功能明确</h4><p>一个 Skill 做好一件事。避免功能过于庞杂或与已有 Skill 高度重复。</p></div>
-      <div class="guide"><div class="icon">🧪</div><h4>经过测试</h4><p>提交前请充分本地测试，确保在不同场景下稳定运行。</p></div>
+      <div class="guide"><div class="icon">🔒</div><h4 data-i18n="sub.r1">安全优先</h4><p>不得包含恶意代码、数据窃取或危险系统命令。所有外部 API 调用需明确声明。</p></div>
+      <div class="guide"><div class="icon">📝</div><h4 data-i18n="sub.r2">文档完整</h4><p>SKILL.md 必须清晰描述功能、触发条件和使用方法。无文档不审核。</p></div>
+      <div class="guide"><div class="icon">⚡</div><h4 data-i18n="sub.r3">功能明确</h4><p>一个 Skill 做好一件事。避免功能过于庞杂或与已有 Skill 高度重复。</p></div>
+      <div class="guide"><div class="icon">🧪</div><h4 data-i18n="sub.r4">经过测试</h4><p>提交前请充分本地测试，确保在不同场景下稳定运行。</p></div>
     </div>
   </div>
 
   <!-- CTA -->
   <div class="cta">
-    <h2>🦞 准备好了？</h2>
-    <p>加入开发者社区，一起让每只龙虾更强大</p>
-    <a href="https://imastudio.com/community" target="_blank" class="btn">加入 Discord 社区</a>
-    <a href="https://clawhub.com" target="_blank" class="btn-alt">访问 ClawHub</a>
+    <h2 data-i18n="sub.ready">🦞 准备好了？</h2>
+    <p data-i18n="sub.ready.desc">加入开发者社区，一起让每只龙虾更强大</p>
+    <a href="https://imastudio.com/community" target="_blank" class="btn"data-i18n="sub.discord">加入 Discord 社区</a>
+    <a href="https://clawhub.com" target="_blank" class="btn-alt"data-i18n="sub.clawhub">访问 ClawHub</a>
   </div>
 </div>
 
@@ -201,12 +201,40 @@ footer p{color:var(--text-3);font-size:12px}
 </footer>
 
 <script>
+var _zhStore={};
+var SUBMIT_I18N={en:{
+"nav.home":"Home","nav.skills":"Skills","nav.pricing":"🛒 Store","nav.docs":"Docs","nav.blog":"Blog","nav.community":"Community",
+"sub.badge":"🦞 Developer Program",
+"sub.title":"Submit Your Skill",
+"sub.desc":"Build a Skill, share it with Claw users worldwide. Pass review and it goes live on the Skill Market.",
+"sub.b1":"Global Distribution","sub.b1d":"Reach all Ima Claw users instantly",
+"sub.b2":"Official Certification","sub.b2d":"Get an official recommended badge after review",
+"sub.b3":"Revenue Sharing","sub.b3d":"Earn developer revenue from paid Skills",
+"sub.s1":"Create Skill Project","sub.s1d":"Create your Skill with the standard directory structure. Each Skill must include a <code>SKILL.md</code> file as its entry point.",
+"sub.s2":"Write SKILL.md","sub.s2d":"Describe trigger conditions, execution flow, and I/O. This is the key document for your Claw to understand and execute your skill.",
+"sub.s3":"Local Testing",
+"sub.s4":"Publish to ClawHub",
+"sub.struct":"📁 Standard Directory Structure",
+"sub.review":"Review Standards",
+"sub.r1":"Security First","sub.r2":"Complete Documentation","sub.r3":"Clear Functionality","sub.r4":"Tested",
+"sub.ready":"🦞 Ready?",
+"sub.ready.desc":"Join the developer community and make every Claw stronger",
+"sub.discord":"Join Discord Community","sub.clawhub":"Visit ClawHub"
+}};
 function setLang(l){
+  try{localStorage.setItem("imaclaw-lang",l)}catch(e){}
+  var isZh=l==='zh'||l==='zh-CN';
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(!_zhStore[k])_zhStore[k]=el.innerHTML;
+    if(isZh){el.innerHTML=_zhStore[k]}
+    else if(SUBMIT_I18N.en[k]){el.innerHTML=SUBMIT_I18N.en[k]}
+  });
   var m={'zh-CN':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
   var t=document.querySelector('.lang-trigger');if(t)t.textContent='🌐 '+(m[l]||l)+' ▾';
   document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});
 }
-setLang('en');
+(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l&&l!=='zh'&&l!=='zh-CN')setTimeout(function(){setLang(l)},50)}catch(e){}})();
 </script>
 </body>
 </html>
