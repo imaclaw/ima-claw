@@ -693,7 +693,7 @@ function setLang(l) {
   document.documentElement.style.direction=l==='ar'?'rtl':'ltr';
 }
 // Auto-detect: default zh, only switch if user explicitly chose another lang in THIS session
-(function(){try{var l=localStorage.getItem('imaclaw-lang');if(!l||l==='en'){localStorage.removeItem('imaclaw-lang');setLang('zh')}else{setLang(l)}}catch(e){setLang('zh')}})();
+(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l){setLang(l)}else{setLang('zh-CN')}}catch(e){setLang('zh-CN')}})();
 switchMode('cloud');
 </script>
 

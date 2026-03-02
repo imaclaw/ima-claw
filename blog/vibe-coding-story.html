@@ -464,7 +464,7 @@ function setLang(l){try{localStorage.setItem("imaclaw-lang",l)}catch(e){}
   document.documentElement.style.direction=l==='ar'?'rtl':'ltr';
 }
 // Auto-detect language from browser
-(function(){var l=navigator.language||'en';var m={'zh':'zh-CN','zh-CN':'zh-CN','zh-TW':'zh-CN','zh-HK':'zh-CN','en':'en','es':'es','ja':'ja','ar':'ar'};setLang(m[l]||m[l.split('-')[0]]||'en')})();
+(function(){try{var s=localStorage.getItem('imaclaw-lang');if(s){setLang(s)}else{var l=navigator.language||'en';var m={'zh':'zh-CN','zh-CN':'zh-CN','zh-TW':'zh-CN','zh-HK':'zh-CN','en':'en','es':'es','ja':'ja','ar':'ar'};setLang(m[l]||m[l.split('-')[0]]||'en')}}catch(e){}})();
 
 // Close mobile nav on outside click
 document.addEventListener('click',function(e){

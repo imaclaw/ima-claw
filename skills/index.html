@@ -276,8 +276,8 @@ function setLang(l){
   document.documentElement.style.direction=l==='ar'?'rtl':'ltr';
 }
 function filter(cat){document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});event.target.closest('.filter-btn').classList.add('active');document.querySelectorAll('.card').forEach(function(c){if(cat==='all'){c.style.display='';return}c.style.display=c.dataset.cat&&c.dataset.cat.includes(cat)?'':'none'})}
-// Auto-detect language from browser
-(function(){try{var l=localStorage.getItem('imaclaw-lang');if(!l||l==='en'){localStorage.removeItem('imaclaw-lang');setLang('zh-CN')}else{setLang(l)}}catch(e){setLang('zh-CN')}})();
+// Restore saved language preference (localStorage first)
+(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l){setLang(l)}else{setLang('zh-CN')}}catch(e){setLang('zh-CN')}})();
 // Close mobile nav on outside click
 document.addEventListener("click",function(e){var nav=document.querySelector(".nav-links");var ham=document.querySelector(".hamburger");if(nav&&nav.classList.contains("open")&&!nav.contains(e.target)&&e.target!==ham){nav.classList.remove("open")}document.querySelectorAll(".lang-dropdown.open").forEach(function(d){if(!d.contains(e.target))d.classList.remove("open")})});
 document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",function(){var nav=document.querySelector(".nav-links");if(nav)nav.classList.remove("open")})});
