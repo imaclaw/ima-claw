@@ -674,7 +674,6 @@ ar: {
 };
 
 var _zhStore = {};
-(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l&&l!=='zh'&&l!=='zh-CN')setTimeout(function(){setLang(l)},50)}catch(e){}})();
 function setLang(l) {
   try{localStorage.setItem('imaclaw-lang',l)}catch(e){}
   var isZh = l==='zh'||l==='zh-CN';
@@ -692,8 +691,8 @@ function setLang(l) {
   document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});
   document.documentElement.style.direction=l==='ar'?'rtl':'ltr';
 }
-// Auto-detect: default zh, only switch if user explicitly chose another lang in THIS session
-(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l){setLang(l)}else{setLang('zh-CN')}}catch(e){setLang('zh-CN')}})();
+// Auto-detect: restore saved language, default to zh
+(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l&&l!=='zh'&&l!=='zh-CN'){setLang(l)}else{setLang('zh')}}catch(e){setLang('zh')}})();
 switchMode('cloud');
 </script>
 
