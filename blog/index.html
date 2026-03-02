@@ -176,7 +176,17 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
 </script>
 <script>
 var _zhStore={};
-var NAV_I18N={en:{"nav.home":"Home","nav.adopt":"🦞 Adopt","nav.skills":"Skills","nav.pricing":"🛒 Store","nav.docs":"Docs","nav.blog":"Blog","nav.community":"Community"}};
+var NAV_I18N={en:{"nav.home":"Home","nav.adopt":"🦞 Adopt","nav.skills":"Skills","nav.pricing":"🛒 Store","nav.docs":"Docs","nav.blog":"Blog","nav.community":"Community",
+"blog.title":"Yuki & Claw Chronicles",
+"blog.subtitle":"Building products with my lobster.<br>When things break, we laugh and keep going.",
+"blog.log2":"Founder's Log #2",
+"blog.title2":"4 AM Vibe Coding: 8 Bugs, 25 Minutes, 0 Lines of Code",
+"blog.desc2":"Couldn't sleep, started fixing the product. Screenshots and voice on my phone — 8 issues fixed in 25 minutes, all from bed. This is the ultimate form of Vibe Coding.",
+"blog.readmore":"Read More →",
+"blog.log1":"Founder's Log #1",
+"blog.title1":"I Built This Site with Ima Claw. It Deleted the Claw's Face.",
+"blog.desc1":"2 hours, 0 lines of code, one lobster having an existential crisis. The real story of Vibe Coding a website with our own product — including every crash and burn."
+}};
 function setLang(l){
   try{localStorage.setItem("imaclaw-lang",l)}catch(e){}
   var isZh=l==="zh"||l==="zh-CN";

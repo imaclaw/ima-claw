@@ -219,6 +219,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 var ZH_CACHE={};
 function setLang(l){
   var isZh=l==='zh'||l==='zh-CN';
+  var NAV_EN={"nav.home":"Home","nav.adopt":"🦞 Adopt","nav.skills":"Skills","nav.pricing":"🛒 Store","nav.docs":"Docs","nav.blog":"Blog","nav.community":"Community"};
+  var _zhNav={};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(!_zhNav[k])_zhNav[k]=el.innerHTML;
+    if(isZh){el.innerHTML=_zhNav[k]}
+    else if(NAV_EN[k]){el.innerHTML=NAV_EN[k]}
+  });
   // Show/hide data-zh/data-en spans (keep existing behavior)
   document.querySelectorAll('[data-zh]').forEach(function(e){e.style.display=isZh?'':'none'});
   document.querySelectorAll('[data-en]').forEach(function(e){e.style.display=(!isZh&&(l==='en'||l==='es'||l==='ja'||l==='ar'))?'':'none'});
