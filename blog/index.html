@@ -101,7 +101,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 </div>
 
 <div class="posts">
-  <a href="ai-crash-diary.html" class="post-card" style="border-color:rgba(212,64,58,0.25);background:linear-gradient(135deg,var(--surface),rgba(212,64,58,0.05))">
+  <a href="ai-crash-diary.html" id="blog-crash" class="post-card" style="border-color:rgba(212,64,58,0.25);background:linear-gradient(135deg,var(--surface),rgba(212,64,58,0.05))">
     <div class="post-meta">
       <span class="post-tag" style="background:rgba(255,80,60,0.15);color:#ff5040">🔥 翻车实录</span>
       <span class="post-tag" style="background:rgba(88,166,255,0.1);color:#58a6ff">人机协作</span>
@@ -255,6 +255,8 @@ function updateBlogLang(){
   if(card){card.href=isEn?"vibe-coding-52h-en.html":"vibe-coding-day2.html"}
   if(title){title.textContent=isEn?"52 Hours, 544 Commits: The Birth of a Lobster":"52小时，544个Commit：一只龙虾的诞生日记"}
   if(desc){desc.textContent=isEn?"At 5 AM she was still circling pixels in red. The AI was still pushing fixes. 1.89M characters, zero handwritten code. This is our 52 hours.":"凌晨5点，她还在截图标红圈。AI还在改像素。189万字对话，0行手写代码。红蓝大战、i18n地狱、bump 16次——这是一个人和一只AI龙虾的52小时。"}
+  var crash=document.getElementById("blog-crash");
+  if(crash){crash.href=isEn?"ai-crash-diary-en.html":"ai-crash-diary.html"}
 }
 updateBlogLang();
 var _origSetLang=setLang;
