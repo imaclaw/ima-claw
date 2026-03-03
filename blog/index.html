@@ -101,14 +101,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 </div>
 
 <div class="posts">
-  <a href="vibe-coding-day2.html" class="post-card" style="border-color:rgba(212,64,58,0.15);background:linear-gradient(135deg,var(--surface),rgba(212,64,58,0.03))">
+  <a href="vibe-coding-day2.html" id="blog-52h" class="post-card" style="border-color:rgba(212,64,58,0.15);background:linear-gradient(135deg,var(--surface),rgba(212,64,58,0.03))">
     <div class="post-meta">
       <span class="post-tag">开发日记</span>
       <span class="post-tag" style="background:rgba(88,166,255,0.1);color:#58a6ff">Day 2</span>
       <span>2026-03-03</span>
     </div>
-    <h2>52小时，544个Commit：一只龙虾的诞生日记</h2>
-    <p>凌晨5点，她还在截图标红圈。AI还在改像素。189万字对话，0行手写代码。红蓝大战、i18n地狱、bump 16次——这是一个人和一只AI龙虾的52小时。</p>
+    <h2 id="blog-52h-title">52小时，544个Commit：一只龙虾的诞生日记</h2>
+    <p id="blog-52h-desc">凌晨5点，她还在截图标红圈。AI还在改像素。189万字对话，0行手写代码。红蓝大战、i18n地狱、bump 16次——这是一个人和一只AI龙虾的52小时。</p>
     <span class="read-more">阅读完整日记 →</span>
   </a>
 
@@ -226,6 +226,21 @@ function setLang(l){
 }
 (function(){try{var l=localStorage.getItem("imaclaw-lang");if(l&&l!=="zh"&&l!=="zh-CN")setTimeout(function(){setLang(l)},50)}catch(e){}})();
 document.addEventListener("click",function(){document.querySelectorAll(".lang-dropdown").forEach(function(d){d.classList.remove("open")})});
+
+// Blog language-aware links
+function updateBlogLang(){
+  var l=localStorage.getItem("imaclaw-lang")||"zh";
+  var isEn=(l!=="zh"&&l!=="zh-CN");
+  var card=document.getElementById("blog-52h");
+  var title=document.getElementById("blog-52h-title");
+  var desc=document.getElementById("blog-52h-desc");
+  if(card){card.href=isEn?"vibe-coding-52h-en.html":"vibe-coding-day2.html"}
+  if(title){title.textContent=isEn?"52 Hours, 544 Commits: The Birth of a Lobster":"52小时，544个Commit：一只龙虾的诞生日记"}
+  if(desc){desc.textContent=isEn?"At 5 AM she was still circling pixels in red. The AI was still pushing fixes. 1.89M characters, zero handwritten code. This is our 52 hours.":"凌晨5点，她还在截图标红圈。AI还在改像素。189万字对话，0行手写代码。红蓝大战、i18n地狱、bump 16次——这是一个人和一只AI龙虾的52小时。"}
+}
+updateBlogLang();
+var _origSetLang=setLang;
+setLang=function(l){_origSetLang(l);updateBlogLang()};
 </script>
 </body>
 </html>
