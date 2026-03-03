@@ -228,8 +228,15 @@ function setLang(l){
 document.addEventListener("click",function(){document.querySelectorAll(".lang-dropdown").forEach(function(d){d.classList.remove("open")})});
 
 // Blog language-aware links
+function detectBlogLang(){
+  var l=localStorage.getItem("imaclaw-lang");
+  if(l) return l;
+  var nav=navigator.language||navigator.userLanguage||'';
+  if(nav.startsWith('zh')) return 'zh';
+  return nav.split('-')[0]||'en';
+}
 function updateBlogLang(){
-  var l=localStorage.getItem("imaclaw-lang")||"zh";
+  var l=detectBlogLang();
   var isEn=(l!=="zh"&&l!=="zh-CN");
   var card=document.getElementById("blog-52h");
   var title=document.getElementById("blog-52h-title");
