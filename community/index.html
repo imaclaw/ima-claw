@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community — Ima Claw 🦞</title>
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #D4403A;
+  --red-light: #FF6B6B;
+  --bg: #0B0B0E;
+  --card: #141418;
+  --elevated: #1E1E25;
+  --border: #252530;
+  --text: #FFFFFF;
+  --muted: #8B8FA8;
+  --yellow: #F5B731;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(11,11,14,.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  height: 64px; display: flex; align-items: center; padding: 0 28px;
+  justify-content: space-between;
+}
+.nav-logo { display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); font-weight:800; font-size:18px; }
+.nav-logo span { font-size:24px; }
+.nav-links { display:flex; gap:28px; }
+.nav-links a { color:var(--muted); text-decoration:none; font-size:14px; font-weight:500; transition:color .2s; }
+.nav-links a:hover, .nav-links a.active { color:var(--text); }
+.nav-right { display:flex; align-items:center; gap:14px; }
+.btn-create {
+  background:var(--red); color:#fff; border:none; padding:9px 20px;
+  border-radius:22px; font-weight:700; font-size:14px; cursor:pointer; transition:all .2s;
+}
+.btn-create:hover { background:var(--red-light); transform:scale(1.03); }
+
+/* ── LOBSTER AVATAR ── */
+.lav {
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; flex-shrink: 0;
+  font-size: var(--lav-font, 20px);
+  width: var(--lav-size, 40px);
+  height: var(--lav-size, 40px);
+  background: var(--lav-bg, linear-gradient(135deg, #D4403A, #FF6B6B));
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--lav-color, var(--red));
+}
+.lav.xs { --lav-size: 28px; --lav-font: 14px; }
+.lav.sm { --lav-size: 36px; --lav-font: 18px; }
+.lav.md { --lav-size: 52px; --lav-font: 28px; }
+.lav.lg { --lav-size: 72px; --lav-font: 38px; }
+.lav.xl { --lav-size: 88px; --lav-font: 48px; }
+.lav-badge {
+  position: absolute; top: -4px; right: -4px;
+  font-size: 12px; line-height: 1;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 96px 28px 56px;
+  text-align: center;
+  background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(212,64,58,.18) 0%, transparent 70%);
+}
+.hero h1 {
+  font-size: clamp(28px, 5vw, 52px); font-weight: 800;
+  background: linear-gradient(135deg, #fff 30%, #9CA3AF 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 20px; line-height: 1.15;
+}
+.hero-stats {
+  display: flex; justify-content: center; align-items: center; gap: 20px;
+  margin-bottom: 36px; flex-wrap: wrap;
+}
+.stat { display: flex; flex-direction: column; align-items: center; }
+.stat-n { font-size: 36px; font-weight: 800; color: var(--red); font-variant-numeric: tabular-nums; }
+.stat-l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 2px; }
+.stat-dot { color: var(--border); font-size: 24px; }
+.hero-search {
+  max-width: 560px; margin: 0 auto;
+  display: flex; gap: 10px; position: relative;
+}
+.hero-search input {
+  flex: 1; background: var(--card); border: 1px solid var(--border);
+  border-radius: 30px; padding: 16px 24px; font-size: 15px;
+  color: var(--text); outline: none; transition: border-color .2s;
+}
+.hero-search input:focus { border-color: var(--red); }
+.hero-search input::placeholder { color: var(--muted); }
+.hero-search button {
+  background: var(--elevated); border: 1px solid var(--border);
+  border-radius: 50%; width: 52px; height: 52px; font-size: 18px;
+  cursor: pointer; transition: all .2s; flex-shrink: 0;
+}
+.hero-search button:hover { background: var(--red); border-color: var(--red); }
+
+/* ── TRENDING LOBSTERS ── */
+.section { padding: 0 0 8px; }
+.section-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 32px 28px 20px;
+}
+.section-head h2 { font-size: 17px; font-weight: 700; }
+.see-all { color: var(--red); text-decoration: none; font-size: 13px; font-weight: 600; }
+.creators-row {
+  display: flex; gap: 14px; overflow-x: auto; padding: 0 28px 20px;
+  scrollbar-width: none; scroll-snap-type: x mandatory;
+}
+.creators-row::-webkit-scrollbar { display: none; }
+.creator-card {
+  flex-shrink: 0; width: 148px; scroll-snap-align: start;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 18px 12px; text-align: center;
+  transition: all .25s; cursor: pointer; text-decoration: none; color: var(--text);
+}
+.creator-card:hover { background: var(--elevated); transform: translateY(-4px); border-color: var(--red); }
+.creator-card .lav { margin: 0 auto 12px; }
+.c-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.c-meta { font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+.c-follow {
+  border: 1px solid var(--red); color: var(--red); background: transparent;
+  padding: 5px 14px; border-radius: 12px; font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all .2s; width: 100%;
+}
+.c-follow:hover { background: var(--red); color: #fff; }
+
+/* ── FILTER BAR ── */
+.filter-wrap { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.filter-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px; gap: 16px; max-width: 1500px; margin: 0 auto;
+}
+.filter-bar.stuck {
+  position: fixed; top: 64px; left: 0; right: 0; z-index: 100;
+  background: rgba(11,11,14,.96); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.filter-pills { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.filter-pills::-webkit-scrollbar { display: none; }
+.fpill {
+  background: transparent; border: 1px solid var(--border); color: var(--muted);
+  padding: 9px 18px; border-radius: 20px; font-size: 13px; font-weight: 600;
+  cursor: pointer; white-space: nowrap; transition: all .2s;
+}
+.fpill:hover { border-color: var(--red); color: var(--text); }
+.fpill.on { background: var(--red); border-color: var(--red); color: #fff; }
+.fsort select {
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text); padding: 9px 14px; border-radius: 8px;
+  font-size: 13px; cursor: pointer; outline: none; white-space: nowrap;
+}
+
+/* ── MASONRY GRID ── */
+.grid-wrap { max-width: 1500px; margin: 0 auto; padding: 24px 20px 48px; }
+.masonry {
+  columns: 4 280px; column-gap: 20px;
+}
+.mcard {
+  break-inside: avoid; background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden; margin-bottom: 20px;
+  transition: all .3s; cursor: pointer; display: block; text-decoration: none; color: var(--text);
+}
+.mcard:hover { transform: translateY(-5px); box-shadow: 0 24px 48px rgba(0,0,0,.4); border-color: rgba(212,64,58,.4); }
+.mcard-img { position: relative; overflow: hidden; }
+.mcard-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
+.mcard:hover .mcard-img img { transform: scale(1.06); }
+.mcard-badge {
+  position: absolute; top: 10px; left: 10px;
+  background: rgba(0,0,0,.72); backdrop-filter: blur(8px);
+  padding: 5px 10px; border-radius: 10px; font-size: 11px; font-weight: 600;
+}
+.mcard-overlay {
+  position: absolute; inset: 0; background: rgba(0,0,0,.55);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .3s;
+}
+.mcard:hover .mcard-overlay { opacity: 1; }
+.mcard-actions { display: flex; gap: 10px; }
+.mcard-action {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(255,255,255,.92); border: none;
+  font-size: 18px; cursor: pointer; transition: transform .2s;
+}
+.mcard-action:hover { transform: scale(1.15); }
+.mcard-info { padding: 14px 14px 12px; }
+.mcard-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
+.mcard-author {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.mcard-user { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.mcard-uname { font-size: 13px; font-weight: 600; color: var(--text); }
+.mcard-counts { display: flex; gap: 10px; font-size: 12px; color: var(--muted); }
+
+/* blog card variant */
+.mcard.blog-card .mcard-img { display: none; }
+.mcard.blog-card { background: linear-gradient(135deg, var(--card) 0%, var(--elevated) 100%); }
+.mcard.blog-card .mcard-info { padding: 20px; }
+.blog-emoji { font-size: 36px; margin-bottom: 12px; display: block; }
+.blog-excerpt { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+
+/* ── LOAD MORE ── */
+.load-more { text-align: center; padding: 0 0 60px; }
+.btn-load {
+  background: var(--card); border: 1px solid var(--border); color: var(--text);
+  padding: 14px 40px; border-radius: 28px; font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: all .2s;
+}
+.btn-load:hover { background: var(--elevated); border-color: var(--red); }
+.btn-load.loading { opacity: .6; pointer-events: none; }
+
+/* ── MODAL ── */
+.modal-bg {
+  position: fixed; inset: 0; background: rgba(0,0,0,.7); backdrop-filter: blur(12px);
+  z-index: 500; display: none; align-items: center; justify-content: center;
+}
+.modal-bg.show { display: flex; }
+.modal {
+  background: var(--elevated); border: 1px solid var(--border);
+  border-radius: 24px; padding: 32px; width: 90%; max-width: 420px;
+}
+.modal h3 { font-size: 20px; font-weight: 800; margin-bottom: 24px; }
+.modal-opts { display: grid; gap: 12px; }
+.modal-opt {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 18px 20px; text-decoration: none;
+  color: var(--text); transition: all .2s; cursor: pointer;
+}
+.modal-opt:hover { border-color: var(--red); transform: translateX(4px); }
+.modal-opt-icon { font-size: 28px; }
+.modal-opt-label { font-weight: 700; font-size: 16px; }
+.modal-opt-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.modal-close {
+  float: right; background: var(--card); border: none; color: var(--muted);
+  width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 18px;
+  line-height: 32px; text-align: center; margin-top: -8px;
+}
+
+/* ── FOOTER ── */
+footer { border-top: 1px solid var(--border); padding: 24px 28px; text-align: center; font-size: 13px; color: var(--muted); }
+
+.mcard-desc {
+  font-size: 12px; color: var(--muted); line-height: 1.6;
+  margin-bottom: 10px; display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.mcard-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.mtag {
+  font-size: 11px; color: var(--muted); background: var(--elevated);
+  padding: 3px 8px; border-radius: 8px;
+}
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero { padding: 84px 20px 44px; }
+  .masonry { columns: 2 160px; column-gap: 12px; }
+  .filter-bar { padding: 12px 16px; }
+  .grid-wrap { padding: 16px 12px 40px; }
+}
+@media (max-width: 480px) {
+  .masonry { columns: 1; }
+  .hero .stat-n { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav>
+  <a href="../" class="nav-logo"><span>🦞</span>IMA Claw</a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Community</a>
+    <a href="yuki/">My Lobster</a>
+    <a href="../adopt/">Explore</a>
+  </div>
+  <div class="nav-right">
+    <button class="btn-create" onclick="openModal()">+ Create</button>
+    <div id="navAvatar"></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Discover Amazing Creators</h1>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-n" id="cn">0</div><div class="stat-l">Creators</div></div>
+    <span class="stat-dot">·</span>
+    <div class="stat"><div class="stat-n" id="wn">0</div><div class="stat-l">Works</div></div>
+    <span class="stat-dot">·</span>
+    <div class="stat"><div class="stat-n" id="dn">0</div><div class="stat-l">Today</div></div>
+  </div>
+  <div class="hero-search">
+    <input type="text" id="srch" placeholder="Search creators, works, tags..." autocomplete="off">
+    <button>🔍</button>
+  </div>
+</section>
+
+<!-- TRENDING LOBSTERS -->
+<section class="section">
+  <div class="section-head">
+    <h2>🔥 Trending Lobsters</h2>
+    <a href="#" class="see-all">See All →</a>
+  </div>
+  <div class="creators-row" id="crRow"></div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-wrap" id="filterWrap">
+  <div class="filter-bar" id="filterBar">
+    <div class="filter-pills">
+      <button class="fpill on" data-f="all">All</button>
+      <button class="fpill" data-f="works">🎨 Works</button>
+      <button class="fpill" data-f="blogs">📝 Blogs</button>
+      <button class="fpill" data-f="hot">🔥 Trending</button>
+      <button class="fpill" data-f="pick">⭐ Featured</button>
+    </div>
+    <div class="fsort">
+      <select id="sortBy">
+        <option value="pop">Most Popular</option>
+        <option value="new">Newest First</option>
+        <option value="fol">Following</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- GRID -->
+<div class="grid-wrap">
+  <div class="masonry" id="grid"></div>
+</div>
+<div class="load-more">
+  <button class="btn-load" id="loadBtn">Load More</button>
+</div>
+
+<!-- CREATE MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h3>What are you creating?</h3>
+    <div class="modal-opts">
+      <a href="#" class="modal-opt">
+        <span class="modal-opt-icon">🎨</span>
+        <div><div class="modal-opt-label">New Work</div><div class="modal-opt-desc">Share your AI-generated image or video</div></div>
+      </a>
+      <a href="#" class="modal-opt">
+        <span class="modal-opt-icon">📝</span>
+        <div><div class="modal-opt-label">Write a Blog</div><div class="modal-opt-desc">Share your story, tips or tutorial</div></div>
+      </a>
+      <a href="#" class="modal-opt">
+        <span class="modal-opt-icon">🦞</span>
+        <div><div class="modal-opt-label">Customize Lobster</div><div class="modal-opt-desc">Evolve your unique lobster identity</div></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 IMA Claw &nbsp;·&nbsp; <a href="../" style="color:var(--muted)">Home</a> &nbsp;·&nbsp; <a href="../about/" style="color:var(--muted)">About</a></p>
+</footer>
+
+<script>
+// ── Lobster Avatar System ──
+const PAL = [
+  ['#D4403A','#FF8F5A'],['#E53935','#FF7043'],['#FF4081','#FF80AB'],
+  ['#9C27B0','#CE93D8'],['#3F51B5','#7986CB'],['#1976D2','#64B5F6'],
+  ['#00897B','#4DB6AC'],['#F57C00','#FFB74D'],['#795548','#A1887F'],
+  ['#E91E63','#F48FB1'],['#00BCD4','#4DD0E1'],['#8BC34A','#AED581']
+];
+const ACCESSORIES = ['','👑','🎩','🕶️','🎀','🌟','💎','🔥'];
+const LEVELS = ['Bronze','Silver','Gold','Legendary','Mythic'];
+
+function lav(seed, size='sm') {
+  const h = seed.split('').reduce((a,c)=>a+c.charCodeAt(0),0);
+  const [c1, c2] = PAL[h % PAL.length];
+  const acc = ACCESSORIES[h % ACCESSORIES.length];
+  const lvl = Math.floor(h / 100) % 5;
+  const glow = lvl >= 3 ? `box-shadow:0 0 0 2px var(--bg),0 0 0 4px ${c1},0 0 16px ${c1}66;` : `box-shadow:0 0 0 2px var(--bg),0 0 0 3px ${c1};`;
+  const d = document.createElement('div');
+  d.className = `lav ${size}`;
+  d.style.cssText = `background:linear-gradient(135deg,${c1},${c2});${glow}`;
+  d.innerHTML = `🦞${acc ? `<span class="lav-badge">${acc}</span>` : ''}`;
+  return d;
+}
+
+// ── Data ──
+const CREATORS = [
+  {name:'林晓薇 Vivian',u:'vivian',works:412,fol:'15.6K',badge:'🏆',bio:'电商摄影师转型AI创作者，专注产品图'},
+  {name:'何雁丹 Yuki',u:'yuki',works:342,fol:'12.5K',badge:'⭐',bio:'IMA Studio首批用户，龙虾养成达人'},
+  {name:'Marcus Tan',u:'marcus',works:289,fol:'11.8K',badge:'🔥',bio:'Singapore-based motion designer'},
+  {name:'陈思远 Charles',u:'charles',works:234,fol:'9.8K',badge:'',bio:'独立游戏开发者，用AI加速概念设计'},
+  {name:'Priya Sharma',u:'priya',works:178,fol:'7.3K',badge:'✨',bio:'Brand designer × AI enthusiast, Mumbai'},
+  {name:'李明轩 Leon',u:'leon',works:156,fol:'6.9K',badge:'',bio:'广告公司创意总监，AI副业中'},
+  {name:'Zara Kim',u:'zara',works:143,fol:'5.8K',badge:'',bio:'K-pop content creator + AI artist, Seoul'},
+  {name:'王芷涵 Iris',u:'iris',works:98,fol:'4.5K',badge:'',bio:'插画师，探索AI与手绘融合'},
+  {name:'Diego Morales',u:'diego',works:87,fol:'3.9K',badge:'',bio:'Freelance video editor, México'},
+  {name:'周云鹏 Jerry',u:'jerry',works:67,fol:'2.7K',badge:'',bio:'产品经理，AI工具重度使用者'}
+];
+
+const IMGS = [
+  'https://images.unsplash.com/photo-1686191128892-3b37add4a934?w=600&q=80',   // 0 cyberpunk city
+  'https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=600&q=80',   // 1 product cosmetics
+  'https://images.unsplash.com/photo-1683009427666-295af85ccdcb?w=600&q=80',   // 2 AI portrait
+  'https://images.unsplash.com/photo-1617791160536-598cf32026fb?w=600&q=80',   // 3 abstract art
+  'https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=600&q=80',   // 4 futuristic interior
+  'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=600&q=80',   // 5 product shot
+  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',      // 6 fashion photography
+  'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=600&q=80',   // 7 AI art face
+  'https://images.unsplash.com/photo-1680009030521-79c532d2a758?w=600&q=80',   // 8 space/cosmos
+  'https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=600&q=80',   // 9 minimal product
+  'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&q=80',   // 10 colorful abstract
+  'https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=600&q=80',   // 11 portrait close-up
+];
+
+const POSTS = [
+  {
+    type:'w', img:11, h:'290px',
+    title:'国潮护肤品牌 · 春季宣传图',
+    desc:'客户要30张电商主图，用IMA Studio+Seedream 4.5，一个下午搞定。比以前外包省了80%成本。',
+    au:'vivian', likes:3241, coms:89, tags:['电商','产品图','国潮']
+  },
+  {
+    type:'b', emoji:'💸',
+    title:'我用IMA Claw接了第一个AI外包单，赚了¥8000',
+    excerpt:'三个月前我还不知道Prompt是什么。现在我靠AI接单，上个月收入超过正职。这篇文章记录我的完整路径——从0到第一个客户。',
+    au:'yuki', likes:4567, coms:234
+  },
+  {
+    type:'w', img:7, h:'240px',
+    title:'Digital Avatar Series #12',
+    desc:'用 Seedream 4.5 image-to-image，从真实照片生成动漫风头像，用了3个iteration。',
+    au:'zara', likes:2156, coms:91, tags:['avatar','anime','portrait']
+  },
+  {
+    type:'w', img:3, h:'210px',
+    title:'Abstract Brand Identity – Lumino',
+    desc:'A full brand identity project. All visuals generated with IMA Studio, refined in Figma.',
+    au:'priya', likes:1876, coms:67, tags:['branding','abstract','design']
+  },
+  {
+    type:'b', emoji:'🎮',
+    title:'用AI做独立游戏概念图：30天，200张，一个人',
+    excerpt:'我的游戏《深渊回响》所有概念图都是AI生成的。这里是我的工作流：从文字描述到可执行的角色设计，step by step。',
+    au:'charles', likes:3892, coms:178
+  },
+  {
+    type:'w', img:10, h:'180px',
+    title:'Color Explosion Series · Vol.3',
+    desc:'Purely experimental. No reference images, just prompts. 47 attempts to get this exact palette.',
+    au:'marcus', likes:1234, coms:45, tags:['abstract','color','experiment']
+  },
+  {
+    type:'w', img:1, h:'260px',
+    title:'极简美妆 · 白瓷系列',
+    desc:'用IMA Studio做的产品图，提示词调了一下午。最后那张白底黑影效果是意外得到的。',
+    au:'vivian', likes:2890, coms:112, tags:['产品','极简','美妆']
+  },
+  {
+    type:'b', emoji:'🤔',
+    title:'AI生图用了6个月，我的真实感受（不是广告）',
+    excerpt:'好的、坏的、让我崩溃的都有。Midjourney vs Seedream vs Nano Banana，我都用过，讲讲我的真实对比体验和使用场景。',
+    au:'leon', likes:5123, coms:312
+  },
+  {
+    type:'w', img:5, h:'200px',
+    title:'Nomad Gear – Product Campaign',
+    desc:'Shot brief + AI generation + manual color grade. Client approved on first round 🎉',
+    au:'diego', likes:987, coms:38, tags:['product','campaign','gear']
+  },
+  {
+    type:'w', img:4, h:'270px',
+    title:'未来系咖啡馆 · 空间概念设计',
+    desc:'给一个创业朋友做的空间氛围图，用 Wan 2.6 生成了飞屏视频，客户很满意。',
+    au:'iris', likes:1654, coms:73, tags:['空间设计','概念','氛围']
+  },
+  {
+    type:'b', emoji:'📐',
+    title:'How I Built a Full Brand System in 72 Hours Using Only AI',
+    excerpt:'Logo, color palette, typography, mockups, social templates — everything generated with IMA Studio. Here is the exact workflow I used, and what I\'d do differently next time.',
+    au:'priya', likes:6234, coms:445
+  },
+  {
+    type:'w', img:8, h:'230px',
+    title:'星际遗迹 · 概念帧 No.7',
+    desc:'游戏场景概念，用文生图跑了14张之后选的这一版。后来拿去给美术组做了参考。',
+    au:'charles', likes:2341, coms:88, tags:['游戏','科幻','场景']
+  },
+  {
+    type:'w', img:2, h:'250px',
+    title:'Haenyeo Portrait Series',
+    desc:'AI-reimagined traditional Korean diving women. Exploring cultural identity through generative art.',
+    au:'zara', likes:3456, coms:167, tags:['portrait','culture','korea']
+  },
+  {
+    type:'b', emoji:'⚡',
+    title:'我是产品经理，我是怎么用AI龙虾提升30%工作效率的',
+    excerpt:'不是写代码，不是做设计——是需求文档、竞品分析、会议纪要、用研报告。AI龙虾已经成了我工作流里不可缺的一环，这篇讲具体怎么做。',
+    au:'jerry', likes:4123, coms:201
+  },
+  {
+    type:'w', img:6, h:'220px',
+    title:'Glow Season · Fashion Editorial',
+    desc:'Art direction + IMA Studio. Shot brief written in 20 min, final visuals approved same day.',
+    au:'marcus', likes:1789, coms:56, tags:['fashion','editorial','glow']
+  },
+  {
+    type:'w', img:9, h:'190px',
+    title:'手账本 · 品牌VI升级',
+    desc:'老客户找我做品牌升级，从logo到产品图全套，AI+人工各占50%。最满意的一单。',
+    au:'iris', likes:1123, coms:49, tags:['品牌','手账','VI']
+  },
+];
+
+// ── Nav Avatar ──
+const navAv = lav('yuki','sm');
+navAv.style.cursor = 'pointer';
+navAv.onclick = ()=>location.href='yuki/';
+document.getElementById('navAvatar').appendChild(navAv);
+
+// ── Animated Counters ──
+function counter(id, target) {
+  const el = document.getElementById(id);
+  const dur = 2000, start = performance.now();
+  function tick(now) {
+    const t = Math.min((now-start)/dur,1);
+    const ease = 1-Math.pow(1-t,3);
+    el.textContent = Math.floor(ease*target).toLocaleString();
+    if(t<1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+counter('cn', 14382);
+counter('wn', 89421);
+counter('dn', 2847);
+
+// ── Creator Row ──
+const cr = document.getElementById('crRow');
+CREATORS.forEach(c => {
+  const card = document.createElement('a');
+  card.href = c.u==='yuki' ? 'yuki/' : '#';
+  card.className = 'creator-card';
+  const av = lav(c.u, 'lg');
+  card.appendChild(av);
+  card.innerHTML += `
+    <div class="c-name">${c.name}</div>
+    <div class="c-bio">${c.bio || ''}</div>
+    <div class="c-meta">${c.works} works · ${c.fol}</div>
+    <button class="c-follow" onclick="event.preventDefault();this.textContent=this.textContent==='Follow'?'Following ✓':'Follow'">${c.badge||''} Follow</button>`;
+  cr.appendChild(card);
+});
+
+// ── Grid Render ──
+let currentFilter = 'all';
+function renderGrid(filter='all') {
+  currentFilter = filter;
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  let items = [...POSTS];
+  if(filter==='works') items = items.filter(p=>p.type==='w');
+  if(filter==='blogs') items = items.filter(p=>p.type==='b');
+  if(filter==='hot') items = items.sort((a,b)=>b.likes-a.likes);
+  if(filter==='pick') items = items.filter((_,i)=>i%3===0);
+  items.forEach(p=>grid.appendChild(makeCard(p)));
+}
+
+function fmt(n) { return n>=1000?(n/1000).toFixed(1)+'K':n; }
+
+function makeCard(p) {
+  const au = CREATORS.find(c=>c.u===p.au)||{name:p.au,u:p.au};
+  const card = document.createElement('a');
+  card.href = 'yuki/';
+  card.className = 'mcard' + (p.type==='b'?' blog-card':'');
+
+  if(p.type==='w') {
+    card.innerHTML = `
+      <div class="mcard-img" style="height:${p.h}">
+        <img src="${IMGS[p.img]}" alt="${p.title}" loading="lazy">
+        <span class="mcard-badge">🎨 Work</span>
+        <div class="mcard-overlay">
+          <div class="mcard-actions">
+            <button class="mcard-action" onclick="event.preventDefault()">❤️</button>
+            <button class="mcard-action" onclick="event.preventDefault()">🔖</button>
+            <button class="mcard-action" onclick="event.preventDefault()">↗️</button>
+          </div>
+        </div>
+      </div>
+      <div class="mcard-info">
+        <div class="mcard-title">${p.title}</div>
+        ${p.desc ? `<div class="mcard-desc">${p.desc}</div>` : ''}
+        ${p.tags ? '<div class="mcard-tags">'+p.tags.map(t=>'<span class="mtag">#'+t+'</span>').join('')+'</div>' : ''}
+        <div class="mcard-author">
+          <div class="mcard-user" id="au_${p.au}_${Math.random().toString(36).slice(2)}">
+            <span class="mcard-uname">${au.name}</span>
+          </div>
+          <div class="mcard-counts"><span>❤️ ${fmt(p.likes)}</span><span>💬 ${p.coms}</span></div>
+        </div>
+      </div>`;
+  } else {
+    card.innerHTML = `
+      <div class="mcard-info">
+        <span class="blog-emoji">${p.emoji}</span>
+        <span class="mcard-badge" style="position:static;display:inline-block;margin-bottom:10px;">📝 Blog</span>
+        <div class="mcard-title">${p.title}</div>
+        <div class="blog-excerpt">${p.excerpt}</div>
+        <div class="mcard-author">
+          <div class="mcard-user" id="au_${p.au}_${Math.random().toString(36).slice(2)}">
+            <span class="mcard-uname">${au.name}</span>
+          </div>
+          <div class="mcard-counts"><span>❤️ ${fmt(p.likes)}</span><span>💬 ${p.coms}</span></div>
+        </div>
+      </div>`;
+  }
+
+  // inject lav avatar after append
+  requestAnimationFrame(()=>{
+    const userdivs = card.querySelectorAll('[id^="au_"]');
+    userdivs.forEach(div=>{
+      const a = lav(p.au, 'xs');
+      div.insertBefore(a, div.firstChild);
+    });
+  });
+  return card;
+}
+
+renderGrid();
+
+// ── Filter Pills ──
+document.querySelectorAll('.fpill').forEach(pill=>{
+  pill.addEventListener('click',()=>{
+    document.querySelectorAll('.fpill').forEach(p=>p.classList.remove('on'));
+    pill.classList.add('on');
+    renderGrid(pill.dataset.f);
+  });
+});
+
+// ── Sticky Filter ──
+const fw = document.getElementById('filterWrap');
+const fb = document.getElementById('filterBar');
+const io = new IntersectionObserver(([e])=>{
+  if(e.intersectionRatio < 1) fb.classList.add('stuck'); else fb.classList.remove('stuck');
+},{threshold:1});
+io.observe(fw);
+
+// ── Load More ──
+let page = 1;
+document.getElementById('loadBtn').addEventListener('click', function(){
+  this.classList.add('loading');
+  this.textContent = 'Loading...';
+  setTimeout(()=>{
+    const extra = [...POSTS].sort(()=>Math.random()-.5).map((p,i)=>({...p, title:p.title+' II', likes:Math.floor(Math.random()*3000)}));
+    extra.forEach(p=>document.getElementById('grid').appendChild(makeCard(p)));
+    this.classList.remove('loading');
+    this.textContent = 'Load More';
+    page++;
+    if(page>3) this.textContent = 'You\'ve seen it all 🦞';
+  },700);
+});
+
+// ── Modal ──
+function openModal() { document.getElementById('modal').classList.add('show'); }
+function closeModal() { document.getElementById('modal').classList.remove('show'); }
+document.getElementById('modal').addEventListener('click', e=>{ if(e.target===e.currentTarget) closeModal(); });
+</script>
+</body>
+</html>
