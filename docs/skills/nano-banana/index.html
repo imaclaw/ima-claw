@@ -103,7 +103,7 @@ footer a{color:var(--lobster-light)}
 .install-hero{background:linear-gradient(135deg,rgba(231,76,60,0.12),rgba(231,76,60,0.05));border:2px solid rgba(231,76,60,0.35);border-radius:16px;padding:24px;margin:24px 0;text-align:center}
 .install-hero-label{font-size:11px;font-weight:800;color:var(--lobster-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
 .install-hero-cmd{font-family:'SF Mono','Fira Code',monospace;font-size:15px;color:#2ecc71;background:rgba(0,0,0,0.45);padding:10px 20px;border-radius:8px;display:inline-block;margin-bottom:16px;user-select:all;cursor:text;border:1px solid rgba(46,204,113,0.2)}
-.install-hero-btn{display:block;width:100%;max-width:340px;margin:0 auto;padding:14px 24px;background:var(--lobster);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;letter-spacing:0.3px}
+.install-hero-btn{display:block;width:100%;max-width:400px;margin:0 auto;padding:18px 24px;background:var(--lobster);color:#fff;border:none;border-radius:14px;font-size:18px;font-weight:800;cursor:pointer;transition:all .25s;letter-spacing:1px;text-transform:uppercase}
 .install-hero-btn:hover{background:#c03530;transform:translateY(-2px);box-shadow:0 6px 24px rgba(231,76,60,0.35)}
 .install-hero-btn.copied{background:#16a34a}
 </style>
@@ -127,13 +127,14 @@ footer a{color:var(--lobster-light)}
 <div class="tut-header">
 <div class="tut-icon" style="font-size:40px">🍌</div>
 <div class="tut-meta"><h1 data-i18n="skill.nano-banana.title"></h1>
+<p class="tut-desc" data-i18n="skill.nano-banana.desc"></p>
 <div class="tut-tags"><span class="tut-tag tag-easy" data-i18n="skill.tag.image">🖼 图片</span><span class="tut-tag tag-free" data-i18n="skill.tag.community">🏷 社区</span></div>
 </div></div>
 
 <div class="install-hero">
   <div class="install-hero-label">🚀 快速安装</div>
   <div class="install-hero-cmd">clawhub install ima-all-ai</div>
-  <button class="install-hero-btn" onclick="copyInstallHero(this, 'clawhub install ima-all-ai')">📋 一键复制安装命令</button>
+  <button class="install-hero-btn" onclick="copyInstallHero(this, 'clawhub install ima-all-ai')">⚡ 一键复制  立即安装</button>
 </div>
 
 
@@ -232,7 +233,7 @@ function copyInstallHero(btn, cmd) {
   var copy = function() {
     btn.textContent = '✅ 已复制！打开龙虾粘贴即可';
     btn.classList.add('copied');
-    setTimeout(function(){ btn.textContent = '📋 一键复制安装命令'; btn.classList.remove('copied'); }, 3000);
+    setTimeout(function(){ btn.textContent = '⚡ 一键复制  立即安装'; btn.classList.remove('copied'); }, 3000);
   };
   if (navigator.clipboard) {
     navigator.clipboard.writeText(cmd).then(copy).catch(function(){
