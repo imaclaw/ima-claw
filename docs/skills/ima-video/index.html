@@ -98,6 +98,14 @@ a{text-decoration:none;color:inherit}
 footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 16px;text-align:center}
 footer p{color:var(--text-3);font-size:12px;word-wrap:break-word;line-height:1.8}
 footer a{color:var(--lobster-light)}
+
+/* === Install Hero Card === */
+.install-hero{background:linear-gradient(135deg,rgba(231,76,60,0.12),rgba(231,76,60,0.05));border:2px solid rgba(231,76,60,0.35);border-radius:16px;padding:24px;margin:24px 0;text-align:center}
+.install-hero-label{font-size:11px;font-weight:800;color:var(--lobster-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.install-hero-cmd{font-family:'SF Mono','Fira Code',monospace;font-size:15px;color:#2ecc71;background:rgba(0,0,0,0.45);padding:10px 20px;border-radius:8px;display:inline-block;margin-bottom:16px;user-select:all;cursor:text;border:1px solid rgba(46,204,113,0.2)}
+.install-hero-btn{display:block;width:100%;max-width:340px;margin:0 auto;padding:14px 24px;background:var(--lobster);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;letter-spacing:0.3px}
+.install-hero-btn:hover{background:#c03530;transform:translateY(-2px);box-shadow:0 6px 24px rgba(231,76,60,0.35)}
+.install-hero-btn.copied{background:#16a34a}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GC73SMKR44"></script>
@@ -121,6 +129,13 @@ footer a{color:var(--lobster-light)}
 <div class="tut-meta"><h1 data-i18n="skill.ima-video.title"></h1>
 <div class="tut-tags"><span class="tut-tag tag-easy" data-i18n="skill.tag.create">⭐ 创作</span><span class="tut-tag tag-free" data-i18n="skill.tag.official">🏷 官方</span></div>
 </div></div>
+
+<div class="install-hero">
+  <div class="install-hero-label">🚀 快速安装</div>
+  <div class="install-hero-cmd">clawhub install ima-video-ai</div>
+  <button class="install-hero-btn" onclick="copyInstallHero(this, 'clawhub install ima-video-ai')">📋 一键复制安装命令</button>
+</div>
+
 
 <div class="tip"><span data-i18n="skill.tip.preinstalled">💡 ImaStudio account required.</span></div>
 
@@ -213,6 +228,24 @@ document.addEventListener('click', function(e) {
     nav.classList.remove('open');
   }
 });
+
+function copyInstallHero(btn, cmd) {
+  var copy = function() {
+    btn.textContent = '✅ 已复制！打开龙虾粘贴即可';
+    btn.classList.add('copied');
+    setTimeout(function(){ btn.textContent = '📋 一键复制安装命令'; btn.classList.remove('copied'); }, 3000);
+  };
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(cmd).then(copy).catch(function(){
+      fallback(); copy();
+    });
+  } else { fallback(); copy(); }
+  function fallback() {
+    var el = document.createElement('textarea');
+    el.value = cmd; document.body.appendChild(el); el.select();
+    document.execCommand('copy'); document.body.removeChild(el);
+  }
+}
 </script>
 <script src="../../../i18n/core.js?v=10"></script>
 <script src="../../../assets/js/nav.js?v=9"></script>
