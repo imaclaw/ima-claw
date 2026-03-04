@@ -116,9 +116,10 @@ footer a{color:var(--lobster-light)}
 .install-hero{background:linear-gradient(135deg,rgba(231,76,60,0.12),rgba(231,76,60,0.05));border:2px solid rgba(231,76,60,0.35);border-radius:16px;padding:24px;margin:24px 0;text-align:center}
 .install-hero-label{font-size:11px;font-weight:800;color:var(--lobster-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
 .install-hero-cmd{font-family:'SF Mono','Fira Code',monospace;font-size:15px;color:#2ecc71;background:rgba(0,0,0,0.45);padding:10px 20px;border-radius:8px;display:inline-block;margin-bottom:16px;user-select:all;cursor:text;border:1px solid rgba(46,204,113,0.2)}
-.install-hero-btn{display:block;width:100%;max-width:400px;margin:0 auto;padding:18px 24px;background:var(--lobster);color:#fff;border:none;border-radius:14px;font-size:18px;font-weight:800;cursor:pointer;transition:all .25s;letter-spacing:1px;text-transform:uppercase}
-.install-hero-btn:hover{background:#c03530;transform:translateY(-2px);box-shadow:0 6px 24px rgba(231,76,60,0.35)}
-.install-hero-btn.copied{background:#16a34a}
+.install-hero-btn{display:block;width:100%;max-width:420px;margin:0 auto;padding:20px 28px;background:var(--lobster);color:#fff;border:none;border-radius:16px;font-size:20px;font-weight:900;cursor:pointer;transition:all .25s;letter-spacing:1.5px;box-shadow:0 0 0 0 rgba(231,76,60,0.7);animation:pulse-btn 2s infinite}
+.install-hero-btn:hover{background:#c03530;transform:translateY(-3px);box-shadow:0 8px 32px rgba(231,76,60,0.55);animation:none}
+.install-hero-btn.copied{background:#16a34a;animation:none}
+@keyframes pulse-btn{0%{box-shadow:0 0 0 0 rgba(231,76,60,0.7)}70%{box-shadow:0 0 0 12px rgba(231,76,60,0)}100%{box-shadow:0 0 0 0 rgba(231,76,60,0)}}
 .install-hero-hint{font-size:13px;color:rgba(255,255,255,0.55);margin:0 0 14px;line-height:1.5}
 </style>
 <!-- Google tag (gtag.js) -->
