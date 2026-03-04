@@ -1102,5 +1102,21 @@
   "skill.veo-video.title": "Google Veo 视频",
   "skill.video-guide.title": "视频创作指南",
   "skill.wechat-publisher.title": "微信公众号发布",
-  "skill.xhs-creator.title": "小红书创作"
+  "skill.xhs-creator.title": "小红书创作",
+  "skill.ima-all-in-one.desc": "图片 + 视频 + 音乐，40+ AI 模型，一个技能全搞定",
+  "skill.ima-image.desc": "SeeDream · Midjourney · GPT Image，顶级图片生成集合",
+  "skill.ima-video.desc": "Wan 2.6 · Kling · Sora · Veo 3.1，专业视频生成工具包",
+  "skill.ima-music.desc": "Suno · DouBao，AI 音乐一键生成",
+  "skill.ima-intelligence.desc": "记忆系统 · 任务追踪 · 深度调研，龙虾核心智能基础",
+  "skill.nano-banana.desc": "Gemini 3 Pro 驱动，1K/2K/4K 高清图片生成",
+  "skill.blog-writer.desc": "按你的写作风格，输出有观点的博客文章",
+  "skill.deep-research.desc": "Gemini Deep Research，30分钟级别深度调研报告",
+  "skill.feishu-calendar.desc": "读取、新建、修改飞书日历事件，支持 OAuth",
+  "skill.linkedin-writer.desc": "写出像真人写的 LinkedIn 帖子，不像内容工厂",
+  "skill.seo-writer.desc": "对搜索引擎和读者都友好的博客文章写手",
+  "skill.social-engine.desc": "完整社媒策略：内容规划 · 写作 · 日历 · 分析 · 增粉",
+  "skill.veo-video.desc": "Google Veo 3.1，文字直接生成有声视频",
+  "skill.video-guide.desc": "AI 视频创作经验库，避坑指南 + 提示词优化",
+  "skill.wechat-publisher.desc": "Markdown 一键发布到微信公众号草稿箱",
+  "skill.xhs-creator.desc": "小红书笔记 · 封面卡片 · 发布，一套完整素材流程"
 }
