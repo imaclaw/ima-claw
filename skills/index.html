@@ -76,6 +76,11 @@ body{padding-top:60px}
 footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 16px;text-align:center}
 footer p{color:var(--text-3);font-size:12px;word-wrap:break-word;line-height:1.8}
 footer a{color:var(--lobster-light)}
+.install-block{margin-top:12px;padding:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px}
+.install-code{font-family:monospace;font-size:13px;color:#e0e0e0;background:rgba(0,0,0,0.3);padding:8px 12px;border-radius:6px;margin-bottom:8px;word-break:break-all;user-select:all}
+.install-copy-btn{width:100%;padding:10px;background:var(--lobster);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.install-copy-btn:hover{background:#c03530;transform:translateY(-1px)}
+.install-copy-btn.copied{background:#22c55e}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GC73SMKR44"></script>
@@ -138,6 +143,10 @@ footer a{color:var(--lobster-light)}
 <p><span data-i18n="skills.card.allinone.desc">图片+视频+音乐，一个技能搞定。集成 40+ AI 模型，覆盖完整创作链路。</span></p>
 <div class="meta"><span class="tag t-off"><span data-i18n="skills.tag.official">官方</span></span><span class="tag t-pop">⭐ <span data-i18n="skills.tag.featured">推荐</span></span></div>
 <div class="models">SeeDream · GPT Image · Midjourney · Wan · Kling · Sora · Google Veo 3 · Suno</div>
+<div class="install-block" onclick="event.stopPropagation()">
+  <div class="install-code">clawhub install ima-all-ai</div>
+  <button class="install-copy-btn" onclick="event.stopPropagation(); copyInstallCmd(this, 'clawhub install ima-all-ai')">📋 一键复制安装命令</button>
+</div>
 </div></div>
 <div class="card feat feat-main" data-cat="brain web" onclick="location.href='../docs/skills/ima-intelligence/'" style="cursor:pointer;background:var(--surface)">
 <div class="fc">
@@ -523,7 +532,19 @@ function chCard(s){
 }
 
 function chEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
-</script>
+function copyInstallCmd(btn, cmd) {
+  navigator.clipboard.writeText(cmd).then(() => {
+    btn.textContent = '✅ 已复制！';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '📋 一键复制安装命令'; btn.classList.remove('copied'); }, 2000);
+  }).catch(() => {
+    const el = document.createElement('textarea');
+    el.value = cmd; document.body.appendChild(el); el.select();
+    document.execCommand('copy'); document.body.removeChild(el);
+    btn.textContent = '✅ 已复制！'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '📋 一键复制安装命令'; btn.classList.remove('copied'); }, 2000);
+  });
+}
 </script>
 <script src="../i18n/core.js?v=10"></script>
 <script src="../assets/js/nav.js?v=9"></script>
