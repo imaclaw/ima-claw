@@ -55,8 +55,8 @@ a{text-decoration:none;color:inherit}
 .story-img{margin:24px 0;text-align:center}
 .story-img img{max-width:100%;border-radius:12px;border:1px solid var(--border)}
 .story-img .caption{margin-top:8px;font-size:13px;color:var(--text-3);font-style:italic}
-[data-zh]{display:none}
-[data-en]{display:block}
+[data-en]{display:none}
+[data-zh]{display:block}
 
 .highlight-box{margin:32px 0;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:16px}
 .highlight-box h3{font-size:16px;font-weight:700;margin-bottom:12px;color:var(--text)}
@@ -71,14 +71,10 @@ a{text-decoration:none;color:inherit}
 footer{border-top:1px solid var(--border);padding:40px;text-align:center}
 footer p{color:var(--text-3);font-size:12px}footer a{color:var(--lobster-light)}
 
-[data-zh]{display:none}
-html[lang="en"] [data-zh]{display:none}html[lang="en"] [data-en]{display:block}
+html[lang="en"] [data-zh]{display:none !important}
+html[lang="en"] [data-en]{display:block}
 html[lang="en"] span[data-en],html[lang="en"] a[data-en]{display:inline}
-html[lang="en"] span[data-zh],html[lang="en"] a[data-zh]{display:inline}
-html[lang="en"] span[data-en],html[lang="en"] a[data-zh]{display:none}
-html[lang="en"] span[data-zh],html[lang="en"] a[data-zh]{display:none}
-html[lang="en"] div[data-zh]{display:none}html[lang="en"] div[data-zh]{display:none}
-html[lang="en"] blockquote[data-zh]{display:none}html[lang="en"] blockquote[data-zh]{display:none}
+html[lang="en"] span[data-zh],html[lang="en"] a[data-zh]{display:none !important}
 
 @media(max-width:600px){.article{padding:40px 20px 80px}}
 #.lang-dropdown.open 
