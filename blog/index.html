@@ -1,12 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <link rel="icon" href="../favicon.ico"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#0C0C12">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Blog — Ima Claw 🦞</title>
+<meta name="description" content="Ima Claw dev blog — Vibe Coding stories, development logs, and behind-the-scenes of building an AI lobster assistant.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://imaclaw.github.io/ima-claw/blog/">
+<link rel="alternate" hreflang="en" href="https://imaclaw.github.io/ima-claw/blog/">
+<link rel="alternate" hreflang="en" href="https://imaclaw.github.io/ima-claw/blog/">
+<link rel="alternate" hreflang="x-default" href="https://imaclaw.github.io/ima-claw/blog/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog - Ima Claw">
+<meta property="og:description" content="Ima Claw dev blog — Vibe Coding stories, development logs, and behind-the-scenes of building an AI lobster assistant.">
+<meta property="og:url" content="https://imaclaw.github.io/ima-claw/blog/">
+<meta property="og:image" content="https://imaclaw.github.io/ima-claw/mascot.png">
+<meta property="og:site_name" content="Ima Claw">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog - Ima Claw">
+<meta name="twitter:description" content="Ima Claw dev blog — Vibe Coding stories, development logs, and behind-the-scenes of building an AI lobster assistant.">
+<meta name="twitter:image" content="https://imaclaw.github.io/ima-claw/mascot.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/variables.css?v=8">
+<link rel="stylesheet" href="../assets/css/nav.css?v=8">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--lobster:#D4403A;--lobster-light:#E8584E;--bg:#0C0C12;--surface:#13131D;--text:#E8E8ED;--text-2:rgba(255,255,255,0.55);--text-3:rgba(255,255,255,0.35);--border:rgba(255,255,255,0.06)}
@@ -15,7 +34,7 @@ a{text-decoration:none;color:inherit}
 .blog-header{text-align:center;padding:100px 40px 40px}
 .blog-header h1{font-size:clamp(32px,4vw,48px);font-weight:900;letter-spacing:-0.03em;margin-bottom:12px}
 .blog-header p{font-size:17px;color:var(--text-2)}
-.posts{max-width:800px;margin:0 auto;padding:20px 40px 100px}
+.posts{max-width:1100px;margin:0 auto;padding:20px 40px 100px}
 .post-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:clamp(24px,3vw,40px);margin-bottom:20px;transition:all .3s}
 .post-card:hover{border-color:rgba(212,64,58,0.2);transform:translateY(-2px)}
 .post-meta{font-size:12px;color:var(--text-3);margin-bottom:12px;display:flex;gap:12px;align-items:center}
@@ -25,242 +44,269 @@ a{text-decoration:none;color:inherit}
 .read-more{display:inline-block;margin-top:14px;font-size:13px;color:var(--lobster-light);font-weight:600}
 footer{border-top:1px solid var(--border);padding:40px;text-align:center}
 footer p{color:var(--text-3);font-size:12px}footer a{color:var(--lobster-light)}
-@media(max-width:600px){.blog-header{padding:80px 20px 30px}.blog-header h1{font-size:32px}.posts{padding:20px 20px 80px}.nav-links{display:none}}
-.nav-cta{background:#D4403A!important;color:#fff!important;padding:7px 18px;border-radius:20px;font-weight:700;font-size:12px!important}
+@media(max-width:600px){.blog-header{padding:80px 20px 30px}.blog-header h1{font-size:32px}.posts{padding:20px 20px 80px}}
 
+/* Two-column blog layout */
+.blog-layout{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1100px;margin:0 auto;padding:20px 40px 100px;align-items:start}
+.col-header{font-size:14px;font-weight:800;color:var(--text);letter-spacing:0.01em;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px}
+.col-header .col-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(88,166,255,0.12);color:#58a6ff}
+.col-header-diary .col-tag{background:rgba(212,64,58,0.12);color:var(--lobster-light)}
+.post-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:14px;transition:all .3s;text-decoration:none;color:inherit}
+.post-card:hover{border-color:rgba(212,64,58,0.25);transform:translateY(-2px)}
+.post-meta{font-size:11px;color:var(--text-3);margin-bottom:9px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.post-tag{padding:2px 9px;border-radius:100px;background:rgba(212,64,58,0.1);color:var(--lobster-light);font-size:10px;font-weight:600}
+.post-card h2{font-size:16px;font-weight:800;letter-spacing:-0.02em;margin-bottom:7px;line-height:1.35}
+.post-card p{font-size:13px;color:var(--text-2);line-height:1.6}
+.read-more{display:inline-block;margin-top:9px;font-size:12px;color:var(--lobster-light);font-weight:600}
+.col-discord{margin-top:4px;padding:14px;background:rgba(88,101,242,0.07);border:1px solid rgba(88,101,242,0.18);border-radius:12px;text-align:center}
+@media(max-width:768px){
+  .blog-layout{grid-template-columns:1fr;padding:0 0 80px;gap:0}
+  .tips-col,.diary-col{display:none}
+  .tips-col.active,.diary-col.active{display:block;padding:16px 20px 0}
+  .blog-tabs{display:flex;max-width:100%;border-bottom:2px solid var(--border);margin:0;background:var(--bg);position:sticky;top:60px;z-index:10}
+  .blog-tab{flex:1;padding:14px 0;text-align:center;font-size:14px;font-weight:700;color:var(--text-3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;background:none;border-top:none;border-left:none;border-right:none}
+  .blog-tab.active{color:var(--text);border-bottom-color:var(--lobster)}
+}
+@media(min-width:769px){.blog-tabs{display:none}}
 body{padding-top:60px}
 @media(max-width:600px){
 }
-/* Nav */
-@media(max-width:768px){
-  .nav-links .lang-dropdown{padding:12px 20px;text-align:right;display:flex;justify-content:flex-end}
-}
 /* === SHARED NAV CSS === */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;background:rgba(12,12,18,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-.logo img{height:40px;width:40px;border-radius:8px}
-.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em;color:var(--text)}
-.logo-text b{color:var(--lobster-light)}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:var(--text-3);font-size:13px;font-weight:500;transition:color .3s;text-decoration:none}
-.nav-links a:hover{color:var(--text)}
-.nav-adopt{color:var(--lobster-light)!important;font-weight:600!important}
-.hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px}
-.lang-dropdown{display:inline-block;position:relative}
-.lang-trigger{padding:6px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text-2);font-size:12px;cursor:pointer;font-weight:500}
-.lang-trigger:hover{border-color:var(--lobster)}
-.lang-menu{display:none;position:absolute;top:100%;right:0;margin-top:6px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:4px;min-width:140px;z-index:1002;box-shadow:0 8px 24px rgba(0,0,0,0.4)}
-.lang-dropdown.open .lang-menu{display:block}
-.lang-menu button{display:block;width:100%;padding:8px 12px;border:none;background:transparent;color:var(--text-2);font-size:13px;text-align:left;cursor:pointer;border-radius:6px}
-.lang-menu button:hover{background:rgba(231,76,60,0.1);color:var(--lobster-light)}
-@media(max-width:768px){
-  nav{padding:14px 16px}
-  .hamburger{display:block}
-  .nav-links{display:none!important;position:fixed;top:56px;right:16px;left:auto;background:rgba(12,12,18,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:16px 0;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;z-index:99;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
-  .nav-links.open{display:flex!important}
-  .nav-links a{padding:12px 20px!important;text-align:right!important;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px!important;color:rgba(255,255,255,0.55)!important;display:block}
-  .nav-links a:last-child{border-bottom:none}
-  .nav-links .lang-dropdown{padding:12px 20px;text-align:right;display:flex;justify-content:flex-end}
-}
-/* === END SHARED NAV CSS === */
+}}</script>
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GC73SMKR44"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GC73SMKR44');
+</script>
 </head>
 <body>
 <nav>
   <a href="../" class="logo"><img src="../logo-nav.png" alt="Ima Claw logo"><div class="logo-text">Ima<b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by ImaStudio</span></div></a>
   <div class="nav-links">
     <a href="../" data-i18n="nav.home">首页</a>
-    <a href="../adopt/" class="nav-adopt" data-i18n="nav.adopt">🦞 领养</a>
+    <a href="../adopt/" data-i18n="nav.adopt" class="nav-adopt" data-i18n="nav.adopt">🦞 领养</a>
     <a href="../skills/" data-i18n="nav.skills">Skill 市场</a>
     <a href="../pricing/" data-i18n="nav.pricing">🛒 购买</a>
     <a href="../docs/" data-i18n="nav.docs">帮助</a>
     <a href="../blog/" data-i18n="nav.blog">博客</a>
-    <a href="https://imastudio.com/community" target="_blank" data-i18n="nav.community">社区</a>
+    <a href="https://imastudio.com/community" target="_blank" rel="noopener" data-i18n="nav.community">社区</a>
+    <a href="https://discord.gg/QmNHCnv2Tf" aria-label="Join Ima Claw Discord community" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;color:#5865F2;font-weight:600"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/discord/5865F2" alt="Discord" style="width:14px;height:14px">Discord</a>
     <div class="lang-dropdown">
-      <button class="lang-trigger" onclick="event.stopPropagation();this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
+      <button class="lang-trigger">🌐 中文 ▾</button>
       <div class="lang-menu">
-        <button onclick="setLang('zh')">🇨🇳 中文</button>
-        <button onclick="setLang('en')">🇺🇸 English</button>
-        <button onclick="setLang('es')">🇪🇸 Español</button>
-        <button onclick="setLang('ja')">🇯🇵 日本語</button>
-        <button onclick="setLang('ar')">🇸🇦 العربية</button>
+        <button data-lang="zh-CN">🇨🇳 中文</button>
+        <button data-lang="en">🇺🇸 English</button>
+        <button data-lang="es">🇪🇸 Español</button>
+        <button data-lang="ja">🇯🇵 日本語</button>
+        <button data-lang="ar">🇸🇦 العربية</button>
       </div>
     </div>
   </div>
-  <button class="hamburger" onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <button class="hamburger"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
 </nav>
 
 <div class="blog-header">
   <div style="margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:16px">
-    <img src="../icons/yuki-v4.jpg" style="width:72px;height:72px;border-radius:50%;border:2px solid rgba(255,255,255,0.1);object-fit:cover">
+    <img src="../icons/yuki-v4.jpg" alt="Yuki He" style="width:72px;height:72px;border-radius:50%;border:2px solid rgba(255,255,255,0.1);object-fit:cover">
     <span style="font-size:28px;color:var(--text-3);font-weight:300">&</span>
-    <img src="../logo-nav.png" style="width:80px;height:80px;border-radius:12px;filter:drop-shadow(0 0 16px rgba(212,64,58,0.3))">
+    <img src="../logo-nav.png" alt="Ima Claw" style="width:80px;height:80px;border-radius:12px;filter:drop-shadow(0 0 16px rgba(212,64,58,0.3))">
   </div>
-  <h1 data-i18n="blog.title">Yuki & Claw 搞事日记</h1>
+  <h1 data-i18n="blog.title">Yuki &amp; 龙虾搞事日记</h1>
   <p data-i18n="blog.subtitle" style="max-width:380px;margin:8px auto 0;text-align:center">我和我的龙虾一起造产品，<br>翻车了就笑一笑，然后继续。</p>
 </div>
 
-<div class="posts">
-  <a href="ai-crash-diary.html" id="blog-crash" class="post-card" style="border-color:rgba(212,64,58,0.25);background:linear-gradient(135deg,var(--surface),rgba(212,64,58,0.05))">
-    <div class="post-meta">
-      <span class="post-tag" style="background:rgba(255,80,60,0.15);color:#ff5040">🔥 翻车实录</span>
-      <span class="post-tag" style="background:rgba(88,166,255,0.1);color:#58a6ff">人机协作</span>
-      <span>2026-03-03</span>
-    </div>
-    <h2>AI 翻车日记：凌晨5点，一篇文章都没发出来</h2>
-    <p>4个子Agent并行写稿，结果1小时过去一篇都没发出来。老板说"你真的是害死我了"。凌晨5点的人机协作翻车现场，比任何AI教程都真实。</p>
-    <span class="read-more">阅读翻车日记 →</span>
-  </a>
-
-  <a href="vibe-coding-day2.html" id="blog-52h" class="post-card" style="border-color:rgba(212,64,58,0.15);background:linear-gradient(135deg,var(--surface),rgba(212,64,58,0.03))">
-    <div class="post-meta">
-      <span class="post-tag">开发日记</span>
-      <span class="post-tag" style="background:rgba(88,166,255,0.1);color:#58a6ff">Day 2</span>
-      <span>2026-03-03</span>
-    </div>
-    <h2 id="blog-52h-title">52小时，544个Commit：一只龙虾的诞生日记</h2>
-    <p id="blog-52h-desc">凌晨5点，她还在截图标红圈。AI还在改像素。189万字对话，0行手写代码。红蓝大战、i18n地狱、bump 16次——这是一个人和一只AI龙虾的52小时。</p>
-    <span class="read-more">阅读完整日记 →</span>
-  </a>
-
-  <a href="release-v1.html" class="post-card" style="border-color:rgba(212,64,58,0.15);background:linear-gradient(135deg,var(--surface),rgba(212,64,58,0.03))">
-    <div class="post-meta">
-      <span class="post-tag">Release Note</span>
-      <span class="post-tag" style="background:rgba(46,204,113,0.1);color:#2ecc71">v1.0</span>
-      <span>2026-03-02</span>
-    </div>
-    <h2 data-i18n="blog.title.release">"你能做网站吗？" —— 于是有了134万字，和一个网站。</h2>
-    <p data-i18n="blog.desc.release">26小时 · 45个页面 · 12,616行代码 · 295次提交 · 0行手写代码。一个产品经理的一句话，一只 AI 龙虾的全力以赴。</p>
-    <span class="read-more" data-i18n="blog.readmore">查看发版记录 →</span>
-  </a>
-
-  <a href="vibe-coding-collaboration.html" class="post-card">
-    <div class="post-meta">
-      <span class="post-tag">Vibe Coding</span>
-      <span class="post-tag" style="background:rgba(46,204,113,0.1);color:#2ecc71" data-i18n="blog.tag.guide">实用指南</span>
-      <span>2026-03-02</span>
-      <span data-i18n="blog.log4">创始人日志 #4</span>
-    </div>
-    <h2 data-i18n="blog.title.collab">Vibe Coding 协作指南：当老板不懂代码，AI 不懂"那个东西"</h2>
-    <p data-i18n="blog.desc.collab">24小时连续开发，光按钮对齐就改了5轮。凌晨1点我让 AI 写了一份协作手册——截图标注法、10个必知术语、缓存对策、确认规则。适用于所有用 AI 做网站的人。</p>
-    <span class="read-more" data-i18n="blog.readmore">阅读全文 →</span>
-  </a>
-
-  <a href="dev-log-day1.html" class="post-card">
-    <div class="post-meta">
-      <span class="post-tag">Dev Log</span>
-      <span>2026-03-02</span>
-      <span data-i18n="blog.log3">创始人日志 #3</span>
-    </div>
-    <h2 data-i18n="blog.title.devlog">🦞 龙虾不眠夜：24小时开发日志</h2>
-    <p data-i18n="blog.desc.devlog">凌晨1点，老板还在手机上截图画圈，龙虾还在疯狂 git push。60+ 次提交、5 轮按钮对齐、1 个 CSS 变量失踪案——这是 Ima Claw 团队（1人+1龙虾）的真实24小时。</p>
-    <span class="read-more" data-i18n="blog.readmore">阅读全文 →</span>
-  </a>
-
-  <a href="vibe-coding-day2.html" class="post-card">
-    <div class="post-meta">
-      <span class="post-tag">Vibe Coding</span>
-      <span>2026-03-01</span>
-      <span data-i18n="blog.log2">创始人日志 #2</span>
-    </div>
-    <h2 data-i18n="blog.title2">凌晨 4 点的 Vibe Coding：8 个 bug，25 分钟，0 行代码</h2>
-    <p data-i18n="blog.desc2">睡不着就开始改产品。手机上截图、说话，25 分钟修了 8 个问题——全程躺在床上完成。这才是 Vibe Coding 的终极形态。</p>
-    <span class="read-more" data-i18n="blog.readmore">阅读全文 →</span>
-  </a>
-
-  <a href="vibe-coding-story.html" class="post-card">
-    <div class="post-meta">
-      <span class="post-tag">Vibe Coding</span>
-      <span>2026-02-28</span>
-      <span data-i18n="blog.log1">创始人日志 #1</span>
-    </div>
-    <h2 data-i18n="blog.title1">我用 Ima Claw 做了这个网站，它把龙虾的脸抠没了</h2>
-    <p data-i18n="blog.desc1">2小时，0行代码，一只经历了存在主义危机的龙虾。这是 Ima Claw 创始人用自家产品 Vibe Coding 造官网的真实故事——包含所有翻车现场。</p>
-    <span class="read-more" data-i18n="blog.readmore">阅读全文 →</span>
-  </a>
+<div class="blog-tabs">
+  <button class="blog-tab active" onclick="switchTab('diary')" data-i18n="blog.tab.diary">📝 Dev Diary</button>
+  <button class="blog-tab" onclick="switchTab('tips')" data-i18n="blog.tab.tips">🦞 Claw Tips</button>
 </div>
 
+<<<<<<< HEAD
 <div style="text-align:center;margin:32px auto;padding:20px;background:rgba(88,101,242,0.1);border:1px solid rgba(88,101,242,0.3);border-radius:12px;max-width:480px"><div style="font-size:15px;font-weight:600;color:white;margin-bottom:8px" data-i18n="blog.community.title">🦞 加入 Ima Claw 社区</div><div style="font-size:13px;color:#a0a0a0;margin-bottom:12px" data-i18n="blog.community.desc">和其他龙虾主人交流，获取最新动态、技能分享和帮助</div><a href="https://discord.gg/QmNHCnv2Tf" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;background:#5865F2;color:white;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none"><img src="https://cdn.simpleicons.org/discord/white" style="width:16px;height:16px"><span data-i18n="blog.community.btn">加入 Discord</span></a></div>
+=======
+<div class="blog-layout">
+
+  <!-- LEFT: Yuki的养虾经验 -->
+  <div class="tips-col" id="col-tips">
+    <div class="col-header">
+      <span data-i18n="blog.tips.title">🦞 Yuki's Claw Tips</span>
+      <span class="col-tag" data-i18n="blog.tips.ongoing">Ongoing Updates</span>
+    </div>
+
+    <a href="tips-why-smarter.html" class="post-card" style="border-color:rgba(88,166,255,0.18);background:linear-gradient(135deg,var(--surface),rgba(88,166,255,0.04))">
+      <div class="post-meta">
+        <span class="post-tag" style="background:rgba(88,166,255,0.12);color:#58a6ff" data-i18n="blog.tips.tag">🦞 Claw Tips</span>
+        <span>2026-03-04</span>
+      </div>
+      <h2 data-i18n="blog.tips.why.title">Why Is Your Lobster Smarter? 5 Reasons</h2>
+      <p data-i18n="blog.tips.why.desc">Not a better model — better training. 5 methods to make your Lobster understand you better.</p>
+      <span class="read-more" data-i18n="blog.read.tips">Read Tips →</span>
+    </a>
+
+        <a href="tutorial-ep01-install.html" class="post-card" style="border-color:rgba(88,166,255,0.15);background:linear-gradient(135deg,var(--surface),rgba(88,166,255,0.04))">
+      <div class="post-meta">
+        <span class="post-tag" style="background:rgba(88,166,255,0.12);color:#58a6ff" data-i18n="blog.tutorial.tag">Tutorial</span>
+        <span class="post-tag" style="background:rgba(88,166,255,0.12);color:#58a6ff">EP01</span>
+        <span>2026-03-03</span>
+      </div>
+      <h2 data-i18n="blog.tut.install.title">Install OpenClaw</h2>
+      <p data-i18n="blog.tut.install.desc">10 minutes to set up your home. Mac/Windows guide with 3 real failure cases.</p>
+      <span class="read-more" data-i18n="blog.read.tutorial">Read Tutorial →</span>
+    </a>
+
+    <a href="tutorial-ep02-model.html" class="post-card" style="border-color:rgba(88,166,255,0.15);background:linear-gradient(135deg,var(--surface),rgba(88,166,255,0.04))">
+      <div class="post-meta">
+        <span class="post-tag" style="background:rgba(88,166,255,0.12);color:#58a6ff" data-i18n="blog.tutorial.tag">Tutorial</span>
+        <span class="post-tag" style="background:rgba(88,166,255,0.12);color:#58a6ff">EP02</span>
+        <span>2026-03-04</span>
+      </div>
+      <h2 data-i18n="blog.tut.model.title">Add a Brain to Your Lobster</h2>
+      <p data-i18n="blog.tut.model.desc">One ImaStudio account unlocks multi-model brain. 3 steps to API Key, with screenshots.</p>
+      <span class="read-more" data-i18n="blog.read.tutorial">Read Tutorial →</span>
+    </a>
+
+    <a href="tutorial-ep03-skills.html" class="post-card" style="border-color:rgba(88,166,255,0.15);background:linear-gradient(135deg,var(--surface),rgba(88,166,255,0.04))">
+      <div class="post-meta">
+        <span class="post-tag" style="background:rgba(88,166,255,0.12);color:#58a6ff" data-i18n="blog.tutorial.tag">Tutorial</span>
+        <span class="post-tag" style="background:rgba(88,166,255,0.12);color:#58a6ff">EP03</span>
+        <span>2026-03-04</span>
+      </div>
+      <h2 data-i18n="blog.tut.skills.title">Install Skills</h2>
+      <p data-i18n="blog.tut.skills.desc">IMA Core + All-in-One, 40+ models. Turn your Lobster from chatbot to powerhouse.</p>
+      <span class="read-more" data-i18n="blog.read.tutorial">Read Tutorial →</span>
+    </a>
+
+    <div class="col-discord">
+      <div style="font-size:12px;color:var(--text-2);margin-bottom:10px" data-i18n="blog.community.hint">Share tips with other Lobster owners</div>
+      <a href="https://discord.gg/QmNHCnv2Tf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:#5865F2;color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.056a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg> 加入 Discord</a>
+    </div>
+  </div>
+
+  <!-- RIGHT: 搞事日记 -->
+  <div class="diary-col active" id="col-diary">
+    <div class="col-header col-header-diary">
+      <span data-i18n="blog.section.diary">📝 Dev Diary</span>
+      <span class="col-tag" data-i18n="blog.tips.ongoing">Ongoing Updates</span>
+    </div>
+
+    <a href="diary-ai-on-ground.html" class="post-card" style="border-color:rgba(212,64,58,0.2);background:linear-gradient(135deg,var(--surface),rgba(212,64,58,0.04))">
+      <div class="post-meta">
+        <span class="post-tag" style="background:rgba(255,80,60,0.12);color:#ff5040">🔥 搞事日记</span>
+        <span>2026-03-05</span>
+      </div>
+      <h2>主人在天上，AI在地上打工</h2>
+      <p>6小时飞机，我什么都没做。落地开消息，爪爪已经把活全干了——改图、更新网站、处理权限请求、安全预警。</p>
+      <span class="read-more">阅读日记 →</span>
+    </a>
+
+    <a href="diary-feishu-entry.html" class="post-card" style="border-color:rgba(212,64,58,0.2);background:linear-gradient(135deg,var(--surface),rgba(212,64,58,0.04))">
+      <div class="post-meta">
+        <span class="post-tag" style="background:rgba(255,80,60,0.12);color:#ff5040" data-i18n="blog.diary.tag">🔥 Dev Diary</span>
+        <span class="post-tag" style="background:rgba(88,166,255,0.12);color:#58a6ff" data-i18n="blog.diary.ent.tag">Enterprise AI</span>
+        <span>2026-03-04</span>
+      </div>
+      <h2 data-i18n="blog.diary.feishu.title">The Lobster Entered Feishu — Our 172-Person Company Panicked</h2>
+      <p data-i18n="blog.diary.feishu.desc">First thing it asked: How many people work here? We spent the whole night redesigning permissions.</p>
+      <span class="read-more" data-i18n="blog.read.more">Read more →</span>
+    </a>
+
+        <a href="diary-blog-redesign.html" class="post-card" style="border-color:rgba(212,64,58,0.2);background:linear-gradient(135deg,var(--surface),rgba(212,64,58,0.04))">
+      <div class="post-meta">
+        <span class="post-tag" style="background:rgba(255,80,60,0.12);color:#ff5040" data-i18n="blog.diary.tag">🔥 Dev Diary</span>
+        <span class="post-tag tag-design" style="background:rgba(88,166,255,0.12);color:#58a6ff" data-i18n="blog.diary.design.tag">Product Design</span>
+        <span>2026-03-04</span>
+      </div>
+      <h2 data-i18n="blog.diary.design.title">3am Blog Redesign: Two Columns, Neither Secondary</h2>
+      <p data-i18n="blog.diary.design.desc">From schedule+diary to two equal homes — one hour, three revisions, new insights every time.</p>
+      <span class="read-more" data-i18n="blog.read.more">Read more →</span>
+    </a>
+
+        <a href="ai-crash-diary.html" class="post-card lang-link" data-href-zh="ai-crash-diary.html" data-href-en="ai-crash-diary-en.html" style="border-color:rgba(212,64,58,0.2);background:linear-gradient(135deg,var(--surface),rgba(212,64,58,0.04))">
+      <div class="post-meta">
+        <span class="post-tag" style="background:rgba(255,80,60,0.12);color:#ff5040" data-i18n="blog.diary.crash.tag">🔥 Crash Log</span>
+        <span>2026-03-03</span>
+      </div>
+      <h2 data-i18n="blog.title.crash">AI 翻车日记：凌晨5点，一篇文章都没发出来</h2>
+      <p data-i18n="blog.desc.crash">4个子Agent并行写稿，结果1小时过去一篇都没发出来。老板说"你真的是害死我了"。</p>
+      <span class="read-more" data-i18n="blog.readmore">阅读翻车日记 →</span>
+    </a>
+
+    <a href="vibe-coding-day2.html" class="post-card lang-link" data-href-zh="vibe-coding-day2.html" data-href-en="vibe-coding-52h-en.html">
+      <div class="post-meta">
+        <span class="post-tag" data-i18n="blog.tag.devdiary">开发日记</span>
+        <span>2026-03-03</span>
+      </div>
+      <h2 data-i18n="blog.title.52h">52小时，544个Commit：一只龙虾的诞生日记</h2>
+      <p data-i18n="blog.desc.52h">凌晨5点，她还在截图标红圈。AI还在改像素。189万字对话，0行手写代码。</p>
+      <span class="read-more" data-i18n="blog.readmore">阅读完整日记 →</span>
+    </a>
+
+    <a href="release-v1.html" class="post-card">
+      <div class="post-meta">
+        <span class="post-tag">Release Note</span>
+        <span class="post-tag" style="background:rgba(46,204,113,0.1);color:#2ecc71">v1.0</span>
+        <span>2026-03-02</span>
+      </div>
+      <h2 data-i18n="blog.title.release">"你能做网站吗？"——于是有了134万字，和一个网站。</h2>
+      <p data-i18n="blog.desc.release">26小时 · 45个页面 · 295次提交 · 0行手写代码。</p>
+      <span class="read-more" data-i18n="blog.readmore">查看发版记录 →</span>
+    </a>
+
+    <a href="vibe-coding-collaboration.html" class="post-card">
+      <div class="post-meta">
+        <span class="post-tag">Vibe Coding</span>
+        <span>2026-03-02</span>
+      </div>
+      <h2 data-i18n="blog.title.collab">Vibe Coding 协作指南：当老板不懂代码，AI 不懂"那个东西"</h2>
+      <p data-i18n="blog.desc.collab">截图标注法、10个必知术语、缓存对策——适用于所有用AI做网站的人。</p>
+      <span class="read-more" data-i18n="blog.readmore" data-i18n="blog.read.more">Read more →</span>
+    </a>
+
+    <a href="dev-log-day1.html" class="post-card">
+      <div class="post-meta">
+        <span class="post-tag">Dev Log</span>
+        <span>2026-03-02</span>
+      </div>
+      <h2 data-i18n="blog.title.devlog">🦞 龙虾不眠夜：24小时开发日志</h2>
+      <p data-i18n="blog.desc.devlog">60+次提交、5轮按钮对齐、1个CSS变量失踪案——团队（1人+1龙虾）的真实24小时。</p>
+      <span class="read-more" data-i18n="blog.readmore" data-i18n="blog.read.more">Read more →</span>
+    </a>
+
+    <a href="vibe-coding-story.html" class="post-card">
+      <div class="post-meta">
+        <span class="post-tag">Vibe Coding</span>
+        <span>2026-02-28</span>
+      </div>
+      <h2 data-i18n="blog.title1">我用 Ima Claw 做了这个网站，它把龙虾的脸抠没了</h2>
+      <p data-i18n="blog.desc1">2小时，0行代码，一只经历了存在主义危机的龙虾。</p>
+      <span class="read-more" data-i18n="blog.readmore" data-i18n="blog.read.more">Read more →</span>
+    </a>
+  </div>
+
+</div>
+>>>>>>> fd7e5139f635a57d1c39a7dc7e9a85e88fc133c4
 
 
-<script src="../i18n-sub.js?v=20260301b"></script>
+<script src="../i18n/core.js?v=10"></script>
+<script src="../assets/js/nav.js?v=9"></script>
 <script>
-// Close mobile nav on outside click
-document.addEventListener('click',function(e){
-  var nav=document.querySelector('.nav-links');
-  var ham=document.querySelector('.hamburger');
-  if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&e.target!==ham){nav.classList.remove('open')}
-  document.querySelectorAll('.lang-dropdown.open').forEach(function(d){if(!d.contains(e.target))d.classList.remove('open')});
-});
-document.querySelectorAll('.nav-links a').forEach(function(a){
-  a.addEventListener('click',function(){var nav=document.querySelector('.nav-links');if(nav)nav.classList.remove('open')});
-});
-</script>
-<script>
-var _zhStore={};
-var NAV_I18N={en:{"nav.home":"Home","nav.adopt":"🦞 Adopt","nav.skills":"Skills","nav.pricing":"🛒 Store","nav.docs":"Docs","nav.blog":"Blog","nav.community":"Community",
-"blog.title":"Yuki & Claw Chronicles",
-"blog.subtitle":"Building products with my lobster.<br>When things break, we laugh and keep going.",
-"blog.title.release":"\"Can you build a website?\" — And so came 1.34M words, and a website.",
-"blog.desc.release":"26 hours · 45 pages · 12,616 lines of code · 295 commits · 0 hand-written lines. One PM's question, one AI lobster's full commitment.",
-"blog.tag.guide":"Guide",
-"blog.log4":"Founder's Log #4",
-"blog.title.collab":"Vibe Coding Collaboration Guide: When the Boss Can't Code, and AI Can't Read Minds",
-"blog.desc.collab":"24 hours of non-stop dev, 5 rounds just to align buttons. At 1 AM I had the AI write a collaboration handbook — screenshot markup, 10 essential terms, cache strategies, confirmation rules. For anyone building websites with AI.",
-"blog.log3":"Founder's Log #3",
-"blog.title.devlog":"🦞 Lobster All-Nighter: 24-Hour Dev Log",
-"blog.desc.devlog":"At 1 AM, the boss is still circling screenshots on her phone, the lobster is still pushing to git. 60+ commits, 5 rounds of button alignment, 1 missing CSS variable — the real 24 hours of Ima Claw team (1 human + 1 lobster).",
-"blog.log2":"Founder's Log #2",
-"blog.title2":"4 AM Vibe Coding: 8 Bugs, 25 Minutes, 0 Lines of Code",
-"blog.desc2":"Couldn't sleep, started fixing the product. Screenshots and voice on my phone — 8 issues fixed in 25 minutes, all from bed. This is the ultimate form of Vibe Coding.",
-"blog.readmore":"Read More →",
-"blog.log1":"Founder's Log #1",
-"blog.title1":"I Built This Site with Ima Claw. It Deleted the Claw's Face.",
-"blog.desc1":"2 hours, 0 lines of code, one lobster having an existential crisis. The real story of Vibe Coding a website with our own product — including every crash and burn.",
-"blog.community.title":"🦞 Join the Ima Claw Community",
-"blog.community.desc":"Connect with other Claw owners, get updates, share skills and get help",
-"blog.community.btn":"Join Discord"
-}};
-function setLang(l){
-  try{localStorage.setItem("imaclaw-lang",l)}catch(e){}
-  var isZh=l==="zh"||l==="zh-CN";
-  document.querySelectorAll("[data-i18n]").forEach(function(el){
-    var k=el.getAttribute("data-i18n");
-    if(!_zhStore[k])_zhStore[k]=el.innerHTML;
-    if(isZh){el.innerHTML=_zhStore[k]}
-    else if(NAV_I18N["en"]&&NAV_I18N["en"][k]){el.innerHTML=NAV_I18N["en"][k]}
+// Switch blog post links based on language
+function updateBlogLinks(){
+  var lang = (typeof getLang === 'function') ? getLang() : (localStorage.getItem('imaclaw-lang') || 'zh-CN');
+  var isEn = (lang !== 'zh-CN');
+  document.querySelectorAll('.lang-link').forEach(function(a){
+    var zhHref = a.getAttribute('data-href-zh');
+    var enHref = a.getAttribute('data-href-en');
+    if(enHref && zhHref){
+      a.href = isEn ? enHref : zhHref;
+    }
   });
-  var m={"zh":"🇨🇳 中文","en":"🇺🇸 EN","es":"🇪🇸 ES","ja":"🇯🇵 JA","ar":"🇸🇦 AR"};
-  var t=document.querySelector(".lang-trigger");
-  if(t)t.textContent="🌐 "+(m[l]||l)+" ▾";
-  document.querySelectorAll(".lang-dropdown").forEach(function(d){d.classList.remove("open")});
 }
-(function(){try{var l=localStorage.getItem("imaclaw-lang");if(l&&l!=="zh"&&l!=="zh-CN")setTimeout(function(){setLang(l)},50)}catch(e){}})();
-document.addEventListener("click",function(){document.querySelectorAll(".lang-dropdown").forEach(function(d){d.classList.remove("open")})});
-
-// Blog language-aware links
-function detectBlogLang(){
-  var l=localStorage.getItem("imaclaw-lang");
-  if(l) return l;
-  var nav=navigator.language||navigator.userLanguage||'';
-  if(nav.startsWith('zh')) return 'zh';
-  return nav.split('-')[0]||'en';
-}
-function updateBlogLang(){
-  var l=detectBlogLang();
-  var isEn=(l!=="zh"&&l!=="zh-CN");
-  var card=document.getElementById("blog-52h");
-  var title=document.getElementById("blog-52h-title");
-  var desc=document.getElementById("blog-52h-desc");
-  if(card){card.href=isEn?"vibe-coding-52h-en.html":"vibe-coding-day2.html"}
-  if(title){title.textContent=isEn?"52 Hours, 544 Commits: The Birth of a Lobster":"52小时，544个Commit：一只龙虾的诞生日记"}
-  if(desc){desc.textContent=isEn?"At 5 AM she was still circling pixels in red. The AI was still pushing fixes. 1.89M characters, zero handwritten code. This is our 52 hours.":"凌晨5点，她还在截图标红圈。AI还在改像素。189万字对话，0行手写代码。红蓝大战、i18n地狱、bump 16次——这是一个人和一只AI龙虾的52小时。"}
-  var crash=document.getElementById("blog-crash");
-  if(crash){crash.href=isEn?"ai-crash-diary-en.html":"ai-crash-diary.html"}
-}
-updateBlogLang();
-var _origSetLang=setLang;
-setLang=function(l){_origSetLang(l);updateBlogLang()};
+updateBlogLinks();
+document.addEventListener('langChanged', updateBlogLinks);
 </script>
 <footer>
 <div style="max-width:600px;margin:0 auto 24px;padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:16px">
@@ -274,15 +320,30 @@ setLang=function(l){_origSetLang(l);updateBlogLang()};
     </div>
   </div>
   <div style="border-top:1px solid var(--border);padding-top:16px">
-    <p style="font-size:clamp(14px,1.3vw,17px);color:var(--text-2);line-height:1.8;margin:0;text-align:center;font-style:italic">"这个网站是我用 <b style="color:var(--lobster-light);font-style:normal">Ima Claw</b> 通过 Vibe Coding 生成的，全程零代码。"</p>
-    <div style="text-align:center;margin-top:12px"><a href="../blog/vibe-coding-story.html" style="color:var(--lobster-light);font-size:13px">阅读完整故事 →</a></div>
+    <p style="font-size:clamp(14px,1.3vw,17px);color:var(--text-2);line-height:1.8;margin:0;text-align:center;font-style:italic" data-i18n="footer.quote">"这个网站是我用 <b style="color:var(--lobster-light);font-style:normal">Ima Claw</b> 通过 Vibe Coding 生成的，全程零代码。左上角那只龙虾 logo？AI 抠图翻车把它的脸删了，又给它补了一张脸回来——结果变得超级可爱搞笑。我们决定留着它三个月。"</p>
+    <div style="text-align:center;margin-top:12px"><a href="../blog/vibe-coding-story.html" style="color:var(--lobster-light);font-size:13px" data-i18n="footer.story">阅读完整故事 →</a></div>
   </div>
 </div>
 <div style="display:flex;justify-content:center;align-items:center;gap:16px;margin-bottom:16px">
   <a href="https://x.com/ImaStudio_ai" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @ImaStudio_ai</a>
+  <a href="https://www.linkedin.com/company/imastudioai" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> ImaStudio</a>
   <a href="https://www.imastudio.com" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><circle cx="12" cy="12" r="10" stroke="#aaa" stroke-width="1.5" fill="none"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#aaa" stroke-width="1.5" fill="none"/></svg> imastudio.com</a>
 </div>
-<p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank" rel="noopener">ImaStudio</a> 出品 · I'm A Studio, I'm A Claw 🦞 · <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">Built on OpenClaw</a></p>
+<p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank" rel="noopener">ImaStudio</a><span data-i18n="footer.by"> Made by </span>· I'm A Studio, I'm A Claw 🦞 · <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">Built on OpenClaw</a></p>
 </footer>
+<script>
+function switchTab(tab) {
+  var tips = document.getElementById('col-tips');
+  var diary = document.getElementById('col-diary');
+  var tabs = document.querySelectorAll('.blog-tab');
+  if (tab === 'diary') {
+    diary.classList.add('active'); tips.classList.remove('active');
+    tabs[0].classList.add('active'); tabs[1].classList.remove('active');
+  } else {
+    tips.classList.add('active'); diary.classList.remove('active');
+    tabs[1].classList.add('active'); tabs[0].classList.remove('active');
+  }
+}
+</script>
 </body>
 </html>

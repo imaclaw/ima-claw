@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <link rel="icon" href="../favicon.ico"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#0C0C12">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Vibe Coding 协作指南：当老板不懂代码，AI 不懂"那个东西" — Ima Claw Blog</title>
+<meta name="description" content="A guide to Vibe Coding collaboration — when the boss can't code and AI doesn't understand 'that thing'. Tips for human-AI teamwork.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://imaclaw.github.io/ima-claw/blog/vibe-coding-collaboration.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vibe Coding 协作指南">
+<meta property="og:description" content="A guide to Vibe Coding collaboration — when the boss can't code and AI doesn't understand 'that thing'. Tips for human-AI teamwork.">
+<meta property="og:url" content="https://imaclaw.github.io/ima-claw/blog/vibe-coding-collaboration.html">
+<meta property="og:image" content="https://imaclaw.github.io/ima-claw/mascot.png">
+<meta property="og:site_name" content="Ima Claw">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vibe Coding 协作指南">
+<meta name="twitter:description" content="A guide to Vibe Coding collaboration — when the boss can't code and AI doesn't understand 'that thing'. Tips for human-AI teamwork.">
+<meta name="twitter:image" content="https://imaclaw.github.io/ima-claw/mascot.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/variables.css?v=8">
+<link rel="stylesheet" href="../assets/css/nav.css?v=8">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--lobster:#D4403A;--lobster-light:#E8584E;--bg:#0C0C12;--surface:#13131D;--text:#E8E8ED;--text-2:rgba(255,255,255,0.55);--text-3:rgba(255,255,255,0.35);--border:rgba(255,255,255,0.06);--blue:#4A80D4;--gold:#f2c744}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC',sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;padding-top:60px}
 a{text-decoration:none;color:inherit}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(12,12,18,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-.logo img{height:40px;width:40px;border-radius:8px}
-.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em;color:var(--text)}
-.logo-text b{color:var(--lobster-light)}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:var(--text-3);font-size:13px;font-weight:500;transition:color .3s}
-.nav-links a:hover{color:var(--text)}
-.nav-adopt{color:var(--lobster-light)!important;font-weight:600!important}
-.hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px}
 @media(max-width:768px){
-  nav{padding:14px 16px}.hamburger{display:block}
-  .nav-links{display:none!important;position:fixed;top:56px;right:16px;left:auto;background:rgba(12,12,18,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:16px 0;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;z-index:99;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
-  .nav-links.open{display:flex!important}
-  .nav-links a{padding:12px 20px!important;text-align:right!important;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px!important;color:rgba(255,255,255,0.55)!important;display:block}
-  .nav-links a:last-child{border-bottom:none}
-}
+          }
 
-.article{max-width:720px;margin:0 auto;padding:40px 20px 80px}
+.article{max-width:1100px;margin:0 auto;padding:40px 20px 80px}
 .back{font-size:13px;color:var(--text-3);margin-bottom:20px;display:inline-block}
 .back:hover{color:var(--lobster-light)}
 .article-meta{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
@@ -77,119 +78,152 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 footer{border-top:1px solid var(--border);padding:40px;text-align:center}
 footer p{color:var(--text-3);font-size:12px}
 footer a{color:var(--lobster-light)}
+
+/* ── Article header nav ── */
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+.hero-date{font-size:12px;color:rgba(255,255,255,0.3);margin-top:8px}
+.hero-author{font-size:13px;color:rgba(255,255,255,0.4);margin:10px 0 14px;letter-spacing:0.01em}
+.art-nav-top{display:flex;align-items:center;gap:2px;margin-top:4px;flex-shrink:0}
+.art-nav-top a,.art-nav-top .anav-dis{display:flex;align-items:center;justify-content:center;width:30px;height:30px;color:rgba(255,255,255,0.35);border-radius:7px;transition:all .2s;border:1px solid transparent}
+.art-nav-top a:hover{color:rgba(255,255,255,0.75);background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.1)}
+.art-nav-top .anav-dis{opacity:0.2;cursor:default}
+.art-nav-top .anav-sep{color:rgba(255,255,255,0.12);font-size:8px;padding:0 1px;user-select:none}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Vibe Coding 协作指南：当老板不懂代码，AI 不懂"那个东西" — Ima Claw Blog","description":"A guide to Vibe Coding collaboration — when the boss can't code and AI doesn't understand 'that thing'. Tips for human-AI teamwork.","author":{"@type":"Person","name":"Yuki He"},"publisher":{"@type":"Organization","name":"Ima Claw","logo":{"@type":"ImageObject","url":"https://imaclaw.github.io/ima-claw/mascot.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://imaclaw.github.io/ima-claw/blog/vibe-coding-collaboration.html"}}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GC73SMKR44"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GC73SMKR44');
+</script>
 </head>
 <body>
 
 <nav>
   <a href="../" class="logo"><img src="../logo-nav.png" alt="Ima Claw logo"><div class="logo-text">Ima<b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by ImaStudio</span></div></a>
   <div class="nav-links">
+<<<<<<< HEAD
     <a href="../">首页</a>
     <a href="../adopt/" class="nav-adopt">🦞 领养</a>
     <a href="../skills/">Skill 市场</a>
     <a href="../pricing/">🛒 购买</a>
     <a href="./">博客</a>
     <a href="https://discord.gg/QmNHCnv2Tf" target="_blank" style="color:#5865F2;font-weight:600">Discord</a>
+=======
+    <a href="../" data-i18n="nav.home">首页</a>
+    <a href="../adopt/" data-i18n="nav.adopt" class="nav-adopt" data-i18n="nav.adopt">🦞 领养</a>
+    <a href="../skills/" data-i18n="nav.skills">Skill 市场</a>
+    <a href="../pricing/" data-i18n="nav.pricing">🛒 购买</a>
+    <a href="./" data-i18n="nav.blog">博客</a>
+    <a href="https://discord.gg/QmNHCnv2Tf" aria-label="Join Ima Claw Discord community" target="_blank" rel="noopener" style="color:#5865F2;font-weight:600" data-i18n="nav.community">Discord</a>
+    <div class="lang-dropdown" style="position:relative;margin-left:8px">
+      <button class="lang-trigger">🌐 中文 ▾</button>
+      <div class="lang-menu"><button data-lang="zh-CN">🇨🇳 中文</button><button data-lang="en">🇺🇸 English</button><button data-lang="es">🇪🇸 Español</button><button data-lang="ja">🇯🇵 日本語</button><button data-lang="ar">🇸🇦 العربية</button></div>
+    </div>
+>>>>>>> fd7e5139f635a57d1c39a7dc7e9a85e88fc133c4
   </div>
-  <button class="hamburger" style="background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px" onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <button class="hamburger">☰</button>
 </nav>
 
 <article class="article">
-  <a href="./" class="back">← 返回博客</a>
-  <div class="article-meta">
-    <span class="tag tag-vibe">Vibe Coding</span>
-    <span class="tag tag-guide">实用指南</span>
-    <span class="date">2026-03-02 · 创始人日志 #4</span>
-  </div>
-  <h1>Vibe Coding 协作指南：<br>当老板不懂代码，AI 不懂"那个东西"</h1>
-  <p style="font-size:14px;color:var(--text-3);margin:16px 0 20px;letter-spacing:0.5px">作者：Yuki 和龙虾爪爪</p>
-  <p class="subtitle">我和我的 AI 龙虾连续开发了24小时网站，光"按钮对齐"就改了5轮。于是凌晨1点，我让它写了一份协作手册——结果比代码还有用。</p>
+  <a href="./" class="back" data-i18n="collab.back">← 返回博客</a>
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
+  <div class="article-meta" style="margin-bottom:0"><span class="tag tag-vibe">Vibe Coding</span>
+    <span class="tag tag-guide" data-i18n="collab.tag.guide">实用指南</span>
+    <span class="date" data-i18n="collab.date">2026-03-02 · 创始人日志 #4</span></div>
+  <div class="art-nav-top"><a href="vibe-coding-story.html" title="龙虾logo被抠没了"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></a><span class="anav-sep">·</span><a href="./" title="博客首页"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></a><span class="anav-sep">·</span><a href="vibe-coding-day2.html" title="52小时诞生日记"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
+</div>
+  <h1 data-i18n="collab.title">Vibe Coding 协作指南：<br>当老板不懂代码，AI 不懂"那个东西"</h1>
+  <p style="font-size:14px;color:var(--text-3);margin:16px 0 20px;letter-spacing:0.5px" data-i18n="collab.author">作者：Yuki 和龙虾爪爪</p>
+  <p class="subtitle" data-i18n="collab.subtitle">我和我的 AI 龙虾连续开发了24小时网站，光"按钮对齐"就改了5轮。于是凌晨1点，我让它写了一份协作手册——结果比代码还有用。</p>
 
   <div class="content">
 
-    <h2>起因：凌晨1点的灵魂拷问</h2>
+    <h2 data-i18n="collab.h2.origin">起因：凌晨1点的灵魂拷问</h2>
     
-    <p>连续24小时 Vibe Coding 做网站。我躺在床上用手机截图画圈，AI 在服务器上疯狂 <code>git push</code>。效率高吗？高。但沟通上翻车也不少：</p>
+    <p data-i18n="collab.p1">连续24小时 Vibe Coding 做网站。我躺在床上用手机截图画圈，AI 在服务器上疯狂 <code>git push</code>。效率高吗？高。但沟通上翻车也不少：</p>
 
     <ul>
-      <li>"<strong>这个区域改一下</strong>" → AI 改了错误的区域，因为页面上有3个长得差不多的区域</li>
-      <li>"<strong>两个按钮高度不一样</strong>" → 改了5轮，因为每次只改了一个属性</li>
-      <li>反复发截图说"<strong>你改了吗？</strong>" → 其实改了，但浏览器缓存</li>
+      <li data-i18n="collab.li1">"<strong>这个区域改一下</strong>" → AI 改了错误的区域，因为页面上有3个长得差不多的区域</li>
+      <li data-i18n="collab.li2">"<strong>两个按钮高度不一样</strong>" → 改了5轮，因为每次只改了一个属性</li>
+      <li data-i18n="collab.li3">反复发截图说"<strong>你改了吗？</strong>" → 其实改了，但浏览器缓存</li>
     </ul>
 
-    <p>凌晨1点多，我终于忍不住了：</p>
+    <p data-i18n="collab.p2">凌晨1点多，我终于忍不住了：</p>
 
     <div style="margin:20px 0;text-align:center">
       <img src="img/chat-request.jpg" style="max-width:320px;width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,0.3)" alt="老板提出协作需求">
-      <p style="font-size:12px;color:var(--text-3);margin-top:8px">凌晨1点的灵魂拷问："我们怎么提升沟通效率？"</p>
+      <p style="font-size:12px;color:var(--text-3);margin-top:8px" data-i18n="collab.cap1">凌晨1点的灵魂拷问："我们怎么提升沟通效率？"</p>
     </div>
 
-    <p>三分钟后，它交了一份协作手册。</p>
+    <p data-i18n="collab.p3">三分钟后，它交了一份协作手册。</p>
 
     <div style="margin:20px 0;text-align:center">
       <img src="img/chat-response.jpg" style="max-width:320px;width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,0.3)" alt="龙虾的协作手册">
-      <p style="font-size:12px;color:var(--text-3);margin-top:8px">三分钟后，龙虾交了一份协作手册</p>
+      <p style="font-size:12px;color:var(--text-3);margin-top:8px" data-i18n="collab.cap2">三分钟后，龙虾交了一份协作手册</p>
     </div>
 
-    <p>我看完觉得：<strong>这比它今天写的代码都有用。</strong></p>
+    <p data-i18n="collab.p4">我看完觉得：<strong>这比它今天写的代码都有用。</strong></p>
 
     <div style="margin:20px 0;text-align:center">
       <img src="img/chat-extra.jpg" style="max-width:320px;width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,0.3)" alt="老板决定发文章">
-      <p style="font-size:12px;color:var(--text-3);margin-top:8px">"写成文章发出来，对其他 Vibe Coding 做网站的人也有帮助"</p>
+      <p style="font-size:12px;color:var(--text-3);margin-top:8px" data-i18n="collab.cap3">"写成文章发出来，对其他 Vibe Coding 做网站的人也有帮助"</p>
     </div>
 
-    <p>所以就有了这篇文章。</p>
+    <p data-i18n="collab.p5">所以就有了这篇文章。</p>
 
-    <h2>5 条协作规则</h2>
+    <h2 data-i18n="collab.h2.rules">5 条协作规则</h2>
 
     <div class="tip-card">
-      <h4><span class="tip-num">1</span> 截图标注法：沟通效率之王</h4>
-      <p style="font-size:14px;color:var(--text-2);line-height:1.7">截图 + 画圈，是 Vibe Coding 中最有效的沟通方式。我们约定了颜色含义：</p>
+      <h4><span class="tip-num">1</span> <span data-i18n="collab.tip1.title">截图标注法：沟通效率之王</span></h4>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7" data-i18n="collab.tip1.desc">截图 + 画圈，是 Vibe Coding 中最有效的沟通方式。我们约定了颜色含义：</p>
       <ul>
-        <li>🟡 <strong>黄色圈</strong> = "改这里"</li>
-        <li>🔴 <strong>红色叉</strong> = "删掉"</li>
-        <li>🟢 <strong>绿色箭头</strong> = "移到这里"</li>
+        <li data-i18n="collab.tip1.yellow">🟡 <strong>黄色圈</strong> = "改这里"</li>
+        <li data-i18n="collab.tip1.red">🔴 <strong>红色叉</strong> = "删掉"</li>
+        <li data-i18n="collab.tip1.green">🟢 <strong>绿色箭头</strong> = "移到这里"</li>
       </ul>
-      <p style="font-size:14px;color:var(--text-2)">每次说清三件事就够：<strong>哪里 + 怎么改 + 改成什么</strong></p>
+      <p style="font-size:14px;color:var(--text-2)" data-i18n="collab.tip1.rule">每次说清三件事就够：<strong>哪里 + 怎么改 + 改成什么</strong></p>
       <div class="bad-good">
-        <div class="bad">"这个区域改一下"<br>"不太好"</div>
-        <div class="good">"导航栏汉堡菜单 → 去掉边框"<br>"这两个按钮 → 高度要一样"</div>
+        <div class="bad" data-i18n="collab.tip1.bad">"这个区域改一下"<br>"不太好"</div>
+        <div class="good" data-i18n="collab.tip1.good">"导航栏汉堡菜单 → 去掉边框"<br>"这两个按钮 → 高度要一样"</div>
       </div>
     </div>
 
     <div class="tip-card">
-      <h4><span class="tip-num">2</span> 学会10个术语，效率翻倍</h4>
-      <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:12px">你不需要学代码，但学会这些词，AI 能精准理解你要什么：</p>
+      <h4><span class="tip-num">2</span> <span data-i18n="collab.tip2.title">学会10个术语，效率翻倍</span></h4>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:12px" data-i18n="collab.tip2.desc">你不需要学代码，但学会这些词，AI 能精准理解你要什么：</p>
       <table>
-        <tr><th>术语</th><th>意思</th><th>你可以说</th></tr>
-        <tr><td><strong>导航栏</strong></td><td>顶部那一条（logo+菜单）</td><td>"导航栏间距太大"</td></tr>
-        <tr><td><strong>Hero</strong></td><td>页面最顶部的大标题区域</td><td>"Hero 标题换一下"</td></tr>
-        <tr><td><strong>卡片</strong></td><td>有边框的内容块</td><td>"这个卡片删掉"</td></tr>
-        <tr><td><strong>间距</strong></td><td>元素之间的空白</td><td>"按钮间距太大"</td></tr>
-        <tr><td><strong>内边距</strong></td><td>内容到边框的距离</td><td>"文字贴边了，内边距加大"</td></tr>
-        <tr><td><strong>圆角</strong></td><td>方框的角是否圆滑</td><td>"按钮圆角大一点"</td></tr>
+        <tr><th data-i18n="collab.tip2.th1">术语</th><th data-i18n="collab.tip2.th2">意思</th><th data-i18n="collab.tip2.th3">你可以说</th></tr>
+        <tr><td><strong data-i18n="collab.tip2.t1">导航栏</strong></td><td data-i18n="collab.tip2.t1d">顶部那一条（logo+菜单）</td><td data-i18n="collab.tip2.t1e">"导航栏间距太大"</td></tr>
+        <tr><td><strong>Hero</strong></td><td data-i18n="collab.tip2.t2d">页面最顶部的大标题区域</td><td data-i18n="collab.tip2.t2e">"Hero 标题换一下"</td></tr>
+        <tr><td><strong data-i18n="collab.tip2.t3">卡片</strong></td><td data-i18n="collab.tip2.t3d">有边框的内容块</td><td data-i18n="collab.tip2.t3e">"这个卡片删掉"</td></tr>
+        <tr><td><strong data-i18n="collab.tip2.t4">间距</strong></td><td data-i18n="collab.tip2.t4d">元素之间的空白</td><td data-i18n="collab.tip2.t4e">"按钮间距太大"</td></tr>
+        <tr><td><strong data-i18n="collab.tip2.t5">内边距</strong></td><td data-i18n="collab.tip2.t5d">内容到边框的距离</td><td data-i18n="collab.tip2.t5e">"文字贴边了，内边距加大"</td></tr>
+        <tr><td><strong data-i18n="collab.tip2.t6">圆角</strong></td><td data-i18n="collab.tip2.t6d">方框的角是否圆滑</td><td data-i18n="collab.tip2.t6e">"按钮圆角大一点"</td></tr>
       </table>
-      <p style="font-size:14px;color:var(--text-2);margin-top:12px"><strong>快捷表达：</strong>"往上挪"、"放大/缩小"、"颜色浅一点"、"松一点"、"对齐"、"换行不好看" —— 这些 AI 都能秒懂。</p>
+      <p style="font-size:14px;color:var(--text-2);margin-top:12px" data-i18n="collab.tip2.shortcuts"><strong>快捷表达：</strong>"往上挪"、"放大/缩小"、"颜色浅一点"、"松一点"、"对齐"、"换行不好看" —— 这些 AI 都能秒懂。</p>
     </div>
 
     <div class="tip-card">
-      <h4><span class="tip-num">3</span> 缓存是最大的时间杀手</h4>
-      <p style="font-size:14px;color:var(--text-2);line-height:1.7">今天最大的时间浪费：我反复问"你改了吗？"，其实 AI 早改了，但我看到的是浏览器缓存的旧版本。</p>
-      <p style="font-size:14px;color:var(--text-2);line-height:1.7"><strong>解决方案：</strong>让 AI 每次改完给你一个带 <code>?v=数字</code> 的链接。永远用最新链接打开，不要直接刷新。</p>
+      <h4><span class="tip-num">3</span> <span data-i18n="collab.tip3.title">缓存是最大的时间杀手</span></h4>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7" data-i18n="collab.tip3.desc">今天最大的时间浪费：我反复问"你改了吗？"，其实 AI 早改了，但我看到的是浏览器缓存的旧版本。</p>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7" data-i18n="collab.tip3.solution"><strong>解决方案：</strong>让 AI 每次改完给你一个带 <code>?v=数字</code> 的链接。永远用最新链接打开，不要直接刷新。</p>
       <blockquote>
         <p>https://example.com/pricing/?v=207</p>
-        <p>每次数字不同 = 强制绕过缓存</p>
+        <p data-i18n="collab.tip3.note">每次数字不同 = 强制绕过缓存</p>
       </blockquote>
     </div>
 
     <div class="tip-card">
-      <h4><span class="tip-num">4</span> 给 AI 立规矩：先确认，再动手</h4>
-      <p style="font-size:14px;color:var(--text-2);line-height:1.7">今天的教训：我说"这个区域改成XXX"，AI 改了错误的区域。因为页面上有两个相似的文案块。</p>
-      <p style="font-size:14px;color:var(--text-2);line-height:1.7"><strong>规则：</strong>遇到模糊指令，AI 必须先确认再动手：</p>
+      <h4><span class="tip-num">4</span> <span data-i18n="collab.tip4.title">给 AI 立规矩：先确认，再动手</span></h4>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7" data-i18n="collab.tip4.desc">今天的教训：我说"这个区域改成XXX"，AI 改了错误的区域。因为页面上有两个相似的文案块。</p>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7" data-i18n="collab.tip4.rule"><strong>规则：</strong>遇到模糊指令，AI 必须先确认再动手：</p>
       <blockquote>
-        <p>"你说的是 [具体位置] 的 [具体元素] 吗？要改成 [具体效果]？"</p>
+        <p data-i18n="collab.tip4.quote">"你说的是 [具体位置] 的 [具体元素] 吗？要改成 [具体效果]？"</p>
       </blockquote>
-      <p style="font-size:14px;color:var(--text-2)">多花3秒确认，省30分钟返工。</p>
+      <p style="font-size:14px;color:var(--text-2)" data-i18n="collab.tip4.summary">多花3秒确认，省30分钟返工。</p>
     </div>
 
     <div class="tip-card">
@@ -289,7 +323,11 @@ footer a{color:var(--lobster-light)}
   <div style="font-size:13px;color:#a0a0a0;margin-bottom:12px">领养一只 AI 龙虾，躺在床上做网站</div>
   <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap">
   <a href="../adopt/" style="display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 24px;background:var(--lobster);color:white;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;box-sizing:border-box">🦞 领养龙虾</a>
+<<<<<<< HEAD
   <a href="https://discord.gg/QmNHCnv2Tf" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;height:42px;padding:0 24px;background:#5865F2;color:white;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;box-sizing:border-box"><img src="https://cdn.simpleicons.org/discord/white" style="width:14px;height:14px">加入社区</a>
+=======
+  <a href="https://discord.gg/QmNHCnv2Tf" aria-label="Join Ima Claw Discord community" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;height:42px;padding:0 24px;background:#5865F2;color:white;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;box-sizing:border-box"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/discord/white" alt="Discord" style="width:14px;height:14px">加入社区</a>
+>>>>>>> fd7e5139f635a57d1c39a7dc7e9a85e88fc133c4
   </div>
 </div>
 
@@ -302,6 +340,8 @@ document.addEventListener('click',function(e){
   if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&e.target!==ham){nav.classList.remove('open')}
 });
 </script>
+<script src="../i18n/core.js?v=10"></script>
+<script src="../assets/js/nav.js?v=9"></script>
 <footer>
 <div style="max-width:600px;margin:0 auto 24px;padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:16px">
   <div style="text-align:center;margin-bottom:16px">
@@ -314,15 +354,16 @@ document.addEventListener('click',function(e){
     </div>
   </div>
   <div style="border-top:1px solid var(--border);padding-top:16px">
-    <p style="font-size:clamp(14px,1.3vw,17px);color:var(--text-2);line-height:1.8;margin:0;text-align:center;font-style:italic">"这个网站是我用 <b style="color:var(--lobster-light);font-style:normal">Ima Claw</b> 通过 Vibe Coding 生成的，全程零代码。"</p>
-    <div style="text-align:center;margin-top:12px"><a href="../blog/vibe-coding-story.html" style="color:var(--lobster-light);font-size:13px">阅读完整故事 →</a></div>
+    <p style="font-size:clamp(14px,1.3vw,17px);color:var(--text-2);line-height:1.8;margin:0;text-align:center;font-style:italic" data-i18n="footer.quote">"这个网站是我用 <b style="color:var(--lobster-light);font-style:normal">Ima Claw</b> 通过 Vibe Coding 生成的，全程零代码。左上角那只龙虾 logo？AI 抠图翻车把它的脸删了，又给它补了一张脸回来——结果变得超级可爱搞笑。我们决定留着它三个月。"</p>
+    <div style="text-align:center;margin-top:12px"><a href="../blog/vibe-coding-story.html" style="color:var(--lobster-light);font-size:13px" data-i18n="footer.story">阅读完整故事 →</a></div>
   </div>
 </div>
 <div style="display:flex;justify-content:center;align-items:center;gap:16px;margin-bottom:16px">
   <a href="https://x.com/ImaStudio_ai" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @ImaStudio_ai</a>
+  <a href="https://www.linkedin.com/company/imastudioai" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> ImaStudio</a>
   <a href="https://www.imastudio.com" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><circle cx="12" cy="12" r="10" stroke="#aaa" stroke-width="1.5" fill="none"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#aaa" stroke-width="1.5" fill="none"/></svg> imastudio.com</a>
 </div>
-<p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank" rel="noopener">ImaStudio</a> 出品 · I'm A Studio, I'm A Claw 🦞 · <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">Built on OpenClaw</a></p>
+<p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank" rel="noopener">ImaStudio</a><span data-i18n="footer.by"> Made by </span>· I'm A Studio, I'm A Claw 🦞 · <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">Built on OpenClaw</a></p>
 </footer>
 </body>
 </html>

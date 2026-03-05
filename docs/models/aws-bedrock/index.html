@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="theme-color" content="#0C0C12">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>AWS Bedrock - Ima Claw</title>
+<link rel="stylesheet" href="../../../assets/css/variables.css?v=8">
+<link rel="stylesheet" href="../../../assets/css/nav.css?v=8">
 <style>
 :root{--bg:#0a0a0f;--surface:#12121a;--surface-2:#1a1a24;--border:#222;--border-hover:#333;--text:#e8e8e8;--text-2:#a0a0a0;--text-3:#666;--lobster:#e74c3c;--lobster-light:#ff6b5b;--gold:#f2c744;--green:#2ecc71;--blue:#3498db}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -11,35 +14,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragin
 a{text-decoration:none;color:inherit}
 
 /* === SHARED NAV CSS === */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;background:rgba(12,12,18,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.logo{display:flex;align-items:center;gap:10px}
-.logo img{height:40px;width:40px;border-radius:8px}
-.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em;color:var(--text)}
-.logo-text b{color:var(--lobster-light)}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:var(--text-3);font-size:13px;font-weight:500;transition:color .3s}
-.nav-links a:hover{color:var(--text)}
-.nav-adopt{color:var(--lobster-light)!important;font-weight:600!important}
-.hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px}
-.lang-dropdown{display:inline-block;position:relative}
-.lang-trigger{padding:6px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text-2);font-size:12px;cursor:pointer;font-weight:500}
-.lang-menu{display:none;position:absolute;top:100%;right:0;margin-top:6px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:4px;min-width:140px;z-index:1002;box-shadow:0 8px 24px rgba(0,0,0,0.4)}
-.lang-dropdown.open .lang-menu{display:block}
-.lang-menu button{display:block;width:100%;padding:8px 12px;border:none;background:transparent;color:var(--text-2);font-size:13px;text-align:left;cursor:pointer;border-radius:6px}
-.lang-menu button:hover{background:rgba(231,76,60,0.1);color:var(--lobster-light)}
-@media(max-width:768px){
-  nav{padding:14px 16px}
-  .hamburger{display:block}
-  .nav-links{display:none!important;position:fixed;top:56px;right:16px;left:auto;background:rgba(12,12,18,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:16px 0;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;z-index:99;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
-  .nav-links.open{display:flex!important}
-  .nav-links a{padding:12px 20px!important;text-align:right!important;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px!important;color:rgba(255,255,255,0.55)!important;display:block}
-  .nav-links a:last-child{border-bottom:none}
-  .nav-links .lang-dropdown{padding:12px 20px;text-align:right;display:flex;justify-content:flex-end}
-}
-/* === END SHARED NAV CSS === */
 
-/* Tutorial layout */
-.tutorial{max-width:720px;margin:0 auto;padding:90px 20px 60px}
 
 /* Breadcrumb */
 .breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-3);margin-bottom:32px}
@@ -106,8 +81,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 40px;display:f
 .faq-arrow{transition:transform .2s;color:var(--text-3)}
 
 /* Bottom nav */
-.bottom-nav{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap}
-.btn-back{padding:12px 24px;background:var(--surface);border:1px solid var(--border);color:var(--text-2);font-size:14px;font-weight:600;border-radius:10px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.bottom-.btn-back{padding:12px 24px;background:var(--surface);border:1px solid var(--border);color:var(--text-2);font-size:14px;font-weight:600;border-radius:10px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
 .btn-back:hover{border-color:var(--border-hover);color:var(--text)}
 .btn-community{padding:12px 24px;background:var(--lobster);color:#fff;font-size:14px;font-weight:600;border-radius:10px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
 .btn-community:hover{background:var(--lobster-light)}
@@ -124,26 +98,35 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 16px
 footer p{color:var(--text-3);font-size:12px;word-wrap:break-word;line-height:1.8}
 footer a{color:var(--lobster-light)}
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GC73SMKR44"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GC73SMKR44');
+</script>
 </head>
 <body>
 <nav>
-  <a href="../../../" class="logo"><img src="../../../logo-nav.png" alt=""><div class="logo-text">Ima<b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by ImaStudio</span></div></a>
+  <a href="../../../" class="logo"><img src="../../../logo-nav.png" alt="Ima Claw logo"><div class="logo-text">Ima<b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by ImaStudio</span></div></a>
   <div class="nav-links">
     <a href="../../../">首页</a>
     <a href="../../../adopt/" class="nav-adopt">🦞 领养</a>
     <a href="../../../skills/">Skill 市场</a>
     <a href="../../../pricing/">🛒 购买</a>
     <a href="../../../docs/">帮助</a>
-    <a href="https://imastudio.com/community" target="_blank">社区</a>
+    <a href="https://imastudio.com/community" target="_blank" rel="noopener">社区</a>
+    <a href="https://discord.gg/QmNHCnv2Tf" aria-label="Join Ima Claw Discord community" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;color:#5865F2;font-weight:600"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/discord/5865F2" alt="Discord" style="width:14px;height:14px">Discord</a>
     <div class="lang-dropdown">
-      <button class="lang-trigger" onclick="event.stopPropagation();this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
+      <button class="lang-trigger">🌐 中文 ▾</button>
       <div class="lang-menu">
-        <button onclick="setLang('zh')">🇨🇳 中文</button>
-        <button onclick="setLang('en')">🇺🇸 English</button>
+        <button data-lang="zh-CN">🇨🇳 中文</button>
+        <button data-lang="en">🇺🇸 English</button>
       </div>
     </div>
   </div>
-  <button class="hamburger" onclick="event.stopPropagation();document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <button class="hamburger">☰</button>
 </nav>
 <div class="tutorial">
 
@@ -166,12 +149,12 @@ footer a{color:var(--lobster-light)}
 <div class="info-box"><h3>📋 前置条件</h3>
 <ul class="info-list">
 <li>已完成 Ima Claw 安装（<a href="../../../adopt/" style="color:var(--lobster-light)">还没装？去领养 →</a>）</li>
-<li><a href="https://www.imastudio.com" target="_blank" style="color:var(--lobster-light)">ImaStudio 账号</a>（<a href="https://www.imastudio.com" target="_blank" style="color:var(--gold)">点击注册，免费 →</a>）</li>
+<li><a href="https://www.imastudio.com" target="_blank" rel="noopener" style="color:var(--lobster-light)">ImaStudio 账号</a>（<a href="https://www.imastudio.com" target="_blank" rel="noopener" style="color:var(--gold)">点击注册，免费 →</a>）</li>
 </ul></div>
 
 <div class="step"><div class="step-badge">STEP 1</div>
 <h2>注册 ImaStudio 账号</h2>
-<p>访问 <a href="https://www.imastudio.com" target="_blank" style="color:var(--gold)">imastudio.com</a>，点击注册。支持邮箱和 Google 账号快速注册。</p>
+<p>访问 <a href="https://www.imastudio.com" target="_blank" rel="noopener" style="color:var(--gold)">imastudio.com</a>，点击注册。支持邮箱和 Google 账号快速注册。</p>
 <p>注册完全<span class="highlight">免费</span>，无需信用卡。</p>
 </div>
 
@@ -203,7 +186,7 @@ footer a{color:var(--lobster-light)}
 </div>
 
 <div class="success-box">
-<div class="emoji"><img src="../../../logo-nav.png" style="width:64px;height:64px;display:inline-block;vertical-align:middle">🎉</div>
+<div class="emoji"><img src="../../../logo-nav.png" alt="Ima Claw" style="width:64px;height:64px;display:inline-block;vertical-align:middle">🎉</div>
 <h3>恭喜！你的 Ima 龙虾已连接 AWS Bedrock</h3>
 <p>通过 ImaClaw，你可以随时切换使用所有 30+ 模型</p></div>
 
@@ -213,21 +196,21 @@ footer a{color:var(--lobster-light)}
 
 <div class="faq"><h2>❓ 常见问题</h2>
 <div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">需要去 AWS Bedrock 官网注册吗？<span class="faq-arrow">▾</span></div>
+<div class="faq-q">需要去 AWS Bedrock 官网注册吗？<span class="faq-arrow">▾</span></div>
 <div class="faq-a"><p>不需要！Ima Claw 通过 ImaClaw 封装了所有模型。你只需要 ImaStudio 账号和 API Key，就能使用包括 AWS Bedrock 在内的 30+ 模型。</p></div></div>
 
 <div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">怎么切换不同的模型？<span class="faq-arrow">▾</span></div>
+<div class="faq-q">怎么切换不同的模型？<span class="faq-arrow">▾</span></div>
 <div class="faq-a"><p>直接在对话中告诉龙虾"切换到 XXX 模型"即可。也可以在配置文件中设置默认模型。</p></div></div>
 
 <div class="faq-item">
-<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">ImaClaw 怎么计费？<span class="faq-arrow">▾</span></div>
+<div class="faq-q">ImaClaw 怎么计费？<span class="faq-arrow">▾</span></div>
 <div class="faq-a"><p>ImaClaw 提供免费额度供体验。超出后按用量计费，费用在 ImaStudio 后台统一结算。具体价格见 <a href="../../../pricing/" style="color:var(--lobster-light)">定价页面</a>。</p></div></div>
 </div>
 
 <div class="bottom-nav">
 <a href="../../../adopt/" class="btn-back">← 返回领养页</a>
-<a href="https://imastudio.com/community" target="_blank" class="btn-community">💬 遇到问题？加入社区</a></div>
+<a href="https://imastudio.com/community" target="_blank" rel="noopener" class="btn-community">💬 遇到问题？加入社区</a></div>
 
 <div class="other-channels"><h3>查看其他模型</h3>
 <div class="channel-row"><a href="../google/" class="channel-link"><img src="../../../adopt/logos/google.svg" alt="">Google Gemini</a>
@@ -260,6 +243,8 @@ document.addEventListener('click', function(e) {
   }
 });
 </script>
+<script src="../../../i18n/core.js?v=10"></script>
+<script src="../../../assets/js/nav.js?v=9"></script>
 <footer>
 <div style="max-width:600px;margin:0 auto 24px;padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:16px">
   <div style="text-align:center;margin-bottom:16px">
@@ -272,14 +257,15 @@ document.addEventListener('click', function(e) {
     </div>
   </div>
   <div style="border-top:1px solid var(--border);padding-top:16px">
-    <p style="font-size:clamp(14px,1.3vw,17px);color:var(--text-2);line-height:1.8;margin:0;text-align:center;font-style:italic">"这个网站是我用 <b style="color:var(--lobster-light);font-style:normal">Ima Claw</b> 通过 Vibe Coding 生成的，全程零代码。"</p>
-    <div style="text-align:center;margin-top:12px"><a href="../../../blog/vibe-coding-story.html" style="color:var(--lobster-light);font-size:13px">阅读完整故事 →</a></div>
+    <p style="font-size:clamp(14px,1.3vw,17px);color:var(--text-2);line-height:1.8;margin:0;text-align:center;font-style:italic" data-i18n="footer.quote">"这个网站是我用 <b style="color:var(--lobster-light);font-style:normal">Ima Claw</b> 通过 Vibe Coding 生成的，全程零代码。左上角那只龙虾 logo？AI 抠图翻车把它的脸删了，又给它补了一张脸回来——结果变得超级可爱搞笑。我们决定留着它三个月。"</p>
+    <div style="text-align:center;margin-top:12px"><a href="../../../blog/vibe-coding-story.html" style="color:var(--lobster-light);font-size:13px" data-i18n="footer.story">阅读完整故事 →</a></div>
   </div>
 </div>
 <div style="display:flex;justify-content:center;align-items:center;gap:16px;margin-bottom:16px">
   <a href="https://x.com/ImaStudio_ai" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @ImaStudio_ai</a>
+  <a href="https://www.linkedin.com/company/imastudioai" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> ImaStudio</a>
   <a href="https://www.imastudio.com" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><circle cx="12" cy="12" r="10" stroke="#aaa" stroke-width="1.5" fill="none"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#aaa" stroke-width="1.5" fill="none"/></svg> imastudio.com</a>
 </div>
-<p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank" rel="noopener">ImaStudio</a> 出品 · I'm A Studio, I'm A Claw 🦞 · <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">Built on OpenClaw</a></p>
+<p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank" rel="noopener">ImaStudio</a><span data-i18n="footer.by"> Made by </span>· I'm A Studio, I'm A Claw 🦞 · <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">Built on OpenClaw</a></p>
 </footer>
 </body></html>

@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="theme-color" content="#0C0C12">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>提交技能 - Ima Claw Skill 市场</title>
+<link rel="stylesheet" href="../../assets/css/variables.css?v=8">
+<link rel="stylesheet" href="../../assets/css/nav.css?v=8">
 <style>
 :root{--bg:#0a0a0f;--surface:#111118;--surface-2:#1a1a22;--border:#222;--text:#e8e8e8;--text-2:#a0a0a0;--text-3:#666;--lobster:#e74c3c;--lobster-light:#ff6b5b;--yellow:#f2c744;--green:#2ecc71;--blue:#4a9eff}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -13,17 +16,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragin
 a{color:var(--lobster-light);text-decoration:none}a:hover{opacity:0.85}
 
 /* Nav - same as all pages */
-#nav{position:fixed;top:0;left:0;right:0;background:rgba(10,10,15,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 32px;z-index:100;display:flex;align-items:center;justify-content:space-between}
-.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.02em}.logo-text b{color:var(--lobster-light)}
-.nav-links{display:flex;align-items:center;gap:24px}
-.nav-links a{font-size:13px;font-weight:500;color:var(--text-3);transition:color .3s}.nav-links a:hover{color:var(--text)}
-.nav-links a.active{color:var(--lobster-light)}
-.lang-dropdown{position:relative}.lang-trigger{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--text-2);cursor:pointer}
-.lang-menu{display:none;position:absolute;top:100%;right:0;margin-top:8px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:6px;min-width:140px;z-index:200}
-.lang-dropdown.open .lang-menu{display:block}
-.lang-menu button{display:block;width:100%;text-align:left;padding:8px 12px;border:none;background:none;color:var(--text-2);font-size:12px;border-radius:8px;cursor:pointer}.lang-menu button:hover{background:rgba(255,255,255,0.06);color:var(--text)}
-.hamburger{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px 8px}
-
+#.nav-links a.active{color:var(--lobster-light)}
+.lang-dropdown.open 
 /* Content */
 .container{max-width:720px;margin:0 auto;padding:90px 20px 60px}
 .hero{text-align:center;margin-bottom:48px}
@@ -77,43 +71,45 @@ footer{text-align:center;padding:32px 20px;border-top:1px solid var(--border);ma
 footer p{color:var(--text-3);font-size:12px}
 
 @media(max-width:600px){
-.hamburger{display:block}
-#nav{padding:12px 16px}
-.nav-links{display:none!important;position:fixed;top:56px;right:16px;left:auto;background:rgba(12,12,18,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:16px 0;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:14px;z-index:99;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
-.nav-links.open{display:flex!important}
-.nav-links a{padding:12px 20px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px;color:rgba(255,255,255,0.55);text-align:right;display:block}
-.nav-links a:last-child{border-bottom:none}
-.nav-links .lang-dropdown{padding:12px 20px;text-align:right;text-align:right;display:flex;justify-content:flex-end}
-.hero h1{font-size:28px}
+#.nav-links .hero h1{font-size:28px}
 .step{flex-direction:column;gap:12px}
 .guide-grid{grid-template-columns:1fr}
 .benefits{grid-template-columns:1fr}
 .cta .btn-alt{margin-left:0;margin-top:12px}
 }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GC73SMKR44"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GC73SMKR44');
+</script>
 </head>
 <body>
 <nav id="nav">
-  <div class="logo"><a href="../../" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit"><img src="../../logo-nav.png" alt="" style="height:40px;width:40px;border-radius:8px"><div class="logo-text">Ima<b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by Ima Studio</span></div></a></div>
+  <a href="../../" class="logo"><img src="../../logo-nav.png" alt="Ima Claw logo"><div class="logo-text">Ima<b>Claw</b> <span style="font-size:11px;color:var(--text-3);font-weight:400;margin-left:6px">by ImaStudio</span></div></a>
   <div class="nav-links">
         <a href="../../" data-i18n="nav.home">首页</a>
     <a href="../" data-i18n="nav.skills">Skill 市场</a>
     <a href="../../pricing/" data-i18n="nav.pricing">🛒 购买</a>
     <a href="../../docs/" data-i18n="nav.docs">帮助</a>
     <a href="../../blog/" data-i18n="nav.blog">博客</a>
-    <a href="https://imastudio.com/community" target="_blank" data-i18n="nav.community">社区</a>
+    <a href="https://imastudio.com/community" target="_blank" rel="noopener" data-i18n="nav.community">社区</a>
+    <a href="https://discord.gg/QmNHCnv2Tf" aria-label="Join Ima Claw Discord community" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;color:#5865F2;font-weight:600"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/discord/5865F2" alt="Discord" style="width:14px;height:14px">Discord</a>
     <div class="lang-dropdown" style="position:relative;margin-left:8px">
-      <button class="lang-trigger" onclick="this.parentElement.classList.toggle('open')">🌐 中文 ▾</button>
+      <button class="lang-trigger">🌐 中文 ▾</button>
       <div class="lang-menu">
-        <button onclick="setLang('zh-CN')">🇨🇳 中文</button>
-        <button onclick="setLang('en')">🇺🇸 English</button>
-        <button onclick="setLang('es')">🇪🇸 Español</button>
-        <button onclick="setLang('ja')">🇯🇵 日本語</button>
-        <button onclick="setLang('ar')">🇸🇦 العربية</button>
+        <button data-lang="zh-CN">🇨🇳 中文</button>
+        <button data-lang="en">🇺🇸 English</button>
+        <button data-lang="es">🇪🇸 Español</button>
+        <button data-lang="ja">🇯🇵 日本語</button>
+        <button data-lang="ar">🇸🇦 العربية</button>
       </div>
     </div>
   </div>
-  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <button class="hamburger">☰</button>
 </nav>
 
 <div class="container">
@@ -191,49 +187,15 @@ footer p{color:var(--text-3);font-size:12px}
   <div class="cta">
     <h2 data-i18n="sub.ready">🦞 准备好了？</h2>
     <p data-i18n="sub.ready.desc">加入开发者社区，一起让每只龙虾更强大</p>
-    <a href="https://imastudio.com/community" target="_blank" class="btn"data-i18n="sub.discord">加入 Discord 社区</a>
-    <a href="https://clawhub.com" target="_blank" class="btn-alt"data-i18n="sub.clawhub">访问 ClawHub</a>
+    <a href="https://imastudio.com/community" target="_blank" rel="noopener" class="btn"data-i18n="sub.discord">加入 Discord 社区</a>
+    <a href="https://clawhub.com" target="_blank" rel="noopener" class="btn-alt"data-i18n="sub.clawhub">访问 ClawHub</a>
   </div>
 </div>
 
 
 
-<script>
-var _zhStore={};
-var SUBMIT_I18N={en:{
-"nav.home":"Home","nav.skills":"Skills","nav.pricing":"🛒 Store","nav.docs":"Docs","nav.blog":"Blog","nav.community":"Community",
-"sub.badge":"🦞 Developer Program",
-"sub.title":"Submit Your Skill",
-"sub.desc":"Build a Skill, share it with Claw users worldwide. Pass review and it goes live on the Skill Market.",
-"sub.b1":"Global Distribution","sub.b1d":"Reach all Ima Claw users instantly",
-"sub.b2":"Official Certification","sub.b2d":"Get an official recommended badge after review",
-"sub.b3":"Revenue Sharing","sub.b3d":"Earn developer revenue from paid Skills",
-"sub.s1":"Create Skill Project","sub.s1d":"Create your Skill with the standard directory structure. Each Skill must include a <code>SKILL.md</code> file as its entry point.",
-"sub.s2":"Write SKILL.md","sub.s2d":"Describe trigger conditions, execution flow, and I/O. This is the key document for your Claw to understand and execute your skill.",
-"sub.s3":"Local Testing",
-"sub.s4":"Publish to ClawHub",
-"sub.struct":"📁 Standard Directory Structure",
-"sub.review":"Review Standards",
-"sub.r1":"Security First","sub.r2":"Complete Documentation","sub.r3":"Clear Functionality","sub.r4":"Tested",
-"sub.ready":"🦞 Ready?",
-"sub.ready.desc":"Join the developer community and make every Claw stronger",
-"sub.discord":"Join Discord Community","sub.clawhub":"Visit ClawHub"
-}};
-function setLang(l){
-  try{localStorage.setItem("imaclaw-lang",l)}catch(e){}
-  var isZh=l==='zh'||l==='zh-CN';
-  document.querySelectorAll('[data-i18n]').forEach(function(el){
-    var k=el.getAttribute('data-i18n');
-    if(!_zhStore[k])_zhStore[k]=el.innerHTML;
-    if(isZh){el.innerHTML=_zhStore[k]}
-    else if(SUBMIT_I18N.en[k]){el.innerHTML=SUBMIT_I18N.en[k]}
-  });
-  var m={'zh-CN':'🇨🇳 中文','en':'🇺🇸 EN','es':'🇪🇸 ES','ja':'🇯🇵 JA','ar':'🇸🇦 AR'};
-  var t=document.querySelector('.lang-trigger');if(t)t.textContent='🌐 '+(m[l]||l)+' ▾';
-  document.querySelectorAll('.lang-dropdown').forEach(function(d){d.classList.remove('open')});
-}
-(function(){try{var l=localStorage.getItem('imaclaw-lang');if(l&&l!=='zh'&&l!=='zh-CN')setTimeout(function(){setLang(l)},50)}catch(e){}})();
-</script>
+<script src="../../i18n/core.js?v=10"></script>
+<script src="../../assets/js/nav.js?v=9"></script>
 <footer>
 <div style="max-width:600px;margin:0 auto 24px;padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:16px">
   <div style="text-align:center;margin-bottom:16px">
@@ -246,15 +208,16 @@ function setLang(l){
     </div>
   </div>
   <div style="border-top:1px solid var(--border);padding-top:16px">
-    <p style="font-size:clamp(14px,1.3vw,17px);color:var(--text-2);line-height:1.8;margin:0;text-align:center;font-style:italic">"这个网站是我用 <b style="color:var(--lobster-light);font-style:normal">Ima Claw</b> 通过 Vibe Coding 生成的，全程零代码。"</p>
-    <div style="text-align:center;margin-top:12px"><a href="../../blog/vibe-coding-story.html" style="color:var(--lobster-light);font-size:13px">阅读完整故事 →</a></div>
+    <p style="font-size:clamp(14px,1.3vw,17px);color:var(--text-2);line-height:1.8;margin:0;text-align:center;font-style:italic" data-i18n="footer.quote">"这个网站是我用 <b style="color:var(--lobster-light);font-style:normal">Ima Claw</b> 通过 Vibe Coding 生成的，全程零代码。左上角那只龙虾 logo？AI 抠图翻车把它的脸删了，又给它补了一张脸回来——结果变得超级可爱搞笑。我们决定留着它三个月。"</p>
+    <div style="text-align:center;margin-top:12px"><a href="../../blog/vibe-coding-story.html" style="color:var(--lobster-light);font-size:13px" data-i18n="footer.story">阅读完整故事 →</a></div>
   </div>
 </div>
 <div style="display:flex;justify-content:center;align-items:center;gap:16px;margin-bottom:16px">
   <a href="https://x.com/ImaStudio_ai" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @ImaStudio_ai</a>
+  <a href="https://www.linkedin.com/company/imastudioai" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> ImaStudio</a>
   <a href="https://www.imastudio.com" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><circle cx="12" cy="12" r="10" stroke="#aaa" stroke-width="1.5" fill="none"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#aaa" stroke-width="1.5" fill="none"/></svg> imastudio.com</a>
 </div>
-<p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank" rel="noopener">ImaStudio</a> 出品 · I'm A Studio, I'm A Claw 🦞 · <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">Built on OpenClaw</a></p>
+<p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank" rel="noopener">ImaStudio</a><span data-i18n="footer.by"> Made by </span>· I'm A Studio, I'm A Claw 🦞 · <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">Built on OpenClaw</a></p>
 </footer>
 </body>
 </html>

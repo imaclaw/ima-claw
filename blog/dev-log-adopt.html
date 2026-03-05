@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="../favicon.ico"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--lobster:#D4403A;--lobster-light:#E8584E;--bg:#0C0C12;--surface:#13131D;--text:#E8E8ED;--text-2:rgba(255,255,255,0.55);--text-3:rgba(255,255,255,0.35);--border:rgba(255,255,255,0.06)}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC',sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;padding-top:60px}
+a{color:var(--lobster-light);text-decoration:none}
+.page{max-width:1100px;margin:0 auto;padding:60px 40px 100px}
+.hero{text-align:left;margin-bottom:48px}
+.meta{font-size:13px;color:var(--text-3);margin-bottom:20px;display:flex;gap:12px;align-items:center;justify-content:center}
+.tag{padding:3px 10px;border-radius:100px;background:rgba(212,64,58,0.1);color:var(--lobster-light);font-size:11px;font-weight:600}
+.hero h1{font-size:clamp(26px,4.5vw,40px);font-weight:900;letter-spacing:-0.03em;line-height:1.3;margin-bottom:14px}
+.hero h1 span{color:var(--lobster-light)}
+.hero-sub{font-size:clamp(14px,2vw,16px);color:var(--text-2);line-height:1.7}
+.content{line-height:1.9;font-size:16px}
+.content h2{font-size:24px;font-weight:800;margin:44px 0 14px;letter-spacing:-0.02em}
+.content h3{font-size:18px;font-weight:700;margin:28px 0 10px;color:var(--lobster-light)}
+.content p{margin-bottom:16px;color:var(--text-2)}
+.content strong{color:var(--text);font-weight:600}
+.content blockquote{border-left:3px solid var(--lobster);padding:12px 20px;margin:24px 0;background:rgba(212,64,58,0.05);border-radius:0 12px 12px 0;font-style:italic;color:var(--text-2)}
+.content ul,.content ol{margin:12px 0 20px 24px;color:var(--text-2)}
+.content li{margin-bottom:8px}
+.content code{background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px;font-size:14px;color:#a371f7}
+.endquote{text-align:center;margin:56px 0 0;padding:36px;border-top:1px solid var(--border)}
+.endquote p{font-size:18px;font-weight:700;line-height:1.6}
+.endquote .sub{font-size:14px;color:var(--text-3);margin-top:8px}
+@media(max-width:600px){.page{padding:30px 16px 60px}}
+
+footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 16px;text-align:center}
+footer p{color:var(--text-3);font-size:12px;word-wrap:break-word;line-height:1.8}
+footer a{color:var(--lobster-light)}
+
+/* ── Article header nav ── */
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+.hero-date{font-size:12px;color:rgba(255,255,255,0.3);margin-top:8px}
+.hero-author{font-size:13px;color:rgba(255,255,255,0.4);margin:10px 0 14px;letter-spacing:0.01em}
+.art-nav-top{display:flex;align-items:center;gap:2px;margin-top:4px;flex-shrink:0}
+.art-nav-top a,.art-nav-top .anav-dis{display:flex;align-items:center;justify-content:center;width:30px;height:30px;color:rgba(255,255,255,0.35);border-radius:7px;transition:all .2s;border:1px solid transparent}
+.art-nav-top a:hover{color:rgba(255,255,255,0.75);background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.1)}
+.art-nav-top .anav-dis{opacity:0.2;cursor:default}
+.art-nav-top .anav-sep{color:rgba(255,255,255,0.12);font-size:8px;padding:0 1px;user-select:none}
+</style>
+<title>一只龙虾的领养页 — Adopt 页面设计日志</title>
+<link rel="stylesheet" href="../assets/css/variables.css?v=8">
+<link rel="stylesheet" href="../assets/css/nav.css?v=8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GC73SMKR44"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GC73SMKR44');
+</script>
+</head>
+<body>
+<nav></nav>
+<div class="page">
+<div class="hero">
+  <div class="hero-top">
+    <div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px"><span style="font-size:12px;color:rgba(255,255,255,0.5);font-weight:600">🛠 开发日志</span><a href="dev-log-adopt-en.html" style="font-size:12px;color:rgba(255,255,255,0.4);margin-left:12px">🇺🇸 English</a></div>
+      <div class="hero-date">2026-03-03</div>
+    </div>
+    <div class="art-nav-top"><a href="dev-log-skills.html" title="Skill市场诞生记"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></a><span class="anav-sep">·</span><a href="./" title="博客首页"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></a><span class="anav-sep">·</span><a href="dev-log-i18n.html" title="i18n国际化之旅"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
+  </div>
+  <h1>一只龙虾的<span>领养页</span></h1>
+  <div class="hero-author">✍ Yuki &amp; 爪爪</div>
+  <p class="hero-sub">20+ 轮截图驱动开发，和一堆经典翻车</p>
+</div>
+<div class="content">
+
+<h2>为什么叫"领养"？</h2>
+<p>大多数工具的入口页面叫 "Install" 或 "Get Started"。但我们是 Ima Claw——一只 AI 龙虾。你不会"安装"一只龙虾，你会<strong>领养</strong>它。</p>
+<p>打开 Adopt 页面，看到的不是冷冰冰的命令行，而是一只挥着钳子的龙虾吉祥物，用气泡说："选一个方式带我回家吧！"</p>
+
+<h2>两种回家的路</h2>
+<p>页面核心是 Tab 切换：<strong>云端领养</strong> vs <strong>本地领养</strong>。云端一键注册即用，本地需要自己搭环境。两个 Tab，两种人生，一只龙虾。</p>
+
+<h2>经典翻车合集</h2>
+
+<h3>🔴🔵 红蓝大战</h3>
+<p>云端红色按钮、本地蓝色按钮，死活不一样大。原因？<code>inline-flex</code> 被内容撑开，中英文字符宽度不同。解法心酸到简单：<code>display:block</code> + 固定 <code>width:220px</code>。</p>
+
+<h3>📋📋 双 Emoji 事件</h3>
+<p>按钮上复制图标变成 📋📋 两个。HTML 模板里写了一个，翻译 JSON 里又带了一个，页面加载两层叠加。教训：<strong>emoji 只放一个地方</strong>。</p>
+
+<h3>💬 气泡越狱</h3>
+<p>桌面端气泡老实待着，手机端直接飞出屏幕右侧。<code>overflow:hidden</code> 加位置微调解决。</p>
+
+<h3>📱💻 桌面手机互殴</h3>
+<p>改手机间距，桌面塌了；改桌面字号，手机挤了。最终学乖：<strong>所有响应式样式严格用 <code>@media</code> 隔离</strong>，分家了反而和平。</p>
+
+<h3>🔁 h1 的 margin-top 之旅</h3>
+<p>手机端标题间距从 -10 → -20 → -30 → -42 → -52 → -55px，迭代了 6 次。最后发现有两条重复的 <code>.hero h1</code> CSS 规则在互相覆盖。删掉一条，世界清静了。</p>
+
+<h2>最终的样子</h2>
+<p><strong>桌面端</strong>：左边龙虾 + 气泡引导，右边双色标题 + Tab + 按钮组。大气有温度。</p>
+<p><strong>手机端</strong>：单列布局，紧凑间距，小号 Tab，没有任何东西溢出屏幕。克制实用。</p>
+<p>从第一版到最终版，<strong>20+ 个 commit</strong>，每一个都是主人的截图红圈换来的。</p>
+
+</div>
+<div class="endquote">
+  <p>好的页面不是设计出来的，<br><span style="color:var(--lobster-light)">是截图改出来的。</span></p>
+  <div class="sub">欢迎领养你的龙虾 🦞</div>
+</div>
+</div>
+<footer>
+<div style="max-width:600px;margin:0 auto 24px;padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:16px">
+  <div style="text-align:center;margin-bottom:16px">
+    <div style="display:flex;align-items:center;justify-content:center;gap:24px"><img src="../icons/yuki-v4.jpg" loading="lazy" style="width:80px;height:80px;border-radius:50%;border:2px solid var(--border);object-fit:cover" alt="Yuki He"><span style="font-size:22px;color:var(--text-3);font-weight:300">&amp;</span><img src="../icons/logo-circle.jpg" loading="lazy" style="width:80px;height:80px;border-radius:50%;border:2px solid var(--border);object-fit:cover" alt="Ima Claw"></div>
+    <div style="font-size:16px;font-weight:600;color:#fff;margin-top:10px">Yuki He</div>
+    <div style="font-size:12px;color:var(--text-2);margin-top:2px">Founder & CEO @ JOYME & ImaStudio</div>
+    <div style="margin-top:8px;display:flex;justify-content:center;gap:12px">
+      <a href="https://x.com/Yuki26856052" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @Yuki</a>
+      <a href="https://www.linkedin.com/in/yuki-he-018b46161/" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#aaa"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:16px">
+    <p style="font-size:clamp(14px,1.3vw,17px);color:var(--text-2);line-height:1.8;margin:0;text-align:center;font-style:italic" data-i18n="footer.quote">"这个网站是我用 <b style="color:var(--lobster-light);font-style:normal">Ima Claw</b> 通过 Vibe Coding 生成的，全程零代码。左上角那只龙虾 logo？AI 抠图翻车把它的脸删了，又给它补了一张脸回来——结果变得超级可爱搞笑。我们决定留着它三个月。"</p>
+    <div style="text-align:center;margin-top:12px"><a href="../blog/vibe-coding-story.html" style="color:var(--lobster-light);font-size:13px" data-i18n="footer.story">阅读完整故事 →</a></div>
+  </div>
+</div>
+<div style="display:flex;justify-content:center;align-items:center;gap:16px;margin-bottom:16px">
+  <a href="https://x.com/ImaStudio_ai" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @ImaStudio_ai</a>
+  <a href="https://www.linkedin.com/company/imastudioai" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> ImaStudio</a>
+  <a href="https://www.imastudio.com" target="_blank" rel="noopener" style="color:var(--text-2);text-decoration:none;font-size:12px;display:flex;align-items:center;gap:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#aaa"><circle cx="12" cy="12" r="10" stroke="#aaa" stroke-width="1.5" fill="none"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#aaa" stroke-width="1.5" fill="none"/></svg> imastudio.com</a>
+</div>
+<p>© 2026 Ima Claw · <a href="https://www.imastudio.com" target="_blank" rel="noopener">ImaStudio</a><span data-i18n="footer.by"> Made by </span>· I'm A Studio, I'm A Claw 🦞 · <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">Built on OpenClaw</a></p>
+</footer>
+
+<script src="../assets/js/nav.js?v=9"></script>
+</body>
+</html>
