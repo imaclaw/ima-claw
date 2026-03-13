@@ -313,7 +313,7 @@ body {
 
 <!-- Hero -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="gaic-poster.jpg">
     <source src="gaic-hero.mp4" type="video/mp4">
   </video>
   <p class="hero-hashtag">#AICREATOR &nbsp; #AIFILM &nbsp; #GAIC</p>
@@ -604,6 +604,21 @@ body {
   </div>
   <a href="https://www.imastudio.com/gaic" class="footer-url">www.imastudio.com/gaic</a>
 </footer>
+
+<script>
+// Force video play on mobile
+document.addEventListener('DOMContentLoaded', function() {
+  var v = document.querySelector('.hero-video');
+  if (v) {
+    v.play().catch(function() {
+      // If autoplay blocked, show poster as background
+      document.querySelector('.hero').style.backgroundImage = 'url(gaic-poster.jpg)';
+      document.querySelector('.hero').style.backgroundSize = 'cover';
+      document.querySelector('.hero').style.backgroundPosition = 'center';
+    });
+  }
+});
+</script>
 
 </body>
 </html>
