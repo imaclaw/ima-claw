@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAIC Season 1 — Meet the Judges | Ima Studio</title>
+<meta name="description" content="Meet the world-class judges of the Global AI Creative Competition Season 1, presented by Ima Studio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0a;
+  --card-bg: #111111;
+  --accent: #E8584E;
+  --text: #ffffff;
+  --text-muted: rgba(255,255,255,0.55);
+  --text-dim: rgba(255,255,255,0.35);
+  --tag-bg: rgba(255,255,255,0.08);
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 50% 30%, rgba(232,88,78,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--tag-bg);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+}
+.hero h1 {
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+.hero h1 span { color: var(--accent); }
+.hero-sub {
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--text-muted);
+  max-width: 640px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #fff;
+  padding: 16px 36px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232,88,78,0.3); }
+
+/* ===== Judges Grid ===== */
+.judges-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px 120px;
+}
+.section-label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.section-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 60px;
+}
+.judges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px;
+}
+
+/* ===== Judge Card ===== */
+.judge-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.3s, border-color 0.3s;
+  cursor: default;
+}
+.judge-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(232,88,78,0.3);
+}
+.judge-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(20%);
+  transition: filter 0.4s;
+}
+.judge-card:hover .judge-photo { filter: grayscale(0%); }
+.judge-info {
+  padding: 28px 28px 32px;
+}
+.judge-name {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.judge-title {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.judge-bio {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.judge-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.judge-tag {
+  background: var(--tag-bg);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+}
+.judge-socials {
+  display: flex;
+  gap: 12px;
+}
+.judge-socials a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.2s;
+}
+.judge-socials a:hover {
+  color: var(--accent);
+  border-color: rgba(232,88,78,0.3);
+  background: rgba(232,88,78,0.08);
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 60px 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-logo {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.footer-logo span { color: var(--accent); }
+.footer-link {
+  color: var(--text-dim);
+  font-size: 14px;
+  text-decoration: none;
+}
+.footer-link:hover { color: var(--accent); }
+
+/* ===== Responsive ===== */
+@media (max-width: 840px) {
+  .judges-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 80px 16px 60px; }
+  .judge-info { padding: 20px 20px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-tag">#GAIC &nbsp;·&nbsp; Global AI Creative Competition</div>
+  <h1>MEET OUR<br><span>JUDGES</span></h1>
+  <p class="hero-sub">11 world-class creators, filmmakers, and technologists shaping the future of AI-powered storytelling. Season 1.</p>
+  <a href="https://www.imastudio.com/gaic" class="hero-cta">Enter the Competition →</a>
+</section>
+
+<!-- Judges -->
+<section class="judges-section">
+  <div class="section-label">Season 1 Jury</div>
+  <h2 class="section-title">The minds behind the scores</h2>
+  <div class="judges-grid">
+
+    <!-- 1. Erich Archer -->
+    <div class="judge-card">
+      <img class="judge-photo" src="images/01-erich-archer.jpg" alt="Erich Archer">
+      <div class="judge-info">
+        <h3 class="judge-name">Erich Archer</h3>
+        <p class="judge-title">Founder, CGA Creative</p>
+        <p class="judge-bio">Emmy-winning producer and Creative AI leader who helps organizations navigate the future of storytelling. With over two decades in television and media production, he specializes in blending cinematic craft with generative AI.</p>
+        <div class="judge-tags"><span class="judge-tag">#Film</span><span class="judge-tag">#Emmy</span><span class="judge-tag">#CreativeAI</span></div>
+        <div class="judge-socials">
+          <a href="https://www.linkedin.com/in/ericharcher/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Grace Gao -->
+    <div class="judge-card">
+      <img class="judge-photo" src="images/02-grace-gao.jpg" alt="Grace Gao">
+      <div class="judge-info">
+        <h3 class="judge-name">Grace Gao</h3>
+        <p class="judge-title">Founder/EP, Celestine Pictures</p>
+        <p class="judge-bio">First-generation Chinese American screenwriter and producer. Recognized by Austin Film Festival and Humanitas. Founded an AI-native, IP-driven microdrama studio with series reaching 3M+ views.</p>
+        <div class="judge-tags"><span class="judge-tag">#MicroDrama</span><span class="judge-tag">#AI-Native</span><span class="judge-tag">#Screenwriting</span></div>
+        <div class="judge-socials">
+          <a href="https://www.linkedin.com/in/grace-ge-gao/" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/celestine_pictures_inc/" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Jiajian Min -->
+    <div class="judge-card">
+      <img class="judge-photo" src="images/03-jiajian-min.jpg" alt="Jiajian Min">
+      <div class="judge-info">
+        <h3 class="judge-name">Jiajian Min</h3>
+        <p class="judge-title">AI+XR Artist · Harvard/MIT Researcher · Cofounder, MYStudio</p>
+        <p class="judge-bio">Forbes China 100 Most Influential. Lumen Prize and ACM Multimedia award winner. Exhibited at Venice Biennale and Ars Electronica. Committee Chair of Global AI Film Hack@MIT.</p>
+        <div class="judge-tags"><span class="judge-tag">#Community</span><span class="judge-tag">#XR</span><span class="judge-tag">#Forbes100</span></div>
+        <div class="judge-socials">
+          <a href="https://www.linkedin.com/in/jiajianmin/" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/minjiajiandesign/" target="_blank">Instagram</a>
+          <a href="https://mystudio.design/" target="_blank">Web</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Minh Do -->
+    <div class="judge-card">
+      <img class="judge-photo" src="images/04-minh-do.jpg" alt="Minh Do">
+      <div class="judge-info">
+        <h3 class="judge-name">Minh Do</h3>
+        <p class="judge-title">Cofounder, Machine Cinema & Fantastic Day</p>
+        <p class="judge-bio">Entrepreneur, filmmaker, and speaker at the forefront of AI-native storytelling. Creator Partner for Google Labs, Sora, ChatGPT 4o Image, Pika, and Luma Dream Machine. Former VC, journalist, teacher.</p>
+        <div class="judge-tags"><span class="judge-tag">#Community</span><span class="judge-tag">#AIFilm</span><span class="judge-tag">#CreatorPartner</span></div>
+        <div class="judge-socials">
+          <a href="https://www.linkedin.com/in/minhsmind/" target="_blank">LinkedIn</a>
+          <a href="https://twitter.com/minhsmind" target="_blank">X</a>
+          <a href="https://www.instagram.com/minhsmind" target="_blank">Instagram</a>
+          <a href="https://youtube.com/@minhsmindtv" target="_blank">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. John du Pre Gauntt -->
+    <div class="judge-card">
+      <img class="judge-photo" src="images/05-john-gauntt.jpg" alt="John du Pre Gauntt">
+      <div class="judge-info">
+        <h3 class="judge-name">John du Pre Gauntt</h3>
+        <p class="judge-title">Creative Director, Seattle AI Film Festival + Culture & Code Podcast</p>
+        <p class="judge-bio">Leading the conversation at the intersection of AI, culture, and creative expression through one of the premier AI film festivals and his influential podcast.</p>
+        <div class="judge-tags"><span class="judge-tag">#Community</span><span class="judge-tag">#FilmFestival</span><span class="judge-tag">#Podcast</span></div>
+        <div class="judge-socials">
+          <a href="https://www.linkedin.com/in/johngauntt/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Alex Lang -->
+    <div class="judge-card">
+      <img class="judge-photo" src="images/06-alex-lang.jpg" alt="Alex Lang">
+      <div class="judge-info">
+        <h3 class="judge-name">Alex Lang</h3>
+        <p class="judge-title">President & Creative Director, Alex Lang Media</p>
+        <p class="judge-bio">60+ industry awards including Clio and Webby. Led iconic campaigns for Disney, Pixar, and Fox. His film "Calling Andy" won Best of Festival at the 2025 Hollywood Screenings Film Festival.</p>
+        <div class="judge-tags"><span class="judge-tag">#IndependentFilm</span><span class="judge-tag">#Clio</span><span class="judge-tag">#Webby</span></div>
+        <div class="judge-socials">
+          <a href="https://www.linkedin.com/in/langalex/" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/alexlangmedia/" target="_blank">Instagram</a>
+          <a href="https://www.alexlangmedia.com/" target="_blank">Web</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Paul A. Byrd Jr. -->
+    <div class="judge-card">
+      <img class="judge-photo" src="images/07-paul-byrd.jpg" alt="Paul A. Byrd Jr.">
+      <div class="judge-info">
+        <h3 class="judge-name">Paul A. Byrd Jr.</h3>
+        <p class="judge-title">Founder, 13 Layers</p>
+        <p class="judge-bio">25+ years supporting global brands like Intel, Samsung, and Google. From the SF Olympic Bid to Google Doodle, Paul bridges traditional illustration with AI-driven narrative design.</p>
+        <div class="judge-tags"><span class="judge-tag">#VisualStorytelling</span><span class="judge-tag">#AI+Art</span></div>
+        <div class="judge-socials">
+          <a href="https://www.linkedin.com/in/paulallstar/" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/artbypaulallstar" target="_blank">Instagram</a>
+          <a href="https://13layers.io" target="_blank">Web</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Ian Wasseluk -->
+    <div class="judge-card">
+      <img class="judge-photo" src="images/08-ian-wasseluk.jpg" alt="Ian Wasseluk">
+      <div class="judge-info">
+        <h3 class="judge-name">Ian Wasseluk</h3>
+        <p class="judge-title">Emmy-Nominated Filmmaker · AI Production Architect</p>
+        <p class="judge-bio">20-year legacy at Warner Bros., Disney, and Netflix. Now pioneering AI-augmented production pipelines with tools like Veo, Kling, and ComfyUI. His philosophy: technology must always serve the story.</p>
+        <div class="judge-tags"><span class="judge-tag">#Hollywood</span><span class="judge-tag">#Animation</span><span class="judge-tag">#AIpipeline</span></div>
+        <div class="judge-socials">
+          <a href="https://www.linkedin.com/in/ian-wasseluk/" target="_blank">LinkedIn</a>
+          <a href="http://www.ianwasseluk.com/" target="_blank">Web</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Michael Eng -->
+    <div class="judge-card">
+      <img class="judge-photo" src="images/09-michael-eng.jpg" alt="Michael Eng">
+      <div class="judge-info">
+        <h3 class="judge-name">Michael Eng</h3>
+        <p class="judge-title">Emmy-Recognized VFX Lead · Pioneer of Generative Cinema</p>
+        <p class="judge-bio">Two-time VES Award nominee. 8 years at Barnstorm VFX. Now directs films created entirely with AI tools while bridging traditional Hollywood artistry with frontier generative technology.</p>
+        <div class="judge-tags"><span class="judge-tag">#VFX</span><span class="judge-tag">#GenerativeCinema</span><span class="judge-tag">#Emmy</span></div>
+        <div class="judge-socials">
+          <a href="https://www.linkedin.com/in/michaelengai/" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/michaeleng.ai/" target="_blank">Instagram</a>
+          <a href="https://www.youtube.com/@michaeleng_ai" target="_blank">YouTube</a>
+          <a href="https://www.michaelengvfx.com/" target="_blank">Web</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Freddy Nager -->
+    <div class="judge-card">
+      <img class="judge-photo" src="images/10-freddy-nager.jpg" alt="Freddy Nager">
+      <div class="judge-info">
+        <h3 class="judge-name">Freddy Nager</h3>
+        <p class="judge-title">Founder, Atomic Tango · Professor, USC Annenberg</p>
+        <p class="judge-bio">25+ years in digital media strategy. Shapes branding for major global entities. At USC Annenberg, he specializes in entrepreneurial journalism and evaluating the intersection of storytelling and emerging technology.</p>
+        <div class="judge-tags"><span class="judge-tag">#Marketing</span><span class="judge-tag">#USC</span><span class="judge-tag">#Strategy</span></div>
+        <div class="judge-socials">
+          <a href="https://www.linkedin.com/in/freddynager/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. Adam Fratto -->
+    <div class="judge-card">
+      <img class="judge-photo" src="images/11-adam-fratto.jpg" alt="Adam Fratto">
+      <div class="judge-info">
+        <h3 class="judge-name">Adam Fratto</h3>
+        <p class="judge-title">Producer · Creative Executive · Professor, USC Annenberg</p>
+        <p class="judge-bio">Veteran producer behind VIKINGS, HAVEN, and CLEVERMAN. Head of scripted programming at The History Channel. Harvard and USC alumnus. Co-founder of Harvardwood (10,000+ members). Lifelong sinophile.</p>
+        <div class="judge-tags"><span class="judge-tag">#Producer</span><span class="judge-tag">#USC</span><span class="judge-tag">#Vikings</span></div>
+        <div class="judge-socials">
+          <a href="https://www.linkedin.com/in/adamfratto" target="_blank">LinkedIn</a>
+          <a href="https://harvardwood.org" target="_blank">Harvardwood</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo"><span>Ima</span> Studio</div>
+  <a href="https://www.imastudio.com/gaic" class="footer-link">www.imastudio.com/gaic</a>
+</footer>
+
+</body>
+</html>
