@@ -39,12 +39,27 @@ body {
   text-align: center;
   padding: 80px 24px;
   position: relative;
+  overflow: hidden;
 }
-.hero::before {
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.5;
+}
+.hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 40%, rgba(255,255,255,0.03) 0%, transparent 70%);
+  background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.7) 70%, rgba(10,10,10,1) 100%);
+  z-index: 1;
+}
+.hero > *:not(.hero-video) {
+  position: relative;
+  z-index: 2;
 }
 .hero-hashtag {
   font-family: 'Space Grotesk', sans-serif;
@@ -298,6 +313,9 @@ body {
 
 <!-- Hero -->
 <section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="gaic-hero.mp4" type="video/mp4">
+  </video>
   <p class="hero-hashtag">#AICREATOR &nbsp; #AIFILM &nbsp; #GAIC</p>
   <h1>MEET<br>OUR<br>JUDGES</h1>
   <p class="hero-sub">11 world-class creators, filmmakers, and technologists judging the future of AI storytelling.</p>
@@ -307,7 +325,7 @@ body {
 <!-- 1. Erich Archer -->
 <section class="judge-section">
   <div class="judge-photo-wrap">
-    <img class="judge-photo" src="images/01-erich-archer.jpg" alt="Erich Archer" loading="lazy" style="object-position: center 20%;">
+    <img class="judge-photo" src="images/01-erich-archer.jpg" alt="Erich Archer" style="object-position: center 20%;">
     <div class="judge-hashtags">
       <span class="judge-hashtag">#AIFilm</span>
       <span class="judge-hashtag">#Emmy</span>
@@ -330,7 +348,7 @@ body {
 <!-- 2. Grace Gao -->
 <section class="judge-section">
   <div class="judge-photo-wrap">
-    <img src="images/02-grace-gao.jpg" alt="Grace Gao" loading="lazy" style="object-position: center 15%;">
+    <img src="images/02-grace-gao.jpg" alt="Grace Gao" style="object-position: center 15%;">
     <div class="judge-hashtags">
       <span class="judge-hashtag">#MicroDrama</span>
       <span class="judge-hashtag">#AI-Native</span>
@@ -355,7 +373,7 @@ body {
 <!-- 3. Jiajian Min -->
 <section class="judge-section">
   <div class="judge-photo-wrap">
-    <img src="images/03-jiajian-min.jpg" alt="Jiajian Min" loading="lazy" style="object-position: center 20%;">
+    <img src="images/03-jiajian-min.jpg" alt="Jiajian Min" style="object-position: center 20%;">
     <div class="judge-hashtags">
       <span class="judge-hashtag">#XR</span>
       <span class="judge-hashtag">#Forbes100</span>
@@ -381,7 +399,7 @@ body {
 <!-- 4. Minh Do -->
 <section class="judge-section">
   <div class="judge-photo-wrap">
-    <img src="images/04-minh-do.jpg" alt="Minh Do" loading="lazy" style="object-position: center 20%;">
+    <img src="images/04-minh-do.jpg" alt="Minh Do" style="object-position: center 20%;">
     <div class="judge-hashtags">
       <span class="judge-hashtag">#AICreator</span>
       <span class="judge-hashtag">#AIFilm</span>
@@ -408,7 +426,7 @@ body {
 <!-- 5. John du Pre Gauntt -->
 <section class="judge-section">
   <div class="judge-photo-wrap">
-    <img src="images/05-john-gauntt.jpg" alt="John du Pre Gauntt" loading="lazy" style="object-position: center 15%;">
+    <img src="images/05-john-gauntt.jpg" alt="John du Pre Gauntt" style="object-position: center 15%;">
     <div class="judge-hashtags">
       <span class="judge-hashtag">#FilmFestival</span>
       <span class="judge-hashtag">#Podcast</span>
@@ -431,7 +449,7 @@ body {
 <!-- 6. Alex Lang -->
 <section class="judge-section">
   <div class="judge-photo-wrap">
-    <img src="images/06-alex-lang.jpg" alt="Alex Lang" loading="lazy" style="object-position: center 10%;">
+    <img src="images/06-alex-lang.jpg" alt="Alex Lang" style="object-position: center 10%;">
     <div class="judge-hashtags">
       <span class="judge-hashtag">#Clio</span>
       <span class="judge-hashtag">#Webby</span>
@@ -457,7 +475,7 @@ body {
 <!-- 7. Paul A. Byrd Jr. -->
 <section class="judge-section">
   <div class="judge-photo-wrap">
-    <img src="images/07-paul-byrd.jpg" alt="Paul A. Byrd Jr." loading="lazy" style="object-position: center 20%;">
+    <img src="images/07-paul-byrd.jpg" alt="Paul A. Byrd Jr." style="object-position: center 20%;">
     <div class="judge-hashtags">
       <span class="judge-hashtag">#Visual</span>
       <span class="judge-hashtag">#AI+Art</span>
@@ -483,7 +501,7 @@ body {
 <!-- 8. Ian Wasseluk -->
 <section class="judge-section">
   <div class="judge-photo-wrap">
-    <img src="images/08-ian-wasseluk.jpg" alt="Ian Wasseluk" loading="lazy" style="object-position: center 25%;">
+    <img src="images/08-ian-wasseluk.jpg" alt="Ian Wasseluk" style="object-position: center 25%;">
     <div class="judge-hashtags">
       <span class="judge-hashtag">#Hollywood</span>
       <span class="judge-hashtag">#Animation</span>
@@ -507,7 +525,7 @@ body {
 <!-- 9. Michael Eng -->
 <section class="judge-section">
   <div class="judge-photo-wrap">
-    <img src="images/09-michael-eng.jpg" alt="Michael Eng" loading="lazy" style="object-position: center 20%;">
+    <img src="images/09-michael-eng.jpg" alt="Michael Eng" style="object-position: center 20%;">
     <div class="judge-hashtags">
       <span class="judge-hashtag">#VFX</span>
       <span class="judge-hashtag">#GenCinema</span>
@@ -534,7 +552,7 @@ body {
 <!-- 10. Freddy Nager -->
 <section class="judge-section">
   <div class="judge-photo-wrap">
-    <img src="images/10-freddy-nager.jpg" alt="Freddy Nager" loading="lazy" style="object-position: center 20%;">
+    <img src="images/10-freddy-nager.jpg" alt="Freddy Nager" style="object-position: center 20%;">
     <div class="judge-hashtags">
       <span class="judge-hashtag">#Marketing</span>
       <span class="judge-hashtag">#USC</span>
@@ -557,7 +575,7 @@ body {
 <!-- 11. Adam Fratto -->
 <section class="judge-section">
   <div class="judge-photo-wrap">
-    <img src="images/11-adam-fratto.jpg" alt="Adam Fratto" loading="lazy" style="object-position: center 20%;">
+    <img src="images/11-adam-fratto.jpg" alt="Adam Fratto" style="object-position: center 20%;">
     <div class="judge-hashtags">
       <span class="judge-hashtag">#Producer</span>
       <span class="judge-hashtag">#Vikings</span>
