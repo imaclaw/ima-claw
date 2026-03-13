@@ -31,36 +31,16 @@ body {
 
 /* ===== Hero Section ===== */
 .hero {
-  min-height: 100vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 80px 24px;
+  padding: 80px 24px 40px;
   position: relative;
-  overflow: hidden;
 }
-.hero-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 0.5;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.7) 70%, rgba(10,10,10,1) 100%);
-  z-index: 1;
-}
-.hero > *:not(.hero-video) {
-  position: relative;
-  z-index: 2;
-}
+.hero > * { position: relative; z-index: 2; }
 .hero-hashtag {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 14px;
@@ -94,6 +74,25 @@ body {
   animation: pulse 2s ease-in-out infinite;
 }
 @keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+/* ===== Video Showcase ===== */
+.video-showcase {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.video-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.video-wrap video {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+}
 
 /* ===== Judge Section (poster style) ===== */
 .judge-section {
@@ -313,13 +312,18 @@ body {
 
 <!-- Hero -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="gaic-poster.jpg">
-    <source src="gaic-hero.mp4" type="video/mp4">
-  </video>
   <p class="hero-hashtag">#AICREATOR &nbsp; #AIFILM &nbsp; #GAIC</p>
   <h1>MEET<br>OUR<br>JUDGES</h1>
   <p class="hero-sub">11 world-class creators, filmmakers, and technologists judging the future of AI storytelling.</p>
-  <p class="hero-scroll">↓ Scroll to meet them</p>
+</section>
+
+<!-- Video Showcase -->
+<section class="video-showcase">
+  <div class="video-wrap">
+    <video controls playsinline preload="metadata" poster="gaic-poster.jpg">
+      <source src="gaic-hero.mp4" type="video/mp4">
+    </video>
+  </div>
 </section>
 
 <!-- 1. Erich Archer -->
@@ -604,21 +608,6 @@ body {
   </div>
   <a href="https://www.imastudio.com/gaic" class="footer-url">www.imastudio.com/gaic</a>
 </footer>
-
-<script>
-// Force video play on mobile
-document.addEventListener('DOMContentLoaded', function() {
-  var v = document.querySelector('.hero-video');
-  if (v) {
-    v.play().catch(function() {
-      // If autoplay blocked, show poster as background
-      document.querySelector('.hero').style.backgroundImage = 'url(gaic-poster.jpg)';
-      document.querySelector('.hero').style.backgroundSize = 'cover';
-      document.querySelector('.hero').style.backgroundPosition = 'center';
-    });
-  }
-});
-</script>
 
 </body>
 </html>
